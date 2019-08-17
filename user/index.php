@@ -3,7 +3,7 @@
 	<section class="my-project-container">
 		<div id="section-project-header">
 			<div class="section-tittle">
-				<span>Projects and Contests</span>
+				<span>Biddings and Job Applications</span>
 			</div>
 			<div id="project-action-btns">
 				<ul>

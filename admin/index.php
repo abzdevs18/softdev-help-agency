@@ -64,7 +64,7 @@
 		<div class="alerts-notif">
 			<div class="alert-content">
 				<div class="content-head">
-					<h2>My Activity Log</h2>
+					<h2>Site Activity Log</h2>
 				</div>
 				<div id="log">
 					<ul id="content-log-list">
@@ -87,7 +87,7 @@
 		<div class="alerts-notif">
 			<div class="alert-content">
 				<div class="content-head">
-					<h2>Recent Approved Ads</h2>
+					<h2>Recent Posted Jobs</h2>
 				</div>
 				<div class="ad-log">
 					<ul>
@@ -134,7 +134,7 @@
 		<div class="msgs-acc">
 			<div class="msgs-container">
 				<div class="content-head">
-					<h2>My Activity Log</h2>
+					<h2>Jobs and Bidders Logs</h2>
 				</div>	
 				<div id="msgs-update-3-col">
 					<div class="msgs-3-col-item">
