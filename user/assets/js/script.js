@@ -19,6 +19,8 @@ $(document).on('click','.filter-btn',function(){
 		$('.activeBids').show();
 	}else if (data == 'currentWork'){
 		$('.currentWork').show();
+	}else if (data == 'inviteToWork'){
+		$('.inviteToWork').show();
 	}else if (data == 'pastWork'){
 		$('.pastWork').show();
 	}
