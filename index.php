@@ -49,7 +49,7 @@
 					</div>
 					<div>
 						<ul>
-							<li><a href="#" style="color: #fff;">industry</a></li>
+							<li><a href="#" style="color: #fff;">private</a></li>
 							<li><a href="#">govt.</a></li>
 						</ul>
 					</div>					

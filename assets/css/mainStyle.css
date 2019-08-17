@@ -252,8 +252,9 @@ section#hot-job {
 }
 #job-left-header div:last-child ul li {
 	list-style-type: none;
-	padding: 15px 30px;
+	padding: 10px 30px;
 	border-radius: 100px;
+	margin: 5px;
 }
 #job-left-header div:last-child ul li:first-child {
 	background-color: #01a23b;
