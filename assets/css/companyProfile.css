@@ -1,0 +1,103 @@
+@import url(mainStyle.css);
+
+.comProf {
+	width: 100%;
+}
+#profWall {
+	width: 100%;
+	height: 55vh;
+	background-repeat: no-repeat;
+	background-repeat: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.com-overview {
+	width: 100%;
+	background: #f4f4f4;
+	margin-bottom: 30px;
+}
+.overview-content {
+	width: 70%;
+	/*height: 50vh;*/
+	margin: 0 auto;
+	/*box-shadow: var(--box-shadow);*/
+	display: flex;
+	/*background: #fff;*/
+	flex-direction: column;
+}
+.profile-icon {
+	width: 150px;
+	height: 150px;
+	margin-top: -100px;
+	position: absolute;
+	border-radius: 3px;
+	margin-left: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	box-shadow: var(--box-shadow);
+}
+.profile-info {
+	width: 100%;
+	display: flex;
+	margin-top: 70px;
+}
+.c-data {
+	width: calc( 100% - 300px );
+	padding-left: 30px;
+}
+.c-data-left {
+	width: 60%;
+}
+.c-data h2 {
+	font-size: 21px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	display: inline-block;
+	text-transform: capitalize;
+}
+.c-data h3 {
+	font-weight: 500;
+	font-size: 18px;
+}
+.c-action-btn a {
+	margin: 5px 0px;
+}
+.c-data-left h2 i {
+	background: #fff;
+	object-fit: cover;
+	padding: 7px;
+	color: green;
+	border-radius: 50%;
+	/* border: 1px solid green; */
+	margin-top: 15px;
+	box-shadow: var(--box-shadow);
+	border-color: var(--border-color);
+}
+.c-overview-data {
+	width: 100%;
+	background: #fff;
+	box-shadow: var(--box-shadow);
+	border-color: var(--border-color);
+	margin-top: 30px;
+	padding-bottom: 40px;
+}
+.company-description p {
+	padding: 20px 30px;
+	color: #444;
+}
+
+/*
+About US
+*/
+.about-us {
+	width: 100%;
+	height: 100vh;
+	background-color: #fff;
+}
+.about-hero {
+	width: 85%;
+	height: 40vh;
+	background-color: #333;
+	margin: 0 auto;
+}
