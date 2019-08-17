@@ -898,8 +898,8 @@ Worker styling start here
 	font-weight: 600;
 }
 .list-of-feedback {
-	border-bottom: 1px solid #e0e0e0;
-	padding: 30px;
+	/*border-bottom: 1px solid #e0e0e0;*/
+	padding: 0 20px;
 }
 .list-of-feedback h2 {
 	padding: 3px 0px;
