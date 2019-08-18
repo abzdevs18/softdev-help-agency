@@ -1,74 +1,81 @@
 <?php include 'head.php'; ?>
 	<section class="signup-form">
-		<div class="form-s">
-			<div class="Fields">
-				<div class="header-menu">
-					<h3>Personal Information</h3>
-					<div class="type-account">
-						<span data-userType="1">Employer</span>
-						<span class="active-type-acc" data-userType="0">Worker</span>
-					</div>
-				</div>
-				<!-- Fields -->
-				<div id="fname" style="width: calc( 100% - 10px );display: flex;justify-content: space-between;">
-					<div class="f-form">
-						<label for="fname">First name:</label>
-						<input type="text" name="fname" placeholder="Richar">
-					</div>
-					<div class="f-form">
-						<label for="lname">Last name:</label>
-						<input type="text" name="lname" placeholder="Hendricks">
-					</div>					
-				</div>
-				<div class="f-form">
-					<label for="email">Email Address:</label>
-					<input type="email" name="email" placeholder="support@gmail.com">
-					<!-- Icon -->
-					<i class="fal fa-envelope"></i>
-				</div>
-				<div class="f-form">
-					<label for="phone">Phone Number:</label>
-					<input type="text" name="phone" placeholder="+63935-098-3294">
-					<!-- Icon -->
-					<i class="fal fa-phone"></i>
-				</div>
-				<div class="f-form">
-					<label for="location">Where are you now?:</label>
-					<input type="txt" name="location" placeholder="Dumaguete City">
-					<!-- Icon -->
-					<i class="fal fa-compass"></i>
-				</div>
-				<div class="next-submit">
-					<a href="#" data-action="next">Next <i class="fal fa-angle-right"></i></a>
-				</div>
-			</div>
-			<div class="Sidebar-form">
-				<!-- Sidebar form -->
-				<div class="counter">
-					<span class="c-active-state"></span>
-					<span></span>
-					<span></span>
-				</div>
-				<div class="r-data">
-					<div style="width: 100%;margin: 0 auto;display: flex;justify-content: center;">
-						<div class="s-icon">
-							<img src="<?php echo root_folder . '/assets/img/signup_icon/person.png';?>">
+		<!-- This first form is for user basic information -->
+		<div class="form-s active-f animsition" data-animsition-in-class="fade-in-left" data-animsition-in-duration="400" data-animsition-out-class="fade-out-left" data-animsition-out-duration="500" style="display: block;">
+			<div class="child" style="display: flex;">
+				<div class="Fields">
+					<div class="header-menu">
+						<h3>Personal Information</h3>
+						<div class="type-account">
+							<span data-userType="1">Employer</span>
+							<span class="active-type-acc" data-userType="0">Worker</span>
 						</div>
 					</div>
-					<div class="s-descrip">
-						<h3>irure dolor in reprehend</h3>
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<!-- Fields -->
+					<div id="fname" style="width: calc( 100% - 10px );display: flex;justify-content: space-between;">
+						<div class="f-form">
+							<label for="fname">First name:</label>
+							<input type="text" name="fname" placeholder="Richar">
+						</div>
+						<div class="f-form">
+							<label for="lname">Last name:</label>
+							<input type="text" name="lname" placeholder="Hendricks">
+						</div>					
+					</div>
+					<div class="f-form">
+						<label for="email">Email Address:</label>
+						<input type="email" name="email" placeholder="support@gmail.com">
+						<!-- Icon -->
+						<i class="fal fa-envelope"></i>
+					</div>
+					<div class="f-form">
+						<label for="phone">Phone Number:</label>
+						<input type="text" name="phone" placeholder="+63935-098-3294">
+						<!-- Icon -->
+						<i class="fal fa-phone"></i>
+					</div>
+					<div class="f-form">
+						<label for="location">Where are you now?:</label>
+						<input type="txt" name="location" placeholder="Dumaguete City">
+						<!-- Icon -->
+						<i class="fal fa-compass"></i>
+					</div>
+					<div class="next-submit">
+						<!-- <a href="#" data-action="next" class="next_fs">Next <i class="fal fa-angle-right"></i></a> -->
 					</div>
 				</div>
-				<div class="f-sign-right">
-					<p>+63935-024-63458</p>
-					<p>support@help.com</p>
+				<div class="Sidebar-form">
+					<!-- Sidebar form -->
+					<div class="counter">
+						<span class="c-active-state"></span>
+						<span></span>
+						<span></span>
+					</div>
+					<div class="r-data">
+						<div style="width: 100%;margin: 0 auto;display: flex;justify-content: center;">
+							<div class="s-icon">
+								<img src="<?php echo root_folder . '/assets/img/signup_icon/person.png';?>">
+							</div>
+						</div>
+						<div class="s-descrip">
+							<h3>irure dolor in reprehend</h3>
+							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+					</div>
+					<div class="f-sign-right">
+						<p>+63935-024-63458</p>
+						<p>support@help.com</p>
+					</div>
 				</div>
 			</div>
-		</div><!-- First Form -->
-		<div class="form-s" style="display: none;">
+			<a href="#" data-action="next" data-animsition-out-class="fade-out-right" data-animsition-out-duration="2000" class="next_fs" style="margin-left: 20px;">Next <i class="fal fa-angle-right"></i></a>
+		</div>
+		<!-- Form for basic information End's Here. -->
+		<!-- First Form -->
+		<div class="form-s animsition" data-animsition-in-class="fade-in-left" data-animsition-in-duration="400" data-animsition-out-class="fade-out-left" data-animsition-out-duration="500">
+			<div class="child" style="display: flex;">
 			<div class="Fields">
 				<div class="header-menu">
 					<h3>Personal Information</h3>
@@ -103,10 +110,10 @@
 					<!-- Icon -->
 					<i class="fal fa-id-card"></i>
 				</div>
-				<div class="next-submit">
-					<a href="#" style="background: #d3d3d3;color: #666;"><i class="fal fa-angle-left"></i>&nbsp; Back</a>
-					<a href="#">Next <i class="fal fa-angle-right"></i></a>
-				</div>
+				<!-- <div class="next-submit">
+					<a href="#" style="background: #d3d3d3;color: #666;" class="animsition-link back_fs"><i class="fal fa-angle-left"></i>&nbsp; Back</a>
+					<a href="#" class="animsition-link next_fs">Next <i class="fal fa-angle-right"></i></a>
+				</div> -->
 			</div>
 			<div class="Sidebar-form">
 				<!-- Sidebar form -->
@@ -133,8 +140,12 @@
 					<p>support@help.com</p>
 				</div>
 			</div>
+			</div>
+			<a href="#" data-action="next" data-animsition-out-class="fade-out-right" data-animsition-out-duration="2000" class="prev_fs" style="margin-left: 20px !important;margin-right: 10px;background: #d3d3d3;color: #666;"><i class="fal fa-angle-left"></i>&nbsp; Back</a>
+			<a href="#" data-action="next" class="next_fs">Next <i class="fal fa-angle-right"></i></a>
 		</div><!-- First Form if employer-->
-		<div class="form-s" style="display: none;">
+		<div class="form-s animsition" data-animsition-in-class="fade-in-left" data-animsition-in-duration="400" data-animsition-out-class="fade-out-left" data-animsition-out-duration="500">
+			<div class="child" style="display: flex;">
 			<div class="Fields">
 				<div class="header-menu">
 					<h3>Personal Information</h3>
@@ -162,10 +173,10 @@
 					<!-- Icon -->
 					<i class="fal fa-key"></i>
 				</div>
-				<div class="next-submit">
-					<a href="#" style="background: #d3d3d3;color: #666;"><i class="fal fa-angle-left"></i> Back</a>
-					<a href="#">Next <i class="fal fa-angle-right"></i></a>
-				</div>
+			<!-- 	<div class="next-submit">
+					<a href="#" style="background: #d3d3d3;color: #666;" class="animsition-link back_fs"><i class="fal fa-angle-left"></i> Back</a>
+					<a href="#" class="animsition-link next_fs">Next <i class="fal fa-angle-right"></i></a>
+				</div> -->
 			</div>
 			<div class="Sidebar-form">
 				<!-- Sidebar form -->
@@ -193,8 +204,12 @@
 					<p>support@help.com</p>
 				</div>
 			</div>
+			</div>
+			<a href="#" data-action="next" data-animsition-out-class="fade-out-right" data-animsition-out-duration="2000" class="prev_fs" style="margin-left: 20px !important;margin-right: 10px;background: #d3d3d3;color: #666;"><i class="fal fa-angle-left"></i>&nbsp; Back</a>
+			<a href="#" data-action="next" class="next_fs">Next <i class="fal fa-angle-right"></i></a>
 		</div><!-- Second Form -->
-		<div class="form-s" style="display: none;">
+		<div class="form-s animsition" data-animsition-in-class="fade-in-left" data-animsition-in-duration="400" data-animsition-out-class="fade-out-left" data-animsition-out-duration="500">
+			<div class="child" style="display: flex;">
 			<div class="Fields">
 				<div class="header-menu">
 					<h3>Personal Information</h3>
@@ -217,7 +232,7 @@
 						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 						cillu</p>
-						<a href="#">Ok got it</a>
+						<a href="#" class="animsition-link">Ok got it</a>
 					</div>
 				</div>
 			</div>
@@ -248,6 +263,7 @@
 					<p>support@help.com</p>
 				</div>
 			</div>
+			</div>
 		</div><!-- Second Form -->
 	</section>
 	<script>
@@ -264,5 +280,8 @@
 		});
 	</script>
 	<script src="assets/js/mainActions.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="assets/js/animsition.min.js"></script>
+	<script src="assets/js/animation.js"></script>
 </body>
 </html>

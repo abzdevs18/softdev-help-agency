@@ -98,5 +98,7 @@
 	});
 </script>
 <script src="assets/js/script.js"></script>
+<script src="assets/js/animsiton.min.js"></script>
+<script src="assets/js/animation.js"></script>
 </body>
 </html>
