@@ -44,8 +44,9 @@
 	padding: 10px 30px;
 	font: var(--font-quick-500-18);
 	cursor: pointer;
+	transition: all .5 ease-in-out;
 }
-.type-account #active-type-acc {
+.type-account .active-type-acc {
 	background: green;
 	display: inline-block;
 	justify-content: center;

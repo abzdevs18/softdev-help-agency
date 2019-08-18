@@ -5,8 +5,8 @@
 				<div class="header-menu">
 					<h3>Personal Information</h3>
 					<div class="type-account">
-						<span>Employer</span>
-						<span id="active-type-acc">Worker</span>
+						<span data-userType="1">Employer</span>
+						<span class="active-type-acc" data-userType="0">Worker</span>
 					</div>
 				</div>
 				<!-- Fields -->
@@ -39,7 +39,7 @@
 					<i class="fal fa-compass"></i>
 				</div>
 				<div class="next-submit">
-					<a href="#">Next <i class="fal fa-angle-right"></i></a>
+					<a href="#" data-action="next">Next <i class="fal fa-angle-right"></i></a>
 				</div>
 			</div>
 			<div class="Sidebar-form">
@@ -263,5 +263,6 @@
 			});
 		});
 	</script>
+	<script src="assets/js/mainActions.js"></script>
 </body>
 </html>
