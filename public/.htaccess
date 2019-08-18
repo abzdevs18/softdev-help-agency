@@ -1,0 +1,10 @@
+Options -MultiViews
+RewriteEngine On
+
+RewriteBase /sumalian/public
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#Be careful with the spaces it will cause error
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]

@@ -16,6 +16,10 @@ $(document).on('click', '.next_fs', function(event){
 	var phone = $('.f-form input[name="phone"]').val();
 	var location = $('.f-form input[name="location"]').val();
 
+	$.ajax({
+		
+	})
+
 	// console.log(user_type);
 });
 

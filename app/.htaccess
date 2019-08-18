@@ -1,0 +1,3 @@
+#disabling access to parent folder
+Options -Indexes
+
