@@ -1,6 +1,6 @@
 <?php include 'head.php'; ?>
 	<section class="signup-form">
-		<div class="form-s" style="display: none;">
+		<div class="form-s">
 			<div class="Fields">
 				<div class="header-menu">
 					<h3>Personal Information</h3>
@@ -68,7 +68,7 @@
 				</div>
 			</div>
 		</div><!-- First Form -->
-		<div class="form-s">
+		<div class="form-s" style="display: none;">
 			<div class="Fields">
 				<div class="header-menu">
 					<h3>Personal Information</h3>
