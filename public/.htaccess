@@ -1,10 +1,12 @@
-Options -MultiViews
-RewriteEngine On
+<IfModule mod_rewrite.c>
+	Options -MultiViews
+	RewriteEngine On
+	RewriteBase /sumalian/public
+	
+	#any request if not found
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
 
-RewriteBase /sumalian/public
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-
-#Be careful with the spaces it will cause error
-RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+	#redirect them into index.php file in public
+	RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>
