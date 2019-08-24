@@ -1,7 +1,5 @@
-<?php
-	require_once 'head.php';
+<?php require_once APP_ROOT . '/views/inc/header.php'; ?>
 
-	?>
 	<section class="comProf">
 		<div id="profWall" style="background: url('assets/img/company-wall/logo.jpg'), linear-gradient(rgba(0,0,0,-0.5),rgba(0,0,0,0.5));
   background-blend-mode: overlay;">
@@ -108,7 +106,4 @@
 		</div>
 	</section>
 
-<?php
-	require_once 'footer.php';
-
-	?>
+<?php require_once APP_ROOT . '/views/inc/footer.php'; ?>

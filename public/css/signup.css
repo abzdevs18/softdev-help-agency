@@ -29,7 +29,7 @@
 	box-shadow: var(--box-shadow);
 	border-radius: 10px;
 	/*position: absolute;*/
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 }
 .Fields {
 	width: 65%;
@@ -52,7 +52,7 @@
 }
 
 .type-account span {
-	padding: 10px 30px;
+	padding: 5px 30px;
 	font: var(--font-quick-500-18);
 	cursor: pointer;
 	transition: all .5 ease-in-out;

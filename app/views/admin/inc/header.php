@@ -4,7 +4,7 @@
 	<title></title>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/admin_style.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -38,13 +38,13 @@
 				<div id="navigation-scroll">			
 					<div id="logo-admin" dir="ltr"> 
 						<div>
-							<img src="assets/img/logo1.png" id="logo-icon">
+							<img src="<?=URL_ROOT;?>/img/logo1.png" id="logo-icon">
 						</div>
 					</div>
 					<div id="admin-profile">
 						<div id="profile-container" class="adm-prof">
 							<div id="admin-icon">
-								<img src="assets/img/prof.png">
+								<img src="<?=URL_ROOT;?>/img/prof.png">
 							</div>
 							<div id="admin-details">
 								<h3>Hi! I'm Angela</h3>

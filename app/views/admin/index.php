@@ -1,7 +1,4 @@
-<?php
-	require_once 'head.php';
-
-	?>
+<?php require_once APP_ROOT . '/views/admin/inc/header.php'; ?>
 
 	<section class="tg-dash">
 		<h1>Dashboard</h1>
@@ -12,7 +9,7 @@
 			<div class="col-4">
 				<div class="col-wrap pad-30">
 					<figure>
-						<img src="assets/img/icons/col-1.png">				
+						<img src="<?=URL_ROOT;?>/img/icons/col-1.png">				
 					</figure>
 					<div class="col-content">
 						<p>562</p>
@@ -24,7 +21,7 @@
 			<div class="col-4">
 				<div class="col-wrap pad-30">
 					<figure>
-						<img src="assets/img/icons/col-2.png">				
+						<img src="<?=URL_ROOT;?>/img/icons/col-2.png">				
 					</figure>
 					<div class="col-content">
 						<p>562</p>
@@ -36,7 +33,7 @@
 			<div class="col-4">
 				<div class="col-wrap pad-30">
 					<figure>
-						<img src="assets/img/icons/col-3.png">				
+						<img src="<?=URL_ROOT;?>/img/icons/col-3.png">				
 					</figure>
 					<div class="col-content">
 						<p>562</p>
@@ -48,7 +45,7 @@
 			<div class="col-4">
 				<div class="col-wrap pad-30">
 					<figure>
-						<img src="assets/img/icons/col-4.png">				
+						<img src="<?=URL_ROOT;?>/img/icons/col-4.png">				
 					</figure>
 					<div class="col-content">
 						<p>562</p>
@@ -149,7 +146,7 @@
 						<ul class="jobs-updates bidders">
 							<li>
 								<div>
-								<img src="assets/img/icons/small-prof.jpg" /> <span>Lissa Heir</span>									
+								<img src="<?=URL_ROOT;?>/img/icons/small-prof.jpg" /> <span>Lissa Heir</span>									
 								</div>
 								<span class="acc-status-online"></span>
 							</li>
@@ -158,7 +155,7 @@
 					<div class="msgs-3-col-item">
 						<div class="message-container">
 							<div class="message-reciever">
-								<img src="assets/img/icons/small-prof.jpg" />
+								<img src="<?=URL_ROOT;?>/img/icons/small-prof.jpg" />
 								<div class="msg-content">
 									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
 									cillum dolore eu fugiat nulla pariatur.</p>
@@ -171,10 +168,10 @@
 									cillum dolore eu fugiat nulla pariatur.</p>
 									<span>Jan. 13, 2019 <i class="far fa-check"></i></span>
 								</div>
-								<img src="assets/img/icons/small-prof.jpg" />
+								<img src="<?=URL_ROOT;?>/img/icons/small-prof.jpg" />
 							</div>
 							<div class="message-reciever">
-								<img src="assets/img/icons/small-prof.jpg" />
+								<img src="<?=URL_ROOT;?>/img/icons/small-prof.jpg" />
 								<div class="msg-content">
 									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
 									cillum dolore eu fugiat nulla pariatur.</p>
@@ -182,7 +179,7 @@
 								</div>
 							</div>
 							<div class="message-reciever">
-								<img src="assets/img/icons/small-prof.jpg" />
+								<img src="<?=URL_ROOT;?>/img/icons/small-prof.jpg" />
 								<div class="msg-content">
 									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
 									cillum dolore eu fugiat nulla pariatur.</p>
@@ -208,7 +205,4 @@
 		</div>
 	</section>
 
-<?php
-	require_once 'footer.php';
-
-	?>
+<?php require_once APP_ROOT . '/views/admin/inc/header.php'; ?>

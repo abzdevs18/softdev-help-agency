@@ -1,4 +1,4 @@
-<?php include 'head.php'; ?>
+<?php require_once APP_ROOT . '/views/inc/header.php'; ?>
 	<section class="signup-form">
 		<div class="form-s" style="min-height: 80vh;">
 			<div class="Fields" style="justify-content: space-around;display: flex;flex-direction: column;">

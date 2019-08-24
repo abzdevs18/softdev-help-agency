@@ -1,18 +1,19 @@
-<?php
-	include('../constants.php');
-	?>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title><?=SITE_NAME;?></title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/ico" href="<?=URL_ROOT?>/img/cap.ico">
 	<!-- <script src="https://kit.fontawesome.com/618fa0761b.js"></script> -->
 
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/user_style.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/user_style.css">
+	<style type="text/css">
+		@import url("<?=URL_ROOT;?>/css/static_style.css");
+		@import url("<?=URL_ROOT;?>/css/footer.css");
+	</style>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -20,7 +21,7 @@
 		<div class="user-navigation">
 			<div class="logo-user">
 				<div class="l-r-prof">
-					<img src="<?php echo root_folder . '/assets/img/black-logo.png' ?>">
+					<img src="<?php echo URL_ROOT . '/img/black-logo.png' ?>">
 				</div>
 				<div class="search-field-prof">
 					<i class="fas fa-search"></i>
@@ -35,7 +36,7 @@
 						<li>Dashboards</li>
 						<li id="account-profile">
 							<div id="account-thumbnail">
-								<img src="<?php echo root_folder . '/assets/img/profiles/prof.png' ?>">
+								<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
 							</div>
 							<div>								
 								<span style="font-weight: 700;">Diomar</span>

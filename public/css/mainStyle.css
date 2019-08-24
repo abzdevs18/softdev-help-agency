@@ -101,7 +101,7 @@ nav ul li a {
 #nav_container ul li a:hover::before, #nav_container ul li a:hover::after {
 	width: 60%;
 }
-#post_job_btn a, .browse-category a {
+.post_job_btn a, .browse-category a {
 	padding: 0 30px;
 	font-size: 14px;
 	line-height: 60px;
@@ -113,6 +113,21 @@ nav ul li a {
 	text-decoration: none;
 	border-radius: 35px;
 }
+
+.post_job_btn {
+	background-color: #fff;
+	/*background-color: #bacada;*/
+	border-radius: 35px;
+	padding: 5px;
+}
+.post_job_btn:hover {
+	box-shadow: 0 0 30px rgba(134, 134, 134, 0.22);
+}
+
+.post_job_btn a {
+	line-height: 40px;
+}
+
 /*Hero text style*/
 
 .hero_txt {

@@ -1,7 +1,5 @@
-<?php
-	require_once 'head.php';
+<?php require_once APP_ROOT . '/views/inc/header.php'; ?>
 
-	?>
 	<main style="height: 65vh;width: 100%;position: relative;" id="specific-job">
 	</main>
 	<section style="width: 100%;margin: 0 auto;position: relative;">
@@ -218,7 +216,5 @@ Ad provident excepturi consequatur quis corporis iste tempore. Adipisci nisi ad 
 			</div>
 		</div>		
 	</section>
-<?php
-	require_once 'footer.php';
 
-	?>
+<?php require_once APP_ROOT . '/views/inc/footer.php'; ?>

@@ -1,7 +1,5 @@
-<?php
-	require_once 'head.php';
+<?php require_once APP_ROOT . '/views/inc/header.php'; ?>
 
-	?>
 	<main style="height: 65vh;width: 100%;z-index: 1" id="specific-job">
 	</main>
 	<section class="profile-p">
@@ -129,7 +127,5 @@
 		</div>
 		
 	</section>
-<?php
-	require_once 'footer.php';
-
-	?>
+	
+<?php require_once APP_ROOT . '/views/inc/footer.php'; ?>

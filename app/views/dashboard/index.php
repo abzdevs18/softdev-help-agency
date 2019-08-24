@@ -1,4 +1,4 @@
-<?php include 'head.php'; ?>
+<?php require_once APP_ROOT . '/views/dashboard/inc/header.php'; ?>
 
 	<section class="my-project-container">
 		<div id="section-project-header">
@@ -55,7 +55,7 @@
 										<input type="checkbox" name="">
 									</td>
 									<td>
-										<img src="<?php echo root_folder . '/admin/assets/img/icons/img-06.jpg';?>">
+										<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>">
 									</td>
 									<td class="tittle-id">
 										<h3>A+ HP probook 6560b core i3 2nd generation</h3>
@@ -89,7 +89,7 @@
 										<input type="checkbox" name="">
 									</td>
 									<td>
-										<img src="<?php echo root_folder . '/admin/assets/img/icons/img-06.jpg';?>">
+										<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>">
 									</td>
 									<td class="tittle-id">
 										<h3>A+ HP probook 6560b core i3 2nd generation</h3>
@@ -123,7 +123,7 @@
 										<input type="checkbox" name="">
 									</td>
 									<td>
-										<img src="<?php echo root_folder . '/admin/assets/img/icons/img-06.jpg';?>">
+										<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>">
 									</td>
 									<td class="tittle-id">
 										<h3>A+ HP probook 6560b core i3 2nd generation</h3>
@@ -180,7 +180,7 @@
 										<input type="checkbox" name="">
 									</td>
 									<td>
-										<img src="<?php echo root_folder . '/admin/assets/img/icons/img-06.jpg';?>">
+										<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>">
 									</td>
 									<td class="tittle-id">
 										<h3>A+ HP probook 6560b core i3 2nd generation</h3>
@@ -235,7 +235,7 @@
 										<input type="checkbox" name="">
 									</td>
 									<td>
-										<img src="<?php echo root_folder . '/admin/assets/img/icons/img-06.jpg';?>">
+										<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>">
 									</td>
 									<td class="tittle-id">
 										<h3>A+ HP probook 6560b core i3 2nd generation</h3>
@@ -396,4 +396,4 @@
 
 	</section>
 
-<?php include 'footer.php'; ?>
+<?php require_once APP_ROOT . '/views/dashboard/inc/header.php'; ?>

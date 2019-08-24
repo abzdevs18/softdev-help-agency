@@ -39,7 +39,7 @@ $(document).on('click','.candidate',function(){
 	window.location.href="worker.php";
 });
 
-$(document).on('click','.nav',function(){
+/*$(document).on('click','.nav',function(){
 	var page = $(this).data("page");
 
 	if (page == "home") {
@@ -54,7 +54,7 @@ $(document).on('click','.nav',function(){
 	}else if (page == "contact") {
 		window.location.href="contact.php";
 	}
-});
+});*/
 
 
 $(document).on('click','.company-logo',function(){

@@ -1,4 +1,4 @@
-<?php include 'head.php'; ?>
+<?php require_once APP_ROOT . '/views/inc/header.php'; ?>
 	<section class="signup-form">
 		<!-- This first form is for user basic information -->
 		<div class="form-s active-f animsition" data-animsition-in-class="fade-in-left" data-animsition-in-duration="400" data-animsition-out-class="fade-out-left" data-animsition-out-duration="500" style="display: block;">
@@ -54,7 +54,7 @@
 					<div class="r-data">
 						<div style="width: 100%;margin: 0 auto;display: flex;justify-content: center;">
 							<div class="s-icon">
-								<img src="<?php echo root_folder . '/assets/img/signup_icon/person.png';?>">
+								<img src="<?php echo URL_ROOT . '/img/signup_icon/person.png';?>">
 							</div>
 						</div>
 						<div class="s-descrip">
@@ -125,7 +125,7 @@
 				<div class="r-data">
 					<div style="width: 100%;margin: 0 auto;display: flex;justify-content: center;">
 						<div class="s-icon">
-							<img src="<?php echo root_folder . '/assets/img/signup_icon/connection.png';?>">
+							<img src="<?php echo URL_ROOT . '/img/signup_icon/connection.png';?>">
 						</div>
 					</div>
 					<div class="s-descrip">
@@ -188,8 +188,8 @@
 				<div class="r-data">
 					<div style="width: 100%;margin: 0 auto;display: flex;justify-content: center;">
 						<div class="s-icon">
-							<!-- <img src="<?php echo root_folder . '/assets/img/signup_icon/person.png';?>"> -->
-							<img src="<?php echo root_folder . '/assets/img/signup_icon/account.png';?>">
+							<!-- <img src="<?php echo URL_ROOT . '/img/signup_icon/person.png';?>"> -->
+							<img src="<?php echo URL_ROOT . '/img/signup_icon/account.png';?>">
 						</div>
 					</div>
 					<div class="s-descrip">
@@ -246,9 +246,9 @@
 				<div class="r-data">
 					<div style="width: 100%;margin: 0 auto;display: flex;justify-content: center;">
 						<div class="s-icon">
-							<!-- <img src="<?php echo root_folder . '/assets/img/signup_icon/person.png';?>"> -->
-							<!-- <img src="<?php echo root_folder . '/assets/img/signup_icon/account.png';?>"> -->
-							<img src="<?php echo root_folder . '/assets/img/signup_icon/login.png';?>">
+							<!-- <img src="<?php echo URL_ROOT . '/img/signup_icon/person.png';?>"> -->
+							<!-- <img src="<?php echo URL_ROOT . '/img/signup_icon/account.png';?>"> -->
+							<img src="<?php echo URL_ROOT . '/img/signup_icon/login.png';?>">
 						</div>
 					</div>
 					<div class="s-descrip">
@@ -279,9 +279,9 @@
 			});
 		});
 	</script>
-	<script src="assets/js/mainActions.js"></script>
-	<script src="assets/js/script.js"></script>
-	<script src="assets/js/animsition.min.js"></script>
-	<script src="assets/js/animation.js"></script>
+	<script src="<?=URL_ROOT;?>/js/mainActions.js"></script>
+	<script src="<?=URL_ROOT;?>/js/script.js"></script>
+	<script src="<?=URL_ROOT;?>/js/animsition.min.js"></script>
+	<script src="<?=URL_ROOT;?>/js/animation.js"></script>
 </body>
 </html>

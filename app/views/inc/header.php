@@ -4,6 +4,7 @@
 	<title><?=SITE_NAME;?></title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/ico" href="<?=URL_ROOT?>/img/cap.ico">
 	<!-- <script src="https://kit.fontawesome.com/618fa0761b.js"></script> -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -18,21 +19,4 @@
 
 </head>
 <body>
-	<nav>
-		<div id="nav_container">
-			<div id="logo">
-				<a href="index.php"><img src="assets/img/black-logo.png"></a>
-			</div>
-			<ul>
-				<li class="nav" data-page="home"><a href="#">HOME</a></li>
-				<li class="nav" data-page="employee"><a href="#">EMPLOYEERS</a></li>
-				<li class="nav" data-page="job"><a href="#">JOB OPPORTUNITIES</a></li>
-				<li class="nav" data-page="contact"><a href="#">HOW IT WORKS</a></li>
-				<li class="nav" data-page="about"><a href="#">ABOUT US</a></li>
-			</ul>
-			<div id="post_job_btn">
-				<!-- <a href="#">Login</a> -->
-				<a href="signup.php">create account &nbsp;<i class="fas fa-plus-circle"></i></a>
-			</div>			
-		</div>
-	</nav>	
+	<?php require_once APP_ROOT . '/views/inc/navigation.php'; ?>	

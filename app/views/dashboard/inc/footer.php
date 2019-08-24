@@ -26,7 +26,7 @@
 		</div>
 		<div id="footer">
 			<div class="footer-items">
-				<img src="/sumalian/assets/img/logo-white.png">
+				<img src="<?=URL_ROOT;?>/img/logo-white.png">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -38,7 +38,7 @@
 				<div id="footer-news-feed">
 					<div class="footer-news-feed-item">
 						<div class="news-thumbnail">
-							<img src="/sumalian/assets/img/news-update/news_small_2.jpg">
+							<img src="<?=URL_ROOT;?>/img/news-update/news_small_2.jpg">
 						</div>
 						<div class="news-metadata">
 							<p>It is a long establish that a reader</p>
@@ -47,7 +47,7 @@
 					</div>
 					<div class="footer-news-feed-item">
 						<div class="news-thumbnail">
-							<img src="/sumalian/assets/img/news-update/news_small_2.jpg">
+							<img src="<?=URL_ROOT;?>/img/news-update/news_small_2.jpg">
 						</div>
 						<div class="news-metadata">
 							<p>It is a long establish that a reader</p>
@@ -56,7 +56,7 @@
 					</div>
 					<div class="footer-news-feed-item">
 						<div class="news-thumbnail">
-							<img src="/sumalian/assets/img/news-update/news_small_2.jpg">
+							<img src="<?=URL_ROOT;?>/img/news-update/news_small_2.jpg">
 						</div>
 						<div class="news-metadata">
 							<p>It is a long establish that a reader</p>
@@ -71,6 +71,6 @@
 			</div>
 		</div>
 	</footer>
-<script src="assets/js/script.js"></script>
+<script src="<?=URL_ROOT;?>/js/script.js"></script>
 </body>
 </html>
