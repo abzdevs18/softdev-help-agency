@@ -16,4 +16,9 @@ class Users extends Controller
 		$data = [];
 		$this->view("users/signup", $data);
 	}
+
+	public function login(){
+		$data = [];
+		$this->view("users/signin", $data);
+	}
 }

@@ -80,15 +80,7 @@ font-weight: 600;
 margin: 6px 0px;	
 color: #444;
 }
-.f-form input {
-background: none;
-border: var(--border);
-padding: 10px 15px;
-font-size: 15px;
-border-radius: 4px;
-outline: none;
-color: #666;
-}
+.f-form input {background: none;border: 1px solid #999;padding: 10px 15px;font-size: 15px;border-radius: 4px;outline: none;color: #666;border-color: #333;}
 .f-form i {
     position: absolute;
     right: 0;
