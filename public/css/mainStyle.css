@@ -116,6 +116,7 @@ nav ul li a {
 
 .post_job_btn {
 	background-color: #fff;
+	box-shadow: 0 0 30px rgba(134, 134, 134, 0.22);
 	/*background-color: #bacada;*/
 	border-radius: 35px;
 	padding: 5px;

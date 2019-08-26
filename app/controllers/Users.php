@@ -162,8 +162,53 @@ class Users extends Controller
 			$this->view("users/signup");
 		}
 	}
-	public function login(){
-		$data = [];
-		$this->view("users/signin", $data);
+	public function signin(){
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$data = [
+				//user user type later to add certain data if a user is employeer
+				"status" => "",
+				"credentialType" => "",
+				"uNameEmail" => trim($_POST['uNameEmail']),
+				"uPassword" => trim($_POST['uPassword']),
+				"uNameEmail_err" => "",
+				"uPassword_err" => ""
+			];
+
+			// email validation
+			if (empty($data['uNameEmail'])) {
+				$data['uNameEmail_err'] = 'Please enter your email';
+			}else {
+				//First check if email is use to sign in
+				if (filter_var($data['uNameEmail'], FILTER_VALIDATE_EMAIL)) {
+					if ($this->userModel->findUserEmail($data['uNameEmail'])) {
+						$loggedIn = $this->userModel->login($data['uNameEmail'], $data['uPassword']);
+						if ($loggedIn) {
+							$this->createUserSession($loggedIn);
+							echo json_encode($loggedIn);
+						}else{
+							echo "string";
+						}
+					}else {
+						// $data['status'] = 0;
+						$data['uNameEmail_err'] = "Email/username doesn't exist!";
+						echo json_encode($data);
+					}
+				}else {
+					$data['uNameEmail_err'] = "Email/username doesn't exist!";
+					echo json_encode($data);
+				}
+				
+			}
+		} else {
+			$this->view("users/signin", $data);
+		}
+	}
+
+	public function createUserSession($user) {
+		
+		$_SESSION['uId'] = $user->usr_id;
+		$_SESSION['userName'] = $user->usrName;
+		$_SESSION['email'] = $user->usrEmail;
 	}
 }

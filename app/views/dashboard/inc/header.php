@@ -39,7 +39,7 @@
 								<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
 							</div>
 							<div>								
-								<span style="font-weight: 700;">Diomar</span>
+								<span style="font-weight: 700;"><?=$_SESSION['userName'];?></span>
 							</div>
 						</li>
 					</ul>

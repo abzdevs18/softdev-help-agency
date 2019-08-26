@@ -129,7 +129,7 @@ $(document).on('click','.next_fs', function(){
 						},
 						success: function(data){
 							console.log(data);
-							console.log("Oh Yeah");
+							$('#reg-username').text(userName);
 						},
 						error: function(err){
 							console.log(err);
@@ -228,4 +228,29 @@ $('.prev_fs').click(function(){
 	prev_f = $(this).parent().prev();
 	prev_f.show();
 	current_f.hide();
+});
+
+$(document).on('click', '.dignin', function(){
+	var uNameEmail = $('.f-form input[name="uemail"]').val();
+	var uPassword = $('.f-form input[name="password"]').val();
+
+	$.ajax({
+		url: '../users/signin',
+		type: 'POST',
+		dataType: 'json',
+		data: {
+			uNameEmail : uNameEmail,
+			uPassword : uPassword
+		},
+		success:function(data){
+			if (data['usr_id']) {
+				window.location.href = "../dashboard"
+			}else{
+				console.log(data);
+			}
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
 });

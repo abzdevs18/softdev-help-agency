@@ -47,6 +47,26 @@ class User
 
 	}
 
+	public function login($email, $password) {
+		$this->db->query("SELECT user_email.user_id AS fId, user_email.email_add AS usrEmail, user.id AS usr_id, user.user_pass AS usrPass, user.username AS usrName FROM user_email LEFT JOIN user ON user.id = user_email.user_id WHERE user.username = :email OR user_email.email_add = :email");
+
+			$this->db->bind(':email', $email);
+			$row = $this->db->single();
+
+
+		// if ($row->id == $user_id->user_id) {
+			$hashed_pass = $row->usrPass;
+			if (password_verify($password, $hashed_pass)) {
+				return $row;
+				// return true;
+
+			}else{
+				return false;
+			}
+		// }
+
+	}
+
 	public function findUserEmail($email){
 		$this->db->query("SELECT * FROM user_email WHERE email_add = :email_add");
 		$this->db->bind(':email_add', $email);

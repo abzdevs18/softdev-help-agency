@@ -239,7 +239,7 @@
 					<div class="form-finish">
 						<div style="position: relative;" class="wrap-notif">
 							<div class="user-name-notif">
-								<p>Username</p>
+								<p id="reg-username"></p>
 							</div>
 							<i class="fas fa-check-circle"></i>
 						</div>

@@ -4,6 +4,7 @@
 	
 //Loading the helpers
 	require_once 'helpers/url_redirects.php';
+	require_once 'helpers/session_helpers.php';
 // Class file autoLoader
 /**
 * Autoloader Must:

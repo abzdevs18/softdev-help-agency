@@ -10,9 +10,9 @@
 				<div style="display: flex;flex-direction: column;">
 					<!-- Fields -->
 					<div class="f-form">
-						<label for="email">Email Address/Username:</label>
+						<label for="uemail">Email Address/Username:</label>
 						<div class="ins-wrapper">
-							<input type="email" name="email" placeholder="support@gmail.com">
+							<input type="text" name="uemail" placeholder="support@gmail.com">
 							<!-- Icon -->
 							<i class="fal fa-envelope"></i>
 						</div>
@@ -27,7 +27,7 @@
 					</div>					
 				</div>
 				<div class="next-submit">
-					<a href="#">login <i class="fal fa-angle-right"></i></a>
+					<a href="#" class="dignin">login <i class="fal fa-angle-right"></i></a>
 				</div>
 			</div>
 			</form>
@@ -71,5 +71,6 @@
 			});
 		});
 	</script>
+	<script src="<?=URL_ROOT;?>/js/mainActions.js"></script>
 </body>
 </html>
