@@ -168,7 +168,6 @@ class Users extends Controller
 			$data = [
 				//user user type later to add certain data if a user is employeer
 				"status" => "",
-				"credentialType" => "",
 				"uNameEmail" => trim($_POST['uNameEmail']),
 				"uPassword" => trim($_POST['uPassword']),
 				"uNameEmail_err" => "",
@@ -181,26 +180,47 @@ class Users extends Controller
 			}else {
 				//First check if email is use to sign in
 				if (filter_var($data['uNameEmail'], FILTER_VALIDATE_EMAIL)) {
-					if ($this->userModel->findUserEmail($data['uNameEmail'])) {
-						$loggedIn = $this->userModel->login($data['uNameEmail'], $data['uPassword']);
-						if ($loggedIn) {
-							$this->createUserSession($loggedIn);
-							echo json_encode($loggedIn);
-						}else{
-							echo "string";
-						}
-					}else {
+					if ($this->userModel->findUserEmail($data['uNameEmail']) == false) {
 						// $data['status'] = 0;
 						$data['uNameEmail_err'] = "Email/username doesn't exist!";
-						echo json_encode($data);
 					}
-				}else {
-					$data['uNameEmail_err'] = "Email/username doesn't exist!";
-					echo json_encode($data);
-				}
-				
+				}				
 			}
+			// Lastname validation
+			if (empty($data['uPassword'])) {
+				$data['uPassword_err'] = 'Please enter your Password';
+			}
+
+			if (empty($data['uNameEmail_err']) && empty($data['uPassword_err'])) {
+
+				$loggedIn = $this->userModel->login($data['uNameEmail'], $data['uPassword']);
+				if ($loggedIn) {
+					$data['status'] = 1;
+					$this->createUserSession($loggedIn);
+					// var_dump($loggedIn);
+					$arr = [
+						"data" => $data,
+						"row" => $loggedIn
+					];
+					echo json_encode($arr);
+				}
+
+			} else {
+				$data['status'] = 0;
+				$arr = [
+					"data" => $data,
+					"row" => ""
+				];
+				echo json_encode($arr);
+			}
+
 		} else {
+			$data = [
+				"status" => "",
+				"userName_err" => "",
+				"password_err" => "",
+				"cpassword_err" => ""
+			];
 			$this->view("users/signin", $data);
 		}
 	}
@@ -210,5 +230,14 @@ class Users extends Controller
 		$_SESSION['uId'] = $user->usr_id;
 		$_SESSION['userName'] = $user->usrName;
 		$_SESSION['email'] = $user->usrEmail;
+	}
+
+	public function signout() {
+		unset($_SESSION['uId']);
+		unset($_SESSION['userName']);
+		unset($_SESSION['email']);
+		session_destroy();
+
+		redirect('users/signin');
 	}
 }

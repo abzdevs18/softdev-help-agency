@@ -396,4 +396,4 @@
 
 	</section>
 
-<?php require_once APP_ROOT . '/views/dashboard/inc/header.php'; ?>
+<?php require_once APP_ROOT . '/views/dashboard/inc/footer.php'; ?>

@@ -1,4 +1,4 @@
-<?php include 'head.php'; ?>
+<?php require_once APP_ROOT . '/views/dashboard/inc/header.php'; ?>
 	<section class="feedbacks-list">
 		<div class="section-tittle">
 			<span>Your recent reviews</span>
@@ -7,7 +7,7 @@
 			<div class="feed-item">
 				<div class="feed-wrapper">
 					<div class="employer-image">
-						<img src="<?php echo root_folder . '/admin/assets/img/icons/img-06.jpg';?>">
+						<img src="<?php echo URL_ROOT . '/img/icons/img-06.jpg';?>">
 					</div>
 					<div id="feed-details">
 						<div class="list-of-feedback">
@@ -47,7 +47,7 @@
 			<div class="feed-item">
 				<div class="feed-wrapper">
 					<div class="employer-image">
-						<img src="<?php echo root_folder . '/admin/assets/img/icons/img-06.jpg';?>">
+						<img src="<?php echo URL_ROOT . '/img/icons/img-06.jpg';?>">
 					</div>
 					<div id="feed-details">
 						<div class="list-of-feedback">
@@ -86,4 +86,4 @@
 			</div>
 		</div>
 	</section>
-<?php include 'footer.php'; ?>
+<?php require_once APP_ROOT . '/views/dashboard/inc/footer.php'; ?>

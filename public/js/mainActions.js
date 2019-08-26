@@ -191,20 +191,7 @@ $(document).on('click', '.type-account span', function(){
 	console.log(u_type);
 });
 
-/*This two function below will show and hide the feedback during the validation process*/
-function feedbackDefault(container){
-	$('.' + container + ' > input').removeClass('invalid-box-shadow');
-	$('.' + container + ' .invalid-feedback').hide();
-}
-function feedbackShow(container, data){
-	$('.' + container + ' .ins-wrapper > input').addClass('invalid-box-shadow');
-	$('.' + container + ' .invalid-feedback').show().text(data);
-}
 
-function feedbackHide(container){
-	$('.' + container + ' > input').removeClass();
-	$('.' + container + ' .invalid-feedback').hide();
-}
 /**
 * script for form progress
 */
@@ -243,14 +230,43 @@ $(document).on('click', '.dignin', function(){
 			uPassword : uPassword
 		},
 		success:function(data){
-			if (data['usr_id']) {
-				window.location.href = "../dashboard"
-			}else{
-				console.log(data);
+			if (data["data"].status == 1 && data["row"].fId != "") {
+				feedbackDefault('f-form');
+				window.location.href = "../dashboard";
+				console.log(data["row"].fId);
+			}else {
+				if (data['data'].uNameEmail_err) {
+					 // Get the parent/container of the input field for firstname and 
+					feedbackShow("uNameVal", data['data'].uNameEmail_err);
+				} else{
+					feedbackHide("uNameVal");
+				}
+				if (data['data'].uPassword_err) {
+					 // Get the parent/container of the input field for firstname and 
+					feedbackShow("uPassVal", data['data'].uPassword_err);
+				} else{
+					feedbackHide("uPassVal");
+				}
 			}
+			// console.log(data);
 		},
 		error: function(err){
 			console.log(err);
 		}
 	});
 });
+
+/*This two function below will show and hide the feedback during the validation process*/
+function feedbackDefault(container){
+	$('.' + container + ' > input').removeClass('invalid-box-shadow');
+	$('.' + container + ' .invalid-feedback').hide();
+}
+function feedbackShow(container, data){
+	$('.' + container + ' .ins-wrapper > input').addClass('invalid-box-shadow');
+	$('.' + container + ' .invalid-feedback').show().text(data);
+}
+
+function feedbackHide(container){
+	$('.' + container + ' > input').removeClass();
+	$('.' + container + ' .invalid-feedback').hide();
+}

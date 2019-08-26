@@ -1,6 +1,6 @@
 <?php require_once APP_ROOT . '/views/inc/header.php'; ?>
 	<section class="signup-form">
-		<div class="form-s" style="min-height: 80vh;">
+		<div class="form-s animsition" style="min-height: 80vh;" data-animsition-in-class="fade-in-left" data-animsition-in-duration="400" data-animsition-out-class="fade-out-left" data-animsition-out-duration="500">
 			<form class="Fields" style="width: 65%;display: flex;flex-direction: row;justify-content: space-between;">
 			<div style="width: 100%;justify-content: space-around;display: flex;flex-direction: column;">
 				<div class="header-menu">
@@ -9,21 +9,23 @@
 				</div>
 				<div style="display: flex;flex-direction: column;">
 					<!-- Fields -->
-					<div class="f-form">
+					<div class="f-form uNameVal">
 						<label for="uemail">Email Address/Username:</label>
 						<div class="ins-wrapper">
 							<input type="text" name="uemail" placeholder="support@gmail.com">
 							<!-- Icon -->
 							<i class="fal fa-envelope"></i>
 						</div>
+						<span class="invalid-feedback">Hello</span>
 					</div>
-					<div class="f-form">
+					<div class="f-form uPassVal">
 						<label for="password">Password:</label>
 						<div class="ins-wrapper">
 							<input type="password" name="password" value="sample132">
 							<!-- Icon -->
 							<i class="fal fa-key"></i>
 						</div>
+						<span class="invalid-feedback"></span>
 					</div>					
 				</div>
 				<div class="next-submit">
@@ -72,5 +74,7 @@
 		});
 	</script>
 	<script src="<?=URL_ROOT;?>/js/mainActions.js"></script>
+	<script src="<?=URL_ROOT;?>/js/animsition.min.js"></script>
+	<script src="<?=URL_ROOT;?>/js/animation.js"></script>
 </body>
 </html>

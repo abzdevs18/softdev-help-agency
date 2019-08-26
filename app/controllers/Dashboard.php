@@ -8,12 +8,21 @@ class Dashboard extends Controller
 	
 	function __construct()
 	{
-		# code...
+		if (!isLoggedIn()) {
+			redirect("users/signin");
+		}
 	}
 
 	public function index(){
 
 		$data = [];
 		$this->view('dashboard/index', $data);
+	}
+
+	public function message(){
+		$this->view("dashboard/message");
+	}
+	public function feedback(){
+		$this->view("dashboard/feedback");
 	}
 }

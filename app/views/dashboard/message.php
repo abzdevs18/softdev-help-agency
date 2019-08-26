@@ -1,4 +1,4 @@
-<?php include 'head.php'; ?>
+<?php require_once APP_ROOT . '/views/dashboard/inc/header.php'; ?>
 	<section class="container-msgs">
 		<div id="msg-container">
 			<div class="list-of-connections">
@@ -9,7 +9,7 @@
 				<div id="users">
 					<div class="user-items">
 						<div class="convo-prof">
-							<img src="<?php echo root_folder . '/assets/img/profiles/prof.png' ?>">
+							<img src="<?php echo URL_ROOT. '/img/profiles/prof.png' ?>">
 						</div>
 						<div class="convo-">
 							<div class="list-data">
@@ -28,7 +28,7 @@
 					</div>
 					<div class="user-items">
 						<div class="convo-prof">
-							<img src="<?php echo root_folder . '/assets/img/profiles/prof.png' ?>">
+							<img src="<?php echo URL_ROOT. '/img/profiles/prof.png' ?>">
 						</div>
 						<div class="convo-">
 							<div class="list-data">
@@ -47,7 +47,7 @@
 					</div>
 					<div class="user-items">
 						<div class="convo-prof">
-							<img src="<?php echo root_folder . '/assets/img/profiles/prof.png' ?>">
+							<img src="<?php echo URL_ROOT. '/img/profiles/prof.png' ?>">
 						</div>
 						<div class="convo-">
 							<div class="list-data">
@@ -88,7 +88,7 @@
 					<div class="peps-chat">
 						<div class="pep-wrap">
 							<div class="pep-img">
-								<img src="<?php echo root_folder . '/assets/img/profiles/prof2.jpg' ?>">
+								<img src="<?php echo URL_ROOT. '/img/profiles/prof2.jpg' ?>">
 								<span class="status-avail"></span>
 							</div>
 							<div class="pep-links">
@@ -98,7 +98,7 @@
 						</div><!-- End of pep-wrapper -->
 						<div class="pep-wrap">
 							<div class="pep-img">
-								<img src="<?php echo root_folder . '/assets/img/profiles/prof2.jpg' ?>">
+								<img src="<?php echo URL_ROOT. '/img/profiles/prof2.jpg' ?>">
 								<span class="status-avail"></span>
 							</div>
 							<div class="pep-links">

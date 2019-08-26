@@ -48,19 +48,19 @@
 					
 				</div>
 				<div id="action-btn">
-					<button><i class="fas fa-comment-dots"></i></button>
+					<a href="<?=URL_ROOT . '/dashboard/message';?>"><button><i class="fas fa-comment-dots"></i></button></a>
 					<button><i class="fas fa-bell"></i></i></button>
-					<button><i class="fas fa-sign-out-alt"></i></button>
+					<a href="<?=URL_ROOT;?>/users/signout"><button><i class="fas fa-sign-out-alt"></i></button></a>
 				</div>
 			</div>
 		</div>
 	</nav>
 	<section id="menus-prof-dashboard">
 		<ul>
-			<li class="active-second-menu"><a href="index.php">My Projects</a></li>
-			<li><a href="dashboard.php">Dashboard</a></li>
-			<li><a href="message.php">Inbox</a></li>
-			<li><a href="feedback.php">Feedback</a></li>
+			<li class="active-second-menu"><a href="<?=URL_ROOT . '/dashboard';?>">My Projects</a></li>
+			<li><a href="<?=URL_ROOT . '/dashboard';?>">Dashboard</a></li>
+			<li><a href="<?=URL_ROOT . '/dashboard/message';?>">Inbox</a></li>
+			<li><a href="<?=URL_ROOT . '/dashboard/feedback';?>">Feedback</a></li>
 		</ul>
 	</section>
 
