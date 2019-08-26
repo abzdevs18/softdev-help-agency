@@ -5,5 +5,4 @@
 			<h2>About Us</h2>
 		</div>
 	</section>
-
-<?php require_once APP_ROOT . '/views/inc/footer.php'; ?>
+<?php require_once APP_ROOT . '/views/inc/footer.php';?>

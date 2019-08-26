@@ -1,10 +1,89 @@
 <?php
 
 /**
- * 
+ * User registration model
  */
 class User
 {
-	
-	public $name;
+	private $db;
+
+	function __construct()
+	{
+		$this->db = new Database;
+	}
+
+	public function signup($data){
+		$this->db->query("INSERT INTO `user` (`username`, `firstname`, `lastname`, `user_pass`, `user_type`) VALUES (:username, :firstname, :lastname, :user_pass, :user_type)");
+
+		$this->db->bind(':username', $data['userName']);
+		$this->db->bind(':firstname', $data['fName']);
+		$this->db->bind(':lastname', $data['lName']);
+		$this->db->bind(':user_pass', $data['password']);
+		$this->db->bind(':user_type', $data['uType']);
+
+		/*LAter add condition here is a user is an employeer*/
+		if ($this->db->execute()) {
+			$lastInsertId = $this->db->lastInsert();
+			$this->db->query("INSERT INTO `user_email`(`user_id`, `email_add`, `email_status`) VALUES ($lastInsertId, :email_add, 1)");
+			$this->db->bind(':email_add', $data['uEmail']);
+			$this->db->execute();
+
+			$this->db->query("INSERT INTO `user_phone`(`user_id`, `phone_number`) VALUES ($lastInsertId, :phone_number)");
+			$this->db->bind(':phone_number', $data['uPhone']);
+			$this->db->execute();
+
+			$this->db->query("INSERT INTO `user_location`(`user_id`, `address`) VALUES ($lastInsertId, :address)");
+			$this->db->bind(':address', $data['uLocation']);
+			if ($this->db->execute()) {
+				return true;
+				// echo "Yeahhhhhh";
+			}else{
+				// echo "Noooo";
+				return false;
+			}
+		}else{
+			return false;
+		}
+
+	}
+
+	public function findUserEmail($email){
+		$this->db->query("SELECT * FROM user_email WHERE email_add = :email_add");
+		$this->db->bind(':email_add', $email);
+
+		$row = $this->db->single();
+
+		if ($this->db->rowCount() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	public function findUserPhone($phone){
+		$this->db->query("SELECT * FROM user_phone WHERE phone_number = :phone");
+		$this->db->bind(':phone', $phone);
+
+		$row = $this->db->single();
+
+		if ($this->db->rowCount() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function findUserName($userName){
+		$this->db->query("SELECT * FROM user WHERE username = :userName");
+		$this->db->bind(':userName', $userName);
+
+		$row = $this->db->single();
+
+		if ($this->db->rowCount() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

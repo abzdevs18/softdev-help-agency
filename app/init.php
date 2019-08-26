@@ -1,7 +1,9 @@
 <?php
 // loading from config folder
 	require_once 'configs/config.php';
-
+	
+//Loading the helpers
+	require_once 'helpers/url_redirects.php';
 // Class file autoLoader
 /**
 * Autoloader Must:

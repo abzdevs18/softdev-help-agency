@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/mainStyle.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/animsition.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/signup.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/static_style.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/footer.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/companyProfile.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

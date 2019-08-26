@@ -1,7 +1,7 @@
 <?php require_once APP_ROOT . '/views/inc/header.php'; ?>
 	<section class="signup-form">
 		<div class="form-s" style="min-height: 80vh;">
-			<form class="Fields" style="width: 100%;display: flex;flex-direction: row;justify-content: space-between;">
+			<form class="Fields" style="width: 65%;display: flex;flex-direction: row;justify-content: space-between;">
 			<div style="width: 100%;justify-content: space-around;display: flex;flex-direction: column;">
 				<div class="header-menu">
 					<h3>Enter Personal Information</h3>
@@ -11,15 +11,19 @@
 					<!-- Fields -->
 					<div class="f-form">
 						<label for="email">Email Address/Username:</label>
-						<input type="email" name="email" placeholder="support@gmail.com">
-						<!-- Icon -->
-						<i class="fal fa-envelope"></i>
+						<div class="ins-wrapper">
+							<input type="email" name="email" placeholder="support@gmail.com">
+							<!-- Icon -->
+							<i class="fal fa-envelope"></i>
+						</div>
 					</div>
 					<div class="f-form">
 						<label for="password">Password:</label>
-						<input type="password" name="password" value="sample132">
-						<!-- Icon -->
-						<i class="fal fa-key"></i>
+						<div class="ins-wrapper">
+							<input type="password" name="password" value="sample132">
+							<!-- Icon -->
+							<i class="fal fa-key"></i>
+						</div>
 					</div>					
 				</div>
 				<div class="next-submit">

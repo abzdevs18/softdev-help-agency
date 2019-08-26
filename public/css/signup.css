@@ -16,7 +16,7 @@
 /*
 * in order to make sure that only the first form is displayed
 */
-.signup-form > div:not(:first-of-type){
+.signup-form > form:not(:first-of-type){
 	display: none;
 }
 .form-s {
@@ -29,7 +29,7 @@
 	box-shadow: var(--box-shadow);
 	border-radius: 10px;
 	/*position: absolute;*/
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 .Fields {
 	width: 65%;
@@ -52,7 +52,7 @@
 }
 
 .type-account span {
-	padding: 5px 30px;
+	padding: 10px 30px;
 	font: var(--font-quick-500-18);
 	cursor: pointer;
 	transition: all .5 ease-in-out;
@@ -74,6 +74,13 @@
 	margin: 10px;
 	position: relative;
 }
+.ins-wrapper {
+	position: relative;
+	width: calc( 100% - 10px );
+}
+.ins-wrapper input {
+	width: calc( 100% - 20px );
+}
 .f-form label {
 text-transform: capitalize;
 font-weight: 600;
@@ -81,7 +88,7 @@ margin: 6px 0px;
 color: #444;
 }
 .f-form input {background: none;border: 1px solid #999;padding: 10px 15px;font-size: 15px;border-radius: 4px;outline: none;color: #666;border-color: #333;}
-.f-form i {
+.ins-wrapper i {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -91,6 +98,16 @@ color: #444;
 .next-submit {
 	text-align: right;
 	width: calc( 100% - 10px );
+}
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+.invalid-box-shadow {
+	box-shadow: 0 0 2px 1px red;
 }
 /*.next-submit a {*/
 .form-s a {
