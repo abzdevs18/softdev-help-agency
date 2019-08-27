@@ -3,8 +3,10 @@
 /**
  * PDO DB class
  */
+
 class Database
 {
+	private static $_instance = null;
 	private $host = DB_HOST;
 	private $user = DB_USER;
 	private $pass = DB_PASS;
@@ -31,6 +33,15 @@ class Database
 
 			// echo $this->error;
 		}
+	}
+
+	//dont know the right term, but i Think this is what they called singleton where we only get single instance in communication the DB :-)
+
+	public static function getInstance(){
+		if (!isset(self::$_instance)) {
+			self::$_instance = new Database();
+		}
+		return self::$_instance;
 	}
 
 	public function query($sql) {
