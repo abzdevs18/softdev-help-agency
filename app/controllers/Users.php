@@ -11,6 +11,9 @@ class Users extends Controller
 
 	}
 	public function index(){
+		if (isLoggedIn()) {
+			redirect("dashboard");
+		}
 		$this->view("users/signin");
 	}
 
@@ -184,7 +187,11 @@ class Users extends Controller
 						// $data['status'] = 0;
 						$data['uNameEmail_err'] = "Email/username doesn't exist!";
 					}
-				}				
+				}else {
+					if (!$this->userModel->findUserName($data['uNameEmail'])) {
+						$data['uNameEmail_err'] = "Email/username doesn't exist!";
+					}
+				}			
 			}
 			// Lastname validation
 			if (empty($data['uPassword'])) {

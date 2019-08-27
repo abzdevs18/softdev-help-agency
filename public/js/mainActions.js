@@ -267,6 +267,6 @@ function feedbackShow(container, data){
 }
 
 function feedbackHide(container){
-	$('.' + container + ' > input').removeClass();
+	$('.' + container + ' .ins-wrapper > input').removeClass();
 	$('.' + container + ' .invalid-feedback').hide();
 }
