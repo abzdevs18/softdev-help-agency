@@ -78,11 +78,36 @@ class User
 		} else {
 			return false;
 		}
+	}
 
+	public function findCompanyEmail($email){
+		$this->db->query("SELECT * FROM company_emails WHERE email_add = :email_add");
+		$this->db->bind(':email_add', $email);
+
+		$row = $this->db->single();
+
+		if ($this->db->rowCount() > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public function findUserPhone($phone){
 		$this->db->query("SELECT * FROM user_phone WHERE phone_number = :phone");
+		$this->db->bind(':phone', $phone);
+
+		$row = $this->db->single();
+
+		if ($this->db->rowCount() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function findCompanyPhone($phone){
+		$this->db->query("SELECT * FROM company_phone WHERE phone_number = :phone");
 		$this->db->bind(':phone', $phone);
 
 		$row = $this->db->single();

@@ -46,6 +46,62 @@ class Users extends Controller
 		}
 	}
 
+	public function companyValidation(){
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {	
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+			$data = [
+				"comany" => trim($_POST['comany']),
+				"compEmail" => trim($_POST['compEmail']),
+				"compPhone" => trim($_POST['compPhone']),
+				"compPosition" => trim($_POST['compPosition']),
+				"comany_err" => "",
+				"compEmail_err" => "",
+				"compPhone_err" => "",
+				"compPosition_err" => "",
+			];
+			// comany validation
+			if (empty($data['comany'])) {
+				$data['comany_err'] = 'Please enter your Company\'s Name';
+			}
+			// compPosition validation
+			if (empty($data['compPosition'])) {
+				$data['compPosition_err'] = 'Please enter your current position';
+			}
+			// compEmail validation
+			if (empty($data['compEmail'])) {
+				$data['compEmail_err'] = 'Please enter your Company\'s email';
+			}else {
+				if ($this->userModel->findCompanyEmail($data['compEmail'])) {
+					$data['compEmail_err'] = 'Company email already taken exist!';
+				}
+			}
+			// compPhone validation
+			if (empty($data['compPhone'])) {
+				$data['compPhone_err'] = 'Please enter your Company\'s phone number!';
+			}else {
+				if ($this->userModel->findUserEmail($data['uEmail'])) {
+					$data['compPhone_err'] = 'Company phone number is already taken';
+				}
+			}
+			if (empty($data['comany_err']) && empty($data['compEmail_err']) && empty($data['compPhone_err']) && empty($data['compPosition_err'])) {
+				$data = [
+					"status" => 1,
+					"comany_err" => "",
+					"compEmail_err" => "",
+					"compPhone_err" => "",
+					"compPosition_err" => ""
+				];
+				echo json_encode($data);
+			} else {
+				$data['status'] = 0;
+				echo json_encode($data);
+			}
+		} else {
+			$this->view("users/signup");
+		}
+	}
+
 	public function validationFormPersonal(){
 		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

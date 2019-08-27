@@ -99,30 +99,43 @@
 						<h3>Personal Information</h3>					
 					</div>
 					<!-- Fields -->
-					<div class="f-form">
+					<div class="f-form comNameVal">
 						<label for="comp">Company Name:</label>
-						<input type="text" name="comp" placeholder="Company Name">
-						<!-- Icon -->
-						<i class="fal fa-building"></i>
+						<div class="ins-wrapper">
+
+							<input type="text" name="comp" placeholder="Company Name">
+							<!-- Icon -->
+							<i class="fal fa-building"></i>
+						</div>
+						<span class="invalid-feedback"></span>
 					</div>
-					<div class="f-form">
+					<div class="f-form comEmailVal">
 						<label for="comp-email">Company Email:</label>
-						<input type="email" name="comp-email" placeholder="Company Name">
-						<!-- Icon -->
-						<i class="fal fa-envelope"></i>
+						<div class="ins-wrapper">
+							<input type="email" name="comp-email" placeholder="Company Email">
+							<!-- Icon -->
+							<i class="fal fa-envelope"></i>
+						</div>
+						<span class="invalid-feedback"></span>
 					</div>
 
-					<div class="f-form">
+					<div class="f-form comNumVal">
 						<label for="comp-phone">Company Phone Number:</label>
-						<input type="text" name="comp-phone" placeholder="+63935-098-3294">
-						<!-- Icon -->
-						<i class="fal fa-phone"></i>
+						<div class="ins-wrapper">
+							<input type="text" name="comp-phone" placeholder="+63935-098-3294">
+							<!-- Icon -->
+							<i class="fal fa-phone"></i>
+						</div>
+						<span class="invalid-feedback"></span>
 					</div>
-					<div class="f-form">
+					<div class="f-form comPosVal">
 						<label for="position">Your position in Company:</label>
-						<input type="text" name="position" placeholder="Dumaguete City">
-						<!-- Icon -->
-						<i class="fal fa-id-card"></i>
+						<div class="ins-wrapper">
+							<input type="text" name="position" placeholder="Dumaguete City">
+							<!-- Icon -->
+							<i class="fal fa-id-card"></i>
+						</div>
+						<span class="invalid-feedback"></span>
 					</div>
 					<!-- <div class="next-submit">
 						<a href="#" style="background: #d3d3d3;color: #666;" class="animsition-link back_fs"><i class="fal fa-angle-left"></i>&nbsp; Back</a>

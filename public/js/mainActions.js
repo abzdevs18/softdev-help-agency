@@ -11,8 +11,20 @@
 $(document).on('click','.type-account span',function(){
 	$('.type-account span').removeAttr('class');
 	$(this).addClass('active-type-acc');
+
+	u_type = $(this).attr('data-userType');
+
+	if (u_type == 1) {
+		//insertAfter the element after to the given classs
+		$(remove).insertAfter('.active-f');
+		// $('.signup-form').append(remove);
+		// console.log(remove);
+	} else if (u_type == 0) {
+		//remove the block elements in the DOM
+		$('.comp-form').detach();
+	}	
 });
-$(document).on('click','.next_fs', function(){
+$('.form-s').on('click','.next_fs', function(){
 	event.preventDefault();
 
 	var current_f, next_f, prev_f;
@@ -29,7 +41,13 @@ $(document).on('click','.next_fs', function(){
 	var location = $('.f-form input[name="location"]').val();
 	/* End of form 1 inputs*/
 
-	//Inputs from form Two(Account Credentials)
+	//Inputs from form Two(Company information)
+	var comp = $('.f-form input[name="comp"]').val();
+	var compEmail = $('.f-form input[name="comp-email"]').val();
+	var compPhone = $('.f-form input[name="comp-phone"]').val();
+	var compPosition = $('.f-form input[name="position"]').val();
+
+	//Inputs from form Three(Account Credentials)
 	var userName = $('.f-form input[name="userName"]').val();
 	var passWord = $('.f-form input[name="password"]').val();
 	var cpassWord = $('.f-form input[name="cpassword"]').val();
@@ -98,6 +116,62 @@ $(document).on('click','.next_fs', function(){
 			}
 		});		
 	} // end of form Personal Information
+	// Start of Company Information form
+	if (action == 2) {
+		$.ajax({
+			url:'../users/companyValidation',
+			type:'POST',
+			dataType: 'json',
+			data: {
+				comany : comp,
+				compEmail : compEmail,
+				compPhone : compPhone,
+				compPosition : compPosition
+			},
+			beforeSend: function(){
+				console.log("checking");
+			},
+			success: function(data){
+				if (data['status'] == 1) {
+					feedbackDefault('f-form');
+					next_f.show();
+					current_f.hide();
+				}else {
+					if (data['comany_err']) {
+						/* Get the parent/container of the input field for firstname and */
+						feedbackShow("comNameVal", data['comany_err']);
+					} else{
+						feedbackHide("comNameVal");
+					}
+
+					if (data['compEmail_err']) {
+						/* Get the parent/container of the input field for firstname and */
+						feedbackShow("comEmailVal", data['compEmail_err']);
+					} else{
+						feedbackHide("comEmailVal");
+					}
+
+					if (data['compPhone_err']) {
+						/* Get the parent/container of the input field for firstname and */
+						feedbackShow("comNumVal", data['compPhone_err']);
+					} else{
+						feedbackHide("comNumVal");
+					}
+
+					if (data['compPosition_err']) {
+						/* Get the parent/container of the input field for firstname and */
+						feedbackShow("comPosVal", data['compPosition_err']);
+					} else{
+						feedbackHide("comPosVal");
+					}
+				}
+			},
+			error:function(err){
+				console.log(err);
+			}
+		});		
+		console.log('Form 2');
+	} // end of form Company Information
 	if (action == 3) {
 		$.ajax({
 			url:'../users/credentialsValidation',
@@ -181,15 +255,15 @@ $(document).on('click', '.successful-reg', function(){
 	});
 });
 
-$(document).on('click', '.type-account span', function(){
-	u_type = $(this).attr('data-userType');
-	if (u_type == 1) {
-		$('.signup-form').append(remove);
-	} else if (u_type == 0) {
-		$('.signup-form').detach(remove);
-	}
-	console.log(u_type);
-});
+// $(document).on('click', '.type-account span', function(){
+// 	u_type = $(this).attr('data-userType');
+// 	if (u_type == 1) {
+// 		$('.signup-form').append(remove);
+// 	} else if (u_type == 0) {
+// 		$('.signup-form').detach(remove);
+// 	}
+// 	console.log(u_type);
+// });
 
 
 /**
@@ -258,7 +332,7 @@ $(document).on('click', '.dignin', function(){
 
 /*This two function below will show and hide the feedback during the validation process*/
 function feedbackDefault(container){
-	$('.' + container + ' > input').removeClass('invalid-box-shadow');
+	$('.' + container + ' .ins-wrapper > input').removeClass('invalid-box-shadow');
 	$('.' + container + ' .invalid-feedback').hide();
 }
 function feedbackShow(container, data){
