@@ -32,6 +32,12 @@ class Users extends Controller
 				"userName" => trim($_POST['username']),
 				"uPhone" => trim($_POST['uPhone']),
 				"uLocation" => trim($_POST['uLocation']),
+				//company
+				"company" => trim($_POST['company']),
+				"compEmail" => trim($_POST['compEmail']),
+				"compPhone" => trim($_POST['compPhone']),
+				"compPosition" => trim($_POST['compPosition'])
+
 			];
 
 			$data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
@@ -51,18 +57,18 @@ class Users extends Controller
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 			$data = [
-				"comany" => trim($_POST['comany']),
+				"company" => trim($_POST['company']),
 				"compEmail" => trim($_POST['compEmail']),
 				"compPhone" => trim($_POST['compPhone']),
 				"compPosition" => trim($_POST['compPosition']),
-				"comany_err" => "",
+				"company_err" => "",
 				"compEmail_err" => "",
 				"compPhone_err" => "",
 				"compPosition_err" => "",
 			];
 			// comany validation
-			if (empty($data['comany'])) {
-				$data['comany_err'] = 'Please enter your Company\'s Name';
+			if (empty($data['company'])) {
+				$data['company_err'] = 'Please enter your Company\'s Name';
 			}
 			// compPosition validation
 			if (empty($data['compPosition'])) {

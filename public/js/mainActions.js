@@ -124,7 +124,7 @@ $(document).on('click','.next_fs', function(){
 			type:'POST',
 			dataType: 'json',
 			data: {
-				comany : comp,
+				company : comp,
 				compEmail : compEmail,
 				compPhone : compPhone,
 				compPosition : compPosition
@@ -167,7 +167,7 @@ $(document).on('click','.next_fs', function(){
 					}
 				}
 
-				console.log("jhbv");
+				console.log(comp);
 			},
 			error:function(err){
 				console.log(err);
@@ -202,7 +202,11 @@ $(document).on('click','.next_fs', function(){
 							uLocation : location,
 							username : userName,
 							password : passWord,
-							cpassword : cpassWord
+							cpassword : cpassWord,
+							company : comp,
+							compEmail : compEmail,
+							compPhone : compPhone,
+							compPosition : compPosition
 						},
 						success: function(data){
 							console.log(data);
@@ -253,7 +257,7 @@ $(document).on('click', '.successful-reg', function(){
 	$.ajax({
 		url:'../users',
 		success: function(){
-			 window.location.href = "../users";
+			 window.location.href = "../users/signin";
 			console.log("Redirected");
 		},
 		error :function(){

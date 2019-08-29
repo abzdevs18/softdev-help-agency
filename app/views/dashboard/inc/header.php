@@ -34,12 +34,12 @@
 					<ul>
 						<li>My Projects</li>
 						<li>Dashboards</li>
-							<a href="<?=URL_ROOT . '/pages/worker';?>">
+							<a href="<?=URL_ROOT . '/pages/worker';?>" style="text-decoration: none;">
 						<li id="account-profile">
 								<div id="account-thumbnail">
 									<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
 								</div>
-								<div>								
+								<div style="width: 85px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">								
 									<span style="font-weight: 700;"><?=$_SESSION['userName'];?></span>
 								</div>
 						</li>
