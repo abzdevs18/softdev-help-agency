@@ -7,8 +7,8 @@
 					<div class="header-menu">
 						<h3>Personal Information</h3>
 						<div class="type-account">
-							<span data-userType="1">Employer</span>
-							<span class="active-type-acc" data-userType="0">Worker</span>
+							<span class="acc-type" data-userType="1">Employer</span>
+							<span class="active-type-acc acc-type" data-userType="0">Worker</span>
 						</div>
 					</div>
 					<!-- Fields -->
@@ -168,8 +168,8 @@
 					</div>
 				</div>
 			</div>
-			<a href="#" data-form="2" data-animsition-out-class="fade-out-right" data-animsition-out-duration="2000" class="prev_fs" style="margin-left: 20px !important;margin-right: 10px;background: #d3d3d3;color: #666;"><i class="fal fa-angle-left"></i>&nbsp; Back</a>
-			<a href="#" data-action="next" class="next_fs">Next <i class="fal fa-angle-right"></i></a>
+			<a href="#" data-animsition-out-class="fade-out-right" data-animsition-out-duration="2000" class="prev_fs d" style="margin-left: 20px !important;margin-right: 10px;background: #d3d3d3;color: #666;"><i class="fal fa-angle-left"></i>&nbsp; Back</a>
+			<a href="#" data-form="2" data-action="next" class="next_fs">Next <i class="fal fa-angle-right"></i></a>
 		</form><!-- First Form if employer-->
 		<!-- Form for Companay information End's Here. -->
 		<form class="form-s animsition fade-in-right" data-animsition-in-class="fade-in-left" data-animsition-in-duration="400" data-animsition-out-class="fade-out-left" data-animsition-out-duration="500">
@@ -191,7 +191,7 @@
 					<div class="f-form passVal">
 						<label for="password">Password:</label>
 						<div class="ins-wrapper">
-							<input type="password" name="password" value="johnDoe132">
+							<input type="password" name="password">
 							<!-- Icon -->
 							<i class="fal fa-key"></i>
 						</div>
@@ -200,7 +200,7 @@
 					<div class="f-form cPassVal">
 						<label for="cpassword">Confirm Password:</label>
 						<div class="ins-wrapper">
-							<input type="password" name="cpassword" value="johnDoe132">
+							<input type="password" name="cpassword">
 							<!-- Icon -->
 							<i class="fal fa-key"></i>
 						</div>
@@ -238,7 +238,7 @@
 					</div>
 				</div>
 			</div>
-			<a href="#" data-action="next" data-animsition-out-class="fade-out-right" data-animsition-out-duration="2000" class="prev_fs" style="margin-left: 20px !important;margin-right: 10px;background: #d3d3d3;color: #666;"><i class="fal fa-angle-left"></i>&nbsp; Back</a>
+			<a href="#" data-animsition-out-class="fade-out-right" data-animsition-out-duration="2000" class="prev_fs" style="margin-left: 20px !important;margin-right: 10px;background: #d3d3d3;color: #666;"><i class="fal fa-angle-left"></i>&nbsp; Back</a>
 			<a href="#" data-form="3" class="next_fs">Next <i class="fal fa-angle-right"></i></a>
 		</form><!-- Second Form -->
 		<!-- Form for Credentials information Start's Here. -->

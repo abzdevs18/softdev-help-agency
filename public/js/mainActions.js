@@ -4,6 +4,7 @@
 
 // $(document).ready(function(){
 	var u_type = 0;
+
 	var remove = $('.comp-form').detach();
 	var status;
 // });
@@ -24,7 +25,7 @@ $(document).on('click','.type-account span',function(){
 		$('.comp-form').detach();
 	}	
 });
-$('.form-s').on('click','.next_fs', function(){
+$(document).on('click','.next_fs', function(){
 	event.preventDefault();
 
 	var current_f, next_f, prev_f;
@@ -129,7 +130,7 @@ $('.form-s').on('click','.next_fs', function(){
 				compPosition : compPosition
 			},
 			beforeSend: function(){
-				console.log("checking");
+				console.log("JOhn");
 			},
 			success: function(data){
 				if (data['status'] == 1) {
@@ -145,7 +146,7 @@ $('.form-s').on('click','.next_fs', function(){
 					}
 
 					if (data['compEmail_err']) {
-						/* Get the parent/container of the input field for firstname and */
+						 // Get the parent/container of the input field for firstname and 
 						feedbackShow("comEmailVal", data['compEmail_err']);
 					} else{
 						feedbackHide("comEmailVal");
@@ -165,6 +166,8 @@ $('.form-s').on('click','.next_fs', function(){
 						feedbackHide("comPosVal");
 					}
 				}
+
+				console.log("jhbv");
 			},
 			error:function(err){
 				console.log(err);
@@ -242,6 +245,10 @@ $('.form-s').on('click','.next_fs', function(){
 
 });
 
+// $(document).on('click', '.hko', function(){
+// 	console.log('Jhj');
+// });
+
 $(document).on('click', '.successful-reg', function(){
 	$.ajax({
 		url:'../users',
@@ -282,13 +289,16 @@ $(document).on('click', '.successful-reg', function(){
 // 	}
 
 // });
-$('.prev_fs').click(function(){
+
+$(document).on('click', '.prev_fs', function(){
 	var current_f, next_f, prev_f;
 
 	current_f = $(this).parent();
 	prev_f = $(this).parent().prev();
 	prev_f.show();
 	current_f.hide();
+
+	console.log('d');
 });
 
 $(document).on('click', '.dignin', function(){

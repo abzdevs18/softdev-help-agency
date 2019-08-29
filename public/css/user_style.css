@@ -81,6 +81,7 @@ Profile page top navigation right starts here
 	align-items: center;
 	/* font-weight: 600; */
 	color: #8e8e8e;
+	cursor: pointer;
 }
 #account-profile {
 	display: flex;

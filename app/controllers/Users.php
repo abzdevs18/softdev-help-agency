@@ -72,15 +72,19 @@ class Users extends Controller
 			if (empty($data['compEmail'])) {
 				$data['compEmail_err'] = 'Please enter your Company\'s email';
 			}else {
-				if ($this->userModel->findCompanyEmail($data['compEmail'])) {
-					$data['compEmail_err'] = 'Company email already taken exist!';
+				if (filter_var($data['compEmail'], FILTER_VALIDATE_EMAIL)) {
+					if ($this->userModel->findCompanyEmail($data['compEmail'])) {
+						$data['compEmail_err'] = 'Company email already taken exist!';
+					}
+				} else{
+					$data['compEmail_err'] = 'Make sure Company email is Valid!';					
 				}
 			}
 			// compPhone validation
 			if (empty($data['compPhone'])) {
 				$data['compPhone_err'] = 'Please enter your Company\'s phone number!';
 			}else {
-				if ($this->userModel->findUserEmail($data['uEmail'])) {
+				if ($this->userModel->findUserEmail($data['compEmail'])) {
 					$data['compPhone_err'] = 'Company phone number is already taken';
 				}
 			}
@@ -303,4 +307,6 @@ class Users extends Controller
 
 		redirect('users/signin');
 	}
+
+
 }

@@ -17,7 +17,7 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 <body>
-	<nav>
+	<nav style="position: sticky;top: 0px;background: #fff;z-index: 99;">
 		<div class="user-navigation">
 			<div class="logo-user">
 				<div class="l-r-prof">
@@ -25,7 +25,7 @@
 				</div>
 				<div class="search-field-prof">
 					<i class="fas fa-search"></i>
-					<input type="text" name="search" placeholder="search" id="prof-query">
+					<input type="text" name="search" placeholder="search" id="prof-query" autocomplete>
 					<span id="clear-search"><i class="far fa-times"></i></span>
 				</div>
 			</div>
@@ -34,14 +34,16 @@
 					<ul>
 						<li>My Projects</li>
 						<li>Dashboards</li>
+							<a href="<?=URL_ROOT . '/pages/worker';?>">
 						<li id="account-profile">
-							<div id="account-thumbnail">
-								<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
-							</div>
-							<div>								
-								<span style="font-weight: 700;"><?=$_SESSION['userName'];?></span>
-							</div>
+								<div id="account-thumbnail">
+									<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
+								</div>
+								<div>								
+									<span style="font-weight: 700;"><?=$_SESSION['userName'];?></span>
+								</div>
 						</li>
+							</a>
 					</ul>
 				</div>
 				<div style="width: auto;border: 0.1em solid #f4f4f4;border-radius: 15px;">
