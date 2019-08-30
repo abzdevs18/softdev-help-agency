@@ -14,7 +14,7 @@
 		@import url("<?=URL_ROOT;?>/css/static_style.css");
 	</style>
 </head>
-<body>
+<body style="width: auto !important;">
 	<main>
 		<header class="dashboard-nav">
 			<div id="add-post">
@@ -63,7 +63,7 @@
 						</div>
 					</div>
 					<nav>
-						<ul id="menus-nav">
+						<ul id="menus-nav" style="padding-inline-start: 0 !important;">
 							<li>
 								<i class="fal fa-chart-bar"></i>
 								<a href="#"> Insights</a>
