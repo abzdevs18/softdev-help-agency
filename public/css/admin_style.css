@@ -13,7 +13,7 @@
  	flex-direction: column;
  }
  .dashboard-nav {
- 	/* width: 100%; */
+ 	width: 100%;
  	box-shadow: var(--box-shadow);
  	padding: 20px 60px;
  	z-index: 9999;

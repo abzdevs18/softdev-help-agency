@@ -13,6 +13,10 @@ class Pages extends Controller
 
 	public function index(){
 		// $posts = $this->Model->getPosts();
+		//if the user is loggedIn this will prevent them to back into index page
+		if (isLoggedIn()) {
+			redirect('users');
+		}
 
 		$data = [
 			'title' => 'Welcome'
