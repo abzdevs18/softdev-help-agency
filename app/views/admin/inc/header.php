@@ -18,7 +18,7 @@
 	<main>
 		<header class="dashboard-nav">
 			<div id="add-post">
-				<a href="#"><i class="fal fa-bookmark"></i> Post Job</a>
+				<a href="<?=URL_ROOT;?>/admin/jobPost"><i class="fal fa-bookmark"></i> Post Job</a>
 				<div id="notif-icon">
 					<button><i class="fal fa-bell"></i></button>
 				</div>
@@ -58,41 +58,41 @@
 								<p>Administrator</p>
 							</div>
 							<div id="admin-edit">
-								<a href="#"><i class="fal fa-pencil"></i></a>
+								<a href="<?=URL_ROOT;?>/admin/profile"><i class="fal fa-pencil"></i></a>
 							</div>
 						</div>
 					</div>
 					<nav>
-						<ul id="menus-nav" style="padding-inline-start: 0 !important;">
-							<li>
+						<ul id="menus-nav">
+							<li data-link="<?=URL_ROOT;?>/admin" class="menu-active">
 								<i class="fal fa-chart-bar"></i>
 								<a href="#"> Insights</a>
 							</li>
-							<li>
+							<li data-link="<?=URL_ROOT;?>/admin/profile">
 								<i class="fal fa-cog"></i>
-								<a href="update-prof.php"> Profile settings</a>
+								<a href="#"> Profile settings</a>
 							</li>
-							<li>
+							<li data-link="<?=URL_ROOT;?>/admin/posted">
 								<i class="fal fa-cubes"></i>
 								<a href="#"> Posted Jobs</a>
 							</li>
-							<li>
+							<li data-link="<?=URL_ROOT;?>/admin/biddings">
 								<i class="fal fa-envelope"></i>
 								<a href="#"> Biddings/Messages</a>
 							</li>
-							<li>
+							<li data-link="<?=URL_ROOT;?>/admin/payments">
 								<i class="fal fa-shopping-cart"></i>
 								<a href="#"> Payments</a>
 							</li>
-							<li>
+							<li data-link="<?=URL_ROOT;?>/admin/favorites">
 								<i class="fal fa-heart"></i>
 								<a href="#"> My favorites</a>
 							</li>
-							<li>
+							<li data-link="<?=URL_ROOT;?>/admin/privacy">
 								<i class="fal fa-shield-check"></i>
 								<a href="#"> Privacy settings</a>
 							</li>
-							<li>
+							<li data-link="<?=URL_ROOT;?>/admin/logout">
 								<i class="fal fa-sign-out"></i>
 								<a href="#"> Logout</a>
 							</li>

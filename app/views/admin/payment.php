@@ -1,7 +1,5 @@
-<?php
-	require_once 'head.php';
+<?php require_once APP_ROOT . '/views/admin/inc/header.php'; ?>
 
-	?>
 	<section class="tg-dash">
 		<h1>Payments</h1>
 	</section>
@@ -86,7 +84,4 @@
 		</div>
 	</section>
 
-<?php
-	require_once 'footer.php';
-
-	?>
+<?php require_once APP_ROOT . '/views/admin/inc/footer.php'; ?>

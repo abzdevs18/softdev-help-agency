@@ -1,4 +1,7 @@
-
+* {
+	padding: 0;
+	margin: 0;
+}
  a {
  	text-decoration: none;
  }
@@ -13,7 +16,7 @@
  	flex-direction: column;
  }
  .dashboard-nav {
- 	width: 100%;
+ 	/* width: 100%; */
  	box-shadow: var(--box-shadow);
  	padding: 20px 60px;
  	z-index: 9999;
@@ -221,6 +224,10 @@ End amdin profile
  	background-color: #2b2f3e;
  	border-left-color: #00cc67;
  }
+.menu-active {
+ 	background-color: #2b2f3e;
+ 	border-left-color: #00cc67 !important;	
+}
 #menus-nav li i {
 	color: #fff;
 	padding-right: 10px;
@@ -372,9 +379,12 @@ offices Messages
 #log {
 	padding: 20px;
 }
-#log ul {
+#content-log-list li {
 	border-left: var(--border-2px);
 	position: relative;
+}
+#content-log-list li:last-child {
+	border-left: none;
 }
 #content-log-list li {
 	list-style-type: none;
@@ -394,7 +404,7 @@ offices Messages
 	border: 2px solid #ddd;
 }
 #content-log-list li:last-child {
-	border: none;
+	left: 2px;
 }
 #content-log-list li h3 {
 	font:var(--font-quick-500-14);

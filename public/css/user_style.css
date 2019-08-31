@@ -129,6 +129,8 @@ dashboard secondary menu
 #menus-prof-dashboard {
 	padding: 0px 60px;
 	background: var(--hover-dark-font);
+	display: flex;
+	justify-content: space-between;
 }
 #menus-prof-dashboard ul {
 	display: flex;
@@ -667,4 +669,20 @@ Messaging
 .c- {
 	display: flex;
 	flex-direction: column;
+}
+.user_type-post {
+    padding: 0 30px;
+    font-size: 14px;
+    line-height: 60px;
+    background-color: #FF9000;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 3px;
+    border: none;
+    line-height: 30px;
+    text-transform: capitalize;
+    cursor: pointer;
 }

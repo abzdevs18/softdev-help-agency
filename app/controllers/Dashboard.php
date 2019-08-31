@@ -25,4 +25,8 @@ class Dashboard extends Controller
 	public function feedback(){
 		$this->view("dashboard/feedback");
 	}
+
+	public function postJob(){
+		$this->view("dashboard/job-post");
+	}
 }

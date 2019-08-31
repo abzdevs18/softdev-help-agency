@@ -8,7 +8,11 @@ class Pages extends Controller
 	function __construct()
 	{
 
-		// $this->Model = $this->model('Post');
+		$this->Model = $this->model('admin');
+
+		if (!$this->Model->isAdminFound()) {
+			redirect('admin/sf_admin');
+		}
 	}
 
 	public function index(){

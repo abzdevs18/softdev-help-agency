@@ -62,7 +62,13 @@
 			<li class="active-second-menu"><a href="<?=URL_ROOT . '/dashboard';?>">My Projects</a></li>
 			<li><a href="<?=URL_ROOT . '/dashboard';?>">Dashboard</a></li>
 			<li><a href="<?=URL_ROOT . '/dashboard/message';?>">Inbox</a></li>
-			<li><a href="<?=URL_ROOT . '/dashboard/feedback';?>">Feedback</a></li>
+			<li><a href="<?=URL_ROOT . '/dashboard/feedback';?>">Feedback</a></li>			
 		</ul>
+
+		<?php if($_SESSION['user_type'] == 1) :?>
+			<div style="line-height: 56px;">
+				<a href="<?=URL_ROOT . '/dashboard/postJob';?>" class="user_type-post">Post Job</a>
+			</div>
+		<?php endif; ?>
 	</section>
 

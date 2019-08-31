@@ -24,3 +24,11 @@ $(document).on('click','.ctl-msg',function(){
 		console.log($(this).text().length);
 	});
 });
+
+$(document).on('click', '#menus-nav > li', function(){
+	var link = $(this).attr('data-link');
+	window.location.href= link;
+	$('#menus-nav li').removeClass('menu-active');
+	$(this).addClass('menu-active');
+	console.log(link);
+});

@@ -8,8 +8,13 @@ class Users extends Controller
 	function __construct()
 	{
 		$this->userModel = $this->model('User');
+		$this->adminModel = $this->model('Admin');
+		if (!$this->adminModel->isAdminFound()) {
+			redirect('admin/sf_admin');
+		}
 
 	}
+
 	public function index(){
 		if (isLoggedIn()) {
 			redirect("dashboard");
@@ -231,6 +236,7 @@ class Users extends Controller
 			$this->view("users/signup");
 		}
 	}
+
 	public function signin(){
 		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -303,16 +309,17 @@ class Users extends Controller
 		$_SESSION['uId'] = $user->usr_id;
 		$_SESSION['userName'] = $user->usrName;
 		$_SESSION['email'] = $user->usrEmail;
+		$_SESSION['user_type'] = $user->uType;
 	}
 
 	public function signout() {
 		unset($_SESSION['uId']);
 		unset($_SESSION['userName']);
 		unset($_SESSION['email']);
+		unset($_SESSION['user_type']);
 		session_destroy();
 
 		redirect('users/signin');
 	}
-
 
 }

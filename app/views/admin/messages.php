@@ -1,7 +1,5 @@
-<?php
-	require_once 'head.php';
+<?php require_once APP_ROOT . '/views/admin/inc/header.php'; ?>
 
-	?>
 	<section class="tg-dash">
 		<h1>Job Followed</h1>
 	</section>
@@ -29,7 +27,7 @@
 						<ul class="jobs-updates bidders">
 							<li>
 								<div>
-									<img src="assets/img/icons/small-prof.jpg" /> <span>Lissa Heir</span>								
+									<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" /> <span>Lissa Heir</span>								
 								</div>
 								<div class="pep-chat-list">
 									<span class="trash"><i class="fal fa-trash"></i></span>	
@@ -41,7 +39,7 @@
 					<div class="msgs-3-col-item">
 						<div class="message-container">
 							<div class="message-reciever">
-								<img src="assets/img/icons/small-prof.jpg" />
+								<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" />
 								<div class="msg-content">
 									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
 									cillum dolore eu fugiat nulla pariatur.</p>
@@ -54,10 +52,10 @@
 									cillum dolore eu fugiat nulla pariatur.</p>
 									<span>Jan. 13, 2019 <i class="far fa-check"></i></span>
 								</div>
-								<img src="assets/img/icons/small-prof.jpg" />
+								<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" />
 							</div>
 							<div class="message-reciever">
-								<img src="assets/img/icons/small-prof.jpg" />
+								<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" />
 								<div class="msg-content">
 									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
 									cillum dolore eu fugiat nulla pariatur.</p>
@@ -65,7 +63,7 @@
 								</div>
 							</div>
 							<div class="message-reciever">
-								<img src="assets/img/icons/small-prof.jpg" />
+								<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" />
 								<div class="msg-content">
 									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
 									cillum dolore eu fugiat nulla pariatur.</p>
@@ -93,7 +91,4 @@
 	</section>
 
 
-<?php
-	require_once 'footer.php';
-
-	?>
+<?php require_once APP_ROOT . '/views/admin/inc/footer.php'; ?>
