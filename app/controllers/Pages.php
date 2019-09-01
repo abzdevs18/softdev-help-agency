@@ -44,6 +44,22 @@ class Pages extends Controller
 		$this->view("pages/about", $data);
 	}
 
+	public function job_details(){
+		$this->view("pages/job-details");
+	}
+
+	public function companyProfile(){
+		$this->view("pages/company-profile");
+	}
+
+	public function worker_details(){
+		if (isLoggedIn()) {
+			$this->view("pages/worker");
+			redirect("pages/worker");
+		}
+		$this->view("users/signin");
+	}
+
 	public function how_it_works(){
 		$data = [
 			'title' => 'Welcome to about'

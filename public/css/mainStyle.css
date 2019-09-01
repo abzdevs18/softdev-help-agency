@@ -355,6 +355,11 @@ Job Listing
 	font-size: 28px;
 	font-weight: 600;
 }
+.job-d > div > p:first-child {
+    font: var(--font-quick-500-18);
+    font-weight: 600;
+    color: #0054ff;
+}
 .job-title a, .featured-works-container a {
 	background: #0054ff;
 	color: #fff;
@@ -787,6 +792,7 @@ candidate design
 }
 .list_transition:hover {
 	box-shadow: 0 0 30px rgba(134, 134, 134, 0.22);
+	background-color: #f4f4f4;
 	border-color: transparent;
 	position: relative;
 	z-index: 1;

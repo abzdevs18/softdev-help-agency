@@ -53,187 +53,51 @@
 					</div>					
 				</div>
 				<div id="job-listing">
-					<div class="latest-job list_transition">
-						<div>							
-							<div class="job-title">
-								<div>
-									<p>Digital Marketing executive</p>
+					<?php for ($i=1; $i < 10; $i++) : ?>
+						<div class="latest-job list_transition" data-postID="<?=$i?>">
+							<div>							
+								<div class="job-title">
+									<div>
+										<p>Digital Marketing executive</p>
+									</div>
+									<!-- Temporart = #E80031 
+										 Freelance = #597B8E	-->
+									<a href="#">part time</a>
 								</div>
-								<!-- Temporart = #E80031 
-									 Freelance = #597B8E	-->
-								<a href="#">part time</a>
-							</div>
-							<div class="details-jobs">
-								<div class="education">
-									<p>Education: <span>At least graduation.</span></p>
-								</div>
-								<div class="deadline">
-									<p>Deadline: <span>25th January 2018</span></p>
-								</div>
-								<div class="location">
-									<i class="fas fa-map-marker-alt"></i><span>Western City, UK</span>
-								</div>
-								<div style="float: right;margin-right: 15px;">
-									<img src="<?=URL_ROOT;?>/img/companies/full.png">
+								<div class="details-jobs">
+									<div class="education">
+										<p>Education: <span>At least graduation.</span></p>
+									</div>
+									<div class="deadline">
+										<p>Deadline: <span>25th January 2018</span></p>
+									</div>
+									<div class="location">
+										<i class="fas fa-map-marker-alt"></i><span>Western City, UK</span>
+									</div>
+									<div style="float: right;margin-right: 15px;">
+										<img src="<?=URL_ROOT;?>/img/companies/full.png">
+									</div>
 								</div>
 							</div>
-						</div>
-						<div style="width: 100%;height: 50px;">
-							<ul class="job-skills">
-								<li>
-									<a href="#">Carpenter</a>
-								</li>
-								<li>
-									<a href="#">Farming</a>
-								</li>
-								<li>
-									<a href="#">Piping</a>
-								</li>
-								<li>
-									<a href="#">Architect</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- end -->
-					<div class="latest-job list_transition">
-						<div class="job-title">
-							<div>
-								<p>Data Entry Operatior</p>
-							</div>
-							<a href="#" style="background-color: #E80031;">temporary</a>
-						</div>
-						<div class="details-jobs">
-							<div class="education">
-								<p>Education: <span>At least graduation.</span></p>
-							</div>
-							<div class="deadline">
-								<p>Deadline: <span>25th January 2018</span></p>
-							</div>
-							<div class="location">
-								<i class="fas fa-map-marker-alt"></i><span>Western City, UK</span>
-							</div>
-							<div style="float: right;margin-right: 15px;">
-								<img src="<?=URL_ROOT;?>/img/companies/logo2.png">
+							<div style="width: 100%;height: 50px;">
+								<ul class="job-skills">
+									<li>
+										<a href="#">Carpenter</a>
+									</li>
+									<li>
+										<a href="#">Farming</a>
+									</li>
+									<li>
+										<a href="#">Piping</a>
+									</li>
+									<li>
+										<a href="#">Architect</a>
+									</li>
+								</ul>
 							</div>
 						</div>
-					</div>
-					<!-- end -->
-					<div class="latest-job list_transition">
-						<div class="job-title">
-							<div>
-								<p>Mockup Design - PS or Sketch</p>
-							</div>
-							<a href="#" style="background-color: #597B8E;">temporary</a>
-						</div>
-						<div class="details-jobs">
-							<div class="education">
-								<p>Education: <span>At least graduation.</span></p>
-							</div>
-							<div class="deadline">
-								<p>Deadline: <span>25th January 2018</span></p>
-							</div>
-							<div class="location">
-								<i class="fas fa-map-marker-alt"></i><span>Western City, UK</span>
-							</div>
-							<div style="float: right;margin-right: 15px;">
-								<img src="<?=URL_ROOT;?>/img/companies/logo1.png">
-							</div>
-						</div>
-					</div>
-					<!-- end -->
-					<div class="latest-job list_transition">
-						<div class="job-title">
-							<div>
-								<p>Data Entry Operatior</p>
-							</div>
-							<a href="#" style="background-color: #E80031;">temporary</a>
-						</div>
-						<div class="details-jobs">
-							<div class="education">
-								<p>Education: <span>At least graduation.</span></p>
-							</div>
-							<div class="deadline">
-								<p>Deadline: <span>25th January 2018</span></p>
-							</div>
-							<div class="location">
-								<i class="fas fa-map-marker-alt"></i><span>Western City, UK</span>
-							</div>
-							<div style="float: right;margin-right: 15px;">
-								<img src="<?=URL_ROOT;?>/img/companies/logo2.png">
-							</div>
-						</div>
-					</div>
-					<!-- end -->
-					<div class="latest-job list_transition">
-						<div class="job-title">
-							<div>
-								<p>Mockup Design - PS or Sketch</p>
-							</div>
-							<a href="#" style="background-color: #597B8E;">temporary</a>
-						</div>
-						<div class="details-jobs">
-							<div class="education">
-								<p>Education: <span>At least graduation.</span></p>
-							</div>
-							<div class="deadline">
-								<p>Deadline: <span>25th January 2018</span></p>
-							</div>
-							<div class="location">
-								<i class="fas fa-map-marker-alt"></i><span>Western City, UK</span>
-							</div>
-							<div style="float: right;margin-right: 15px;">
-								<img src="<?=URL_ROOT;?>/img/companies/logo1.png">
-							</div>
-						</div>
-					</div>
-					<!-- end -->
-					<div class="latest-job list_transition">
-						<div class="job-title">
-							<div>
-								<p>Data Entry Operatior</p>
-							</div>
-							<a href="#" style="background-color: #E80031;">temporary</a>
-						</div>
-						<div class="details-jobs">
-							<div class="education">
-								<p>Education: <span>At least graduation.</span></p>
-							</div>
-							<div class="deadline">
-								<p>Deadline: <span>25th January 2018</span></p>
-							</div>
-							<div class="location">
-								<i class="fas fa-map-marker-alt"></i><span>Western City, UK</span>
-							</div>
-							<div style="float: right;margin-right: 15px;">
-								<img src="<?=URL_ROOT;?>/img/companies/logo2.png">
-							</div>
-						</div>
-					</div>
-					<!-- end -->
-					<div class="latest-job list_transition">
-						<div class="job-title">
-							<div>
-								<p>Mockup Design - PS or Sketch</p>
-							</div>
-							<a href="#" style="background-color: #597B8E;">temporary</a>
-						</div>
-						<div class="details-jobs">
-							<div class="education">
-								<p>Education: <span>At least graduation.</span></p>
-							</div>
-							<div class="deadline">
-								<p>Deadline: <span>25th January 2018</span></p>
-							</div>
-							<div class="location">
-								<i class="fas fa-map-marker-alt"></i><span>Western City, UK</span>
-							</div>
-							<div style="float: right;margin-right: 15px;">
-								<img src="<?=URL_ROOT;?>/img/companies/logo1.png">
-							</div>
-						</div>
-					</div>
-					<!-- end -->
+						<!-- end -->
+					<?php endfor; ?>
 				</div>
 				<div id="showmore-btn">
 					<a href="#">view more jobs</a>

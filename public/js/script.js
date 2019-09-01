@@ -27,17 +27,27 @@ $(document).on('click','.filter-btn',function(){
 });
 
 /*From somewhere else*/
-$(document).on('click','.latest-job',function(){
-	window.location.href="job-details.php";
+$(document).on('click', '.latest-job', function(){
+	var id = $(this).attr('data-postID');
+	window.location.href = "pages/job_details";
+	console.log(id);
 });
 
+/*Clicking the link to the Worker's profile*/
+$(document).on('click','.candidate', function(){
+	window.location.href = "../pages/worker_details";
+});
+
+$(document).on('click', '#company-link', function(){
+	window.location.href = "../pages/companyProfile";
+});
 /*
 redirecting to cadidate info
 */
 
-$(document).on('click','.candidate',function(){
-	window.location.href="worker.php";
-});
+// $(document).on('click','.candidate',function(){
+// 	window.location.href="worker.php";
+// });
 
 /*$(document).on('click','.nav',function(){
 	var page = $(this).data("page");
@@ -55,10 +65,20 @@ $(document).on('click','.candidate',function(){
 		window.location.href="contact.php";
 	}
 });*/
+$(document).on('click','.ctl-msg',function(){
+	$('.ctl-msg label').hide();
+	$(this).focusout(function(e){
+		console.log($(this).text().length);
+	});
+});
 
 
-$(document).on('click','.company-logo',function(){
-	var company_link = $(this).data('comname');
+// $(document).on('click','.company-logo',function(){
+// 	var company_link = $(this).data('comname');
 	
-	window.location.href="company-profile.php";
+// 	window.location.href="company-profile.php";
+// });
+
+$(".user-items").hover(function(){
+	console.log('jh');
 });

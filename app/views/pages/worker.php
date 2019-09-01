@@ -10,7 +10,7 @@
 						<div class="candidate">
 							<div class="candidate-details" style="width: auto;">
 								<div class="candidate_photo">
-									<img src="assets/img/profiles/prof.png">
+									<img src="<?=URL_ROOT?>/img/profiles/prof.png">
 								</div>
 								<div class="candidate_text-content">
 									<span class="candidate_designation">UI/UX DESIGNER</span>

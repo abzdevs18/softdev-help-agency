@@ -17,11 +17,12 @@ nav {
 	justify-content: space-between;
 }
 .logo-user {
-	width: calc( 100% - 550px );
+	/* width: calc( 100% - 550px ); */
 	display: flex;
 	flex-direction: row;
 	/* justify-content: center; */
 	align-items: center;
+	width: 45%;
 }
 .l-r-prof {
 	width: 120px;
@@ -36,9 +37,10 @@ nav {
 	background: #f3f3f3;
 	padding: 10px 15px;
 	border-radius: 5px;
-	width: calc( 80% - 100px );
+	/* width: calc( 80% - 100px ); */
 	display: flex;
 	align-items: center;
+	width: 100%;
 }
 .search-field-prof i {
 	font-size: 18px;
@@ -66,9 +68,9 @@ nav {
 Profile page top navigation right starts here
 */
 .user-right-nav {
-	/* width: 35%; */
+	width: 55%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 }
 #nav-links ul {
 	list-style-type: none;
@@ -131,6 +133,9 @@ dashboard secondary menu
 	background: var(--hover-dark-font);
 	display: flex;
 	justify-content: space-between;
+	position: sticky;
+	top: 88px;
+	z-index: 3;
 }
 #menus-prof-dashboard ul {
 	display: flex;
@@ -496,15 +501,20 @@ Messaging
 #msg-container {
 	width: 100%;
 	height: 100vh;
-	background: #999;
+	/* background: #999; */
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
 .list-of-connections {
-	width: 20%;
-	height: 100vh;
+	width: 22%;
+	/* height: 100%; */
 	background: #fff;
+	position: fixed;
+	left: 0;
+	top: 174px;
+	margin-bottom: 10px;
+	bottom: 40px;
 }
 #connection-search {
 	border: var(--border);
@@ -512,6 +522,9 @@ Messaging
 	display: flex;
 	flex-direction: row;
 	border-radius: 4px;
+	/* position: sticky; */
+	top: 174px;
+	/* bottom: 0; */
 }
 #connection-search input{
 	width: 100%;
@@ -526,18 +539,22 @@ Messaging
 #users {
 	display: flex;
 	flex-direction: column;
+	overflow: auto;
+	height: 100%;
+	/* bottom: 0; */
+	/* top: 0; */
 }
 .user-items {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
-	margin: 5px 7px;
+	/* margin: 5px 7px; */
 	padding: 5px 7px;
 	cursor: pointer;
 	transition: all .5s ease-in-out;
 }
 .user-items:hover {
 	box-shadow: var(--box-shadow);
+	background: #f3f3f3;
 }
 .convo-prof {
 	width: 50px;
@@ -550,6 +567,7 @@ Messaging
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	width: 100%;
 }
 .list-data {
 	display: flex;
@@ -574,10 +592,11 @@ font: var(--font-quick-400-13);
 min-width: 60px;
 }
 .conversation {
-	width: 60%;
-	height: 100vh;
+	width: 58%;
+	height: calc( 100% - 80px );
 	background: #f4f4f4;
-	position: relative;
+	position: fixed;
+	left: 22%;
 }
 .conversation-details {
 	width: 20%;
@@ -585,6 +604,8 @@ min-width: 60px;
 	background: #fff;
 	display: flex;
 	flex-direction: column;
+	right: 0;
+	position: fixed;
 }
 .conversation-about {
 	padding-bottom: 20px;
@@ -686,3 +707,185 @@ Messaging
     text-transform: capitalize;
     cursor: pointer;
 }
+.msgs-3-col-item {
+	/* width: 90%; */
+	height: calc( 100% - 80px );
+	/* overflow: auto; */
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	/* margin-bottom: 80px; */
+}
+.message-container {
+	margin: 5px;
+	/* max-height: calc( 100% - 80px ); */
+	/* background: red; */
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	height: calc( 100% - 110px );
+	bottom: 10px;
+	position: relative;
+}
+.message-reciever, .current-user-sender {
+	/*width: calc( 100% - 8px );*/
+	/* min-height: 100px; */
+	margin: 4px;
+	display: flex;
+	padding-right: 60px;
+	position: relative;
+	flex-direction: row;
+	color: #666;
+	margin-bottom: 15px;
+}
+.message-reciever > img, .current-user-sender img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    align-self: baseline;
+    bottom: -10px;
+    position: absolute;
+}
+.msg-content {
+    margin-left: 35px;
+    float: right;
+}
+.msg-content > p {
+    background: #fff;
+    padding: 12px 15px;
+    border-radius: 11px 11px 11px 4px;
+    font: var(--font-quick-400-13);
+    /* line-height: 20px; */
+    background: var(--dark-font);
+    color: #fff;
+}
+.msg-content span {
+    font: var(--font-quick-400-13);
+}
+.current-user-sender {
+    padding-left: 20px;
+    float: right;
+    padding-right: 35px;
+    display: flex !important;
+    justify-content: flex-end;
+}
+.message-reciever, .current-user-sender {
+    /* width: calc( 100% - 8px ); */
+    /* min-height: 100px; */
+    margin: 4px;
+    display: flex;
+    /* padding-right: 60px; */
+    position: relative;
+    flex-direction: row;
+    color: #666;
+    margin-bottom: 15px;
+}
+.current-user-sender .msg-content {
+    text-align: right;
+}
+.current-user-sender .msg-content p {
+    border-radius: 11px 11px 4px 11px;
+    text-align: right;
+    background: var(--back-light-green);
+}
+.msg-content span {
+    font: var(--font-quick-400-13);
+}
+.current-user-sender img {
+    right: 0;
+}
+.message-reciever > img, .current-user-sender img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    align-self: baseline;
+    bottom: -10px;
+    position: absolute;
+}
+.msgs-3-col-item > .input-msgs-content {
+    /* height: 100px; */
+    position: relative;
+    z-index: 3333;
+    padding: 10px;
+    /* margin-bottom: -30px; */
+    position: fixed;
+    /* width: 100%; */
+    bottom: 0;
+    right: 20%;
+    left: 22%;
+    background: #fff;
+}
+.container-of-msgs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: var(--border);
+    border-radius: 4px;
+}
+.ctl-msg {
+    height: 65px;
+    position: relative;
+    outline: none;
+    padding: 5px;
+    overflow: auto;
+    font: var(--font-quick-400-13);
+}
+.cta-buttons {
+    float: left;
+    padding: 8px;
+    text-align: right;
+    border-top: 1px solid #eaedef;
+}
+.ctl-msg label {
+    position: absolute;
+    top: 0;
+    margin: 5px 0px;
+    font: var(--font-quick-400-13);
+    color: #999;
+}
+.cta-buttons i {
+    margin-right: 6px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.cta-buttons span {
+    font: var(--font-quick-500-14);
+    background: #FF9000;
+    color: #fff;
+    padding: 4px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/*
+* @desc Style for posting a job
+*/
+.jobPost {
+	width: 100%;
+	margin: 0 auto;
+}
+.jobPost form {
+	width: 80%;
+	margin: 0 auto;
+}
+.jobPost-progress {
+	display: flex;
+	flex-direction: row;
+	counter-reset: step;
+	text-align: center;
+	justify-content: center;
+}
+.jobPost-progress li {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+.jobPost-progress li:before {
+	content: counter(step);
+	counter-increment: step;
+}
+
+
+

@@ -78,7 +78,7 @@
 	position: relative;
 	width: calc( 100% - 10px );
 }
-.ins-wrapper input {
+.ins-wrapper input, .ins-wrapper select {
 	width: calc( 100% - 20px );
 }
 .f-form label {
@@ -87,7 +87,7 @@ font-weight: 600;
 margin: 6px 0px;	
 color: #444;
 }
-.f-form input {background: none;border: 1px solid #999;padding: 10px 15px;font-size: 15px;border-radius: 4px;outline: none;color: #666;border-color: #333;}
+.f-form input, .f-form select {background: none;border: 1px solid #999;padding: 10px 15px;font-size: 15px;border-radius: 4px;outline: none;color: #666;border-color: #333;}
 .ins-wrapper i {
     position: absolute;
     right: 0;

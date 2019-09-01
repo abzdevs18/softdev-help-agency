@@ -25,6 +25,7 @@ $(document).on('click','.type-account span',function(){
 		$('.comp-form').detach();
 	}	
 });
+
 $(document).on('click','.next_fs', function(){
 	event.preventDefault();
 
@@ -246,12 +247,7 @@ $(document).on('click','.next_fs', function(){
 		});
 		console.log("Form Two");
 	} //end of form 
-
 });
-
-// $(document).on('click', '.hko', function(){
-// 	console.log('Jhj');
-// });
 
 $(document).on('click', '.successful-reg', function(){
 	$.ajax({
@@ -265,34 +261,6 @@ $(document).on('click', '.successful-reg', function(){
 		}
 	});
 });
-
-// $(document).on('click', '.type-account span', function(){
-// 	u_type = $(this).attr('data-userType');
-// 	if (u_type == 1) {
-// 		$('.signup-form').append(remove);
-// 	} else if (u_type == 0) {
-// 		$('.signup-form').detach(remove);
-// 	}
-// 	console.log(u_type);
-// });
-
-
-/**
-* script for form progress
-*/
-// $('.next_fs').click(function(){
-// 	var current_f, next_f, prev_f;
-// 	current_f = $(this).parent();
-// 	next_f = $(this).parent().next();
-
-// 	if (status == 1) {
-
-// 		next_f.show();
-// 		current_f.hide();
-
-// 	}
-
-// });
 
 $(document).on('click', '.prev_fs', function(){
 	var current_f, next_f, prev_f;
@@ -343,6 +311,8 @@ $(document).on('click', '.dignin', function(){
 		}
 	});
 });
+
+
 
 /*This two function below will show and hide the feedback during the validation process*/
 function feedbackDefault(container){

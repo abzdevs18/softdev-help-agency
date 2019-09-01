@@ -4,13 +4,14 @@
 	</main>
 	<section style="width: 100%;margin: 0 auto;position: relative;">
 		<div style="width: 85%;margin: 0 auto;margin-top: -250px;">
-			<div style="width: 60%;height: 100px;padding-top: 65px;padding-bottom: 120px;display: flex;flex-direction: row;">
-				<div class="image-job company-logo" data-comname="mac" style="width: 100px;height: 100px;margin-right: 15px;">
-					<img src="assets/img/companies/full.png" style="margin: 10px;">
+			<div style="width: 60%;padding-bottom: 120px;display: flex;flex-direction: row;">
+				<div class="image-job company-logo" id="company-link" data-comname="mac" style="width: 100px;height: 100px;margin-right: 15px;">
+					<img src="<?=URL_ROOT;?>/img/companies/full.png" style="margin: 10px;">
 				</div>
 				<div style="width: calc( 100% - 100px );">							
-					<div class="job-title">
+					<div class="job-title job-d">
 						<div>
+							<p>P 23, 000.00 <span style="color: #333;font-size: 14px;">/hr</span></p>
 							<p>Digital Marketing executive</p>
 						</div>
 						<!-- Temporart = #E80031 
@@ -146,10 +147,10 @@ Ad provident excepturi consequatur quis corporis iste tempore. Adipisci nisi ad 
 						</div>
 						<div class="freelancer-list">
 							<!-- Job Bidder's start here -->
-							<div class="candidate list_transition">
+							<div class="candidate list_transition" data-workerID="1">
 								<div class="candidate-details">
 									<div class="candidate_photo">
-										<img src="assets/img/profiles/prof.png">
+										<img src="<?=URL_ROOT;?>/img/profiles/prof.png">
 									</div>
 									<div class="candidate_text-content">
 										<span class="candidate_designation">UI/UX DESIGNER</span>

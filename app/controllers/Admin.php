@@ -16,7 +16,12 @@ class Admin extends Controller
 	}
 
 	public function index(){
-		$this->view('admin/index');
+		if (isLoggedIn() && $_SESSION['user_type'] == 1) {
+			# code...
+			$this->view('admin/index');
+		}else {
+			redirect('users/index');
+		}
 	}
 
 	public function profile(){

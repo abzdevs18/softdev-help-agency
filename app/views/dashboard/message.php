@@ -7,74 +7,73 @@
 					<i class="far fa-search"></i>
 				</div>	
 				<div id="users">
-					<div class="user-items">
-						<div class="convo-prof">
-							<img src="<?php echo URL_ROOT. '/img/profiles/prof.png' ?>">
-						</div>
-						<div class="convo-">
-							<div class="list-data">
-								<h3>Name of worker</h3>
-								<span>10:23 am</span>								
+					<?php for($i = 0; $i < 20; $i++):?>
+						<div class="user-items">
+							<div class="convo-prof">
+								<img src="<?php echo URL_ROOT. '/img/profiles/prof.png' ?>">
 							</div>
-							<div class="convo-inf">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							</div>
-						</div>
-					</div>
-					<div class="user-items">
-						<div class="convo-prof">
-							<img src="<?php echo URL_ROOT. '/img/profiles/prof.png' ?>">
-						</div>
-						<div class="convo-">
-							<div class="list-data">
-								<h3>Name of worker</h3>
-								<span>10:23 am</span>								
-							</div>
-							<div class="convo-inf">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<div class="convo-">
+								<div class="list-data">
+									<h3>Name of worker</h3>
+									<span>10:23 am</span>								
+								</div>
+								<div class="convo-inf">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="user-items">
-						<div class="convo-prof">
-							<img src="<?php echo URL_ROOT. '/img/profiles/prof.png' ?>">
-						</div>
-						<div class="convo-">
-							<div class="list-data">
-								<h3>Name of worker</h3>
-								<span>10:23 am</span>								
-							</div>
-							<div class="convo-inf">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							</div>
-						</div>
-					</div>
+					<?php endfor; ?>
 				</div>
 			</div>
 			<div class="conversation">
-				<div class="c-">
-					<div>
-						
+					<div class="msgs-3-col-item">
+						<div class="message-container">
+							<?php for($i = 0; $i < 20; $i++):?>
+								<div class="message-reciever">
+									<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" />
+									<div class="msg-content">
+										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+										cillum dolore eu fugiat nulla pariatur.</p>
+										<span>Jan. 13, 2019</span>
+									</div>
+								</div>
+								<div class="current-user-sender">
+									<div class="msg-content">
+										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+										cillum dolore eu fugiat nulla pariatur.</p>
+										<span>Jan. 13, 2019 <i class="far fa-check"></i></span>
+									</div>
+									<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" />
+								</div>
+								<div class="message-reciever">
+									<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" />
+									<div class="msg-content">
+										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+										cillum dolore eu fugiat nulla pariatur.</p>
+										<span>Jan. 13, 2019</span>
+									</div>
+								</div>
+							<?php endfor; ?>
+						</div>
+						<div class="input-msgs-content">
+							<div class="container-of-msgs">
+								<div class="ctl-msg" contenteditable>
+									
+									<label for="typing-msg">Type here your message</label>
+								</div>
+								<div class="cta-buttons">
+									<i class="fal fa-thumbs-up"></i>
+									<i class="fal fa-thumbs-down"></i>
+									<span>Send</span>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div>
-						
-					</div>
-				</div>
 			</div>
 			<div class="conversation-details">
 				<div class="conversation-about">

@@ -99,15 +99,29 @@
 						<h3>Personal Information</h3>					
 					</div>
 					<!-- Fields -->
-					<div class="f-form comNameVal">
-						<label for="comp">Company Name:</label>
-						<div class="ins-wrapper">
+					<div id="fname" style="width: calc( 100% - 10px );display: flex;justify-content: space-between;">
+						<div class="f-form comNameVal">
+							<label for="comp">Company Name:</label>
+							<div class="ins-wrapper">
 
-							<input type="text" name="comp" placeholder="Company Name">
-							<!-- Icon -->
-							<i class="fal fa-building"></i>
+								<input type="text" name="comp" placeholder="Company Name">
+								<!-- Icon -->
+								<i class="fal fa-building"></i>
+							</div>
+							<span class="invalid-feedback"></span>
 						</div>
-						<span class="invalid-feedback"></span>
+						<div class="f-form lastVal">
+							<label for="compCat">Company Categorization:</label>
+							<div class="ins-wrapper" style="width: 100%;">
+								<select style="width: 100%;">
+									<option value="1">Private</option>
+									<option value="">Government</option>
+								</select>
+								<!-- <input type="text" name="compCat" placeholder="Hendricks"> -->
+								<i class="fal fa-address-card" style="margin-right: 25px;"></i>	
+							</div>
+							<span class="invalid-feedback"></span>
+						</div>					
 					</div>
 					<div class="f-form comEmailVal">
 						<label for="comp-email">Company Email:</label>

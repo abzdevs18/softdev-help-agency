@@ -58,7 +58,6 @@
 					</div>
 					<button class="tg-btn" type="button">Update Now</button>
 				</div>
-
 			</div>
 		</div>
 		<div class="alerts-notif">

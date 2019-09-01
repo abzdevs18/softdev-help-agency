@@ -1,14 +1,14 @@
 <?php require_once APP_ROOT . '/views/inc/header.php'; ?>
 
 	<section class="comProf">
-		<div id="profWall" style="background: url('assets/img/company-wall/logo.jpg'), linear-gradient(rgba(0,0,0,-0.5),rgba(0,0,0,0.5));
+		<div id="profWall" style="background: url('<?=URL_ROOT?>/img/company-wall/logo.jpg'), linear-gradient(rgba(0,0,0,-0.5),rgba(0,0,0,0.5));
   background-blend-mode: overlay;">
 			
 		</div>
 		<div class="com-overview">
 			<div class="overview-content">
-				<div class="profile-icon" style="background-color: #fff;background-image: url('assets/img/companies/logo1.png');">
-					<!-- <img src="assets/img/companies/logo1.png"> -->
+				<div class="profile-icon" style="background-color: #fff;background-image: url('<?=URL_ROOT?>/img/companies/logo1.png');">
+					<!-- <img src="<?=URL_ROOT?>/img/companies/logo1.png"> -->
 				</div>
 				<div class="profile-info">
 					<div class="c-data">
@@ -63,7 +63,7 @@
 						<div class="feed-item">
 							<div class="feed-wrapper">
 								<div class="employer-image">
-									<img src="<?php echo root_folder . '/admin/assets/img/icons/img-06.jpg';?>">
+									<img src="<?=URL_ROOT?>/img/icons/img-06.jpg">
 								</div>
 								<div id="feed-details">
 									<div class="list-of-feedback">
