@@ -20,7 +20,7 @@
 					</div>
 					<div class="details-jobs">
 						<div class="education">
-							<p>Education: <span>At least graduation.</span></p>
+							<p>Requirement: <span>At least graduation.</span></p>
 						</div>
 						<div class="deadline">
 							<p>Deadline: <span>25th January 2018</span></p>

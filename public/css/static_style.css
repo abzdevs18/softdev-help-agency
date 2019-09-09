@@ -15,6 +15,7 @@
 	--font-quick-500-16: normal normal 500 16px/46px 'Quicksand', sans-serif;
 	--font-quick-500-14: normal normal 500 14px/14px 'Quicksand', sans-serif;
 	--font-quick-400-13: normal normal 400 13px/16px 'Quicksand', sans-serif;
+	--font-normal: 'Quicksand', sans-serif;
 }
 ::-webkit-scrollbar {
    width: 7px;

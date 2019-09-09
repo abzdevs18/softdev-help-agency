@@ -9,3 +9,11 @@ function isLoggedIn(){
 		return false;
 	}
 }
+
+function isClient(){
+	if ($_SESSION['user_type']) {
+		return true;
+	}else{
+		return false;
+	}
+}

@@ -41,30 +41,7 @@ $(document).on('click','.candidate', function(){
 $(document).on('click', '#company-link', function(){
 	window.location.href = "../pages/companyProfile";
 });
-/*
-redirecting to cadidate info
-*/
 
-// $(document).on('click','.candidate',function(){
-// 	window.location.href="worker.php";
-// });
-
-/*$(document).on('click','.nav',function(){
-	var page = $(this).data("page");
-
-	if (page == "home") {
-		window.location.href="index.php";
-	}else if (page == "employee") {
-		window.location.href="employeer.php";
-	}else if (page == "job") {
-		window.location.href="job-op.php";
-	}else if (page == "about") {
-		window.location.href="about.php";
-		$('nav').addClass('fixedNav');
-	}else if (page == "contact") {
-		window.location.href="contact.php";
-	}
-});*/
 $(document).on('click','.ctl-msg',function(){
 	$('.ctl-msg label').hide();
 	$(this).focusout(function(e){
@@ -73,12 +50,174 @@ $(document).on('click','.ctl-msg',function(){
 });
 
 
-// $(document).on('click','.company-logo',function(){
-// 	var company_link = $(this).data('comname');
-	
-// 	window.location.href="company-profile.php";
-// });
-
 $(".user-items").hover(function(){
 	console.log('jh');
 });
+
+/**
+* @title: Dashboard Script
+* @desc: This is the script for job posting in dashboard of a client
+*/
+
+$(document).on('click', '#nxt_postJob', function(){
+
+	var current_form,next_form,prev_form;
+
+	current_form = $(this).parent();
+	next_form = $(this).parent().next();
+
+	/**
+	* @desc we use serializeArray() to add a value from a non form inputs in 
+	* this case life getting value from span
+	*/
+	var fd = $('form').serializeArray();
+	var feat = $('.f-job span.f-active').attr('data-feature');
+	fd.push({name: "feat", value: feat});
+	
+	$.ajax({
+		url: "../dashboard/primaryValidation",
+		type: 'POST',
+		dataType: 'json',
+		data: $.param(fd),
+		beforeSend: function(){
+			console.log("Sendding");
+		},
+		success: function(data){
+			if (data["status"] == 1) {
+				feedbackDefault('f-form');
+				// $('.jobPost-progress div').eq($(".job-d fieldset").index(next_form)).removeClass('active');
+				$('.jobPost-progress div').eq($(".job-d fieldset").index(next_form)).addClass('active');
+
+
+				current_form.hide();
+				next_form.show();
+			}else {
+				if (data['jTitle_err']) {
+					 // Get the parent/container of the input field for firstname and 
+					feedbackShow("jTitle", data['jTitle_err']);
+				} else{
+					feedbackHide("jTitle");
+				}
+				if (data['jDesc_err']) {
+					 // Get the parent/container of the input field for firstname and 
+					feedbackShow("jDesc", data['jDesc_err']);
+				} else{
+					feedbackHide("jDesc");
+				}
+			}
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+
+$(document).on('click', '#back_postJob', function(){
+
+	var current_form,next_form,prev_form;
+
+	current_form = $(this).parent();
+	prev_form = $(this).parent().prev();
+	current_form.hide();
+	prev_form.show();
+});
+$(document).on('click','.f-job span',function(){
+	var feat;
+	$('.f-job span').removeAttr('class');
+	$(this).addClass('f-active');
+
+	feat = $(this).attr('data-feature');
+	console.log(feat);
+	
+});
+
+$(document).on('click', '#submit-job', function(e){
+	e.preventDefault();
+	var current_form,next_form,prev_form;
+
+	current_form = $(this).parent();
+	next_form = $(this).parent().next();
+
+
+	/**
+	* @desc we use serializeArray() to add a value from a non form inputs in 
+	* this case life getting value from span
+	*/
+	var fd = $('form').serializeArray();
+	var feat = $('.f-job span.f-active').attr('data-feature');
+	fd.push({name: "feat", value: feat});
+	
+	$.ajax({
+		url: "../dashboard/additionalValidation",
+		type: 'POST',
+		dataType: 'json',
+		data: $.param(fd),
+		beforeSend: function(){
+			console.log("Sendding");
+		},
+		success: function(data){
+			if (data["status"] == 1) {
+				feedbackDefault('f-form');
+				// $('.jobPost-progress div').eq($(".job-d fieldset").index(next_form)).removeClass('active');
+				$('.jobPost-progress div').eq($(".job-d fieldset").index(next_form)).addClass('active');
+
+				$.ajax({
+					url: "../dashboard/submitJob",
+					type: 'POST',
+					dataType: 'json',
+					data: $.param(fd),
+					beforeSend: function(){
+						console.log("Sendding");
+					},
+					success: function(data){
+						console.log(data + " Ohhhh");
+						current_form.hide();
+						next_form.show();
+					},
+					error:function(err){
+						console.log(err);
+					}
+				});
+			}else {
+				if (data['jType_err']) {
+					 // Get the parent/container of the input field for firstname and 
+					feedbackShow("jType", data['jType_err']);
+				} else{
+					feedbackHide("jType");
+				}
+				if (data['jLoc_err']) {
+					 // Get the parent/container of the input field for firstname and 
+					feedbackShow("jLoc", data['jLoc_err']);
+				} else{
+					feedbackHide("jLoc");
+				}
+				if (data['jDead_err']) {
+					 // Get the parent/container of the input field for firstname and 
+					feedbackShow("jDead", data['jDead_err']);
+				} else{
+					feedbackHide("jDead");
+				}
+			}
+			console.log('s');
+			console.log(data);
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+
+/*This two function below will show and hide the feedback during the validation process*/
+function feedbackDefault(container){
+	$('.' + container + ' .ins-wrapper > input').removeClass('invalid-box-shadow');
+	$('.' + container + ' .invalid-feedback').hide();
+}
+function feedbackShow(container, data){
+	$('.' + container + ' .ins-wrapper > input').addClass('invalid-box-shadow');
+	$('.' + container + ' .invalid-feedback').show().text(data);
+}
+
+function feedbackHide(container){
+	$('.' + container + ' .ins-wrapper > input').removeClass();
+	$('.' + container + ' .invalid-feedback').hide();
+}

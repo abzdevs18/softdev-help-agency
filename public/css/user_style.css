@@ -861,31 +861,165 @@ Messaging
 /*
 * @desc Style for posting a job
 */
+
 .jobPost {
-	width: 100%;
-	margin: 0 auto;
+	width: 65%;
+	height: auto;
+	margin: 20px auto;
+	box-shadow: var(--box-shadow);
+	padding: 20px;
+	border-radius: 5px;
 }
 .jobPost form {
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
+	position: relative;
+	/* box-shadow: var(--box-shadow); */
+	height: 100vh;
+}
+.jobPost form fieldset {
+    border-radius: 4px;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    margin-top: 20px;
+}
+.form-header > p {
+	font: var(--font-quick-400-30);
+	font-weight: 700;
+	opacity: 0.4;
+	line-height: 30px;
+	vertical-align: middle;
+}
+.f-job {
+	padding: 4px;
+	background: #fff;
+	box-shadow: var(--box-shadow);
+	width: 85px;
+	border-radius: 35px;
+	margin-top: 10px;
+	display: flex;
+}
+.f-job span.f-active {
+	/* padding: 3px 5px; */
+	border-radius: 35px;
+	background: green;
+	color: #fff;
+}
+.f-job span {
+	background-color: #fff;
+	font: var(--font-quick-500-14);
+	padding: 2px 10px;
+	color: #333;
+	cursor: pointer;
+}
+.f-word {
+	font: var(--font-quick-500-14);
 }
 .jobPost-progress {
-	display: flex;
-	flex-direction: row;
-	counter-reset: step;
+	/*counter-reset: step;*/
 	text-align: center;
 	justify-content: center;
+	padding-bottom: 10px;
 }
 .jobPost-progress li {
-	display: flex;
-	flex-direction: column;
+	display: inline-block;
 	justify-content: center;
 	text-align: center;
+	margin: 15px auto;
+	position: relative;
+	font:  var(--font-quick-500-18);
+	color: #999;
 }
-.jobPost-progress li:before {
-	content: counter(step);
-	counter-increment: step;
+.jobPost-progress div {
+	width: 33.333%;
+	padding: 5px;
+}
+.jobPost-progress div.active {
+	border-bottom: 3px solid green;
+}
+.jobPost-progress div.active li {
+	color: #000;
+	font-weight: 500;
+}
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+.invalid-box-shadow {
+	box-shadow: 0 0 2px 1px red;
+}
+.jobPost ul {
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
 }
 
-
-
+.job-d fieldset {
+	height: 50vh;
+	background: #fff;
+	margin-bottom: 30px;
+}
+.job-d fieldset:not(:first-of-type) {
+	display: none;
+}
+/* Copied from signUp */
+.header-menu {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 30px 20px;
+	align-items: center;
+	/* margin-left: 5px; */
+}
+.f-form {
+    width: calc( 100% - 20px );
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    position: relative;
+}
+.f-form label {
+    text-transform: capitalize;
+    font-weight: 600;
+    margin: 6px 0px;
+    color: #444;
+}
+.ins-wrapper {
+    position: relative;
+    width: calc( 100% - 10px );
+}
+#fname .f-form:last-child {
+    margin-right: 0px;
+}
+.f-form input, .f-form select {
+    background: none;
+    border: 1px solid #999;
+        border-top-color: rgb(153, 153, 153);
+        border-right-color: rgb(153, 153, 153);
+        border-bottom-color: rgb(153, 153, 153);
+        border-left-color: rgb(153, 153, 153);
+    padding: 10px 15px;
+    font-size: 15px;
+    border-radius: 4px;
+    outline: none;
+    color: #666;
+    border-color: #333;
+}
+.ins-wrapper input, .ins-wrapper select {
+    width: calc( 100% - 20px );
+}
+.ins-wrapper i {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 15px;
+    color: #999;
+}

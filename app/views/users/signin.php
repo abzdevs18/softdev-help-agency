@@ -21,7 +21,7 @@
 					<div class="f-form uPassVal">
 						<label for="password">Password:</label>
 						<div class="ins-wrapper">
-							<input type="password" name="password" value="sample132">
+							<input type="password" name="password" placeholder="*********">
 							<!-- Icon -->
 							<i class="fal fa-key"></i>
 						</div>
