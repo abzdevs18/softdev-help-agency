@@ -2,11 +2,13 @@
 	<section class="signup-form">
 		<div class="form-s animsition" style="min-height: 80vh;" data-animsition-in-class="fade-in-left" data-animsition-in-duration="400" data-animsition-out-class="fade-out-left" data-animsition-out-duration="500">
 			<form class="Fields" style="width: 65%;display: flex;flex-direction: row;justify-content: space-between;">
-			<div style="width: 100%;justify-content: space-around;display: flex;flex-direction: column;">
+			<div style="width: 100%;justify-content: space-around;display: flex;flex-direction: column;position: relative;">
 				<div class="header-menu">
-					<h3>Enter Personal Information</h3>
-					
+					<h3>Enter Personal Information</h3>					
 				</div>
+			<!-- 	<div style="position: absolute;">
+					<h4>Wrong Email/Password</h4>
+				</div> -->
 				<div style="display: flex;flex-direction: column;">
 					<!-- Fields -->
 					<div class="f-form uNameVal">

@@ -11,8 +11,8 @@
 				<div style="width: calc( 100% - 100px );">							
 					<div class="job-title job-d">
 						<div>
-							<p>P 23, 000.00 <span style="color: #333;font-size: 14px;">/hr</span></p>
-							<p>Digital Marketing executive</p>
+							<p>P <?=$data['jobs']->jSalary; ?>.00 <span style="color: #333;font-size: 14px;">/hr</span></p>
+							<p><?=$data['jobs']->jTitle; ?></p>
 						</div>
 						<!-- Temporart = #E80031 
 							 Freelance = #597B8E	-->
@@ -20,13 +20,14 @@
 					</div>
 					<div class="details-jobs">
 						<div class="education">
-							<p>Requirement: <span>At least graduation.</span></p>
+							<p>Requirement: <span><?=$data['jobs']->jReq; ?></span></p>
 						</div>
 						<div class="deadline">
-							<p>Deadline: <span>25th January 2018</span></p>
+							<p>Deadline: <span><?=$data['jobs']->jDeadline; ?></span></p>
+							<!-- <p>Deadline: <span>25th January 2018</span></p> -->
 						</div>
 						<div class="location">
-							<i class="fas fa-map-marker-alt"></i><span>Western City, UK</span>
+							<i class="fas fa-map-marker-alt"></i><span><?=$data['jobs']->comLoc; ?></span>
 						</div>
 					</div>
 					<div style="width: 100%;height: 50px;">
@@ -63,20 +64,8 @@
 								<h3><i class="far fa-clipboard" style="margin-right: 10px;"></i>JOB OVERVIEW</h3>
 							</div>
 							<div style="padding-left: 25px;">
-								<p>Looking for driven, hardworking, , creative, loyal, and can work under pressure virtual assistant experienced in real estate.
-	This is a full time job for long term.
-
-	Please describe in details your Real estate experience when applying. 
-
-Nisi sit asperiores autem incidunt voluptates at veritatis blanditiis. Voluptates itaque ut eum distinctio. Qui nobis fugit corporis voluptates mollitia. Quod similique non doloremque tempora aut. Eaque est ea odio.
-
-Dolores quia qui quas quis. Dolorem debitis aperiam optio aperiam omnis. Aspernatur est ea et illo amet qui. Sed totam et necessitatibus eaque ducimus aut aspernatur dolores.<br /><br />
-
-Voluptas ducimus exercitationem et quibusdam sed cumque. Inventore in occaecati omnis dolorem. Autem voluptatem esse ut. Voluptas neque sed similique quae est. Et ut repellat omnis minus corporis perspiciatis nemo.
-
-Ad provident excepturi consequatur quis corporis iste tempore. Adipisci nisi ad ipsam perspiciatis reiciendis in non. Ut eos dolorem sunt voluptas. Reprehenderit nihil deserunt voluptatibus sit sapiente in. Itaque accusantium incidunt similique eius eius porro. Enim sit qui dolores qui aliquam a et.</p>
-							</div>
-							
+								<p><?=$data['jobs']->jDesc; ?></p>
+							</div>							
 						</div>
 						<div class="employee-review">
 							<p>Employeer reviews</p>
@@ -100,7 +89,7 @@ Ad provident excepturi consequatur quis corporis iste tempore. Adipisci nisi ad 
 							<p>Project ID:</p>
 							<div id="emp-rate">
 								<div id="s5" style="display: flex;flex-direction: row;">							
-									<span>#23429</span>
+									<span>#<?=$data['jobs']->jId; ?></span>
 								</div>
 							</div>
 						</div><hr style="margin-left: 20px;margin-top: 20px;margin-bottom: 20px;" />

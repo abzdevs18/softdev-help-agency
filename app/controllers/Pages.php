@@ -9,6 +9,7 @@ class Pages extends Controller
 	{
 
 		$this->Model = $this->model('admin');
+		$this->jobModel = $this->model('job');
 
 		if (!$this->Model->isAdminFound()) {
 			redirect('admin/sf_admin');
@@ -22,12 +23,12 @@ class Pages extends Controller
 			redirect('users');
 		}
 
+		$jobs = $this->jobModel->getJob();
 		$data = [
-			'title' => 'Welcome'
-			// 'posts' => $posts
+			'title' => 'Welcome',
+			'jobs' => $jobs
 		];
 		$this->view("pages/index", $data);
-
 	}
 
 	public function employee(){
@@ -44,8 +45,14 @@ class Pages extends Controller
 		$this->view("pages/about", $data);
 	}
 
-	public function job_details(){
-		$this->view("pages/job-details");
+	public function jobDetails($jId){
+		$jobs = $this->jobModel->getJobById($jId);
+
+		$data = [
+			"jobs" => $jobs
+		];
+
+		$this->view("pages/job-details", $data);
 	}
 
 	public function companyProfile(){

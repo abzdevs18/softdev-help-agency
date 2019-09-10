@@ -312,13 +312,12 @@ $(document).on('click', '.dignin', function(){
 	});
 });
 
-
-
 /*This two function below will show and hide the feedback during the validation process*/
 function feedbackDefault(container){
 	$('.' + container + ' .ins-wrapper > input').removeClass('invalid-box-shadow');
 	$('.' + container + ' .invalid-feedback').hide();
 }
+
 function feedbackShow(container, data){
 	$('.' + container + ' .ins-wrapper > input').addClass('invalid-box-shadow');
 	$('.' + container + ' .invalid-feedback').show().text(data);

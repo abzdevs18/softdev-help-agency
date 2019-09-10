@@ -12,6 +12,7 @@ $(document).on('click','#clear-search',function(){
 	$('#prof-query').val('');
 	$("#clear-search").hide(100);
 });
+
 $(document).on('click','.filter-btn',function(){
 	$(".content-tbl").hide();
 	var data = $(this).attr('data-filter');
@@ -29,8 +30,7 @@ $(document).on('click','.filter-btn',function(){
 /*From somewhere else*/
 $(document).on('click', '.latest-job', function(){
 	var id = $(this).attr('data-postID');
-	window.location.href = "pages/job_details";
-	console.log(id);
+	window.location.href = "pages/jobDetails/" + id;
 });
 
 /*Clicking the link to the Worker's profile*/
@@ -47,11 +47,6 @@ $(document).on('click','.ctl-msg',function(){
 	$(this).focusout(function(e){
 		console.log($(this).text().length);
 	});
-});
-
-
-$(".user-items").hover(function(){
-	console.log('jh');
 });
 
 /**
@@ -121,6 +116,7 @@ $(document).on('click', '#back_postJob', function(){
 	current_form.hide();
 	prev_form.show();
 });
+
 $(document).on('click','.f-job span',function(){
 	var feat;
 	$('.f-job span').removeAttr('class');
@@ -128,7 +124,6 @@ $(document).on('click','.f-job span',function(){
 
 	feat = $(this).attr('data-feature');
 	console.log(feat);
-	
 });
 
 $(document).on('click', '#submit-job', function(e){
@@ -212,6 +207,7 @@ function feedbackDefault(container){
 	$('.' + container + ' .ins-wrapper > input').removeClass('invalid-box-shadow');
 	$('.' + container + ' .invalid-feedback').hide();
 }
+
 function feedbackShow(container, data){
 	$('.' + container + ' .ins-wrapper > input').addClass('invalid-box-shadow');
 	$('.' + container + ' .invalid-feedback').show().text(data);

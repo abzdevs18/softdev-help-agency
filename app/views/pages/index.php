@@ -53,26 +53,27 @@
 					</div>					
 				</div>
 				<div id="job-listing">
-					<?php for ($i=1; $i < 10; $i++) : ?>
-						<div class="latest-job list_transition" data-postID="<?=$i?>">
+					<?php foreach ($data['jobs'] as $jobs) : ?>
+						<div class="latest-job list_transition" data-postID="<?=$jobs->jId;?>">
 							<div>							
 								<div class="job-title">
 									<div>
-										<p>Digital Marketing executive</p>
+										<p><?=$jobs->jTitle;?></p>
 									</div>
 									<!-- Temporart = #E80031 
 										 Freelance = #597B8E	-->
-									<a href="#">part time</a>
+									<a href="#"><?=$jobs->jId;?>part time</a>
 								</div>
 								<div class="details-jobs">
 									<div class="education">
-										<p>Requirements: <span>At least graduation.</span></p>
+										<p>Requirements: <span><?=$jobs->jReq;?></span></p>
 									</div>
 									<div class="deadline">
-										<p>Deadline: <span>25th January 2018</span></p>
+										<p>Deadline: <span><?=$jobs->jDeadline;?></span></p>
+										<!-- <p>Deadline: <span>25th January 2018</span></p> -->
 									</div>
 									<div class="location">
-										<i class="fas fa-map-marker-alt"></i><span>Western City, UK</span>
+										<i class="fas fa-map-marker-alt"></i><span><?=$jobs->comLoc;?></span>
 									</div>
 									<div style="float: right;margin-right: 15px;">
 										<img src="<?=URL_ROOT;?>/img/companies/full.png">
@@ -97,7 +98,7 @@
 							</div>
 						</div>
 						<!-- end -->
-					<?php endfor; ?>
+					<?php endforeach; ?>
 				</div>
 				<div id="showmore-btn">
 					<a href="#">view more jobs</a>

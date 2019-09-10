@@ -2,6 +2,13 @@
 <html>
 <head>
 	<title></title>
+	<style type="text/css">
+		body {
+			background-image: url(<?=URL_ROOT ."/img/backs.png";?>);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
 </head>
 <body>
 
