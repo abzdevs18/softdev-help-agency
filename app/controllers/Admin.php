@@ -57,6 +57,6 @@ class Admin extends Controller
 	}
 
 	public function sf_admin(){
-		$this->view("users/sf_admin");
+		$this->view("admin/setup/sf_admin");
 	}
 }

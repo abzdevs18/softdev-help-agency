@@ -9,6 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/admin_style.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+
 	<script src="<?=URL_ROOT;?>/js/admin_script.js"></script>
 	<style type="text/css">		
 		@import url("<?=URL_ROOT;?>/css/static_style.css");

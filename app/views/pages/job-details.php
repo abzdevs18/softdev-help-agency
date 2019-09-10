@@ -31,19 +31,15 @@
 						</div>
 					</div>
 					<div style="width: 100%;height: 50px;">
-						<ul class="job-skills">
+						<ul class="job-skills">							
+							<?php 
+							$tags = $data['jobs']->jTags;
+							$tag = explode(', ', $tags);
+							foreach($tag as $val) : ?>
 							<li>
-								<a href="#">Carpenter</a>
+								<a href="#"><?=ucfirst($val);?></a>
 							</li>
-							<li>
-								<a href="#">Farming</a>
-							</li>
-							<li>
-								<a href="#">Piping</a>
-							</li>
-							<li>
-								<a href="#">Architect</a>
-							</li>
+							<?php endforeach; ?>
 						</ul>
 					</div>		
 					<div class="call-to-action">

@@ -78,16 +78,6 @@
 								<input type="text" name="edReq" placeholder="Richar">
 								<i class="fal fa-id-card"></i>	
 							</div>
-							<div class="ins-wrapper" style="width: 100%;">
-								<select style="width: 100%;" name="edReq">
-									<option value="1">Internship</option>
-									<option value="2">Freelance</option>
-									<option value="3">Part Time</option>
-									<option value="4">Full Time</option>
-								</select>
-								<!-- <input type="text" name="compCat" placeholder="Hendricks"> -->
-								<i class="fal fa-address-card" style="margin-right: 25px;"></i>	
-							</div>
 							<span class="invalid-feedback"></span>
 						</div>
 						<div class="f-form jType">
@@ -137,8 +127,8 @@
 					</div>	
 					<div class="f-form jTags">
 						<label for="jTags">Job Tags:</label>
-						<div class="ins-wrapper">
-							<input type="text" name="jTags" placeholder="Hendricks">
+						<div class="ins-wrapper" style="border: 1px solid #999;border-radius: 3px;">
+							<input type="text" name="jTags" placeholder="Hendricks" id="jTags" style="border: none; border-color: none;">
 							<i class="fal fa-address-card"></i>	
 						</div>
 						<span class="invalid-feedback"></span>

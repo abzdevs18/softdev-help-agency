@@ -202,6 +202,13 @@ $(document).on('click', '#submit-job', function(e){
 	});
 });
 
+/**
+*	Adding tags 
+*/
+$(document).ready(function(){
+	 $('#jTags').tokenfield();
+});
+
 /*This two function below will show and hide the feedback during the validation process*/
 function feedbackDefault(container){
 	$('.' + container + ' .ins-wrapper > input').removeClass('invalid-box-shadow');

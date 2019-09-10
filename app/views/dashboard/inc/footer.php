@@ -71,6 +71,7 @@
 			</div>
 		</div>
 	</footer>
+<script src="<?=URL_ROOT;?>/js/tag.js"></script>
 <script src="<?=URL_ROOT;?>/js/script.js"></script>
 </body>
 </html>

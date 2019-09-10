@@ -15,6 +15,9 @@
 		@import url("<?=URL_ROOT;?>/css/footer.css");
 	</style>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"></script>
+	
 </head>
 <body>
 	<nav style="position: sticky;top: 0px;background: #fff;z-index: 99;">

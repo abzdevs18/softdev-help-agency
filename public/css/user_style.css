@@ -1002,16 +1002,16 @@ Messaging
 .f-form input, .f-form select {
     background: none;
     border: 1px solid #999;
-        border-top-color: rgb(153, 153, 153);
-        border-right-color: rgb(153, 153, 153);
-        border-bottom-color: rgb(153, 153, 153);
-        border-left-color: rgb(153, 153, 153);
+    border-top-color: rgb(153, 153, 153);
+    border-right-color: rgb(153, 153, 153);
+    border-bottom-color: rgb(153, 153, 153);
+    border-left-color: rgb(153, 153, 153);
     padding: 10px 15px;
     font-size: 15px;
     border-radius: 4px;
     outline: none;
     color: #666;
-    border-color: #333;
+    /* border-color: #333; */
 }
 .ins-wrapper input, .ins-wrapper select {
     width: calc( 100% - 20px );
@@ -1022,4 +1022,25 @@ Messaging
     bottom: 0;
     margin: 15px;
     color: #999;
+}
+.token {
+	display: inline-block;
+	background: #d3d3d3;
+	margin-right: 5px;
+	border-radius: 3px;
+	margin-left: 5px;
+}
+.token > span {
+	font-size: 13px;
+	padding: 4px 5px;
+	/*font-weight: 600;*/
+}
+.token > a {
+	text-decoration: none;
+	padding: 0 5px 0 0;
+	color: #333;
+	font-weight: 500;
+}
+.tokenfield input:last-child {
+	border: none !important;
 }

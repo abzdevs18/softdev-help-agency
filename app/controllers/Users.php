@@ -10,8 +10,8 @@ class Users extends Controller
 		$this->userModel = $this->model('User');
 		$this->adminModel = $this->model('Admin');
 		if (!$this->adminModel->isAdminFound()) {
-		}
 			redirect('admin/sf_admin');
+		}
 
 	}
 
