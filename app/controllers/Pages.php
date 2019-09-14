@@ -24,9 +24,11 @@ class Pages extends Controller
 		}
 
 		$jobs = $this->jobModel->getJob();
+		$categories = $this->jobModel->getCategories();
 		$data = [
 			'title' => 'Welcome',
-			'jobs' => $jobs
+			'jobs' => $jobs,
+			'categories' => $categories
 		];
 		$this->view("pages/index", $data);
 	}
@@ -59,10 +61,10 @@ class Pages extends Controller
 		$this->view("pages/company-profile");
 	}
 
-	public function worker_details(){
+	public function workerDetails(){
 		if (isLoggedIn()) {
 			$this->view("pages/worker");
-			redirect("pages/worker");
+			// redirect("pages/worker");
 		}
 		$this->view("users/signin");
 	}
@@ -74,6 +76,38 @@ class Pages extends Controller
 		$this->view("pages/about", $data);
 	}
 
+	public function search(){
+		$jobs = $this->jobModel->getJob();
+		$cat = $this->jobModel->getCategories();
+		$tag = $this->jobModel->getTags();
+		$data = [
+			'title' => 'Welcome to about',
+			"jobs" => $jobs,
+			"categories" => $cat,
+			"tag" => $tag
+		];
+		$this->view("pages/search", $data);
+	}
+
+	public function searchq(){
+		// $method = $_SERVER['REQUEST_METHOD'] = 'POST';
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$data = [
+				"skills" => trim($_POST['skills']),
+				"location" => trim($_POST['location']),
+				"jCat" => trim($_POST['j-cat'])
+			];
+
+			$responseData = $this->jobModel->getJobQuery($data);
+			if ($responseData) {
+				$this->view("pages/search", $responseData);
+			} else {
+				return false;
+			}
+		} 
+	}
+
 	public function about(){
 		$data = [
 			'title' => 'Welcome to about'
@@ -83,5 +117,37 @@ class Pages extends Controller
 
 	public function profile(){
 		$this->view("pages/worker");
+	}
+
+	public function getJobs(){
+		$jobTag = $this->jobModel->getJob();
+		$data = [
+			"jobs" => $jobTag
+		];
+
+		$this->view("inc/tagresult", $data);
+	}
+
+	public function getJobTag($jTag){
+		$jobTag = $this->jobModel->getJobByTag($jTag);
+		$data = [
+			"jobs" => $jobTag
+		];
+
+		$this->view("inc/tagresult", $data);
+		// echo json_encode($data['jobs']);
+	}
+
+	public function getJobTitle($jTitle){
+		$jobTag = $this->jobModel->getJobByTitle($jTitle);
+		if ($jobTag) {
+			$data = [
+				"jobs" => $jobTag
+			];
+
+			$this->view("inc/tagresult", $data);
+		}
+		return false;
+		// echo json_encode($data['jobs']);
 	}
 }

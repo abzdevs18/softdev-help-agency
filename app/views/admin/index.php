@@ -13,7 +13,7 @@
 					</figure>
 					<div class="col-content">
 						<p>562</p>
-						<h3>Total add posted</h3>
+						<h3>Total Job posted</h3>
 						<a href="#">view details <i class="fal fa-angle-right"></i></a>
 					</div>
 				</div>
@@ -25,7 +25,7 @@
 					</figure>
 					<div class="col-content">
 						<p>562</p>
-						<h3>Total add posted</h3>
+						<h3>Featured Jobs</h3>
 						<a href="#">view details <i class="fal fa-angle-right"></i></a>
 					</div>
 				</div>
@@ -37,7 +37,7 @@
 					</figure>
 					<div class="col-content">
 						<p>562</p>
-						<h3>Total add posted</h3>
+						<h3>Inactive Job</h3>
 						<a href="#">view details <i class="fal fa-angle-right"></i></a>
 					</div>
 				</div>
@@ -49,7 +49,7 @@
 					</figure>
 					<div class="col-content">
 						<p>562</p>
-						<h3>Total add posted</h3>
+						<h3>Offers/Messages</h3>
 						<a href="#">view details <i class="fal fa-angle-right"></i></a>
 					</div>
 				</div>

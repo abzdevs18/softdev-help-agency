@@ -10,11 +10,33 @@
 		</div>
 		<div id="tabs">
 			<ul>
-			    <li><a href="#tabs-1" id="active">FIND A JOB</a></li>
-			    <li><a href="#tabs-2">FIND A CANDIDATE</a></li>
+			    <li><a href="#tabs-1" data-action="search-job" class="active">FIND A JOB</a></li>
+			    <li><a href="#tabs-2" data-action="search-can">FIND A CANDIDATE</a></li>
 			</ul>
-			<div id="tabs-container">
-				<form>
+			<div id="tabs-container" class="j-input">
+				<form id="search-form" method="POST" action="<?=URL_ROOT . '/pages/search';?>">
+					<div id="form-group">
+						<div>
+							<input type="text" name="skills" placeholder="e.g.graphic design">
+						</div>
+						<div>
+							<select name="j-cat" style="width: 100%;">
+								<?php foreach($data['categories'] AS $categories) : ?>
+									<option><?=$categories->category_name;?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+						<div>
+							<input type="text" name="location" placeholder="Location">
+						</div>						
+					</div>
+					<div id="submit-btn-container">
+						<input type="submit" name="submit" value="Search" id="submit-btn">
+					</div>
+				</form>
+			</div>
+			<div id="tabs-container" class="c-input" style="display: none;">
+				<form id="search-form" action="<?=URL_ROOT . '/pages/search';?>">
 					<div id="form-group">
 						<div>
 							<input type="text" name="skills" placeholder="e.g.graphic design">
@@ -27,7 +49,7 @@
 							</select>
 						</div>
 						<div>
-							<input type="text" name="skills" placeholder="Location">
+							<input type="text" name="skills" placeholder="Locsation">
 						</div>						
 					</div>
 					<div id="submit-btn-container">
@@ -62,18 +84,20 @@
 									</div>
 									<!-- Temporart = #E80031 
 										 Freelance = #597B8E	-->
-									<a href="#"><?=$jobs->jId;?>part time</a>
+									<a href="#">part time</a>
 								</div>
-								<div class="details-jobs">
-									<div class="education">
-										<p>Requirements: <span><?=$jobs->jReq;?></span></p>
-									</div>
-									<div class="deadline">
-										<p>Deadline: <span><?=$jobs->jDeadline;?></span></p>
-										<!-- <p>Deadline: <span>25th January 2018</span></p> -->
-									</div>
-									<div class="location">
-										<i class="fas fa-map-marker-alt"></i><span><?=$jobs->comLoc;?></span>
+								<div class="details-jobs" style="align-content: space-between;">
+									<div id="index-wrap-r">
+										<div class="education">
+											<p>Requirements: <span><?=$jobs->jReq;?></span></p>
+										</div>
+										<div class="deadline">
+											<p>Deadline: <span><?=$jobs->jDeadline;?></span></p>
+											<!-- <p>Deadline: <span>25th January 2018</span></p> -->
+										</div>
+										<div class="location">
+											<i class="fas fa-map-marker-alt"></i><span><?=$jobs->comLoc;?></span>
+										</div>										
 									</div>
 									<div style="float: right;margin-right: 15px;">
 										<img src="<?=URL_ROOT;?>/img/companies/full.png">
@@ -87,7 +111,7 @@
 									$tag = explode(', ', $tags);
 									foreach($tag as $val) : ?>
 									<li>
-										<a href="#"><?=ucfirst($val);?></a>
+										<a href="#" data-tag="<?=strtolower($val);?>"><?=ucfirst($val);?></a>
 									</li>
 									<?php endforeach; ?>
 								</ul>

@@ -2,6 +2,7 @@
 * The registration and login of users communicate in here
 */
 
+
 // $(document).ready(function(){
 	var u_type = 0;
 
@@ -274,6 +275,16 @@ $(document).on('click', '.prev_fs', function(){
 });
 
 $(document).on('click', '.dignin', function(){
+	login();
+});
+
+$('.l-sign').keypress(function(e){
+	if (e.keyCode == 13) {
+		login();
+	}
+});
+
+function login(){
 	var uNameEmail = $('.f-form input[name="uemail"]').val();
 	var uPassword = $('.f-form input[name="password"]').val();
 
@@ -310,7 +321,7 @@ $(document).on('click', '.dignin', function(){
 			console.log(err);
 		}
 	});
-});
+}
 
 /*This two function below will show and hide the feedback during the validation process*/
 function feedbackDefault(container){

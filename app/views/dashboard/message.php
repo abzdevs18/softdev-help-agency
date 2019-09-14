@@ -42,7 +42,7 @@
 										<span>Jan. 13, 2019</span>
 									</div>
 								</div>
-								<div class="current-user-sender">
+								<div class="current-user-sender icon-receiver">
 									<div class="msg-content">
 										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
 										cillum dolore eu fugiat nulla pariatur.</p>

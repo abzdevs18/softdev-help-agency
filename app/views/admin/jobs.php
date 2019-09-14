@@ -10,9 +10,9 @@
 			</div>
 			<div class="filter-category">
 				<ul id="job-filters">
-					<li class="active-filter">All <span>(10)</span></li>
-					<li>Featured <span>(10)</span></li>
-					<li>Active <span>(10)</span></li>
+					<li class="active-filter" id="filter-all">All <span>(10)</span></li>
+					<li id="filter-featured">Featured <span>(10)</span></li>
+					<li id="filter-open">Active <span>(10)</span></li>
 					<li>Expired <span>(10)</span></li>
 					<li>Deleted <span>(10)</span></li>
 				</ul>
@@ -20,12 +20,10 @@
 			<div class="sortby filter-category">
 				<div id="sort-drop">
 					<span>Sort by:</span>
-					<select>
+					<select id="sort-filter">
 						<optgroup>
-							<option selected>Most Recent</option>
-							<option>Most Recent</option>
-							<option>Most Recent</option>
-							<option>Most Recent</option>
+							<option selected value="jobs.timestamp">Most Recent</option>
+							<option value="jobs.salary">Job Salary</option>
 						</optgroup>
 					</select>
 				</div>
@@ -49,7 +47,9 @@
 							<th>Actions</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="filter-job-container">
+						<!-- if job is close add row with class name "sold" -->
+						<?php foreach($data['job'] AS $job) : ?>
 						<tr>
 							<td style="text-align: center;">
 								<input type="checkbox" name="">
@@ -58,8 +58,8 @@
 								<img src="assets/img/icons/img-06.jpg">
 							</td>
 							<td class="tittle-id">
-								<h3>A+ HP probook 6560b core i3 2nd generation</h3>
-								<span>Ad ID: ng3D5hAMHPajQrM</span>
+								<h3><?=$job->jTitle;?></h3>
+								<span>Ad ID: <?=$job->jId;?></span>
 							</td>
 							<td class="item-cat">
 								<span>Laptops & PCs</span>	
@@ -71,87 +71,20 @@
 								<span>Active</span>
 							</td>
 							<td class="price-loc">								
-								<h3>$200</h3>
-								<span>ocation 44-46 Morningside North Road Edinburgh, Scotland, EH10 4BF</span>
+								<h3>P <?=$job->jSalary;?></h3>
+								<span><?=$job->comLoc;?></span>
 							</td>
 							<td class="date-pub">								
-								<h4 style="margin-bottom: 10px;">Jun 27, 2017</h4>
+								<h4 style="margin-bottom: 10px;"><?=$job->jDeadline;?></h4>
 								<span>Published</span>
 							</td>
 							<td class="action-btn">
-								<span class="eye"><i class="fal fa-eye"></i></span>
-								<span class="pencil"><i class="fal fa-pencil-alt"></i></span>
-								<span class="trash"><i class="fal fa-trash"></i></span>
+								<span class="eye" data-jId="<?=$job->jId;?>"><i class="fal fa-eye"></i></span>
+								<span class="pencil" data-jId="<?=$job->jId;?>"><i class="fal fa-pencil-alt"></i></span>
+								<span class="trash" data-jId="<?=$job->jId;?>"><i class="fal fa-trash"></i></span>
 							</td>
 						</tr>
-						<tr class="sold">
-							<td style="text-align: center;">
-								<input type="checkbox" name="">
-							</td>
-							<td>
-								<img src="assets/img/icons/img-06.jpg">
-							</td>
-							<td class="tittle-id">
-								<h3>A+ HP probook 6560b core i3 2nd generation</h3>
-								<span>Ad ID: ng3D5hAMHPajQrM</span>
-							</td>
-							<td class="item-cat">
-								<span>Laptops & PCs</span>	
-							</td>
-							<td>
-								<span>Yes</span>
-							</td>
-							<td class="status-job">
-								<span>close</span>
-							</td>
-							<td class="price-loc">								
-								<h3>$200</h3>
-								<span>ocation 44-46 Morningside North Road Edinburgh, Scotland, EH10 4BF</span>
-							</td>
-							<td class="date-pub">								
-								<h4 style="margin-bottom: 10px;">Jun 27, 2017</h4>
-								<span>Published</span>
-							</td>
-							<td class="action-btn">
-								<span class="eye"><i class="fal fa-eye"></i></span>
-								<span class="pencil"><i class="fal fa-pencil-alt"></i></span>
-								<span class="trash"><i class="fal fa-trash"></i></span>
-							</td>
-						</tr>
-						<tr>
-							<td style="text-align: center;">
-								<input type="checkbox" name="">
-							</td>
-							<td>
-								<img src="assets/img/icons/img-06.jpg">
-							</td>
-							<td class="tittle-id">
-								<h3>A+ HP probook 6560b core i3 2nd generation</h3>
-								<span>Ad ID: ng3D5hAMHPajQrM</span>
-							</td>
-							<td class="item-cat">
-								<span>Laptops & PCs</span>	
-							</td>
-							<td>
-								<span>Yes</span>
-							</td>
-							<td class="status-job">
-								<span>Active</span>
-							</td>
-							<td class="price-loc">								
-								<h3>$200</h3>
-								<span>ocation 44-46 Morningside North Road Edinburgh, Scotland, EH10 4BF</span>
-							</td>
-							<td class="date-pub">								
-								<h4 style="margin-bottom: 10px;">Jun 27, 2017</h4>
-								<span>Published</span>
-							</td>
-							<td class="action-btn">
-								<span class="eye"><i class="fal fa-eye"></i></span>
-								<span class="pencil"><i class="fal fa-pencil-alt"></i></span>
-								<span class="trash"><i class="fal fa-trash"></i></span>
-							</td>
-						</tr>
+						<?php endforeach; ?>
 					</tbody>
 				</table>
 			</div><!-- End of Table Design -->

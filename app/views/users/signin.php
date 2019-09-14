@@ -1,7 +1,7 @@
 <?php require_once APP_ROOT . '/views/inc/header.php'; ?>
 	<section class="signup-form">
 		<div class="form-s animsition" style="min-height: 80vh;" data-animsition-in-class="fade-in-left" data-animsition-in-duration="400" data-animsition-out-class="fade-out-left" data-animsition-out-duration="500">
-			<form class="Fields" style="width: 65%;display: flex;flex-direction: row;justify-content: space-between;">
+			<form class="Fields l-sign" style="width: 65%;display: flex;flex-direction: row;justify-content: space-between;">
 			<div style="width: 100%;justify-content: space-around;display: flex;flex-direction: column;position: relative;">
 				<div class="header-menu">
 					<h3>Enter Personal Information</h3>					
@@ -23,7 +23,7 @@
 					<div class="f-form uPassVal">
 						<label for="password">Password:</label>
 						<div class="ins-wrapper">
-							<input type="password" name="password" placeholder="*********">
+							<input type="password" name="password" placeholder="*********" id="">
 							<!-- Icon -->
 							<i class="fal fa-key"></i>
 						</div>

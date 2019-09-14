@@ -37,7 +37,7 @@
 							$tag = explode(', ', $tags);
 							foreach($tag as $val) : ?>
 							<li>
-								<a href="#"><?=ucfirst($val);?></a>
+								<a href="#" data-tag="<?=strtolower($val);?>"><?=ucfirst($val);?></a>
 							</li>
 							<?php endforeach; ?>
 						</ul>

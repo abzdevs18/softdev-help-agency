@@ -30,12 +30,12 @@ $(document).on('click','.filter-btn',function(){
 /*From somewhere else*/
 $(document).on('click', '.latest-job', function(){
 	var id = $(this).attr('data-postID');
-	window.location.href = "pages/jobDetails/" + id;
+	window.location.href = "../pages/jobDetails/" + id;
 });
 
 /*Clicking the link to the Worker's profile*/
 $(document).on('click','.candidate', function(){
-	window.location.href = "../pages/worker_details";
+	window.location.href = "../pages/workerDetails";
 });
 
 $(document).on('click', '#company-link', function(){
@@ -206,8 +206,96 @@ $(document).on('click', '#submit-job', function(e){
 *	Adding tags 
 */
 $(document).ready(function(){
-	 $('#jTags').tokenfield();
+	 $('#jTags').tokenfield({});
 });
+
+$(document).on('click', '#tabs > ul > li > a', function(){
+	$('#tabs > ul > li > a').removeClass();
+	$(this).addClass('active');
+
+	var action = $(this).data('action');
+	if (action == "search-job") {
+		$('.c-input').hide();
+		$('.j-input').show();
+	} else if (action == "search-can"){
+		$('.c-input').show();
+		$('.j-input').hide();		
+	}
+	console.log(action);
+});
+
+$(document).on('click', ".job-skills li a", function(e){
+	e.preventDefault();
+	var term = $(this).data('tag');
+	$.ajax({
+		url: "../pages/getJobTag/" + term,
+		type: 'POST',
+		// dataType: 'json',
+		success: function(da){
+			if (window.location.pathname != "/sumalian/pages/search") {
+				// window.location.href = "/pages/getJobTag/" + term;
+				console.log("None");
+			}
+			$('#job-listing').html(da);
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+
+$(document).on('keyup','#search-sort > input', function(){
+	var query = $(this).val();
+	if (query != "") {
+		$.ajax({
+			url: "../pages/getJobTitle/" + query,
+			type: 'POST',
+			// dataType: 'json',
+			success: function(data){
+				if (data) {
+					$('#job-listing').html(data);
+				}else {
+					$('#job-listing').html("<b class='n-res'>No result!!</b>");
+				}
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});		
+	}else {
+		$.ajax({
+			url: "../pages/getJobs",
+			type: 'POST',
+			// dataType: 'json',
+			success: function(data){
+				$('#job-listing').html(data);
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});	
+	}
+});
+
+$(document).on('submit', '#search-form', function(e){
+	e.preventDefault();
+	var data = $(this).serialize();
+
+	$.ajax({
+		url: "pages/searchq",
+		type: 'POST',
+		data: data,
+		success: function(data){
+			window.location.href="pages/search";
+			$('#job-listing').html(data);
+		},
+		error: function(err){
+			console.log('Som');
+		}
+	});
+});
+
+/* Range of Salary*/
 
 /*This two function below will show and hide the feedback during the validation process*/
 function feedbackDefault(container){

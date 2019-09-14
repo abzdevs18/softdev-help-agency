@@ -48,13 +48,14 @@
 						</tr>
 					</thead>
 					<tbody>
+						<?php foreach($data['job'] AS $job) : ?>
 						<tr>
 							<td style="text-align: center;">
 								<input type="checkbox" name="">
 							</td>
 							<td class="tittle-id">
-								<h3>A+ HP probook 6560b core i3 2nd generation</h3>
-								<span>Ad ID: ng3D5hAMHPajQrM</span>
+								<h3><?=$job->jTitle;?></h3>
+								<span>Ad ID: <?=$job->jId;?></span>
 							</td>
 							<td class="item-cat">
 								<span>Laptops & PCs</span>	
@@ -66,11 +67,11 @@
 								<span>Active</span>
 							</td>
 							<td class="price-loc">								
-								<h3>$200</h3>
-								<span>ocation 44-46 Morningside North Road Edinburgh, Scotland, EH10 4BF</span>
+								<h3>P <?=$job->jSalary;?></h3>
+								<span><?=$job->comLoc;?></span>
 							</td>
 							<td class="date-pub">								
-								<h4 style="margin-bottom: 10px;">Jun 27, 2017</h4>
+								<h4 style="margin-bottom: 10px;"><?=$job->jDeadline;?></h4>
 								<span>Published</span>
 							</td>
 							<td class="action-btn">
@@ -78,6 +79,7 @@
 								<span class="trash"><i class="fal fa-trash"></i></span>
 							</td>
 						</tr>
+						<?php endforeach; ?>
 					</tbody>
 				</table>
 			</div><!-- End of Table Design -->

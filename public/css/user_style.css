@@ -765,7 +765,7 @@ Messaging
 .current-user-sender {
     padding-left: 20px;
     float: right;
-    padding-right: 35px;
+    padding-right: 25px;
     display: flex !important;
     justify-content: flex-end;
 }
@@ -801,6 +801,10 @@ Messaging
     align-self: baseline;
     bottom: -10px;
     position: absolute;
+}
+.icon-receiver > img {
+	width: 20px;
+	height: 20px;
 }
 .msgs-3-col-item > .input-msgs-content {
     /* height: 100px; */

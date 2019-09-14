@@ -609,6 +609,7 @@ Table Design
 	padding: 0 15px;
 	font: var(--font-quick-500-14);
 	position: relative;
+	cursor: pointer;
 }
 #job-filters {
 	position: relative;
@@ -941,4 +942,15 @@ transition: all .5s;
     text-align: center;
     visibility: hidden;
     font-family: 'FontAwesome';
+}
+
+/* No Result Design */
+.n-res {
+    text-align: center;
+    border: var(--border);
+    padding: 10px;
+    margin: 5px 15px;
+    border-radius: 4px;
+    color: #666;
+    font-weight: 500;
 }
