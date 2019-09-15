@@ -42,9 +42,9 @@
 							<label for="jCat">Job Category:</label>
 							<div class="ins-wrapper" style="width: 100%;">
 								<select style="width: 100%;" name="jCat">
-									<option value="1">Carpentry</option>
-									<option value="1">Plumbing</option>
-									<option value="1">Gardening</option>
+								<?php foreach($data['categories'] AS $categories) : ?>
+									<option><?=$categories->category_name;?></option>
+								<?php endforeach; ?>
 								</select>
 								<!-- <input type="text" name="compCat" placeholder="Hendricks"> -->
 								<i class="fal fa-address-card" style="margin-right: 25px;"></i>	

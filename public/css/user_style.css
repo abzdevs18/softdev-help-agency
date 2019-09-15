@@ -42,6 +42,98 @@ nav {
 	align-items: center;
 	width: 100%;
 }
+
+.s-wrapper {
+	width: calc( 100% + 30px );
+	background-color: #f3f3f3;
+	position: absolute;
+	left: 0;
+	right: 0;
+	display: none;
+}
+.result-dash-s {
+	margin: 5px;
+	padding: 5px;
+	border-radius: 4px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #666;
+	cursor: pointer;
+}
+.result-dash-s:hover {
+	box-shadow: var(--box-shadow);
+}
+.result-dash-s > a {
+	background: #0054ff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 10px;
+    padding: 3px 15px;
+    border-radius: 35px;
+    position: relative;
+    top: -5px;
+}
+.j-search-res {
+	display: flex;
+	justify-content: space-between;
+}
+
+.j-search-data h3 {
+	white-space: nowrap;
+	font-size: 15px;
+	width:300px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+
+.j-search-data > p {
+	white-space: nowrap;
+	width: 300px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 14px;
+}
+.j-search-tag li {
+	list-style-type: none;
+    display: inline-block;
+    margin-right: 4px;
+}
+.j-search-tag li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 11px;
+    /* background: #777; */
+    padding: 2px 10px;
+    border-radius: 35px;
+    transition: all .3s;
+    border: 1px solid #777;
+}
+.j-search-stat {
+	text-align: end;
+}
+.j-search-stat p {
+	font-size: 14px;
+	line-height: 20px;
+}
+.j-search-stat span {
+	font-size: 11px;
+	padding: 2px 5px;
+	border-radius: 3px;
+	color: #333;
+	border: 1px solid var(--green);
+}
+.n-res {
+    text-align: center;
+    /* border: var(--border); */
+    padding: 10px;
+    /* margin: 5px 15px; */
+    border-radius: 4px;
+    color: #666;
+    font-weight: 500;
+    width: 100%;
+    padding: 10px;
+}
 .search-field-prof i {
 	font-size: 18px;
 	color: #999;
@@ -581,7 +673,7 @@ font-weight: 600;
 	white-space: nowrap;
 	width: 200px;
 	overflow: hidden;
-	text-overflow: ellipsis;	
+	text-overflow: ellipsis;
 }
 .convo-inf p {
 font: var(--font-quick-400-13);

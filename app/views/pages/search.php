@@ -74,7 +74,7 @@
 				</div><!-- End of Sorting -->
 				<div id="job-listing" style="width: 100%;">
 					<?php foreach ($data['jobs'] as $jobs) : ?>
-						<div class="latest-job list_transition" data-postID="<?=$jobs->jId;?>">
+						<div class="latest-job list_transition result-job" data-postID="<?=$jobs->jId;?>">
 							<div>							
 								<div class="job-title">
 									<div>

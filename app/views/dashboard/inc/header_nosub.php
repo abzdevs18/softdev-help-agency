@@ -36,8 +36,10 @@
 				<div id="nav-links">
 					<ul>
 						<li>My Projects</li>
+						<a href="<?=URL_ROOT . '/dashboard';?>">
 						<li>Dashboards</li>
-							<a href="<?=URL_ROOT . '/pages/worker';?>" style="text-decoration: none;">
+						</a>
+							<a href="<?=URL_ROOT . '/pages/workerDetails';?>" style="text-decoration: none;">
 						<li id="account-profile">
 								<div id="account-thumbnail">
 									<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">

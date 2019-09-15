@@ -1,3 +1,5 @@
+var URL_ROOT = "http://192.168.0.14/sumalian/";
+
 $(document).on('keyup','#prof-query',function(){
 	var varl = $(this).val();
 
@@ -11,6 +13,7 @@ $(document).on('keyup','#prof-query',function(){
 $(document).on('click','#clear-search',function(){
 	$('#prof-query').val('');
 	$("#clear-search").hide(100);
+	$('.s-wrapper').slideUp(100);
 });
 
 $(document).on('click','.filter-btn',function(){
@@ -30,16 +33,29 @@ $(document).on('click','.filter-btn',function(){
 /*From somewhere else*/
 $(document).on('click', '.latest-job', function(){
 	var id = $(this).attr('data-postID');
-	window.location.href = "../pages/jobDetails/" + id;
+	if (window.location.href != URL_ROOT) {
+		window.location.href = "../pages/jobDetails/" + id;
+	}else {
+		window.location.href = "pages/jobDetails/" + id;
+	}
 });
+/**
+*	They work the same with the above code, just that it will return error 
+*	in URL because of the directory
+*/
+// $(document).on('click', '.result-job', function(){
+// 	var id = $(this).attr('data-postID');
+// 	window.location.href = "../pages/jobDetails/" + id;
+// });
 
 /*Clicking the link to the Worker's profile*/
 $(document).on('click','.candidate', function(){
-	window.location.href = "../pages/workerDetails";
+	
+		window.location.href = "../workerDetails";
 });
 
 $(document).on('click', '#company-link', function(){
-	window.location.href = "../pages/companyProfile";
+	window.location.href = "../companyProfile";
 });
 
 $(document).on('click','.ctl-msg',function(){
@@ -242,6 +258,30 @@ $(document).on('click', ".job-skills li a", function(e){
 			console.log(err);
 		}
 	});
+});
+$(document).on('keyup', ".search-field-prof #prof-query", function(){
+	var query = $(this).val();
+		$('.s-wrapper').slideDown(100);
+	if (query != "") {
+		$.ajax({
+			url: "pages/getJobTitleDash/" + query,
+			type: 'POST',
+			// dataType: 'json',
+			success: function(data){
+				if (data) {
+					$('.s-wrapper').html(data);
+				}else {
+					$('.s-wrapper').html("<b class='n-res'>No result!!</b>");
+				}
+				console.log(data);
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});		
+	}else {
+		$('.s-wrapper').slideUp(100);
+	}
 });
 
 $(document).on('keyup','#search-sort > input', function(){

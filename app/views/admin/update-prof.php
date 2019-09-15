@@ -9,7 +9,7 @@
 				<div class="content-head">
 					<h2>Profile Photo</h2>
 				</div>
-				<div class="prof-container">
+				<div class="prof-container admin-prof">
 					<div>
 						<p>Drop files anywhere to upload</p>
 						<p>Or</p>

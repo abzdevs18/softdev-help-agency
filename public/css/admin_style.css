@@ -562,7 +562,7 @@ textarea, select, .tg-select select, .form-control, input[type="text"], input[ty
 	width: 100%;
 	margin: 0 auto;
 }
-.prof-container > div {
+.admin-prof > div {
     align-items: center;
     display: flex;
     flex-direction: column;

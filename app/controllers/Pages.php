@@ -62,11 +62,11 @@ class Pages extends Controller
 	}
 
 	public function workerDetails(){
-		if (isLoggedIn()) {
+		// if (isLoggedIn()) {
+		// 	// redirect("pages/worker");
+		// }
+		// $this->view("users/signin");
 			$this->view("pages/worker");
-			// redirect("pages/worker");
-		}
-		$this->view("users/signin");
 	}
 
 	public function how_it_works(){
@@ -125,7 +125,7 @@ class Pages extends Controller
 			"jobs" => $jobTag
 		];
 
-		$this->view("inc/tagresult", $data);
+		$this->view("templates/tagresult", $data);
 	}
 
 	public function getJobTag($jTag){
@@ -134,7 +134,7 @@ class Pages extends Controller
 			"jobs" => $jobTag
 		];
 
-		$this->view("inc/tagresult", $data);
+		$this->view("templates/tagresult", $data);
 		// echo json_encode($data['jobs']);
 	}
 
@@ -145,7 +145,21 @@ class Pages extends Controller
 				"jobs" => $jobTag
 			];
 
-			$this->view("inc/tagresult", $data);
+			$this->view("templates/tagresult", $data);
+		}
+		return false;
+		// echo json_encode($data['jobs']);
+	}
+
+	public function getJobTitleDash($jTitle){
+		$jobTag = $this->jobModel->getJobByTitle($jTitle);
+		if ($jobTag) {
+			$data = [
+				"jobs" => $jobTag
+			];
+
+			$this->view("templates/dashSearch", $data);
+			// echo "string";
 		}
 		return false;
 		// echo json_encode($data['jobs']);

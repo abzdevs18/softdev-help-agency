@@ -6,7 +6,7 @@
 				<span>Biddings and Job Applications</span>
 			</div>
 			<div id="project-action-btns">
-				<ul>
+				<ul>					
 					<li class="filter-btn active-second-menu" data-filter="activeBids">Active Bids</li>
 					<li class="filter-btn" data-filter="currentWork">Current Work</li>
 					<li class="filter-btn" data-filter="inviteToWork">Invites</li>
@@ -393,7 +393,6 @@
 				</div>
 			</div>
 		</div>
-
 	</section>
 
 <?php require_once APP_ROOT . '/views/dashboard/inc/footer.php'; ?>

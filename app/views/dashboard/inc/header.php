@@ -24,18 +24,25 @@
 				<div class="l-r-prof">
 					<img src="<?php echo URL_ROOT . '/img/black-logo.png' ?>">
 				</div>
-				<div class="search-field-prof">
-					<i class="fas fa-search"></i>
-					<input type="text" name="search" placeholder="search" id="prof-query" autocomplete>
-					<span id="clear-search"><i class="far fa-times"></i></span>
+				<div style="width: 100%;position: relative;">
+					<div class="search-field-prof">
+						<i class="fas fa-search"></i>
+						<input type="text" name="search" placeholder="search" id="prof-query" autocomplete>
+						<span id="clear-search"><i class="far fa-times"></i></span>
+					</div>
+					<div class="s-wrapper">
+						<!-- Jobs to show here -->
+					</div>
 				</div>
 			</div>
 			<div class="user-right-nav">
 				<div id="nav-links">
 					<ul>
 						<li>My Projects</li>
+						<a href="<?=URL_ROOT . '/dashboard';?>">
 						<li>Dashboards</li>
-							<a href="<?=URL_ROOT . '/pages/worker';?>" style="text-decoration: none;">
+						</a>
+							<a href="<?=URL_ROOT . '/pages/workerDetails';?>" style="text-decoration: none;">
 						<li id="account-profile">
 								<div id="account-thumbnail">
 									<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">

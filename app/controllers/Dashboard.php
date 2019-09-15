@@ -24,13 +24,23 @@ class Dashboard extends Controller
 	public function message(){
 		$this->view("dashboard/message");
 	}
+
 	public function feedback(){
 		$this->view("dashboard/feedback");
 	}
+	
+	public function profile(){
+		$this->view("dashboard/user-profile");
+	}
 
 	public function postJob(){
+		$categories = $this->jobPostModel->getCategories();
 		if (isClient()) {
-			$this->view("dashboard/job-post");
+			$data = [
+				'categories' => $categories
+			];
+
+			$this->view("dashboard/job-post", $data);
 		}else {
 			$this->view("dashboard/index");	
 		}
