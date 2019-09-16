@@ -1,4 +1,5 @@
-var URL_ROOT = "http://192.168.0.14/sumalian/";
+var URL_ROOT = "/sumalian";
+var URL_ROOT_DASH = "http://192.168.0.14/sumalian/dashboard";
 
 $(document).on('keyup','#prof-query',function(){
 	var varl = $(this).val();
@@ -19,8 +20,11 @@ $(document).on('click','#clear-search',function(){
 $(document).on('click','.filter-btn',function(){
 	$(".content-tbl").hide();
 	var data = $(this).attr('data-filter');
+
 	if (data == 'activeBids') {
-		$('.activeBids').show();
+		$('.tbl-active').show();
+	}else if (data == 'openJobs'){
+		$('.openJobs').show();
 	}else if (data == 'currentWork'){
 		$('.currentWork').show();
 	}else if (data == 'inviteToWork'){
@@ -33,11 +37,17 @@ $(document).on('click','.filter-btn',function(){
 /*From somewhere else*/
 $(document).on('click', '.latest-job', function(){
 	var id = $(this).attr('data-postID');
-	if (window.location.href != URL_ROOT) {
-		window.location.href = "../pages/jobDetails/" + id;
-	}else {
-		window.location.href = "pages/jobDetails/" + id;
-	}
+		window.location.href = URL_ROOT + "/pages/jobDetails/" + id;
+});
+$(document).on('click', '.row-job', function(){
+	var id = $(this).attr('data-id');
+		window.location.href = URL_ROOT + "/dashboard/jobDetails/" + id;
+});
+
+/*From somewhere else*/
+$(document).on('click', '.result-dash-s', function(){
+	var id = $(this).attr('data-postID');
+		window.location.href = URL_ROOT + "/dashboard/jobDetails/" + id;
 });
 /**
 *	They work the same with the above code, just that it will return error 
@@ -51,7 +61,7 @@ $(document).on('click', '.latest-job', function(){
 /*Clicking the link to the Worker's profile*/
 $(document).on('click','.candidate', function(){
 	
-		window.location.href = "../workerDetails";
+		window.location.href = URL_ROOT + "/pages/workerDetails";
 });
 
 $(document).on('click', '#company-link', function(){
@@ -159,7 +169,7 @@ $(document).on('click', '#submit-job', function(e){
 	fd.push({name: "feat", value: feat});
 	
 	$.ajax({
-		url: "../dashboard/additionalValidation",
+		url: URL_ROOT + "/dashboard/additionalValidation",
 		type: 'POST',
 		dataType: 'json',
 		data: $.param(fd),
@@ -173,7 +183,7 @@ $(document).on('click', '#submit-job', function(e){
 				$('.jobPost-progress div').eq($(".job-d fieldset").index(next_form)).addClass('active');
 
 				$.ajax({
-					url: "../dashboard/submitJob",
+					url: URL_ROOT + "/dashboard/submitJob",
 					type: 'POST',
 					dataType: 'json',
 					data: $.param(fd),
@@ -259,13 +269,21 @@ $(document).on('click', ".job-skills li a", function(e){
 		}
 	});
 });
+/* KeyUp for Dashboard Search */
 $(document).on('keyup', ".search-field-prof #prof-query", function(){
 	var query = $(this).val();
-		$('.s-wrapper').slideDown(100);
+	var userID = $('#userID').val();
+	var dash;
+	$('.s-wrapper').slideDown(100);
 	if (query != "") {
+		// alert(window.location.href + " == " + dash  + " == " + URL_ROOT_DASH);
 		$.ajax({
-			url: "pages/getJobTitleDash/" + query,
+			url:  URL_ROOT + "/pages/getJobTitleDash",
 			type: 'POST',
+			data: {
+				query:query,
+				userID:userID
+			},
 			// dataType: 'json',
 			success: function(data){
 				if (data) {
@@ -288,7 +306,7 @@ $(document).on('keyup','#search-sort > input', function(){
 	var query = $(this).val();
 	if (query != "") {
 		$.ajax({
-			url: "../pages/getJobTitle/" + query,
+			url: URL_ROOT + "/pages/getJobTitle/" + query,
 			type: 'POST',
 			// dataType: 'json',
 			success: function(data){
@@ -304,7 +322,7 @@ $(document).on('keyup','#search-sort > input', function(){
 		});		
 	}else {
 		$.ajax({
-			url: "../pages/getJobs",
+			url: URL_ROOT + "/pages/getJobs",
 			type: 'POST',
 			// dataType: 'json',
 			success: function(data){
@@ -335,6 +353,32 @@ $(document).on('submit', '#search-form', function(e){
 	});
 });
 
+/* JOb Application Script */
+
+$(document).on('click', '.apply-btn-action', function(e){
+	var jobId = $(this).attr('data-jobId');
+	var uId = $(this).attr('data-uId');
+
+	$.ajax({
+		url: URL_ROOT + '/pages/applyJob',
+		type: 'POST',
+		dataType: 'json',
+		data: {
+			jobId:jobId,
+			uId:uId
+		},
+		success: function(data){
+			if (data['status'] == 1) {
+				alert("Applied");
+			}else {
+				alert("Error Occur");
+			}
+		},
+		error:function(err){
+			console.log(err);
+		}
+	});
+});
 /* Range of Salary*/
 
 /*This two function below will show and hide the feedback during the validation process*/

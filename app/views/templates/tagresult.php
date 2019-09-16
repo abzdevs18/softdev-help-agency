@@ -9,7 +9,7 @@
 					 Freelance = #597B8E	-->
 				<a href="#">part time</a>
 			</div>
-			<div class="details-jobs" style="align-content: space-between;">
+			<div class="details-jobs">
 				<div id="index-wrap-r">
 					<div class="education">
 						<p>Requirements: <span><?=$jobs->jReq;?></span></p>

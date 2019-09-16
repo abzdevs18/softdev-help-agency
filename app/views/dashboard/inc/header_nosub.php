@@ -6,30 +6,39 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/ico" href="<?=URL_ROOT?>/img/cap.ico">
 	<!-- <script src="https://kit.fontawesome.com/618fa0761b.js"></script> -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/mainStyle.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/user_style.css">
 	<style type="text/css">
 		@import url("<?=URL_ROOT;?>/css/static_style.css");
 		@import url("<?=URL_ROOT;?>/css/footer.css");
 	</style>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"></script>
+<!-- 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"></script> -->
 	
 </head>
 <body>
-	<nav style="position: sticky;top: 0px;background: #fff;z-index: 99;">
+	<nav style="position: sticky;top: 0px;background: #fff;z-index: 99;width: calc( 100% - 120px );">
 		<div class="user-navigation">
 			<div class="logo-user">
 				<div class="l-r-prof">
 					<img src="<?php echo URL_ROOT . '/img/black-logo.png' ?>">
 				</div>
-				<div class="search-field-prof">
-					<i class="fas fa-search"></i>
-					<input type="text" name="search" placeholder="search" id="prof-query" autocomplete>
-					<span id="clear-search"><i class="far fa-times"></i></span>
+				<div style="width: 100%;position: relative;">
+					<div class="search-field-prof">
+						<i class="fas fa-search"></i>
+						<input type="hidden" id="userID" value="<?=$data['userId'];?>">
+						<input type="text" name="search" placeholder="search" id="prof-query" autocomplete>
+						<span id="clear-search"><i class="far fa-times"></i></span>
+					</div>
+					<div class="s-wrapper">
+						<!-- Jobs to show here -->
+					</div>
 				</div>
 			</div>
 			<div class="user-right-nav">
@@ -45,7 +54,7 @@
 									<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
 								</div>
 								<div style="width: 85px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">								
-									<span style="font-weight: 700;"><?=$_SESSION['userName'];?></span>
+									<span style="font-weight: 500;"><?=$_SESSION['userName'];?></span>
 								</div>
 						</li>
 							</a>

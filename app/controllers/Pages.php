@@ -51,7 +51,8 @@ class Pages extends Controller
 		$jobs = $this->jobModel->getJobById($jId);
 
 		$data = [
-			"jobs" => $jobs
+			"jobs" => $jobs,
+			"userId" => $_SESSION['uId']
 		];
 
 		$this->view("pages/job-details", $data);
@@ -62,11 +63,10 @@ class Pages extends Controller
 	}
 
 	public function workerDetails(){
-		// if (isLoggedIn()) {
-		// 	// redirect("pages/worker");
-		// }
-		// $this->view("users/signin");
-			$this->view("pages/worker");
+		if (isLoggedIn()) {
+			redirect("pages/worker");
+		}
+		$this->view("users/signin");
 	}
 
 	public function how_it_works(){
@@ -134,11 +134,12 @@ class Pages extends Controller
 			"jobs" => $jobTag
 		];
 
-		$this->view("templates/tagresult", $data);
+		$this->view("tagresult", $data);
 		// echo json_encode($data['jobs']);
 	}
 
 	public function getJobTitle($jTitle){
+
 		$jobTag = $this->jobModel->getJobByTitle($jTitle);
 		if ($jobTag) {
 			$data = [
@@ -151,17 +152,47 @@ class Pages extends Controller
 		// echo json_encode($data['jobs']);
 	}
 
-	public function getJobTitleDash($jTitle){
-		$jobTag = $this->jobModel->getJobByTitle($jTitle);
-		if ($jobTag) {
-			$data = [
-				"jobs" => $jobTag
+	public function getJobTitleDash(){
+
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$query = [
+				"title" => trim($_POST['query']),
+				"user" => $_SESSION['uId']
 			];
 
-			$this->view("templates/dashSearch", $data);
-			// echo "string";
+			$jobTag = $this->jobModel->getJobByTitle($query);
+			if ($jobTag) {
+				$data = [
+					"jobs" => $jobTag
+				];
+
+				$this->view("templates/dashSearch", $data);
+			}
+			return false;
+			// echo json_encode($data['jobs']);
+
 		}
-		return false;
-		// echo json_encode($data['jobs']);
+
+	}
+
+	public function applyJob(){
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$query = [
+				"status" => "",
+				"jobId" => trim($_POST['jobId']),
+				"uId" => $_SESSION['uId']
+			];
+
+			$jobTag = $this->jobModel->jobApplication($query);
+			if ($jobTag) {
+				$query['status'] = 1;
+				echo json_encode($query);
+			}else {
+				$query['status'] = 0;
+				echo json_encode($query);
+			}
+		}	
 	}
 }

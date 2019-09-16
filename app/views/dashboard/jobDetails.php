@@ -1,6 +1,6 @@
-<?php require_once APP_ROOT . '/views/inc/header.php'; ?>
+<?php require_once APP_ROOT . '/views/dashboard/inc/header_nosub.php'; ?>
 
-	<main style="height: 65vh;width: 100%;position: relative;" id="specific-job">
+	<main style="height: 65vh;width: 100%;position: relative;" id="specific-job" class="job-head">
 	</main>
 	<section style="width: 100%;margin: 0 auto;position: relative;">
 		<div style="width: 85%;margin: 0 auto;margin-top: -250px;">
@@ -18,7 +18,7 @@
 							 Freelance = #597B8E	-->
 						<a href="#">part time</a>
 					</div>
-					<div class="details-jobs" style="justify-content: flex-start;">
+					<div class="details-jobs">
 						<div class="education">
 							<p>Requirement: <span><?=$data['jobs']->jReq; ?></span></p>
 						</div>
@@ -44,10 +44,10 @@
 					</div>		
 					<div class="call-to-action">
 						<div class="appy-btn">
-							<p>Apply</p>
+							<p class="apply-btn-action" data-jobId="<?=$data['jobs']->jId; ?>" data-uId="<?=$data['userId']; ?>">Apply</p>
 						</div>
 						<div class="fav-icon">
-							<i class="far fa-heart"></i>
+							<i class="far fa-heart fav-button" data-jobId="<?=$data['jobs']->jId; ?>"></i>
 						</div>
 					</div>			
 				</div>
@@ -203,4 +203,4 @@
 		</div>		
 	</section>
 
-<?php require_once APP_ROOT . '/views/inc/footer.php'; ?>
+<?php require_once APP_ROOT . '/views/dashboard/inc/footer.php'; ?>

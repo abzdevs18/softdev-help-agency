@@ -43,7 +43,7 @@
 							<div class="ins-wrapper" style="width: 100%;">
 								<select style="width: 100%;" name="jCat">
 								<?php foreach($data['categories'] AS $categories) : ?>
-									<option><?=$categories->category_name;?></option>
+									<option value="<?=$categories->id;?>"><?=$categories->category_name;?></option>
 								<?php endforeach; ?>
 								</select>
 								<!-- <input type="text" name="compCat" placeholder="Hendricks"> -->

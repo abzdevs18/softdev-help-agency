@@ -9,6 +9,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/mainStyle.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/user_style.css">
 	<style type="text/css">
 		@import url("<?=URL_ROOT;?>/css/static_style.css");
@@ -18,7 +19,7 @@
 
 </head>
 <body>
-	<nav style="position: sticky;top: 0px;background: #fff;z-index: 99;">
+	<nav style="position: sticky;top: 0px;background: #fff;z-index: 99;width: calc( 100% - 120px );">
 		<div class="user-navigation">
 			<div class="logo-user">
 				<div class="l-r-prof">
@@ -48,7 +49,7 @@
 									<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
 								</div>
 								<div style="width: 85px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">								
-									<span style="font-weight: 700;"><?=$_SESSION['userName'];?></span>
+									<span style="font-weight: 500;"><?=$_SESSION['userName'];?></span>
 								</div>
 						</li>
 							</a>

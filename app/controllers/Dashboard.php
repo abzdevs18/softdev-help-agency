@@ -16,8 +16,12 @@ class Dashboard extends Controller
 	}
 
 	public function index(){
+		$jobs = $this->jobPostModel->getJobUserId($_SESSION['uId']);
 
-		$data = [];
+		$data = [
+			"jobs" => $jobs
+		];
+
 		$this->view('dashboard/index', $data);
 	}
 
@@ -161,5 +165,16 @@ class Dashboard extends Controller
 				echo json_encode($data['status']);
 			}
 		}
+	}
+
+	public function jobDetails($jId){
+		$jobs = $this->jobPostModel->getJobById($jId);
+
+		$data = [
+			"jobs" => $jobs,
+			"userId" => $_SESSION['uId']
+		];
+
+		$this->view("dashboard/jobDetails", $data);
 	}
 }

@@ -1,5 +1,5 @@
 <?php foreach ($data['jobs'] as $jobs) : ?>
-<div class="result-dash-s">
+<div class="result-dash-s" data-postID="<?=$jobs->jId;?>">
 	<a href="#">Part time</a>
 	<div class="j-search-res">
 		<div class="j-search-data">
