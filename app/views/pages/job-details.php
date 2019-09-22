@@ -44,7 +44,7 @@
 					</div>		
 					<div class="call-to-action">
 						<div class="appy-btn">
-							<p>Apply</p>
+							<p class="apply-btn-action" data-jobId="<?=$data['jobs']->jId; ?>">Apply</p>
 						</div>
 						<div class="fav-icon">
 							<i class="far fa-heart"></i>

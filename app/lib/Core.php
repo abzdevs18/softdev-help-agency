@@ -52,7 +52,7 @@ class Core
 
 	public function getUrl(){
 		if (isset($_GET['url'])) {
-			/* with the word trim, it means removing whitespace (or other characters) from the end of a string*/
+			/* with the word rtrim, it means removing whitespace (or other characters) from the end of a string*/
 			$url = rtrim($_GET['url'], '/');
 			/* remove any character that a url should not have */
 			$url = filter_var($url, FILTER_SANITIZE_URL); 

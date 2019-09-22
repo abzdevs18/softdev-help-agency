@@ -39,7 +39,7 @@
 						<table>
 							<thead>
 								<tr>
-									<th><input type="checkbox" name=""></th>
+									<th style="text-align: center;"><input type="checkbox" name=""></th>
 									<th>Emp Photo</th>
 									<th>Job Tittle</th>
 									<th>Category</th>
@@ -98,7 +98,7 @@
 						<table>
 							<thead>
 								<tr>
-									<th><input type="checkbox" name=""></th>
+									<th style="text-align: center;"><input type="checkbox" name=""></th>
 									<th>Emp Photo</th>
 									<th>Job Tittle</th>
 									<th>Category</th>
@@ -110,30 +110,31 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<?php foreach ($data['biddings'] as $bidds) : ?>
+								<tr class="biddRow" data-workerID="<?=$bidds->workerId;?>" data-workId="<?=$bidds->jId;?>">
 									<td style="text-align: center;">
 										<input type="checkbox" name="">
 									</td>
 									<td>
-										<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>">
+										<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>" style="border-radius: 50%;">
 									</td>
 									<td class="tittle-id">
-										<h3>A+ HP probook 6560b core i3 2nd generation</h3>
-										<span>Ad ID: ng3D5hAMHPajQrM</span>
+										<h3><?=$bidds->jTitle;?></h3>
+										<span>Ad ID: <?=$bidds->jId;?></span>
 									</td>
 									<td class="item-cat">
 										<span>Laptops & PCs</span>	
 									</td>
 									<td class="status-job">
 										<!-- <span>Active</span> -->
-										<p>Clint Anthony Abueva</p>
+										<p class="bidderName"><?php echo $bidds->uFname . ' ' . $bidds->uLname;?></p>
 									</td>
 									<td class="price-loc">								
-										<h3>$200</h3>
-										<span>ocation 44-46 Morningside North Road Edinburgh, Scotland, EH10 4BF</span>
+										<h3>P <?=$bidds->jSalary; ?>.00</h3>
+										<span>Location: <?=$bidds->comLoc;?></span>
 									</td>
 									<td class="date-pub">								
-										<h4 style="margin-bottom: 10px;">Jun 27, 2017</h4>
+										<h4 style="margin-bottom: 10px;"><?=$bidds->jDeadline;?></h4>
 										<span>Published</span>
 									</td>
 									<td class="action-btn">
@@ -142,6 +143,7 @@
 										<span class="trash"><i class="fal fa-trash"></i></span>
 									</td>
 								</tr>
+								<?php endforeach; ?>
 							</tbody>
 						</table>
 					</div><!-- End of Table Design -->

@@ -52,7 +52,7 @@
 					<div class="f-form locVal">
 						<label for="location">Where are you now?:</label>
 						<div class="ins-wrapper">
-							<input type="txt" name="location" placeholder="Dumaguete City">
+							<input type="text" name="location" placeholder="Dumaguete City">
 							<!-- Icon -->
 							<i class="fal fa-compass"></i>
 						</div>

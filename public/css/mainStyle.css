@@ -414,6 +414,7 @@ Job details
     padding: 2px 10px;
     border-radius: 35px;
     transition: all .3s;
+    z-index: 999;
 }
 .job-skills li a:hover {background: #333;color: #fff;}
 .education p, .deadline p, .location i {
@@ -477,7 +478,7 @@ Job details
 }
 #application-field {
 	width: calc( 100% - 20px );
-	height: 30vh;
+	/* height: 30vh; */
 	margin-left: 20px;
 }
 #app-form {
@@ -498,6 +499,7 @@ Job details
 	display: flex;
 	flex-direction: row;
 	margin-top: 50px;
+	display: none;
 }
 .bid-form-container {
 	margin-right: 15px;
@@ -1087,4 +1089,16 @@ Action buttons
 .jobs-result-con {
 	width: 75%;
 	padding-left: 5px;
+}
+#flash-msgs {
+	width: 100%;
+	margin-bottom: 15px;
+	border-radius: 3px;
+	border: 1px solid red;
+	display: none;
+}
+#flash-msgs p {
+	padding: 10px;
+	background: #ff000014;
+	color: red;
 }

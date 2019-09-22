@@ -17,16 +17,33 @@ class Dashboard extends Controller
 
 	public function index(){
 		$jobs = $this->jobPostModel->getJobUserId($_SESSION['uId']);
-
+		$bidding = $this->jobPostModel->listBidders($_SESSION['uId']);
+		$userType = $_SESSION['user_type'];
 		$data = [
-			"jobs" => $jobs
+			"jobs" => $jobs,
+			"biddings" => $bidding,
+			"userType" => $userType
 		];
 
 		$this->view('dashboard/index', $data);
 	}
 
-	public function message(){
-		$this->view("dashboard/message");
+	public function message($data){
+		// if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+			$data = [
+				/*check this first form*/
+				"status" => "",
+				"workID" => trim($data),
+				"workerID" => trim($_GET['link'])
+			];
+		// 	$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+		// 	echo json_encode($data);
+			$this->view("dashboard/message", $data);
+		// }else {
+		// 	// return $this->index();
+		// 	$data = ["status" => "2"];
+		// 	echo json_encode($data);
+		// }
 	}
 
 	public function feedback(){
@@ -139,6 +156,10 @@ class Dashboard extends Controller
 	public function submitJob(){
 		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$tag = $_POST['jTags'];
+			if (str_word_count($_POST['jTags']) < 1 ) {
+				$tag .= str_replace(' ','_', $jTag);
+			}
 
 			$data = [
 				/*check this first form*/
@@ -154,7 +175,7 @@ class Dashboard extends Controller
 				"jSalary" => trim($_POST['jSalary']),
 				"jDead" => trim($_POST['jDead']),
 				"jLoc" => trim($_POST['jLoc']),
-				"jTags" => trim($_POST['jTags'])
+				"jTags" => trim($tag)
 			];
 
 			if ($this->jobPostModel->postJob($data)) {

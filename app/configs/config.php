@@ -10,7 +10,11 @@ define('DB_NAME', 'sf_help');
 define('APP_ROOT', dirname(dirname(__FILE__)));
 
 //URL ROOT
-define('URL_ROOT', 'http://192.168.0.14/sumalian');
+define('URL_ROOT', 'http://192.168.0.17/sumalian');
 
 //SITE NAME
 define('SITE_NAME', 'Help Agency');
+
+//SALT
+define('SECURE_SALT', 'k<UL?Gxr%6bTv[IX5h>s)vaEurK]4Sn');
+

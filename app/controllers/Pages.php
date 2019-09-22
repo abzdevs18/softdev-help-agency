@@ -129,12 +129,16 @@ class Pages extends Controller
 	}
 
 	public function getJobTag($jTag){
-		$jobTag = $this->jobModel->getJobByTag($jTag);
+		$tag = $jTag;
+		if (str_word_count($jTag) < 1) {
+			$tag = str_replace(' ','', $jTag);
+		}
+		$jobTag = $this->jobModel->getJobByTag($tag);
 		$data = [
 			"jobs" => $jobTag
 		];
 
-		$this->view("tagresult", $data);
+		$this->view("templates/tagresult", $data);
 		// echo json_encode($data['jobs']);
 	}
 
@@ -181,17 +185,25 @@ class Pages extends Controller
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 			$query = [
 				"status" => "",
-				"jobId" => trim($_POST['jobId']),
-				"uId" => $_SESSION['uId']
+				"jobId" => "",
+				"uId" => ""
 			];
 
-			$jobTag = $this->jobModel->jobApplication($query);
-			if ($jobTag) {
-				$query['status'] = 1;
+			if (!isset($_SESSION['uId'])) {
+				$query['status'] = 2;
 				echo json_encode($query);
-			}else {
-				$query['status'] = 0;
-				echo json_encode($query);
+			}else{
+				$query["jobId"] = trim($_POST['jobId']);
+				$query["uId"] = $_SESSION['uId'];
+
+				$jobTag = $this->jobModel->jobApplication($query);
+				if ($jobTag) {
+					$query['status'] = 1;
+					echo json_encode($query);
+				}else {
+					$query['status'] = 0;
+					echo json_encode($query);
+				}
 			}
 		}	
 	}

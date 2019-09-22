@@ -18,6 +18,8 @@ $(document).on('click','#clear-search',function(){
 });
 
 $(document).on('click','.filter-btn',function(){
+	$('.filter-btn').removeClass('active-second-menu');
+	$(this).addClass('active-second-menu');
 	$(".content-tbl").hide();
 	var data = $(this).attr('data-filter');
 
@@ -32,6 +34,40 @@ $(document).on('click','.filter-btn',function(){
 	}else if (data == 'pastWork'){
 		$('.pastWork').show();
 	}
+});
+/*Hover effects for the dashboard jobs list*/
+$('.filter-btn').hover(function(){
+	$(this).addClass('hover-second-menu');
+});
+
+$('.filter-btn').mouseleave(function(){
+	$(this).removeClass('hover-second-menu');
+});
+
+/*From bidder list into message*/
+$(document).on('click','.biddRow', function(){
+	var workerID = $(this).attr('data-workerID');
+	var workId = $(this).attr('data-workId');
+	var da = [workId,workerID];
+
+	// $.ajax({
+	// 	url: URL_ROOT + '/dashboard/message/' + workId + workerID,
+	// 	type: 'POST',
+	// 	// dataType: 'json',
+	// 	data: {
+	// 		workID: workId,
+	// 		workerID: workerID
+	// 	},
+	// 	success: function(data){
+	// 		// $('#sendbtn').text(workerID);
+	// 		// window.location.href= URL_ROOT + '/dashboard/message';
+	// 		console.log(data);
+	// 	},
+	// 	error: function(err){
+	// 		console.log('err');
+	// 	}
+	// });
+	window.location.href= URL_ROOT + '/dashboard/message/' + workId + '/?link='+workerID;
 });
 
 /*From somewhere else*/
@@ -65,7 +101,7 @@ $(document).on('click','.candidate', function(){
 });
 
 $(document).on('click', '#company-link', function(){
-	window.location.href = "../companyProfile";
+	window.location.href = URL_ROOT + "/pages/companyProfile";
 });
 
 $(document).on('click','.ctl-msg',function(){
@@ -96,7 +132,7 @@ $(document).on('click', '#nxt_postJob', function(){
 	fd.push({name: "feat", value: feat});
 	
 	$.ajax({
-		url: "../dashboard/primaryValidation",
+		url: URL_ROOT + "/dashboard/primaryValidation",
 		type: 'POST',
 		dataType: 'json',
 		data: $.param(fd),
@@ -254,15 +290,16 @@ $(document).on('click', ".job-skills li a", function(e){
 	e.preventDefault();
 	var term = $(this).data('tag');
 	$.ajax({
-		url: "../pages/getJobTag/" + term,
+		url: URL_ROOT + "/pages/getJobTag/" + term,
 		type: 'POST',
 		// dataType: 'json',
 		success: function(da){
-			if (window.location.pathname != "/sumalian/pages/search") {
-				// window.location.href = "/pages/getJobTag/" + term;
-				console.log("None");
-			}
+			// // if (window.location.pathname != "/sumalian/pages/search") {
+			// 	window.location.href = URL_ROOT + "/pages/search";
+			// 	console.log("None");
+			// // }
 			$('#job-listing').html(da);
+			console.log(da);
 		},
 		error: function(err){
 			console.log(err);
@@ -370,8 +407,10 @@ $(document).on('click', '.apply-btn-action', function(e){
 		success: function(data){
 			if (data['status'] == 1) {
 				alert("Applied");
+			}else if (data['status'] == 2) {
+				console.log("S");
 			}else {
-				alert("Error Occur");
+				alert("N")
 			}
 		},
 		error:function(err){

@@ -90,7 +90,7 @@ class User
 
 		// if ($row->id == $user_id->user_id) {
 			$hashed_pass = $row->usrPass;
-			if (password_verify($password, $hashed_pass)) {
+			if (password_verify($password,$row->usrPass)) {
 				return $row;
 				// return true;
 

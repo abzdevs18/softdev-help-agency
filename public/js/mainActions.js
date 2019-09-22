@@ -1,7 +1,7 @@
 /**
 * The registration and login of users communicate in here
 */
-
+var URL_ROOT = "/sumalian";
 
 // $(document).ready(function(){
 	var u_type = 0;
@@ -58,7 +58,7 @@ $(document).on('click','.next_fs', function(){
 
 	if (action == 1) {
 		$.ajax({
-			url:'../users/validationFormPersonal',
+			url: URL_ROOT + '/users/validationFormPersonal',
 			type:'POST',
 			dataType: 'json',
 			data: {
@@ -252,9 +252,9 @@ $(document).on('click','.next_fs', function(){
 
 $(document).on('click', '.successful-reg', function(){
 	$.ajax({
-		url:'../users',
+		url: URL_ROOT + '/users',
 		success: function(){
-			 window.location.href = "../users/signin";
+			 window.location.href = URL_ROOT + "/users/signin";
 			console.log("Redirected");
 		},
 		error :function(){
@@ -289,7 +289,7 @@ function login(){
 	var uPassword = $('.f-form input[name="password"]').val();
 
 	$.ajax({
-		url: '../users/signin',
+		url: URL_ROOT + '/users/signin',
 		type: 'POST',
 		dataType: 'json',
 		data: {
@@ -299,8 +299,10 @@ function login(){
 		success:function(data){
 			if (data["data"].status == 1 && data["row"].fId != "") {
 				feedbackDefault('f-form');
-				window.location.href = "../dashboard";
+				window.location.href =  URL_ROOT + "/dashboard";
 				console.log(data["row"].fId);
+			}else if(data["data"].status == 2){
+				$('#flash-msgs').show().effect( "shake", {times:4}, 1000 );
 			}else {
 				if (data['data'].uNameEmail_err) {
 					 // Get the parent/container of the input field for firstname and 

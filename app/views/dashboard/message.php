@@ -7,7 +7,7 @@
 					<i class="far fa-search"></i>
 				</div>	
 				<div id="users">
-					<?php for($i = 0; $i < 20; $i++):?>
+					<?php for($i = 0; $i < 2; $i++):?>
 						<div class="user-items">
 							<div class="convo-prof">
 								<img src="<?php echo URL_ROOT. '/img/profiles/prof.png' ?>">
@@ -69,7 +69,7 @@
 								<div class="cta-buttons">
 									<i class="fal fa-thumbs-up"></i>
 									<i class="fal fa-thumbs-down"></i>
-									<span>Send</span>
+									<span id="sendbtn"><?=$data['workID'];?>Send</span>
 								</div>
 							</div>
 						</div>

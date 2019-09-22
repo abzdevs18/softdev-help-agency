@@ -107,7 +107,7 @@ color: #444;
     color: #dc3545;
 }
 .invalid-box-shadow {
-	box-shadow: 0 0 2px 1px red;
+	box-shadow: 0 0 2px 1px red !important;
 }
 /*.next-submit a {*/
 .form-s a {

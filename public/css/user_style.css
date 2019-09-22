@@ -252,6 +252,9 @@ dashboard secondary menu
 .active-second-menu {
 	border-bottom: 2px solid;
 }
+.hover-second-menu {
+	border-bottom: 2px solid;
+}
 /*
 container-project
 */

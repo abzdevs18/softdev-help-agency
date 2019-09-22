@@ -1,5 +1,8 @@
 <?php require_once APP_ROOT . '/views/inc/header.php'; ?>
 	<section class="signup-form">
+		<div id="flash-msgs">
+			<p>Wrong username/password</p>
+		</div>
 		<div class="form-s animsition" style="min-height: 80vh;" data-animsition-in-class="fade-in-left" data-animsition-in-duration="400" data-animsition-out-class="fade-out-left" data-animsition-out-duration="500">
 			<form class="Fields l-sign" style="width: 65%;display: flex;flex-direction: row;justify-content: space-between;">
 			<div style="width: 100%;justify-content: space-around;display: flex;flex-direction: column;position: relative;">
@@ -14,7 +17,7 @@
 					<div class="f-form uNameVal">
 						<label for="uemail">Email Address/Username:</label>
 						<div class="ins-wrapper">
-							<input type="text" name="uemail" placeholder="support@gmail.com">
+							<input type="text" name="uemail" placeholder="support@gmail.com" style="text-transform: unset;">
 							<!-- Icon -->
 							<i class="fal fa-envelope"></i>
 						</div>

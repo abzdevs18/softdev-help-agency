@@ -48,7 +48,7 @@
 								<div id="account-thumbnail">
 									<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
 								</div>
-								<div style="width: 85px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">								
+								<div style="max-width: 85px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">								
 									<span style="font-weight: 500;"><?=$_SESSION['userName'];?></span>
 								</div>
 						</li>

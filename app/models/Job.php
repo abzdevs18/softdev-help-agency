@@ -220,5 +220,18 @@ class Job
 		return true;
 	}
 
+	/*Listing all the bidders*/
+	public function listBidders($employeeId){
+		$this->db->query("SELECT job_biddings.user_id AS workerId, jobs.id AS jId, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.featured AS isJFeatured, jobs.job_description AS jDesc, jobs.tags AS jTags, company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf, user.firstname AS uFname, user.lastname AS uLname, user_profile.img_path AS userProf FROM job_biddings LEFT JOIN user ON user.id = job_biddings.user_id LEFT JOIN user_profile ON user_profile.user_id = job_biddings.user_id AND user_profile.profile_status = 1 LEFT JOIN jobs ON jobs.id = job_biddings.job_id LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 WHERE jobs.user_id = :empId ORDER BY job_biddings.timestamp");
+		$this->db->bind(":empId", $employeeId);
+		$row = $this->db->resultSet();
+
+		if ($row) {
+			return $row;
+		}else{
+			return false;
+		}
+	}
+
 }
 

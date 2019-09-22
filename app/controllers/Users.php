@@ -4,6 +4,7 @@
  */
 class Users extends Controller
 {
+	private $salt = SECURE_SALT;
 		
 	function __construct()
 	{
@@ -26,6 +27,7 @@ class Users extends Controller
 		// $method = $_SERVER['REQUEST_METHOD'] = 'POST';
 		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$salted_pass = $this->salt . trim($_POST['password']);
 			$data = [
 				//user user type later to add certain data if a user is employeer
 				"status" => "",
@@ -33,7 +35,7 @@ class Users extends Controller
 				"fName" => trim($_POST['fName']),
 				"lName" => trim($_POST['lName']),
 				"uEmail" => trim($_POST['uEmail']),
-				"password" => trim($_POST['password']),
+				"password" => $salted_pass,
 				"userName" => trim($_POST['username']),
 				"uPhone" => trim($_POST['uPhone']),
 				"uLocation" => trim($_POST['uLocation']),
@@ -240,11 +242,12 @@ class Users extends Controller
 	public function signin(){
 		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$pas = SECURE_SALT . trim($_POST['uPassword']);
 			$data = [
 				//user user type later to add certain data if a user is employeer
 				"status" => "",
 				"uNameEmail" => trim($_POST['uNameEmail']),
-				"uPassword" => trim($_POST['uPassword']),
+				"uPassword" => $pas,
 				"uNameEmail_err" => "",
 				"uPassword_err" => ""
 			];
@@ -265,7 +268,7 @@ class Users extends Controller
 					}
 				}			
 			}
-			// Lastname validation
+			// Password validation
 			if (empty($data['uPassword'])) {
 				$data['uPassword_err'] = 'Please enter your Password';
 			}
@@ -281,6 +284,15 @@ class Users extends Controller
 						"data" => $data,
 						"row" => $loggedIn
 					];
+					echo json_encode($arr);
+				}else{
+					$data['status'] = 2;
+
+					$arr = [
+						"data" => $data,
+						"row" => ""
+					];
+					
 					echo json_encode($arr);
 				}
 
