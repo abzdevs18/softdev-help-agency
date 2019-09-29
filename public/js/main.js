@@ -1,3 +1,5 @@
+var URL_ROOT = '/sumalian';
+
 $(function(){
     $( "#slider-range" ).slider({
       range: true,
@@ -17,4 +19,53 @@ $(function(){
     $( "#amount" ).val( "P" + $( "#slider-range" ).slider( "values", 0 ) +
       " - P" + $( "#slider-range" ).slider( "values", 1 ) );
 });
+
+$(document).on('click','.setup-btn', function(){
+
+  /* Admin configuration Script*/
+  var current, next, prev;
+  var left, opacity, scale;
+
+  current = $(this).parent();
+  next = $(this).parent().next();
+
+  /* progress */
+  $('.progress li').eq($('div.awesome').index(next)).addClass('active');
+
+  current.hide();
+  next.show();
+
+  current.animate({opacity:0},{
+    step: function(now,mx){
+      scale = 1 - (1 - now)*0.2;
+      left = (now * 50) + "%";
+      opacity = 1 - now;
+      current.css({'transform':'scale('+scale+')'});
+      next.css({'left':left,'opacity':opacity});
+    },
+    duration: 800,
+    complete:function(){
+      current.hide();
+    }
+  });
+
+  var data = $('#c-n').serializeArray();
+
+  $.ajax({
+    url: URL_ROOT + '/init/adminSetup',
+    type: 'POST',
+    data: $.param(data),
+    success: function(d){
+      console.log(d);
+    },
+    error:function(e){
+      console.log(e)
+    }
+  });
+});
+
+/* Admin initialization*/
+
+
+
 

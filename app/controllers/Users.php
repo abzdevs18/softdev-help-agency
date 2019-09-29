@@ -9,7 +9,7 @@ class Users extends Controller
 	function __construct()
 	{
 		$this->userModel = $this->model('User');
-		$this->adminModel = $this->model('Admin');
+		$this->adminModel = $this->model('Admins');
 		if (!$this->adminModel->isAdminFound()) {
 			redirect('admin/sf_admin');
 		}

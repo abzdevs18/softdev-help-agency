@@ -9,19 +9,24 @@ class Admin extends Controller
 	function __construct()
 	{
 		$this->jobModel = $this->model('job');
-
-		// if ($this->Model->isAdminFound()) {
-		// 	$this->index();
-		// }		
+		$this->adminModel = $this->model('admins');
+		if (!$this->adminModel->isAdminFound()) {
+			$this->setup();
+			die();
+		}		
 	}
 
 	public function index(){
-		if (isLoggedIn() && $_SESSION['user_type'] == 1) {
+		if (isLoggedIn() && $_SESSION['is_admin'] == 1) {
 			# code...
 			$this->view('admin/index');
 		}else {
-			redirect('users/index');
+			redirect('admin/login');
 		}
+	}
+
+	public function setup(){
+		$this->view('admin/setup/sf_admin');
 	}
 
 	public function profile(){
@@ -70,10 +75,6 @@ class Admin extends Controller
 
 	public function jobPost(){
 		$this->view('admin/job-post');
-	}
-
-	public function sf_admin(){
-		$this->view("admin/setup/sf_admin");
 	}
 
 	public function getAllJob(){

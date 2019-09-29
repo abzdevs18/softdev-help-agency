@@ -3,7 +3,7 @@
 /**
  * 
  */
-class Admin
+class Admins
 {
 	private $db;
 	function __construct()

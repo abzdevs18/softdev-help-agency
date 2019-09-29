@@ -8,11 +8,11 @@ class Pages extends Controller
 	function __construct()
 	{
 
-		$this->Model = $this->model('admin');
+		$this->Model = $this->model('admins');
 		$this->jobModel = $this->model('job');
 
 		if (!$this->Model->isAdminFound()) {
-			redirect('admin/sf_admin');
+			redirect('admin/setup');
 		}
 	}
 
@@ -63,10 +63,10 @@ class Pages extends Controller
 	}
 
 	public function workerDetails(){
-		if (isLoggedIn()) {
-			redirect("pages/worker");
-		}
-		$this->view("users/signin");
+		// if (isLoggedIn()) {
+		// }
+			// redirect("pages/worker");
+		$this->view("pages/worker");
 	}
 
 	public function how_it_works(){
