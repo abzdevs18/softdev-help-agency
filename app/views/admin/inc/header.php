@@ -8,7 +8,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/admin_style.css">
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script></script>
 
 
 	<script src="<?=URL_ROOT;?>/js/admin_script.js"></script>
@@ -44,7 +46,7 @@
 						</svg>						
 					</span>
 				</div>
-				<div id="navigation-scroll">			
+				<div id="navigation-scroll" data-simplebar>			
 					<div id="logo-admin" dir="ltr"> 
 						<div>
 							<img src="<?=URL_ROOT;?>/img/logo1.png" id="logo-icon">

@@ -6,9 +6,17 @@
 class Admins
 {
 	private $db;
+	private $error;
 	function __construct()
 	{
+		
 		$this->db = Database::getInstance();
+		$this->error = Database::conError();
+
+	}
+
+	public function connError(){
+		return $this->error;
 	}
 
 	public function isAdminFound(){
@@ -20,5 +28,6 @@ class Admins
 		}
 
 		return false;
+		// echo $this->db;
 	}
 }

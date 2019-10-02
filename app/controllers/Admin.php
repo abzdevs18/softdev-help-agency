@@ -8,12 +8,21 @@ class Admin extends Controller
 	
 	function __construct()
 	{
-		$this->jobModel = $this->model('job');
-		$this->adminModel = $this->model('admins');
-		if (!$this->adminModel->isAdminFound()) {
+		if (file_exists( dirname(__FILE__) . '/../configs/config.php')) {
+			$this->jobModel = $this->model('job');
+			$this->adminModel = $this->model('admins');
+				if ($this->adminModel->connError()) {
+					$this->setup();
+					die();
+				}else{
+					$this->login();
+					die();
+				}
+		}else {
 			$this->setup();
 			die();
-		}		
+		}
+		
 	}
 
 	public function index(){
@@ -22,7 +31,12 @@ class Admin extends Controller
 			$this->view('admin/index');
 		}else {
 			redirect('admin/login');
+			// echo "l";
 		}
+	}
+
+	public function login(){
+		$this->view('admin/login');
 	}
 
 	public function setup(){

@@ -7,6 +7,7 @@
 class Database
 {
 	private static $_instance = null;
+	private static $_error = null;
 	private $host = DB_HOST;
 	private $user = DB_USER;
 	private $pass = DB_PASS;
@@ -14,24 +15,29 @@ class Database
 
 	private $dbh;
 	private $stmt;
-	private $error;
+	// private $error = false;
 
 	public function __construct(){
 		//set DSN
-		$dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name;
 
+		$dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name;
 		$options = array(
 			PDO::ATTR_PERSISTENT => true,
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 		);
 
 		try {
-			// echo "string";
 			$this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
 		} catch (PDOException $e) {
-			$this->error = $e->getMessage();
+			self::$_error = $e->getMessage();
+		}
+	}
 
-			// echo $this->error;
+	public static function conError(){
+		if (self::$_error || empty(DB_HOST)) {
+			return true;
+		}else{
+			return false;
 		}
 	}
 

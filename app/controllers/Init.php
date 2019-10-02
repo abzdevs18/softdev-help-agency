@@ -32,7 +32,7 @@ class Init extends Controller
 			define('APP_ROOT', dirname(dirname(__FILE__)));
 
 			//URL ROOT
-			define('URL_ROOT', 'http://192.168.0.26/sumalian');
+			define('URL_ROOT', 'http://" . $_SERVER['HTTP_HOST'] . "/sumalian');
 
 			//SITE NAME
 			define('SITE_NAME', 'Help Agency');
@@ -41,11 +41,11 @@ class Init extends Controller
 			define('SECURE_SALT', 'k<UL?Gxr%6bTv[IX5h>s)vaEurK]4Sn');
 
 			?>";
-
 			file_put_contents(dirname(__FILE__) .'../../configs/config.php', $data);
 
-			echo $this->initModel->db();
 		}
+
+		echo $this->initModel->errorCon();
 	}
 
 

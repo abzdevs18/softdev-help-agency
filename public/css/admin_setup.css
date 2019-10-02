@@ -194,9 +194,10 @@ textarea, select, .tg-select select, .form-control, input[type="text"], input[ty
     text-transform: capitalize;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    width: 100;
+    width: 100%;
     font-family: quicksand;
     transition: all .5s;
+    text-transform: unset;
 }
 
 .site-photo {

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/admin_setup.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/admin_setup.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -31,7 +31,7 @@
 					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</div>
-				<button class="setup-btn">Setup</button>
+				<button class="setup-btn" data-form="1">Setup</button>
 			</div>
 			<div class="awesome"><!-- Database connection start -->
 				<div class="icon">
@@ -70,7 +70,7 @@
 						</div><!-- End Database Name Input -->
 					</form>
 				</div>
-				<button class="setup-btn">Setup</button>
+				<button class="setup-btn" data-form="2">Setup</button>
 			</div><!-- Database connection End -->
 
 			<div class="awesome"><!-- Admin Credential start -->
@@ -122,7 +122,7 @@
 						</div><!-- End Database Name Input -->
 					</form>
 				</div>
-				<button class="setup-btn">Setup</button>
+				<button class="setup-btn" data-form="3">Setup</button>
 			</div><!-- Admin Credential End -->
 		</section>
 	</main>
@@ -148,6 +148,6 @@
 			</section>			
 		</div>
 	</div>
-	<script src="<?=URL_ROOT;?>/js/main.js"></script>
+	<script src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/js/main.js"></script>
 </body>
 </html>

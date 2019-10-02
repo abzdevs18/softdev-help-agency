@@ -1,6 +1,9 @@
 <?php
+// error_reporting(0);
 // loading from config folder
-	require_once 'configs/config.php';
+	if (file_exists(dirname(__FILE__).'/configs/config.php')) {
+		require_once 'configs/config.php';
+	}
 	
 //Loading the helpers
 	require_once 'helpers/url_redirects.php';
@@ -10,7 +13,7 @@
 * Autoloader Must:
 * 1. Class name should match it's filename
 */
-
+// echo dirname(__FILE__);
 spl_autoload_register(function($className){
 	require_once 'lib/' . $className . '.php';
 });

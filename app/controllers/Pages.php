@@ -11,7 +11,7 @@ class Pages extends Controller
 		$this->Model = $this->model('admins');
 		$this->jobModel = $this->model('job');
 
-		if (!$this->Model->isAdminFound()) {
+		if (!$this->Model->isAdminFound() || $this->Model->connError()) {
 			redirect('admin/setup');
 		}
 	}

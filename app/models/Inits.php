@@ -10,14 +10,12 @@ class Inits
 	function __construct()
 	{
 		$this->db = Database::getInstance();
+
 	}
 
-	public function db()
-	{
-		if ($this->db) {
-			return true;
-		}else {
-			return false;
+	public function errorCon(){
+		if (!$this->db) {
+			return "no con";
 		}
 	}
 }

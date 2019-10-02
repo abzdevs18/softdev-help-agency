@@ -22,6 +22,7 @@ $(function(){
 
 $(document).on('click','.setup-btn', function(){
 
+  var form = $(this).attr('data-form');
   /* Admin configuration Script*/
   var current, next, prev;
   var left, opacity, scale;
@@ -34,6 +35,7 @@ $(document).on('click','.setup-btn', function(){
 
   current.hide();
   next.show();
+
 
   current.animate({opacity:0},{
     step: function(now,mx){
@@ -49,19 +51,34 @@ $(document).on('click','.setup-btn', function(){
     }
   });
 
-  var data = $('#c-n').serializeArray();
+  if ( form == 2) {
+    var data = $('#c-n').serializeArray();
 
-  $.ajax({
-    url: URL_ROOT + '/init/adminSetup',
-    type: 'POST',
-    data: $.param(data),
-    success: function(d){
-      console.log(d);
-    },
-    error:function(e){
-      console.log(e)
-    }
-  });
+    $.ajax({
+      url: URL_ROOT + '/init/adminSetup',
+      type: 'POST',
+      data: $.param(data),
+      success: function(d){
+        // $.ajax({
+        //   url: URL_ROOT + '/init/connError',
+        //   type:'POST',
+        //   dataType: 'json',
+        //   success:function(d){
+        //     if (d['result']) {
+        //       alert('Something went wrong during connecting');
+        //     }
+        //   },
+        //   error:function(e){
+        //     console.log(e);
+        //   }
+        // });
+        console.log(d)
+      },
+      error:function(e){
+        console.log(e)
+      }
+    });   
+  }
 });
 
 /* Admin initialization*/

@@ -16,27 +16,8 @@
 					<i class="fal fa-user-shield"></i>
 				</div>
 				<div class="add">
-					<h3>Site/Admin setup</h3>
+					<h3>Site/Admin Login</h3>
 					<form>
-						<div class="site-photo">
-							<div class="photo-container" style="width: 130px;height: 100px;background-color: red;border-radius: 3px;">
-								
-							</div>
-							<div class="group-control" style="width: calc( 100% - 150px );position: relative;bottom: -40px;">
-								<div class="form-group">
-									<input type="text" name="siteName" class="form-control">
-									<label for="siteName">Site Name</label>
-								</div>
-								<label class="invalid-feedback">Error reporting</label>
-							</div>
-						</div><!-- End Site Name Input -->
-						<div class="group-control">
-							<div class="form-group">
-								<input type="text" name="adminEmail" class="form-control">
-								<label for="adminEmail">Host Name</label>
-							</div>
-							<label class="invalid-feedback">Error reporting</label>
-						</div><!-- End Admin Email Input -->
 						<div class="group-control">
 							<div class="form-group">
 								<input type="text" name="adminUserName" class="form-control">
@@ -51,16 +32,9 @@
 							</div>
 							<label class="invalid-feedback">Error reporting</label>
 						</div><!-- End Database Name Input -->
-						<div class="group-control">
-							<div class="form-group">
-								<input type="text" name="adminUserCPass" class="form-control">
-								<label for="adminUserCPass">Confirm Password</label>
-							</div>
-							<label class="invalid-feedback">Error reporting</label>
-						</div><!-- End Database Name Input -->
 					</form>
 				</div>
-				<button class="setup-btn">Setup</button>
+				<button class="setup-btn">Login</button>
 			</div><!-- Admin Credential End -->
 		</section>
 	</main>
