@@ -17,3 +17,5 @@ function isClient(){
 		return false;
 	}
 }
+
+// function flash($message = '', $class = )

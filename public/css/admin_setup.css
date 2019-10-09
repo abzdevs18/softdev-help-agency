@@ -29,6 +29,12 @@ main {
 .form > div:not(:first-of-type){
 	display: none;
 }
+.photo-container {
+	overflow: hidden;
+	position: relative;
+	box-shadow: 0 0 12px -1px #999;
+	background: #f3f3f3;
+}
 .awesome {
 	width: 50%;
 	min-height: 400px;
@@ -218,7 +224,7 @@ textarea, select, .tg-select select, .form-control, input[type="text"], input[ty
 	height: 100vh;
 	top: 0;
 	z-index: 999999999999999999999;
-	background: #3333332e;
+	background: #33333369;
 	overflow: hidden;
 }
 .modal-container {
@@ -234,4 +240,19 @@ textarea, select, .tg-select select, .form-control, input[type="text"], input[ty
 	display: block;
 	font-size: 12px;
 	margin: 10px 0px;
+}
+/* Flash Messages */
+
+#flash-msgs {
+	font-family: 'quicksand';
+	width: 100%;
+	margin-bottom: 15px;
+	border-radius: 3px;
+	border: 1px solid red;
+	display: none;
+}
+#flash-msgs p {
+	padding: 10px;
+	background: #ff000014;
+	color: red;
 }

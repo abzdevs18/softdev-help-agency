@@ -8,10 +8,16 @@ class Users extends Controller
 		
 	function __construct()
 	{
-		$this->userModel = $this->model('User');
-		$this->adminModel = $this->model('Admins');
-		if (!$this->adminModel->isAdminFound()) {
-			redirect('admin/sf_admin');
+
+		if (file_exists( dirname(__FILE__) . '/../configs/config.php')) {
+			$this->userModel = $this->model('User');
+			$this->adminModel = $this->model('Admins');
+			if (!$this->adminModel->isAdminFound()) {
+				redirect('admin/sf_admin');
+			}
+		}else {
+			setupRedirect('admin');
+			die();
 		}
 
 	}
@@ -247,7 +253,7 @@ class Users extends Controller
 				//user user type later to add certain data if a user is employeer
 				"status" => "",
 				"uNameEmail" => trim($_POST['uNameEmail']),
-				"uPassword" => $pas,
+				"uPassword" => trim($_POST['uPassword']),
 				"uNameEmail_err" => "",
 				"uPassword_err" => ""
 			];
@@ -274,6 +280,7 @@ class Users extends Controller
 			}
 
 			if (empty($data['uNameEmail_err']) && empty($data['uPassword_err'])) {
+				$data['uPassword'] = $pas;
 
 				$loggedIn = $this->userModel->login($data['uNameEmail'], $data['uPassword']);
 				if ($loggedIn) {
@@ -322,6 +329,7 @@ class Users extends Controller
 		$_SESSION['userName'] = $user->usrName;
 		$_SESSION['email'] = $user->usrEmail;
 		$_SESSION['user_type'] = $user->uType;
+		$_SESSION['is_admin'] = $user->is_admin;
 	}
 
 	public function signout() {
@@ -329,9 +337,10 @@ class Users extends Controller
 		unset($_SESSION['userName']);
 		unset($_SESSION['email']);
 		unset($_SESSION['user_type']);
+		unset($_SESSION['is_admin']);
 		session_destroy();
 
-		redirect('users/signin');
+		redirect('pages/index');
 	}
 
 }

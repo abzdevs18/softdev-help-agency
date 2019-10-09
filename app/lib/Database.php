@@ -27,6 +27,7 @@ class Database
 		);
 
 		try {
+			// self::$_error = null;
 			$this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
 		} catch (PDOException $e) {
 			self::$_error = $e->getMessage();
@@ -102,4 +103,17 @@ class Database
 	public function lastInsert(){
 		return $this->dbh->lastInsertId();
 	}
+	
+	public function beginTransaction(){
+		return $this->dbh->beginTransaction();
+	}
+	
+	public function commit(){
+		return $this->dbh->commit();
+	}
+	
+	public function rollBack(){
+		return $this->dbh->rollBack();
+	}
+
 }

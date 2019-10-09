@@ -8,35 +8,45 @@ class Admin extends Controller
 	
 	function __construct()
 	{
-		if (file_exists( dirname(__FILE__) . '/../configs/config.php')) {
-			$this->jobModel = $this->model('job');
-			$this->adminModel = $this->model('admins');
-				if ($this->adminModel->connError()) {
-					$this->setup();
-					die();
-				}else{
-					$this->login();
-					die();
+		
+			if (file_exists( dirname(__FILE__) . '/../configs/config.php')) {
+				$this->jobModel = $this->model('job');
+				$this->adminModel = $this->model('admins');
+				$this->userModel = $this->model('user');
+				if (!isLoggedIn()) {
+					if (!$this->adminModel->isAdminFound() || $this->adminModel->connError()) {
+						$this->setup();
+						die();
+					}else{
+						$this->login();
+						die();
+					}
 				}
-		}else {
-			$this->setup();
-			die();
-		}
+			}else {
+				$this->setup();
+				die();
+			}
 		
 	}
 
 	public function index(){
 		if (isLoggedIn() && $_SESSION['is_admin'] == 1) {
-			# code...
 			$this->view('admin/index');
+		}else if(isLoggedIn() && $_SESSION['user_type'] == 1){
+			redirect("dashboard/index");
 		}else {
 			redirect('admin/login');
-			// echo "l";
 		}
 	}
 
 	public function login(){
-		$this->view('admin/login');
+		if (isLoggedIn() && $_SESSION['is_admin'] == 1) {
+			$this->view('admin/index');
+		}else if(isLoggedIn() && $_SESSION['user_type'] == 1){
+			redirect("dashboard/index");
+		}else{
+			$this->view('admin/login');
+		}
 	}
 
 	public function setup(){
@@ -84,7 +94,8 @@ class Admin extends Controller
 	}
 
 	public function logout(){
-		$this->view('admin/index');
+		// $this->view('admin/index');
+		$this->userModel->signout();
 	}
 
 	public function jobPost(){

@@ -50,7 +50,7 @@
 					<tbody id="filter-job-container">
 						<!-- if job is close add row with class name "sold" -->
 						<?php foreach($data['job'] AS $job) : ?>
-						<tr>
+						<tr id="dj" data-j="<?=$job->jId;?>">
 							<td style="text-align: center;">
 								<input type="checkbox" name="">
 							</td>

@@ -340,3 +340,7 @@ function feedbackHide(container){
 	$('.' + container + ' .ins-wrapper > input').removeClass();
 	$('.' + container + ' .invalid-feedback').hide();
 }
+
+// export function a(){
+// 	alert('s');
+// }

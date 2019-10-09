@@ -1,10 +1,11 @@
-<?php
+
+			<?php
 			// DB params
 
 			define('DB_HOST', 'localhost');
 			define('DB_USER', 'root');
 			define('DB_PASS', '');
-			define('DB_NAME', 'sf_help');
+			define('DB_NAME', 'seo');
 
 			//APP ROOT
 			define('APP_ROOT', dirname(dirname(__FILE__)));

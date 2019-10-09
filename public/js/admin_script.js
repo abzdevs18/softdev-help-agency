@@ -1,3 +1,6 @@
+
+var URL_ROOT = "/sumalian";
+
 $(document).on('click','.clip-path',function(){
 	$('#side-navigation').toggleClass('sideNav-full');
 	$('#menus-nav li a').toggleClass('hide-sh');
@@ -28,9 +31,9 @@ $(document).on('click','.ctl-msg',function(){
 $(document).on('click', '#menus-nav > li', function(){
 	var link = $(this).attr('data-link');
 	window.location.href= link;
-	$('#menus-nav li').removeClass('menu-active');
-	$(this).addClass('menu-active');
-	console.log(link);
+
+	// $('#menus-nav li').removeClass('menu-active');
+	// $(this).addClass('menu-active');
 });
 /* All job*/
 $(document).on('click', '#filter-all', function(){
@@ -111,4 +114,18 @@ $(document).on('change', '#sort-filter', function(){
 			console.log(data)
 		}
 	});
+});
+
+/* Check job */
+$(document).on('click', '#dj', function(){
+	var id = $(this).attr('data-j');
+	var open = window.open(URL_ROOT + '/pages/jobDetails/'+id, '_blank');
+
+	if (open) {
+	    //Browser has allowed it to be opened
+	    win.focus();
+	} else {
+	    //Browser has blocked it
+	    alert('Please allow popups for this website');
+	}
 });

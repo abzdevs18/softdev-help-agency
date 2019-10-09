@@ -205,4 +205,4 @@
 		</div>
 	</section>
 
-<?php require_once APP_ROOT . '/views/admin/inc/header.php'; ?>
+<?php require_once APP_ROOT . '/views/admin/inc/footer.php'; ?>

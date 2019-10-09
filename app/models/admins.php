@@ -7,6 +7,7 @@ class Admins
 {
 	private $db;
 	private $error;
+	
 	function __construct()
 	{
 		

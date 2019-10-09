@@ -28,9 +28,9 @@ class Dashboard extends Controller
 		$this->view('dashboard/index', $data);
 	}
 
-	public function message($data){
+	public function message($data = []){
 		// if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
-			$data = [
+			$msgData = [
 				/*check this first form*/
 				"status" => "",
 				"workID" => trim($data),

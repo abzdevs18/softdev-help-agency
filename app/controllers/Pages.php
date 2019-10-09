@@ -7,12 +7,17 @@ class Pages extends Controller
 	
 	function __construct()
 	{
-
-		$this->Model = $this->model('admins');
-		$this->jobModel = $this->model('job');
-
-		if (!$this->Model->isAdminFound() || $this->Model->connError()) {
-			redirect('admin/setup');
+		if (file_exists( dirname(__FILE__) . '/../configs/config.php')) {
+			$this->Model = $this->model('admins');
+			$this->jobModel = $this->model('job');
+			if (!isLoggedIn()) {
+				if (!$this->Model->isAdminFound() || $this->Model->connError()) {
+					redirect('admin/setup');
+				}
+			}
+		}else {
+			setupRedirect('admin');
+			die();
 		}
 	}
 

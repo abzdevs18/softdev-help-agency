@@ -143,6 +143,7 @@ Start profile
 	overflow: auto;
 	height: 100%;
 	overflow-x: hidden;
+	background: #363b4d;
 }
 #navigation-scroll::-webkit-scrollbar { 
     display: none; 

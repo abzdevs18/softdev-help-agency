@@ -21,6 +21,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="<?=URL_ROOT;?>/js/offline/jquery.js"></script>
 	<script src="<?=URL_ROOT;?>/js/jquery-ui.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 
 </head>
 <body>
