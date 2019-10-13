@@ -43,6 +43,7 @@
 			</div><!-- Admin Credential End -->
 		</section>
 	</main>
+	<script src="<?=URL_ROOT;?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/js/main.js"></script>
 </body>
 </html>

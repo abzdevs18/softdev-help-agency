@@ -17,10 +17,9 @@
 							<i class="fal fa-search"></i>
 						</div>
 						<ul class="jobs-updates">
-							<li>Brand new lenovo laptop i5 for sale</li>
-							<li>Brand new lenovo laptop i5 for sale</li>
-							<li>Brand new lenovo laptop i5 for sale</li>
-							<li>Brand new lenovo laptop i5 for sale</li>
+							<?php foreach ($data['jobLog'] as $log): ?>
+							<li><?=$log->job_title?></li>
+							<?php endforeach;?>
 						</ul>
 					</div>
 					<div class="msgs-3-col-item">

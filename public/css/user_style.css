@@ -131,7 +131,7 @@ nav {
     border-radius: 4px;
     color: #666;
     font-weight: 500;
-    width: 100%;
+    /*width: 100%;*/
     padding: 10px;
 }
 .search-field-prof i {
@@ -662,7 +662,7 @@ Messaging
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 100%;
+	width: calc( 100% - 50px );
 }
 .list-data {
 	display: flex;
@@ -787,7 +787,7 @@ Messaging
 	flex-direction: column;
 }
 .user_type-post {
-    padding: 0 30px;
+    padding: 0 18px;
     font-size: 14px;
     line-height: 60px;
     background-color: #FF9000;
@@ -935,10 +935,11 @@ Messaging
     text-align: right;
     border-top: 1px solid #eaedef;
 }
-.ctl-msg label {
+.container-of-msgs label {
     position: absolute;
     top: 0;
-    margin: 5px 0px;
+    font-size: 13px;
+    margin: 6px;
     font: var(--font-quick-400-13);
     color: #999;
 }

@@ -28,13 +28,12 @@ class Dashboard extends Controller
 		$this->view('dashboard/index', $data);
 	}
 
-	public function message($data = []){
+	public function message(){
 		// if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
-			$msgData = [
+			$data = [
 				/*check this first form*/
-				"status" => "",
-				"workID" => trim($data),
-				"workerID" => trim($_GET['link'])
+				"status" => "s",
+				"userBid" => $this->jobPostModel->bidders()
 			];
 		// 	$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 		// 	echo json_encode($data);
@@ -44,6 +43,44 @@ class Dashboard extends Controller
 		// 	$data = ["status" => "2"];
 		// 	echo json_encode($data);
 		// }
+	}
+
+	public function sendMessage(){
+
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$time = date("D, M d, g:i A");
+
+			$data = [
+				"status" => 0,
+				"sender" => trim($_POST['sender']),
+				"receiver" => trim($_POST['receiver']),
+				"message" => trim($_POST['message']),
+				"sendTime" => $time
+			];
+
+			if($this->jobPostModel->sendMessage($data)){
+				$data['status'] = 1;
+				echo json_encode($data);
+			}else{
+				echo json_encode($data);
+			}
+		}
+	}
+
+	public function jobSession(){
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+			$msgData = [
+				"status" => "",
+				"workID" => trim($_POST['workID']),
+				"workerID" => trim($_POST['workerID'])
+			];
+
+			$_SESSION['workID'] = $msgData['workID'];
+			$_SESSION['workerID'] = $msgData['workerID'];
+		}
 	}
 
 	public function feedback(){

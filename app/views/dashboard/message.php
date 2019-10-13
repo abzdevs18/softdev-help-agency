@@ -7,14 +7,17 @@
 					<i class="far fa-search"></i>
 				</div>	
 				<div id="users">
-					<?php for($i = 0; $i < 2; $i++):?>
-						<div class="user-items">
+					<?php if (!$data['userBid']): ?>
+						<b class='n-res'>No result!!</b>						
+					<?php else: ?>
+					<?php foreach ($data['userBid'] as $user) : ?>
+						<div class="user-items msg-u" data-u="<?=$user->userId?>">
 							<div class="convo-prof">
 								<img src="<?php echo URL_ROOT. '/img/profiles/prof.png' ?>">
 							</div>
 							<div class="convo-">
 								<div class="list-data">
-									<h3>Name of worker</h3>
+									<h3><?=$user->username?></h3>
 									<span>10:23 am</span>								
 								</div>
 								<div class="convo-inf">
@@ -27,7 +30,8 @@
 								</div>
 							</div>
 						</div>
-					<?php endfor; ?>
+					<?php endforeach; ?>
+					<?php endif; ?>
 				</div>
 			</div>
 			<div class="conversation">
@@ -61,15 +65,13 @@
 							<?php endfor; ?>
 						</div>
 						<div class="input-msgs-content">
-							<div class="container-of-msgs">
-								<div class="ctl-msg" contenteditable>
-									
-									<label for="typing-msg">Type here your message</label>
-								</div>
+							<div class="container-of-msgs" style="position: relative;">
+								<div class="ctl-msg" contenteditable></div>
+								<label for="typing-msg">Type here your message</label>
 								<div class="cta-buttons">
 									<i class="fal fa-thumbs-up"></i>
 									<i class="fal fa-thumbs-down"></i>
-									<span id="sendbtn"><?=$data['workID'];?>Send</span>
+									<span id="sendbtn" data-sr="<?=$_SESSION['uId']?>">Send</span>
 								</div>
 							</div>
 						</div>
@@ -110,5 +112,6 @@
 			</div>
 		</div>
 	</section>
+<script src="<?=URL_ROOT;?>/js/script.js"></script>
 </body>
 </html>

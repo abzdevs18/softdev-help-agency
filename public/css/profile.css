@@ -1,0 +1,52 @@
+.profile-dash {
+	width: 80%;
+	height: 90vh;
+	margin: 20px auto;
+	display: flex;
+	flex-direction: row;
+	box-shadow: var(--box-shadow);
+
+}
+.prof-con {
+	width: 25%;
+	min-height: 100%;
+	background-color: #191623;
+}
+#prof-pic {
+    width: calc( 100% - 50px );
+    height: 200px;
+    /*padding: 10px;*/
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 25px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#prof-pic > img {
+	width: 100%;
+}
+
+.bio {
+	position: relative;
+	padding: 10px 0px;
+	overflow: hidden;
+	margin: 10px;
+}
+.bio-head {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 15px;
+}
+
+.bio-head:after {
+	content: "";
+	width: 100%;
+	height: 1px;
+	position: absolute;
+	top: 19px;
+	margin-left: 5px;
+	background-color: #fff;
+	font-family: 'Quicksand';
+}

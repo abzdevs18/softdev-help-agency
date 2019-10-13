@@ -31,4 +31,14 @@ class Admins
 		return false;
 		// echo $this->db;
 	}
+
+	public function bidLog(){
+		$this->db->query("SELECT * FROM jobs WHERE EXISTS( SELECT job_id FROM job_biddings WHERE job_biddings.job_id = jobs.id)");
+		$row = $this->db->resultSet();
+		if ($row) {
+			return $row;
+		}else{
+			return false;
+		}
+	}
 }

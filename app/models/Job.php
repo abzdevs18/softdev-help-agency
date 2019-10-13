@@ -233,5 +233,46 @@ class Job
 		}
 	}
 
-}
+	/*User listing on messages*/
+	public function msgBid(){
+		$this->db->query("SELECT jobs.id AS jId, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.featured AS isJFeatured, jobs.job_description AS jDesc, jobs.tags AS jTags, company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf, user.id AS userId, user.username AS username,user_profile.img_path FROM job_biddings LEFT JOIN jobs ON jobs.id = :jobID LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 LEFT JOIN user ON user.id = :userID LEFT JOIN user_profile ON user_profile.user_id = :userID");
+		$this->db->bind(":jobID", $_SESSION['workID']);
+		$this->db->bind(":userID", $_SESSION['workerID']);
+		$row = $this->db->resultSet();
 
+		if ($row) {
+			return $row;
+		}else{
+			return false;
+		}	
+	}
+
+	/*Listing users bid for the JOB*/
+	public function bidders(){
+		$this->db->query("SELECT user.id AS userId, user.username AS username, user.firstname AS firstname, user.lastname AS lastname, user_profile.img_path AS img_path FROM user LEFT JOIN user_profile ON user_profile.user_id = user.id WHERE EXISTS (SELECT * FROM job_biddings LEFT JOIN jobs ON jobs.id = job_biddings.job_id WHERE job_biddings.user_id = user.id AND jobs.user_id = :employeerID)");
+		$this->db->bind(":employeerID", $_SESSION['uId']);
+		$row = $this->db->resultSet();
+
+		if ($row) {
+			return $row;
+		}else{
+			return false;
+		}
+	}
+
+	/*Inser Message*/
+	public function sendMessage($data){
+		$this->db->query("INSERT INTO `messages`(`user_receiver_id`, `user_sender_id`, `msg_content`, `msg_date`) VALUES (:receiver,:sender,:message,:sendTime)");
+		$this->db->bind(":receiver", $data['receiver']);
+		$this->db->bind(":sender", $data['sender']);
+		$this->db->bind(":message", $data['message']);
+		$this->db->bind(":sendTime", $data['message']);
+
+		if ($this->db->execute()) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+}

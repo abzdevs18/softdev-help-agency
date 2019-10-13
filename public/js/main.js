@@ -2,6 +2,12 @@
 // a();
 var URL_ROOT = '/sumalian';
 
+//For scrollBar
+$(".content").mCustomScrollbar({
+    autoHideScrollbar: true
+});
+/*ENd ScrollBar*/
+
 $(function(){
     $( "#slider-range" ).slider({
       range: true,

@@ -31,7 +31,10 @@ class Admin extends Controller
 
 	public function index(){
 		if (isLoggedIn() && $_SESSION['is_admin'] == 1) {
-			$this->view('admin/index');
+			$data = [
+				"jobLog"=>$this->adminModel->bidLog()
+			];
+			$this->view('admin/index',$data);
 		}else if(isLoggedIn() && $_SESSION['user_type'] == 1){
 			redirect("dashboard/index");
 		}else {
@@ -67,7 +70,10 @@ class Admin extends Controller
 	}
 
 	public function biddings(){
-		$this->view('admin/messages');
+		$data = [
+			"jobLog"=>$this->adminModel->bidLog()
+		];
+		$this->view('admin/messages', $data);
 	}
 
 	public function payments(){
@@ -154,4 +160,6 @@ class Admin extends Controller
 		return false;
 		// echo json_encode($data['jobs']);
 	}
+	/*Fetching bidders*/
+
 }

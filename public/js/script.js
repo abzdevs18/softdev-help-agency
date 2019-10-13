@@ -50,24 +50,55 @@ $(document).on('click','.biddRow', function(){
 	var workId = $(this).attr('data-workId');
 	var da = [workId,workerID];
 
-	// $.ajax({
-	// 	url: URL_ROOT + '/dashboard/message/' + workId + workerID,
-	// 	type: 'POST',
-	// 	// dataType: 'json',
-	// 	data: {
-	// 		workID: workId,
-	// 		workerID: workerID
-	// 	},
-	// 	success: function(data){
-	// 		// $('#sendbtn').text(workerID);
-	// 		// window.location.href= URL_ROOT + '/dashboard/message';
-	// 		console.log(data);
-	// 	},
-	// 	error: function(err){
-	// 		console.log('err');
-	// 	}
-	// });
-	window.location.href= URL_ROOT + '/dashboard/message/' + workId + '/?link='+workerID;
+	$.ajax({
+		url: URL_ROOT + '/dashboard/jobSession',
+		type: 'POST',
+		data: {
+			workID: workId,
+			workerID: workerID
+		},
+		success: function(data){
+			window.location.href= URL_ROOT + '/dashboard/message';
+			// $('#sendbtn').text(workerID);
+			// window.location.href= URL_ROOT + '/dashboard/message';
+			console.log(data);
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+
+/* Click user in messenger */
+$(document).on('click', '.msg-u', function(){
+	var bidderID = $(this).attr("data-u");
+	$("#sendbtn").attr("data-rv", bidderID);
+});
+
+/* Sending Message from Messenger*/
+$(document).on('click', '#sendbtn', function(){
+	var msg = $('.ctl-msg').text();
+	var sr = $(this).attr("data-sr");
+	var rv = $(this).attr("data-rv");
+
+	$.ajax({
+		url: URL_ROOT + '/dashboard/sendMessage',
+		type: 'POST',
+		data: {
+			sender:sr,
+			receiver:rv,
+			message:msg
+		},
+		dataType: 'json',
+		success:function(data){
+			console.log(data);
+		},
+		error:function(err){
+			console.log(err);
+		}
+	})
+
+	console.log("SR:"+sr+" RV:"+rv+" MSG:"+msg);
 });
 
 /*From somewhere else*/
@@ -105,7 +136,7 @@ $(document).on('click', '#company-link', function(){
 });
 
 $(document).on('click','.ctl-msg',function(){
-	$('.ctl-msg label').hide();
+	$('.container-of-msgs label').hide();
 	$(this).focusout(function(e){
 		console.log($(this).text().length);
 	});

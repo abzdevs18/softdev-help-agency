@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/mainStyle.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/user_style.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/profile.css">
 	<style type="text/css">
 		@import url("<?=URL_ROOT;?>/css/static_style.css");
 		@import url("<?=URL_ROOT;?>/css/footer.css");
@@ -44,11 +45,13 @@
 			<div class="user-right-nav">
 				<div id="nav-links">
 					<ul>
-						<li>My Projects</li>
-						<a href="<?=URL_ROOT . '/dashboard';?>">
-						<li>Dashboards</li>
-						</a>
-							<a href="<?=URL_ROOT . '/pages/workerDetails';?>" style="text-decoration: none;">
+						<?php if($_SESSION['user_type'] == 1) :?>
+							<div style="line-height: 46px;margin-right: 15px;">
+								<a href="<?=URL_ROOT . '/dashboard/postJob';?>" class="user_type-post"><i class="fas fa-plus-circle"></i> Post Job</a>
+							</div>
+						<?php endif; ?>
+						<li>Dashboard</li>
+							<a href="<?=URL_ROOT . '/dashboard/profile';?>" style="text-decoration: none;">
 						<li id="account-profile">
 								<div id="account-thumbnail">
 									<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
