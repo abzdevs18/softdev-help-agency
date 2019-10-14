@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/mainStyle.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/user_style.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/profile.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/jquery.mCustomScrollbar.css">
 	<style type="text/css">
 		@import url("<?=URL_ROOT;?>/css/static_style.css");
 		@import url("<?=URL_ROOT;?>/css/footer.css");
@@ -28,13 +29,13 @@
 		<div class="user-navigation">
 			<div class="logo-user">
 				<div class="l-r-prof">
-					<img src="<?php echo URL_ROOT . '/img/black-logo.png' ?>">
+					<img src="<?=URL_ROOT;?>/img/default/<?=$data['logo']->path?>">
 				</div>
 				<div style="width: 100%;position: relative;">
 					<div class="search-field-prof">
 						<i class="fas fa-search"></i>
 						<input type="hidden" id="userID" value="<?=$data['userId'];?>">
-						<input type="text" name="search" placeholder="search" id="prof-query" autocomplete>
+						<input type="text" name="search" placeholder="search" id="prof-query" autocomplete="false">
 						<span id="clear-search"><i class="far fa-times"></i></span>
 					</div>
 					<div class="s-wrapper">
@@ -50,13 +51,13 @@
 								<a href="<?=URL_ROOT . '/dashboard/postJob';?>" class="user_type-post"><i class="fas fa-plus-circle"></i> Post Job</a>
 							</div>
 						<?php endif; ?>
-						<li>Dashboard</li>
+						<li><a href="<?=URL_ROOT . '/dashboard';?>">Dashboard</a></li>
 							<a href="<?=URL_ROOT . '/dashboard/profile';?>" style="text-decoration: none;">
 						<li id="account-profile">
 								<div id="account-thumbnail">
 									<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
 								</div>
-								<div style="width: 85px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">								
+								<div style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">								
 									<span style="font-weight: 500;"><?=$_SESSION['userName'];?></span>
 								</div>
 						</li>

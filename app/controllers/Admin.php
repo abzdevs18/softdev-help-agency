@@ -48,7 +48,13 @@ class Admin extends Controller
 		}else if(isLoggedIn() && $_SESSION['user_type'] == 1){
 			redirect("dashboard/index");
 		}else{
-			$this->view('admin/login');
+			$logo = $this->jobModel->getLogo();
+
+			$data = [
+				'logo' => $logo
+			];
+
+			$this->view('admin/login' , $data);
 		}
 	}
 

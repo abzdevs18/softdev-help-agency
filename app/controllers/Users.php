@@ -12,6 +12,7 @@ class Users extends Controller
 		if (file_exists( dirname(__FILE__) . '/../configs/config.php')) {
 			$this->userModel = $this->model('User');
 			$this->adminModel = $this->model('Admins');
+			$this->jobModel = $this->model('job');
 			if (!$this->adminModel->isAdminFound()) {
 				redirect('admin/sf_admin');
 			}
@@ -23,13 +24,18 @@ class Users extends Controller
 	}
 
 	public function index(){
+		$logo = $this->jobModel->getLogo();
 		if (isLoggedIn()) {
 			redirect("dashboard");
 		}
-		$this->view("users/signin");
+		$data = [
+			"logo" => $logo
+		];
+		$this->view("users/signin", $data);
 	}
 
 	public function signup(){
+		$logo = $this->jobModel->getLogo();
 		// $method = $_SERVER['REQUEST_METHOD'] = 'POST';
 		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -61,7 +67,10 @@ class Users extends Controller
 				die("Something went wrong");
 			}
 		} else {
-			$this->view("users/signup");
+			$data = [
+				"logo" => $logo
+			];
+			$this->view("users/signup", $data);
 		}
 	}
 
@@ -246,6 +255,7 @@ class Users extends Controller
 	}
 
 	public function signin(){
+
 		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 			$pas = SECURE_SALT . trim($_POST['uPassword']);

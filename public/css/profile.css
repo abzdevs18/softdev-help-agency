@@ -15,7 +15,7 @@
 #prof-pic {
     width: calc( 100% - 50px );
     height: 200px;
-    /*padding: 10px;*/
+    position: relative;
     border-radius: 4px;
     overflow: hidden;
     margin: 25px;
@@ -23,7 +23,18 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+.update-bio-prof {
+	width: 100%;
+	height: 100px;
+	background-color: #333;
+	bottom: -100px;
+	position: absolute;
+	transition: all .5s ease-in-out;
 
+}
+#prof-pic:hover .update-bio-prof {
+	bottom: 0px;
+}
 #prof-pic > img {
 	width: 100%;
 }
@@ -37,7 +48,9 @@
 .bio-head {
 	color: #fff;
 	text-transform: uppercase;
-	font-size: 15px;
+	font-size: 12px;
+	margin-bottom: 15px;
+	font-weight: 600;
 }
 
 .bio-head:after {
@@ -48,5 +61,117 @@
 	top: 19px;
 	margin-left: 5px;
 	background-color: #fff;
-	font-family: 'Quicksand';
+	font-family: 'Poppins';
+}
+
+.work {
+	display: flex;
+	flex-direction: column;
+	color: #fff;
+	margin: 5px auto 15px;
+}
+.w-head {
+	font-weight: 500;
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+.work > p {
+	color: #999;
+	font-size: 14px;
+}
+.bio-skills > a {
+	color: #fff !important;
+}
+
+
+/* Prof-info  Start */
+.prof-info {
+	width: calc( 75% - 30px );
+	min-height: 100%;
+	margin: 15px;
+}
+.name-con {
+	display: flex;
+	flex-direction: row;
+	line-height: 25px;
+	vertical-align: middle;
+}
+#prof-loc {
+	color: #666;
+	font-size: 14px;
+}
+.name-con h4 {
+	font-size: 25px;
+	text-transform: capitalize;
+	margin-right: 15px;
+}
+.prof-position {
+	text-transform: capitalize;
+	font-weight: 500;
+	font-size: 16px;
+	color: green;
+}
+
+.prof-rank {
+	margin: 20px auto !important;
+}
+.rate-s i {
+	color: #191623;
+}
+.prof-rank h4 {
+	text-transform: uppercase;
+	font-size: 16px;
+}
+
+/* PRofile Tabs */
+#profile-timeline {
+	display: flex;
+	flex-direction: column;
+}
+.prof-data ul {
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid #999;
+}
+.prof-data > ul li {
+	list-style-type: none;
+	padding: 5px 10px;
+	color: #191623;
+	cursor: pointer;
+	transition: all .5s ease-in-out;
+}
+
+.prof-data ul li:hover {
+	background-color: #191623;
+	color: #fff;
+}
+.prof-data ul li i {
+	margin-right: 5px;
+}
+.active-prof-tab {
+	background-color: #191623;
+	color: #fff !important;
+	border-bottom: 2px solid #191623;
+}
+
+
+.bio-info > .bio > p {
+	color: #666;
+}
+
+.bio-d {
+	display: flex;
+	flex-direction: row;
+	margin: 10px auto;
+}
+
+.bio-d > p {
+	width: 100px;
+	font-weight: 600;
+	color: #191623;
+	font-size: 14px;
+}
+
+.bio-d > span {
+	font-size: 14px;
 }

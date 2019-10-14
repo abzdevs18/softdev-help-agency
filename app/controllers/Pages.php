@@ -9,7 +9,7 @@ class Pages extends Controller
 	{
 		if (file_exists( dirname(__FILE__) . '/../configs/config.php')) {
 			$this->Model = $this->model('admins');
-			$this->jobModel = $this->model('job');
+			$this->jobModel = $this->model('job');		
 			if (!isLoggedIn()) {
 				if (!$this->Model->isAdminFound() || $this->Model->connError()) {
 					redirect('admin/setup');
@@ -178,7 +178,9 @@ class Pages extends Controller
 
 				$this->view("templates/dashSearch", $data);
 			}
-			return false;
+
+				return false;
+			
 			// echo json_encode($data['jobs']);
 
 		}

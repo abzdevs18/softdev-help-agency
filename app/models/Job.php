@@ -168,8 +168,18 @@ class Job
 	}
 
 	public function getCategories(){
-		$this->db->query("SELECT * FROM `job_categories` ");
+		$this->db->query("SELECT * FROM `sf_logo`");
 		$row = $this->db->resultSet();
+		if ($row) {
+			return $row;
+		} else {
+			return false;
+		}
+	}
+
+	public function getLogo(){
+		$this->db->query("SELECT * FROM `sf_logo`");
+		$row = $this->db->single();
 		if ($row) {
 			return $row;
 		} else {

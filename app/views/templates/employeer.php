@@ -50,42 +50,56 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach ($data['jobs'] as $jobs) : ?>
-								<tr class="row-job" data-id="<?=$jobs->jId;?>">
-									<td style="text-align: center;">
-										<input type="checkbox" name="">
-									</td>
-									<td>
-										<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>">
-									</td>
-									<td class="tittle-id">
-										<h3><?=$jobs->jTitle;?></h3>
-										<span>Ad ID: <?=$jobs->jId;?></span>
-									</td>
-									<td class="item-cat">
-										<span>Laptops & PCs</span>	
-									</td>
-									<td>
-										<span>Yes</span>
-									</td>
-									<td class="status-job">
-										<span>Active</span>
-									</td>
-									<td class="price-loc">								
-										<h3>P <?=$jobs->jSalary; ?>.00</h3>
-										<span>Location: <?=$jobs->comLoc;?></span>
-									</td>
-									<td class="date-pub">								
-										<h4 style="margin-bottom: 10px;"><?=$jobs->jDeadline;?></h4>
-										<span>Published</span>
-									</td>
-									<td class="action-btn">
-										<span class="eye"><i class="fal fa-eye"></i></span>
-										<span class="pencil"><i class="fal fa-pencil-alt"></i></span>
-										<span class="trash"><i class="fal fa-trash"></i></span>
-									</td>
-								</tr>
-								<?php endforeach; ?>
+								<!-- Condition: If user has open jobs, show them in table -->
+								<?php if($data['jobs']) : ?>
+									<?php foreach ($data['jobs'] as $jobs) : ?>
+									<tr class="row-job" data-id="<?=$jobs->jId;?>">
+										<td style="text-align: center;">
+											<input type="checkbox" name="">
+										</td>
+										<td>
+											<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>">
+										</td>
+										<td class="tittle-id">
+											<h3><?=$jobs->jTitle;?></h3>
+											<span>Ad ID: <?=$jobs->jId;?></span>
+										</td>
+										<td class="item-cat">
+											<span>Laptops & PCs</span>	
+										</td>
+										<td>
+											<span>Yes</span>
+										</td>
+										<td class="status-job">
+											<span>Active</span>
+										</td>
+										<td class="price-loc">								
+											<h3>P <?=$jobs->jSalary; ?>.00</h3>
+											<span>Location: <?=$jobs->comLoc;?></span>
+										</td>
+										<td class="date-pub">								
+											<h4 style="margin-bottom: 10px;"><?=$jobs->jDeadline;?></h4>
+											<span>Published</span>
+										</td>
+										<td class="action-btn">
+											<span class="eye"><i class="fal fa-eye"></i></span>
+											<span class="pencil"><i class="fal fa-pencil-alt"></i></span>
+											<span class="trash"><i class="fal fa-trash"></i></span>
+										</td>
+									</tr>
+									<?php endforeach; ?>
+								<?php else : ?>
+									<tr>
+										<td colspan="9" style="text-align: center;">
+											<?php if($_SESSION['user_type'] == 1) :?>
+												<div style="line-height: 46px;margin-right: 15px;">
+													<a href="<?=URL_ROOT . '/dashboard/postJob';?>" class="user_type-post"><i class="fas fa-plus-circle"></i> Post Job</a>
+												</div>
+											<?php endif; ?>										
+											<!-- <b class='n-res'>You have no open jobs!!!</b>	 -->
+										</td>
+									</tr>
+								<?php endif;?>
 							</tbody>
 						</table>
 					</div><!-- End of Table Design -->
@@ -109,40 +123,52 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach ($data['biddings'] as $bidds) : ?>
-								<tr class="biddRow" data-workerID="<?=$bidds->workerId;?>" data-workId="<?=$bidds->jId;?>">
-									<td style="text-align: center;">
-										<input type="checkbox" name="">
-									</td>
-									<td>
-										<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>" style="border-radius: 50%;">
-									</td>
-									<td class="tittle-id">
-										<h3><?=$bidds->jTitle;?></h3>
-										<span>Ad ID: <?=$bidds->jId;?></span>
-									</td>
-									<td class="item-cat">
-										<span>Laptops & PCs</span>	
-									</td>
-									<td class="status-job">
-										<!-- <span>Active</span> -->
-										<p class="bidderName"><?php echo $bidds->uFname . ' ' . $bidds->uLname;?></p>
-									</td>
-									<td class="price-loc">								
-										<h3>P <?=$bidds->jSalary; ?>.00</h3>
-										<span>Location: <?=$bidds->comLoc;?></span>
-									</td>
-									<td class="date-pub">								
-										<h4 style="margin-bottom: 10px;"><?=$bidds->jDeadline;?></h4>
-										<span>Published</span>
-									</td>
-									<td class="action-btn">
-										<span class="eye"><i class="fal fa-eye"></i></span>
-										<span class="pencil"><i class="fal fa-pencil-alt"></i></span>
-										<span class="trash"><i class="fal fa-trash"></i></span>
-									</td>
-								</tr>
-								<?php endforeach; ?>
+								<?php if($data['biddings']) : ?>
+									<?php foreach ($data['biddings'] as $bidds) : ?>
+									<tr class="biddRow" data-workerID="<?=$bidds->workerId;?>" data-workId="<?=$bidds->jId;?>">
+										<td style="text-align: center;">
+											<input type="checkbox" name="">
+										</td>
+										<td>
+											<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>" style="border-radius: 50%;">
+										</td>
+										<td class="tittle-id">
+											<h3><?=$bidds->jTitle;?></h3>
+											<span>Ad ID: <?=$bidds->jId;?></span>
+										</td>
+										<td class="item-cat">
+											<span>Laptops & PCs</span>	
+										</td>
+										<td class="status-job">
+											<!-- <span>Active</span> -->
+											<p class="bidderName"><?php echo $bidds->uFname . ' ' . $bidds->uLname;?></p>
+										</td>
+										<td class="price-loc">								
+											<h3>P <?=$bidds->jSalary; ?>.00</h3>
+											<span>Location: <?=$bidds->comLoc;?></span>
+										</td>
+										<td class="date-pub">								
+											<h4 style="margin-bottom: 10px;"><?=$bidds->jDeadline;?></h4>
+											<span>Published</span>
+										</td>
+										<td class="action-btn">
+											<span class="eye"><i class="fal fa-eye"></i></span>
+											<span class="pencil"><i class="fal fa-pencil-alt"></i></span>
+											<span class="trash"><i class="fal fa-trash"></i></span>
+										</td>
+									</tr>
+									<?php endforeach; ?>
+								<?php else : ?>
+									<tr>
+										<td colspan="9" style="text-align: center;">
+											<?php if($_SESSION['user_type'] == 1) :?>
+												<div style="line-height: 46px;margin-right: 15px;">
+													<a href="<?=URL_ROOT . '/dashboard/postJob';?>" class="user_type-post"><i class="fas fa-plus-circle"></i> Post Job</a>
+												</div>
+											<?php endif; ?>
+										</td>
+									</tr>
+								<?php endif;?>
 							</tbody>
 						</table>
 					</div><!-- End of Table Design -->

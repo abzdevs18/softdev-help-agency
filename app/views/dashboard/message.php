@@ -36,7 +36,7 @@
 			</div>
 			<div class="conversation">
 					<div class="msgs-3-col-item">
-						<div class="message-container" class="mCustomScrollbar content fluid light" data-mcs-theme="inset-2-dark">
+						<div class="message-container mCustomScrollbar content fluid light" data-mcs-theme="inset-2-dark">
 							<?php for($i = 0; $i < 20; $i++):?>
 								<div class="message-reciever">
 									<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" />
@@ -112,6 +112,7 @@
 			</div>
 		</div>
 	</section>
+<script src="<?=URL_ROOT;?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="<?=URL_ROOT;?>/js/script.js"></script>
 </body>
 </html>

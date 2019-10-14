@@ -9,6 +9,7 @@ class Dashboard extends Controller
 	function __construct()
 	{
 		$this->jobPostModel = $this->model('Job');
+		$this->userModel = $this->model('user');
 
 		if (!isLoggedIn()) {
 			redirect("users/signin");
@@ -18,10 +19,12 @@ class Dashboard extends Controller
 	public function index(){
 		$jobs = $this->jobPostModel->getJobUserId($_SESSION['uId']);
 		$bidding = $this->jobPostModel->listBidders($_SESSION['uId']);
+		$logo = $this->jobPostModel->getLogo();
 		$userType = $_SESSION['user_type'];
 		$data = [
 			"jobs" => $jobs,
 			"biddings" => $bidding,
+			"logo" => $logo,
 			"userType" => $userType
 		];
 
@@ -88,7 +91,10 @@ class Dashboard extends Controller
 	}
 	
 	public function profile(){
-		$this->view("dashboard/user-profile");
+		$data = [
+			"userData" => $this->userModel->getUserInformation($_SESSION['uId'])
+		];
+		$this->view("dashboard/user-profile", $data);
 	}
 
 	public function postJob(){

@@ -26,12 +26,12 @@
 		<div class="user-navigation">
 			<div class="logo-user">
 				<div class="l-r-prof">
-					<img src="<?php echo URL_ROOT . '/img/black-logo.png' ?>">
+					<img src="<?=URL_ROOT;?>/img/default/<?=$data['logo']->path?>">
 				</div>
 				<div style="width: 100%;position: relative;">
 					<div class="search-field-prof">
 						<i class="fas fa-search"></i>
-						<input type="text" name="search" placeholder="search" id="prof-query" autocomplete>
+						<input type="text" name="search" placeholder="search" id="prof-query" autocomplete="false">
 						<span id="clear-search"><i class="far fa-times"></i></span>
 					</div>
 					<div class="s-wrapper">

@@ -165,4 +165,16 @@ class User
 			return false;
 		}
 	}
+
+	public function getUserInformation($uId){
+		$this->db->query("SELECT user.firstname AS firstN, user.lastname AS lastN, user_profile.img_path AS userImage, user_email.email_add AS userEmail, user_location.address AS userLocation, user_phone.phone_number AS userPhone, (SELECT AVG(user_rating.rate) FROM user_rating WHERE user_rating.user_id = user.id) AS userRating FROM user LEFT JOIN user_profile ON user_profile.user_id = user.id AND user_profile.profile_status = 1 LEFT JOIN user_email ON user_email.user_id = user.id AND user_email.email_status = 1 LEFT JOIN user_location ON user_location.user_id = user.id LEFT JOIN user_phone ON user_phone.user_id = user.id WHERE user.id = :userID");
+		$this->db->bind("userID", $uId);
+		$row = $this->db->single();
+		if($row){
+			return $row;
+		}else{
+			return false;
+		}
+
+	}
 }

@@ -168,7 +168,7 @@ Profile page top navigation right starts here
 	list-style-type: none;
 	display: flex;
 }
-#nav-links ul li {
+#nav-links ul li, #nav-links ul li a {
 	font: var(--font-quick-500-18);
 	padding-right: 20px;
 	line-height: 46px;

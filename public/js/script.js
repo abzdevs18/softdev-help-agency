@@ -1,5 +1,11 @@
 var URL_ROOT = "/sumalian";
-var URL_ROOT_DASH = "http://192.168.0.14/sumalian/dashboard";
+// var URL_ROOT_DASH = "http://192.168.0.35/sumalian/dashboard";
+
+//For scrollBar
+$(".content").mCustomScrollbar({
+    autoHideScrollbar: true
+});
+/*ENd ScrollBar*/
 
 $(document).on('keyup','#prof-query',function(){
 	var varl = $(this).val();
@@ -342,8 +348,8 @@ $(document).on('keyup', ".search-field-prof #prof-query", function(){
 	var query = $(this).val();
 	var userID = $('#userID').val();
 	var dash;
-	$('.s-wrapper').slideDown(100);
 	if (query != "") {
+	$('.s-wrapper').slideDown(100);
 		// alert(window.location.href + " == " + dash  + " == " + URL_ROOT_DASH);
 		$.ajax({
 			url:  URL_ROOT + "/pages/getJobTitleDash",
@@ -449,7 +455,21 @@ $(document).on('click', '.apply-btn-action', function(e){
 		}
 	});
 });
-/* Range of Salary*/
+/* PROFILE TABS SCRIPT*/
+$(document).on('click', '.prof-data > ul li', function(){
+	$(".prof-data > ul li").removeClass("active-prof-tab");
+	$(this).addClass('active-prof-tab');
+	var tab = $(this).attr("data-tab");
+
+	if (tab == "about") {
+		$(".prof-fed").hide(100);
+		$(".bio-info").show(100);
+	}
+	if(tab == "feedback"){
+		$(".bio-info").hide(100);		
+		$(".prof-fed").show(100);
+	}
+});
 
 /*This two function below will show and hide the feedback during the validation process*/
 function feedbackDefault(container){

@@ -54,7 +54,7 @@
 				<div id="navigation-scroll" class="mCustomScrollbar content fluid light" data-mcs-theme="inset-2-dark" style="height: 100%;width: 100%;">			
 					<div id="logo-admin" dir="ltr"> 
 						<div>
-							<img src="<?=URL_ROOT;?>/img/logo1.png" id="logo-icon">
+							<img style="width: 65%;" src="<?=SITE_LOGO;?>" id="logo-icon">
 						</div>
 					</div>
 					<div id="admin-profile">

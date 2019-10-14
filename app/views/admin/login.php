@@ -18,7 +18,8 @@
 
 			<div class="awesome"><!-- Admin Credential start -->
 				<div class="icon">
-					<i class="fal fa-user-shield"></i>
+					<!-- <i class="fal fa-user-shield"></i> -->
+					<img style="width: 25%;" src="<?=URL_ROOT;?>/img/default/<?=$data['logo']->path?>">
 				</div>
 				<div class="add">
 					<h3>Site/Admin Login</h3>
