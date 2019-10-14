@@ -463,11 +463,18 @@ $(document).on('click', '.prof-data > ul li', function(){
 
 	if (tab == "about") {
 		$(".prof-fed").hide(100);
+		$(".security").hide(100);
 		$(".bio-info").show(100);
 	}
 	if(tab == "feedback"){
-		$(".bio-info").hide(100);		
+		$(".bio-info").hide(100);
+		$(".security").hide(100);		
 		$(".prof-fed").show(100);
+	}
+	if(tab == "security"){
+		$(".prof-fed").hide(100);
+		$(".bio-info").hide(100);		
+		$(".security").show(100);
 	}
 });
 
@@ -486,3 +493,54 @@ function feedbackHide(container){
 	$('.' + container + ' .ins-wrapper > input').removeClass();
 	$('.' + container + ' .invalid-feedback').hide();
 }
+
+
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('.profID').attr('style', 'background-image: url(' + e.target.result + ')');
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#profIMG").change(function() {
+	$('.profile-prev').show(100);
+  $('#prof-pic').show(100);
+  readURL(this);
+});
+
+$(document).on('click', '.user-btns > button', function(){
+	var action = $(this).attr('data-action');
+    var fd = new FormData();
+    var photo_data = $('#profIMG').prop('files')[0];
+    fd.append('profilPic',photo_data);
+	
+	if (action == "cancel") {
+		$('.profile-prev').hide(100);
+	}
+	if (action == "save") {
+		$.ajax({
+	      url: URL_ROOT + '/users/profileUpdate',
+	      type: 'POST',
+	      dataType: 'json',
+	      processData: false, // important
+	      contentType: false, // important
+	      // data: $.param(sf_site),
+	      data: fd,
+	      success: function(data){
+	      	if (data['status'] == 1) {
+				$('.profile-prev').hide(100);
+				window.location.href= URL_ROOT + '/dashboard/profile';
+	      	}
+	      },
+	      error: function(err){
+	      	console.log(err);
+	      }
+	 	});
+	}
+});

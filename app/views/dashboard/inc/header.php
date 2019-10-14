@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/mainStyle.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/user_style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/admin_setup.css">
 	<style type="text/css">
 		@import url("<?=URL_ROOT;?>/css/static_style.css");
 		@import url("<?=URL_ROOT;?>/css/footer.css");
@@ -26,7 +27,7 @@
 		<div class="user-navigation">
 			<div class="logo-user">
 				<div class="l-r-prof">
-					<img src="<?=URL_ROOT;?>/img/default/<?=$data['logo']->path?>">
+					<img src="<?=SITE_LOGO;?>">
 				</div>
 				<div style="width: 100%;position: relative;">
 					<div class="search-field-prof">
@@ -53,8 +54,8 @@
 						</a> -->
 							<a href="<?=URL_ROOT . '/dashboard/profile';?>" style="text-decoration: none;">
 						<li id="account-profile">
-								<div id="account-thumbnail">
-									<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
+								<div id="account-thumbnail" style="background-image: url('<?php echo URL_ROOT . '/img/profiles/' . $data['userData']->userImage; ?>');">
+									<!-- <img src="<?php echo URL_ROOT . '/img/profiles/' . $data['userData']->userImage; ?>"> -->
 								</div>
 								<div style="max-width: 85px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">								
 									<span style="font-weight: 500;"><?=$_SESSION['userName'];?></span>

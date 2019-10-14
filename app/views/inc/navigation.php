@@ -1,7 +1,7 @@
 	<nav>
 		<div id="nav_container">
 			<div id="logo">
-				<a href="<?=URL_ROOT;?>"><img src="<?=URL_ROOT;?>/img/default/<?=$data['logo']->path?>"></a>
+				<a href="<?=URL_ROOT;?>"><img src="<?=SITE_LOGO;?>"></a>
 			</div>
 			<ul>
 				<li class="nav" data-page="home"><a href="<?=URL_ROOT;?>">HOME</a></li>

@@ -71,6 +71,24 @@
 			</div>
 		</div>
 	</footer>
+	<!-- Modals And everythin -->
+
+	<div class="modal profile-prev" style="display: none;">
+		<div class="modal-container" style="width: 40%;">
+			<section class="form">
+				<div class="awesome" style="width: 87%;min-height: 300px;">
+					<div class="icon profID">
+
+					</div>
+					<div class="add user-btns" style="display: flex;flex-direction: row;">
+						<button data-action="cancel">Cancel</button>
+						<button data-action="save" style="background-color: green;color: #fff;">Save</button>
+					</div>
+				</div>
+			</section>			
+		</div>
+	</div>
+
 	<script src="<?=URL_ROOT;?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="<?=URL_ROOT;?>/js/tag.js"></script>
 	<script src="<?=URL_ROOT;?>/js/script.js"></script>

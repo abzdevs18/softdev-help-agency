@@ -97,10 +97,10 @@
 								<i class="fal fa-heart"></i>
 								<a href="#"> My favorites</a>
 							</li>
-							<li data-link="<?=URL_ROOT;?>/admin/privacy">
+						<!-- 	<li data-link="<?=URL_ROOT;?>/admin/privacy">
 								<i class="fal fa-shield-check"></i>
 								<a href="#"> Privacy settings</a>
-							</li>
+							</li> -->
 							<li data-link="<?=URL_ROOT;?>/users/signout">
 								<i class="fal fa-sign-out"></i>
 								<a href="#"> Logout</a>

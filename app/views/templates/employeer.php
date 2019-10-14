@@ -8,8 +8,8 @@
 				<ul>					
 					<li class="filter-btn active-second-menu" data-filter="openJobs">Open</li>
 					<li class="filter-btn" data-filter="activeBids">Active Bids</li>
-					<li class="filter-btn" data-filter="currentWork">Current Work</li>
-					<li class="filter-btn" data-filter="inviteToWork">Invites</li>
+					<li class="filter-btn" data-filter="currentWork">Work on Progress</li>
+					<!-- <li class="filter-btn" data-filter="inviteToWork">Invites</li> -->
 					<li class="filter-btn" data-filter="pastWork">Past Work</li>
 				</ul>
 			</div><!-- End of filter tabs -->
@@ -93,7 +93,7 @@
 										<td colspan="9" style="text-align: center;">
 											<?php if($_SESSION['user_type'] == 1) :?>
 												<div style="line-height: 46px;margin-right: 15px;">
-													<a href="<?=URL_ROOT . '/dashboard/postJob';?>" class="user_type-post"><i class="fas fa-plus-circle"></i> Post Job</a>
+													<a style="background: none;" title="You have no open jobs" href="<?=URL_ROOT . '/dashboard/postJob';?>" class="user_type-post"><i class="fal fa-plus-circle" style="font-size: 70px;color: #999;"></i></a>
 												</div>
 											<?php endif; ?>										
 											<!-- <b class='n-res'>You have no open jobs!!!</b>	 -->
@@ -163,7 +163,7 @@
 										<td colspan="9" style="text-align: center;">
 											<?php if($_SESSION['user_type'] == 1) :?>
 												<div style="line-height: 46px;margin-right: 15px;">
-													<a href="<?=URL_ROOT . '/dashboard/postJob';?>" class="user_type-post"><i class="fas fa-plus-circle"></i> Post Job</a>
+													<a style="background: none;" title="You have no open jobs" href="<?=URL_ROOT . '/dashboard/postJob';?>" class="user_type-post"><i class="fal fa-plus-circle" style="font-size: 70px;color: #999;"></i></a>
 												</div>
 											<?php endif; ?>
 										</td>
@@ -229,7 +229,7 @@
 					</div><!-- End of Table Design -->
 				</div>
 			</div>
-			<div class="content-tbl inviteToWork blue">
+<!-- 			<div class="content-tbl inviteToWork blue">
 				<div class="tbl-wrap">
 					<div class="job-list-tables">
 						<table>
@@ -240,7 +240,6 @@
 									<th>Job Tittle</th>
 									<th>Category</th>
 									<th>Employer Name</th>
-									<!-- <th>Job Status</th> -->
 									<th>Price & Location</th>
 									<th>Due Date</th>
 									<th>Actions</th>
@@ -262,7 +261,6 @@
 										<span>Laptops & PCs</span>	
 									</td>
 									<td class="status-job">
-										<!-- <span>Active</span> -->
 										<p>Clint Anthony Abueva</p>
 									</td>
 									<td class="price-loc">								
@@ -281,9 +279,9 @@
 								</tr>
 							</tbody>
 						</table>
-					</div><!-- End of Table Design -->
+					</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="content-tbl pastWork gray">
 				<div class="tbl-wrap">
 					<div class="job-list-tables">

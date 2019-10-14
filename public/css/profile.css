@@ -1,11 +1,10 @@
 .profile-dash {
 	width: 80%;
-	height: 90vh;
+	/* height: 90vh; */
 	margin: 20px auto;
 	display: flex;
 	flex-direction: row;
 	box-shadow: var(--box-shadow);
-
 }
 .prof-con {
 	width: 25%;
@@ -22,15 +21,15 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    border: 4px solid #fff;
 }
 .update-bio-prof {
 	width: 100%;
-	height: 100px;
-	background-color: #333;
+	height: 60px;
+	background-color: #333333db;
 	bottom: -100px;
 	position: absolute;
 	transition: all .5s ease-in-out;
-
 }
 #prof-pic:hover .update-bio-prof {
 	bottom: 0px;
@@ -86,8 +85,21 @@
 
 /* Prof-info  Start */
 .prof-info {
-	width: calc( 75% - 30px );
+	width: 75%;
 	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.prof-wall {
+	width: 100%;
+	background-color: #333;
+	height: 225px;
+	background-size: cover;
+	background-position: top;
+	background-repeat: no-repeat;
+}
+.prf {
+	width: calc( 100% - 30px );
 	margin: 15px;
 }
 .name-con {
@@ -174,4 +186,8 @@
 
 .bio-d > span {
 	font-size: 14px;
+}
+
+.security-c > .bio-d > p {
+	width: 150px;
 }

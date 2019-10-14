@@ -333,6 +333,26 @@ class Users extends Controller
 		}
 	}
 
+	public function profileUpdate(){
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$data = [
+				"status" => 0
+			];
+
+			$target = $_SERVER['DOCUMENT_ROOT'] . "sumalian/public/img/profiles/" . basename($_FILES['profilPic']['name']);
+
+			if(move_uploaded_file($_FILES["profilPic"]["tmp_name"], $target)){
+				if ($this->userModel->profileUpdate($_SESSION['uId'], $_FILES['profilPic']['name'])) {
+					$data['status'] = 1;
+					echo json_encode($data);
+				}
+			}else{
+				echo json_encode($data);
+			}
+		}
+	}
+
 	public function createUserSession($user) {
 		
 		$_SESSION['uId'] = $user->usr_id;

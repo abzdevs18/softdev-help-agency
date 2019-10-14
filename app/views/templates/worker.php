@@ -8,7 +8,7 @@
 				<ul>					
 					<li class="filter-btn active-second-menu" data-filter="activeBids">Active Bids</li>
 					<li class="filter-btn" data-filter="currentWork">Current Work</li>
-					<li class="filter-btn" data-filter="inviteToWork">Invites</li>
+					<li class="filter-btn" data-filter="inviteToWork">Invitations</li>
 					<li class="filter-btn" data-filter="pastWork">Past Work</li>
 				</ul>
 			</div><!-- End of filter tabs -->

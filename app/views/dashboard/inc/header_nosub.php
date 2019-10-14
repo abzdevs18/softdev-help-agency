@@ -8,6 +8,7 @@
 	<!-- <script src="https://kit.fontawesome.com/618fa0761b.js"></script> -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/admin_setup.css">
 
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
@@ -29,7 +30,7 @@
 		<div class="user-navigation">
 			<div class="logo-user">
 				<div class="l-r-prof">
-					<img src="<?=URL_ROOT;?>/img/default/<?=$data['logo']->path?>">
+					<img src="<?=SITE_LOGO;?>">
 				</div>
 				<div style="width: 100%;position: relative;">
 					<div class="search-field-prof">
@@ -54,8 +55,7 @@
 						<li><a href="<?=URL_ROOT . '/dashboard';?>">Dashboard</a></li>
 							<a href="<?=URL_ROOT . '/dashboard/profile';?>" style="text-decoration: none;">
 						<li id="account-profile">
-								<div id="account-thumbnail">
-									<img src="<?php echo URL_ROOT . '/img/profiles/prof.png' ?>">
+								<div id="account-thumbnail" style="background-image: url('<?php echo URL_ROOT . '/img/profiles/' . $data['userData']->userImage; ?>');">
 								</div>
 								<div style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">								
 									<span style="font-weight: 500;"><?=$_SESSION['userName'];?></span>

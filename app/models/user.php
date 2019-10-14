@@ -69,7 +69,6 @@ class User
 		}else{
 			return false;
 		}
-
 	}
 
 	public function createCompany($name){
@@ -78,6 +77,33 @@ class User
 
 		if ($this->db->execute()) {
 			return true;
+		}
+	}
+
+	public function profileUpdate($uId, $path){
+		try {
+			$this->db->beginTransaction();
+			$this->db->query("SELECT * FROM user_profile WHERE user_id = :uId AND profile_status = 1");
+			$this->db->bind(":uId", $uId);
+			$row = $this->db->single();
+			
+			if($this->db->rowCount() > 0 ){
+				$this->db->query("UPDATE user_profile SET profile_status = 0 WHERE user_id = :uId");
+				$this->db->bind(":uId", $uId);
+				$this->db->execute();
+			}
+
+			$this->db->query("INSERT INTO user_profile ( user_id, img_path ) VALUES ( :uId, :imgPath )");
+			$this->db->bind(":uId", $uId);
+			$this->db->bind(":imgPath", $path);
+			$this->db->execute();
+
+			$this->db->commit();
+			return true;
+
+		} catch (Exception $e) {
+			$this->db->rollBack();
+			return false;
 		}
 	}
 
