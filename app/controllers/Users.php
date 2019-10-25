@@ -255,6 +255,7 @@ class Users extends Controller
 	}
 
 	public function signin(){
+		$emptyObject = (object) array();
 
 		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -301,13 +302,14 @@ class Users extends Controller
 						"data" => $data,
 						"row" => $loggedIn
 					];
+					// $arr = array('status' => 1);
 					echo json_encode($arr);
 				}else{
 					$data['status'] = 2;
 
 					$arr = [
 						"data" => $data,
-						"row" => ""
+						"row" => $emptyObject
 					];
 					
 					echo json_encode($arr);
@@ -317,7 +319,7 @@ class Users extends Controller
 				$data['status'] = 0;
 				$arr = [
 					"data" => $data,
-					"row" => ""
+					"row" => $emptyObject
 				];
 				echo json_encode($arr);
 			}
@@ -341,9 +343,38 @@ class Users extends Controller
 			];
 
 			$target = $_SERVER['DOCUMENT_ROOT'] . "sumalian/public/img/profiles/" . basename($_FILES['profilPic']['name']);
+			$uploaded_name = $_FILES["profilPic"]["tmp_name"];
 
-			if(move_uploaded_file($_FILES["profilPic"]["tmp_name"], $target)){
-				if ($this->userModel->profileUpdate($_SESSION['uId'], $_FILES['profilPic']['name'])) {
+			$uploaded_ext = substr($uploaded_name, strrpos($uploaded_name, '.') + 1); 
+			$uploaded_size = $_FILES["profilPic"]["size"];
+
+			// if ($uploaded_ext == "jpg" || $uploaded_ext == "JPG" || $uploaded_ext == "jpeg" || $uploaded_ext == "JPEG"){
+				if(move_uploaded_file($_FILES["profilPic"]["tmp_name"], $target)){
+					if ($this->userModel->profileUpdate($_SESSION['uId'], $_FILES['profilPic']['name'])) {
+						$data['status'] = 1;
+						echo json_encode($data);
+					}
+				}else{
+					echo json_encode($data);
+				}
+			// }else{
+			// 	echo json_encode($data);
+			// }
+
+		}
+	}
+
+	public function wallUpdate(){
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$data = [
+				"status" => 0
+			];
+
+			$target = $_SERVER['DOCUMENT_ROOT'] . "sumalian/public/img/profiles/cover/" . basename($_FILES['wallPic']['name']);
+
+			if(move_uploaded_file($_FILES["wallPic"]["tmp_name"], $target)){
+				if ($this->userModel->coverUpdate($_SESSION['uId'], $_FILES['wallPic']['name'])) {
 					$data['status'] = 1;
 					echo json_encode($data);
 				}

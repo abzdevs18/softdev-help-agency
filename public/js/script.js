@@ -494,14 +494,14 @@ function feedbackHide(container){
 	$('.' + container + ' .invalid-feedback').hide();
 }
 
+/* UPDATE PROFILE PIC*/
 
-
-function readURL(input) {
+function profileUpdateF(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     
     reader.onload = function(e) {
-      $('.profID').attr('style', 'background-image: url(' + e.target.result + ')');
+      $('.awesome > .profID').attr('style', 'background-image: url(' + e.target.result + ')');
     }
     
     reader.readAsDataURL(input.files[0]);
@@ -510,8 +510,8 @@ function readURL(input) {
 
 $("#profIMG").change(function() {
 	$('.profile-prev').show(100);
-  $('#prof-pic').show(100);
-  readURL(this);
+  // $('#prof-pic').show(100);
+  profileUpdateF(this);
 });
 
 $(document).on('click', '.user-btns > button', function(){
@@ -535,6 +535,57 @@ $(document).on('click', '.user-btns > button', function(){
 	      success: function(data){
 	      	if (data['status'] == 1) {
 				$('.profile-prev').hide(100);
+				window.location.href= URL_ROOT + '/dashboard/profile';
+	      	}
+	      },
+	      error: function(err){
+	      	console.log(err);
+	      }
+	 	});
+	}
+});
+
+/* UPDATE COVER PHOTO */
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('.prof-wall').attr('style', 'background-image: url(' + e.target.result + '), linear-gradient(rgba(0,0,0,-0.5),rgba(0,0,0,0.5));background-size: cover;');
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#wallIMG").change(function() {
+	$('.wall-update-btn').css('visibility','visible');
+  // $('#prof-pic').show(100);
+  readURL(this);
+});
+
+
+$(document).on('click', '.wall-update-btn > button', function(){
+	var action = $(this).attr('data-action');
+    var fd = new FormData();
+    var photo_data = $('#wallIMG').prop('files')[0];
+    fd.append('wallPic',photo_data);
+	
+	if (action == "cancel") {
+		window.location.href= URL_ROOT + '/dashboard/profile';
+	}
+	if (action == "save") {
+		$.ajax({
+	      url: URL_ROOT + '/users/wallUpdate',
+	      type: 'POST',
+	      dataType: 'json',
+	      processData: false, // important
+	      contentType: false, // important
+	      // data: $.param(sf_site),
+	      data: fd,
+	      success: function(data){
+	      	if (data['status'] == 1) {
 				window.location.href= URL_ROOT + '/dashboard/profile';
 	      	}
 	      },

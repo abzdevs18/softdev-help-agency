@@ -156,7 +156,7 @@ class Job
 
 	public function getJobByTitle($data){
 		$this->db->query("SELECT jobs.id AS jId, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.job_description AS jDesc, jobs.tags AS jTags,  company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf FROM jobs LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 WHERE jobs.user_id != :uId AND jobs.job_title LIKE  :jTitle");
-		$this->db->bind(":uId", $data['user']);
+		$this->db->bind(":uId", $_SESSION['uId']);
 		$this->db->bind(":jTitle", '%'. $data['title'] .'%');
 		// $this->db->bind_params('s', "%" . $jTag . "%");
 		$row = $this->db->resultSet();
@@ -168,7 +168,7 @@ class Job
 	}
 
 	public function getCategories(){
-		$this->db->query("SELECT * FROM `sf_logo`");
+		$this->db->query("SELECT * FROM `job_categories`");
 		$row = $this->db->resultSet();
 		if ($row) {
 			return $row;

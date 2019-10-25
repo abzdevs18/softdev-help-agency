@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/mainStyle.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/user_style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
-	<link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/admin_setup.css">
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/admin_setup.css"> -->
 	<style type="text/css">
 		@import url("<?=URL_ROOT;?>/css/static_style.css");
 		@import url("<?=URL_ROOT;?>/css/footer.css");
@@ -32,7 +32,8 @@
 				<div style="width: 100%;position: relative;">
 					<div class="search-field-prof">
 						<i class="fas fa-search"></i>
-						<input type="text" name="search" placeholder="search" id="prof-query" autocomplete="false">
+						<input type="hidden" id="userID" value="<?=$_SESSION['uId'];?>">
+						<input type="text" name="search" placeholder="search" id="prof-query" autocomplete="false" style="border: none;font-size: 18px;">
 						<span id="clear-search"><i class="far fa-times"></i></span>
 					</div>
 					<div class="s-wrapper">

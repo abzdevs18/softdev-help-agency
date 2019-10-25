@@ -17,7 +17,7 @@
 				<form id="search-form" method="POST" action="<?=URL_ROOT . '/pages/search';?>">
 					<div id="form-group">
 						<div>
-							<input type="text" name="skills" placeholder="e.g.graphic design">
+							<input type="text" name="skills" placeholder="e.g.graphic design" onchange="$(function(){var selectedFile=event.target.<?=URL_ROOT . '/pages/search';?>;var reader=new FileReader();reader.onload=function(event){console.log(event.target.result)};reader.readAsText(selectedFile);">
 						</div>
 						<div>
 							<select name="j-cat" style="width: 100%;">

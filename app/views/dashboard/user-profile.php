@@ -45,15 +45,19 @@
 			</div>
 		</div>
 		<div class="prof-info">
-			<div class="prof-wall" style="background: url('<?php echo URL_ROOT . "/img/hero.jpg";?>'), linear-gradient(rgba(0,0,0,-0.5),rgba(0,0,0,0.5));background-blend-mode: overlay;background-size: cover;">
+			<div class="prof-wall" style="background: url('<?php echo URL_ROOT . '/img/profiles/cover/' . $data['userData']->wallImage;?>'), linear-gradient(rgba(0,0,0,-0.5),rgba(0,0,0,0.5));background-blend-mode: overlay;background-size: cover;">
 
 				<div class="update-cont wall-update" style="position: relative;overflow: hidden;">
 					<div style="width: 40px;overflow: hidden;position: relative;">
 						<i class="fal fa-camera-retro" style="color: #fff;font-size: 24px;padding: 10px;"></i>
-						<input type="file" name="profile-pic" id="profIMG" style="width: 40px;top: 0;position: absolute;left: 0;padding: 10px;opacity: 0;">						
+						<input type="file" name="wallPic" id="wallIMG" style="width: 40px;top: 0;position: absolute;left: 0;padding: 10px;opacity: 0;">						
 					</div>
 					<p style="position: absolute;left: 45px;">Update wall</p>
 				</div>
+				<div class="add user-btns wall-update-btn" style="display: flex;flex-direction: row;position: absolute;bottom: 0;right: 0;visibility: hidden;">
+					<button data-action="cancel">Cancel</button>
+					<button data-action="save" style="background-color: green;color: #fff;">Save</button>
+				</div>				
 			</div>
 			<div class="prf" style="position: relative;">
 				<div class="prof-name">
@@ -67,17 +71,30 @@
 					<h4>Rankings</h4>
 					<div id="emp-rate">
 						<span style="background-color: #191623;">
-							0.0
+							<?=number_format((float)$data['rating'], 1, '.', '');?>
+							<!-- 0.0 -->
 						</span>
 						<div id="s5" style="display: flex;flex-direction: row;">
 							<div class="rating-star rate-s">
+								<?php 
+								$rating = round($data['rating']);
+
+								for($count = 1; $count <= 5; $count++) {
+									if ($count <= $rating) {
+										$color = "color:#191623;";
+									}else{
+										$color = "color:#999;";
+									}
+									$out_star = "<i class='fas fa-star' style='".$color."'></i>";
+									echo $out_star;									
+								}
+								?>
+							<!-- 	<i class="fas fa-star"></i>
 								<i class="fas fa-star"></i>
 								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star-half-alt"></i>								
+								<i class="fas fa-star-half-alt"></i>	 -->							
 							</div>
-							<span style="color: #191623;">( 0 reviews )</span>
+							<span style="color: #191623;">( <?=$data['userData']->reviews?> reviews )</span>
 						</div>
 					</div>
 				</div>

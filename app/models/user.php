@@ -80,6 +80,8 @@ class User
 		}
 	}
 
+	/* Profile Photo Update */
+
 	public function profileUpdate($uId, $path){
 		try {
 			$this->db->beginTransaction();
@@ -107,6 +109,34 @@ class User
 		}
 	}
 
+	/* Wall Cover Update */
+	public function coverUpdate($uId, $path){
+		try {
+			$this->db->beginTransaction();
+			$this->db->query("SELECT * FROM user_wall WHERE user_id = :uId AND wall_status = 1");
+			$this->db->bind(":uId", $uId);
+			$row = $this->db->single();
+			
+			if($this->db->rowCount() > 0 ){
+				$this->db->query("UPDATE user_wall SET wall_status = 0 WHERE user_id = :uId");
+				$this->db->bind(":uId", $uId);
+				$this->db->execute();
+			}
+
+			$this->db->query("INSERT INTO user_wall ( user_id, img_path ) VALUES ( :uId, :imgPath )");
+			$this->db->bind(":uId", $uId);
+			$this->db->bind(":imgPath", $path);
+			$this->db->execute();
+
+			$this->db->commit();
+			return true;
+
+		} catch (Exception $e) {
+			$this->db->rollBack();
+			return false;
+		}
+	}
+
 	public function login($email, $password) {
 		$this->db->query("SELECT user_email.user_id AS fId, user_email.email_add AS usrEmail, user.id AS usr_id, user.user_pass AS usrPass, user.is_admin AS is_admin, user.username AS usrName, user.user_type AS uType FROM user_email LEFT JOIN user ON user.id = user_email.user_id WHERE user.username = :email OR user_email.email_add = :email");
 
@@ -118,6 +148,7 @@ class User
 			$hashed_pass = $row->usrPass;
 			if (password_verify($password,$row->usrPass)) {
 				return $row;
+				// return array('row' => $row);
 				// return true;
 
 			}else{
@@ -193,7 +224,7 @@ class User
 	}
 
 	public function getUserInformation($uId){
-		$this->db->query("SELECT user.firstname AS firstN, user.lastname AS lastN, user_profile.img_path AS userImage, user_email.email_add AS userEmail, user_location.address AS userLocation, user_phone.phone_number AS userPhone, (SELECT AVG(user_rating.rate) FROM user_rating WHERE user_rating.user_id = user.id) AS userRating FROM user LEFT JOIN user_profile ON user_profile.user_id = user.id AND user_profile.profile_status = 1 LEFT JOIN user_email ON user_email.user_id = user.id AND user_email.email_status = 1 LEFT JOIN user_location ON user_location.user_id = user.id LEFT JOIN user_phone ON user_phone.user_id = user.id WHERE user.id = :userID");
+		$this->db->query("SELECT user.firstname AS firstN, user.lastname AS lastN, user_profile.img_path AS userImage, user_wall.img_path AS wallImage, user_email.email_add AS userEmail, user_location.address AS userLocation, user_phone.phone_number AS userPhone, (SELECT AVG(user_rating.rate) FROM user_rating WHERE user_rating.user_id = user.id) AS userRating, (SELECT COUNT(user_rating.rate) AS reviews FROM user_rating WHERE user_rating.user_id = user.id) AS reviews FROM user LEFT JOIN user_profile ON user_profile.user_id = user.id AND user_profile.profile_status = 1 LEFT JOIN user_wall ON user_wall.user_id = user.id AND user_wall.wall_status = 1 LEFT JOIN user_email ON user_email.user_id = user.id AND user_email.email_status = 1 LEFT JOIN user_location ON user_location.user_id = user.id LEFT JOIN user_phone ON user_phone.user_id = user.id WHERE user.id = :userID");
 		$this->db->bind("userID", $uId);
 		$row = $this->db->single();
 		if($row){
@@ -202,5 +233,17 @@ class User
 			return false;
 		}
 
+	}
+
+	public function numReviews($uId){
+		$this->db->query("SELECT COUNT(user_rating.rate) AS reviews FROM user_rating WHERE user_rating.user_id = :uID");
+		$this->db->bind(":uID", $uId);
+		$row = $this->db->resultSet();
+
+		if ($row) {
+			return $row;
+		}else{
+	    	return 0;
+		}
 	}
 }

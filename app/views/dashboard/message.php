@@ -13,11 +13,13 @@
 					<?php foreach ($data['userBid'] as $user) : ?>
 						<div class="user-items msg-u" data-u="<?=$user->userId?>">
 							<div class="convo-prof">
-								<img src="<?php echo URL_ROOT. '/img/profiles/prof.png' ?>">
+								<div id="account-thumbnail" style="width:50px;height:50px;background-image: url('<?php echo URL_ROOT . '/img/profiles/' .  $user->img_path; ?>');">
+								</div>
+								<!-- <img src="<?php echo URL_ROOT. '/img/profiles/' . $user->img_path; ?>"> -->
 							</div>
 							<div class="convo-">
 								<div class="list-data">
-									<h3><?=$user->username?></h3>
+									<h3 style="text-transform: capitalize;"><?=$user->username?></h3>
 									<span>10:23 am</span>								
 								</div>
 								<div class="convo-inf">

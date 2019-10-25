@@ -27,7 +27,8 @@ class Dashboard extends Controller
 			"biddings" => $bidding,
 			"userData" => $usreData,
 			"logo" => $logo,
-			"userType" => $userType
+			"userType" => $userType,
+
 		];
 
 		$this->view('dashboard/index', $data);
@@ -93,8 +94,11 @@ class Dashboard extends Controller
 	}
 	
 	public function profile(){
+		$user = $this->userModel->getUserInformation($_SESSION['uId']);
 		$data = [
-			"userData" => $this->userModel->getUserInformation($_SESSION['uId'])
+			"userData" => $user,
+			"rating" => $user->userRating,
+			"numRating" => $this->userModel->numReviews($_SESSION['uId'])
 		];
 		$this->view("dashboard/user-profile", $data);
 	}

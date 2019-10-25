@@ -518,7 +518,8 @@ textarea, select, .tg-select select, .form-control, input[type="text"], input[ty
 	text-transform: capitalize;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	width: 100;
+	width: 100%;
+	text-transform: unset;
 }
 .changepass-holder {
 	padding: 30px;

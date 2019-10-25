@@ -112,7 +112,7 @@
 							<thead>
 								<tr>
 									<th style="text-align: center;"><input type="checkbox" name=""></th>
-									<th>Emp Photo</th>
+									<th>Worker Photo</th>
 									<th>Job Tittle</th>
 									<th>Category</th>
 									<th>Employer Name</th>
@@ -129,8 +129,8 @@
 										<td style="text-align: center;">
 											<input type="checkbox" name="">
 										</td>
-										<td>
-											<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>" style="border-radius: 50%;">
+										<td style="align-items: center;">
+											<div style="background-image: url('<?=URL_ROOT . '/img/profiles/' . $bidds->userProf;?>');background-repeat: no-repeat;background-size: cover;background-position: center;width: 100px;height: 100px;margin: 0 auto;border: 2px solid #191623;border-radius: 4px;"></div>
 										</td>
 										<td class="tittle-id">
 											<h3><?=$bidds->jTitle;?></h3>

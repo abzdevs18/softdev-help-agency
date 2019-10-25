@@ -8,7 +8,7 @@
 	<!-- <script src="https://kit.fontawesome.com/618fa0761b.js"></script> -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/admin_setup.css">
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/admin_setup.css"> -->
 
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
@@ -35,8 +35,8 @@
 				<div style="width: 100%;position: relative;">
 					<div class="search-field-prof">
 						<i class="fas fa-search"></i>
-						<input type="hidden" id="userID" value="<?=$data['userId'];?>">
-						<input type="text" name="search" placeholder="search" id="prof-query" autocomplete="false">
+						<input type="hidden" id="userID" value="<?=$_SESSION['uId'];?>">
+						<input type="text" name="search" placeholder="search" id="prof-query" autocomplete>
 						<span id="clear-search"><i class="far fa-times"></i></span>
 					</div>
 					<div class="s-wrapper">
