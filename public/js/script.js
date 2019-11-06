@@ -2,9 +2,11 @@ var URL_ROOT = "/sumalian";
 // var URL_ROOT_DASH = "http://192.168.0.35/sumalian/dashboard";
 
 //For scrollBar
-$(".content").mCustomScrollbar({
-    autoHideScrollbar: true
+$(".message-container").mCustomScrollbar({
+	autoHideScrollbar: true,
+	setTop: "-100%"
 });
+
 /*ENd ScrollBar*/
 
 $(document).on('keyup','#prof-query',function(){
@@ -51,11 +53,23 @@ $('.filter-btn').mouseleave(function(){
 });
 
 /*From bidder list into message*/
-$(document).on('click','.biddRow', function(){
+$(document).on('click','.bidderImageProfileIcon', function(){
 	var workerID = $(this).attr('data-workerID');
 	var workId = $(this).attr('data-workId');
-	var da = [workId,workerID];
+	// var da = [workId,workerID];
+	bidderMessagingFunction(workId,workerID);
+});
 
+$(document).on('click','.bidderProfileName', function(){
+	var workerID = $(this).attr('data-workerID');
+	var workId = $(this).attr('data-workId');
+	// var da = [workId,workerID];
+	bidderMessagingFunction(workId,workerID);
+});
+
+// Send message function by clicking image and name;
+
+function bidderMessagingFunction(workId, workerID){
 	$.ajax({
 		url: URL_ROOT + '/dashboard/jobSession',
 		type: 'POST',
@@ -73,14 +87,55 @@ $(document).on('click','.biddRow', function(){
 			console.log(err);
 		}
 	});
-});
-
+}
+var click_user;
 /* Click user in messenger */
 $(document).on('click', '.msg-u', function(){
-	var bidderID = $(this).attr("data-u");
-	$("#sendbtn").attr("data-rv", bidderID);
-});
+	var receiver = $(this).attr("data-u");
+	click_user = receiver;
+	$("#sendbtn").attr("data-rv", receiver);
 
+	$.ajax({
+		url: URL_ROOT + '/dashboard/chatFrame',
+		type: 'POST',
+		data: {
+			receiver:receiver
+		},
+		success:function(data){
+			$("#mCSB_1_container").html(data);
+			// below to line of code make sure to scroll to bottom the 
+			// container in order to show the latest message
+			var f = $("#mCSB_1_container").height();
+			$("#mCSB_1_container").css("top","-"+f+"px");
+			// ends here the auto scroll to bottom
+			console.log(data);
+		},
+		error:function(err){
+			console.log(err);
+		}
+	});
+});
+// setInterval(function(){console.log($("#sendbtn").attr("data-sr"), $("#sendbtn").attr("data-rv"))}, 1000);
+// setInterval(realTimeMsg($("#sendbtn").attr("data-sr"), $("#sendbtn").attr("data-rv"), 1000));
+setInterval(
+function realTimeMsg(){
+	var receiver = click_user;
+	$("#sendbtn").attr("data-rv", click_user);
+	$.ajax({
+		url: URL_ROOT + '/dashboard/chatFrame',
+		type: 'POST',
+		data: {
+			receiver:receiver
+		},
+		success:function(data){
+			$("#mCSB_1_container").html(data);
+			console.log(data);
+		},
+		error:function(err){
+			console.log(err);
+		}
+	});
+}, 3000);
 /* Sending Message from Messenger*/
 $(document).on('click', '#sendbtn', function(){
 	var msg = $('.ctl-msg').text();
@@ -97,6 +152,7 @@ $(document).on('click', '#sendbtn', function(){
 		},
 		dataType: 'json',
 		success:function(data){
+			$('.ctl-msg').text(" ");
 			console.log(data);
 		},
 		error:function(err){
@@ -104,7 +160,7 @@ $(document).on('click', '#sendbtn', function(){
 		}
 	})
 
-	console.log("SR:"+sr+" RV:"+rv+" MSG:"+msg);
+	// console.log("SR:"+sr+" RV:"+rv+" MSG:"+msg);
 });
 
 /*From somewhere else*/
@@ -594,4 +650,32 @@ $(document).on('click', '.wall-update-btn > button', function(){
 	      }
 	 	});
 	}
+});
+
+$(document).on('submit',"#subcribe-email", function(e){
+	e.preventDefault();
+	var email = $("#subs-email").val();
+	$.ajax({
+	  url: URL_ROOT + '/users/subscribe',
+	  type: 'POST',
+	  dataType: 'json',
+	  data: {
+		  email:email
+	  },
+	  success: function(data){
+		  if (data['status'] == 1) {
+			$('.confirmationModal').show(10);
+			$("body").css("overflow","hidden");
+			$(".confirmationMessage h2").text("Thank you for subscribing!");
+
+		  }
+		//   console.log(data);
+	  },
+	  error: function(err){
+		  console.log(err);
+	  }
+	 });
+});
+$(document).on('click','.actionButtonModal #close',function(){
+  window.location.href = URL_ROOT + '/pages/index'
 });

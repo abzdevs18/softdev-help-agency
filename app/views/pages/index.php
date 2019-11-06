@@ -283,33 +283,18 @@
 				</div>
 			</div>	
 			<div style="width: 100%;display: flex;flex-direction: row;justify-content: space-between;">
-				<div class="article">
-					<div>
-						<img src="<?=URL_ROOT;?>/img/news-update/news_2.jpg">
+				<!-- if job is close add row with class name "sold" -->
+				<?php foreach($data['blog'] AS $blog) : ?>
+					<div class="article blogPreviewId" data-i="<?=$blog->blogId;?>">
+						<div>
+							<img src="<?=URL_ROOT . '/img/blog/' . $blog->blogImage;?>">
+						</div>
+						<div>
+							<span><?=$blog->blogDate;?></span>
+							<a href="#"><?=$blog->blogTitle;?></a>
+						</div>
 					</div>
-					<div>
-						<span>18th April 2018</span>
-						<a href="#">It is a long established fact a reader be distracted</a>
-					</div>
-				</div>
-				<div class="article">
-					<div>
-						<img src="<?=URL_ROOT;?>/img/news-update/news_2.jpg">
-					</div>
-					<div>
-						<span>18th April 2018</span>
-						<a href="#">It is a long established fact a reader be distracted</a>
-					</div>
-				</div>
-				<div class="article">
-					<div>
-						<img src="<?=URL_ROOT;?>/img/news-update/news_2.jpg">
-					</div>
-					<div>
-						<span>18th April 2018</span>
-						<a href="#">It is a long established fact a reader be distracted</a>
-					</div>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</section>

@@ -860,7 +860,7 @@ Messaging
     justify-content: flex-end;
 }
 .message-reciever, .current-user-sender {
-    /* width: calc( 100% - 8px ); */
+    width: calc( 100% - 8px );
     /* min-height: 100px; */
     margin: 4px;
     display: flex;

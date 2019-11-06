@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>SF_Help Admin Setup</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/admin_setup.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
-	<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 </head>
 <body>
@@ -167,6 +164,7 @@
 			</section>			
 		</div>
 	</div>
+	<script src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/js/main.js"></script>
 </body>
 </html>

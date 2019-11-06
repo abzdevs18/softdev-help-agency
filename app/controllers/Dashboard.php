@@ -10,6 +10,7 @@ class Dashboard extends Controller
 	{
 		$this->jobPostModel = $this->model('Job');
 		$this->userModel = $this->model('user');
+		$this->messageModel = $this->model('message');;
 
 		if (!isLoggedIn()) {
 			redirect("users/signin");
@@ -34,12 +35,22 @@ class Dashboard extends Controller
 		$this->view('dashboard/index', $data);
 	}
 
+	public function messageContent($receiverId,$senderId){
+		$data = $this->messageModel->getMessage($receiverId,$senderId);
+		echo json_encode($data);
+	}
+
 	public function message(){
-		// if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+		// if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+		$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+		$user = $this->userModel->getUserInformation($_SESSION['uId']);		
 			$data = [
 				/*check this first form*/
 				"status" => "s",
-				"userBid" => $this->jobPostModel->bidders()
+				"userData" => $this->userModel->getUserInformation($_SESSION['uId']),
+				"userBid" => $this->jobPostModel->getBiddersListEmp($_SESSION['uId']),
+				"userMessage" => $this->jobPostModel->getBiddersList($_SESSION['uId']),
+				"messagesBid" => $this->messageModel->getMessage(3,$_SESSION['uId'])
 			];
 		// 	$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 		// 	echo json_encode($data);
@@ -51,17 +62,44 @@ class Dashboard extends Controller
 		// }
 	}
 
+	public function chatFrame(){
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+			$data = [
+				"messagesBid" => $this->messageModel->getMessage(trim($_POST['receiver']),$_SESSION['uId'])
+			];
+			$this->view("templates/messageTemplate", $data);
+
+		}
+	}
+
+	public function getRealTimeMsg(){
+		$data = [
+			"userBid" => $this->jobPostModel->bidders(),
+			"messagesBid" => $this->messageModel->getMessage(2,3)
+		];
+
+		$this->view("templates/messageTemplate", $data);
+	}
+
 	public function sendMessage(){
 
 		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+			//timezone is set to manila
+			date_default_timezone_set('Asia/Manila');
+  			// echo date("h:i a");
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-			$time = date("D, M d, g:i A");
+			// $time = date("D, M d, g:i A");
+			$date = date("M. d, Y");
+			$time = date("h:i a");
 
 			$data = [
 				"status" => 0,
 				"sender" => trim($_POST['sender']),
 				"receiver" => trim($_POST['receiver']),
 				"message" => trim($_POST['message']),
+				"sendDate" => $date,
 				"sendTime" => $time
 			];
 
@@ -239,9 +277,11 @@ class Dashboard extends Controller
 
 	public function jobDetails($jId){
 		$jobs = $this->jobPostModel->getJobById($jId);
+		$user = $this->userModel->getUserInformation($_SESSION['uId']);	
 
 		$data = [
 			"jobs" => $jobs,
+			"userData" => $user,
 			"userId" => $_SESSION['uId']
 		];
 

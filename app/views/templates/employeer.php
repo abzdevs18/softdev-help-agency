@@ -53,7 +53,7 @@
 								<!-- Condition: If user has open jobs, show them in table -->
 								<?php if($data['jobs']) : ?>
 									<?php foreach ($data['jobs'] as $jobs) : ?>
-									<tr class="row-job" data-id="<?=$jobs->jId;?>">
+									<tr title="Click to message the worker." class="row-job" data-id="<?=$jobs->jId;?>">
 										<td style="text-align: center;">
 											<input type="checkbox" name="">
 										</td>
@@ -125,11 +125,11 @@
 							<tbody>
 								<?php if($data['biddings']) : ?>
 									<?php foreach ($data['biddings'] as $bidds) : ?>
-									<tr class="biddRow" data-workerID="<?=$bidds->workerId;?>" data-workId="<?=$bidds->jId;?>">
+									<tr class="biddRow">
 										<td style="text-align: center;">
 											<input type="checkbox" name="">
 										</td>
-										<td style="align-items: center;">
+										<td class="bidderImageProfileIcon" data-workerID="<?=$bidds->workerId;?>" data-workId="<?=$bidds->jId;?>" style="align-items: center;" title="Click to send message to the bidder.">
 											<div style="background-image: url('<?=URL_ROOT . '/img/profiles/' . $bidds->userProf;?>');background-repeat: no-repeat;background-size: cover;background-position: center;width: 100px;height: 100px;margin: 0 auto;border: 2px solid #191623;border-radius: 4px;"></div>
 										</td>
 										<td class="tittle-id">
@@ -139,7 +139,7 @@
 										<td class="item-cat">
 											<span>Laptops & PCs</span>	
 										</td>
-										<td class="status-job">
+										<td class="bidderProfileName" data-workerID="<?=$bidds->workerId;?>" data-workId="<?=$bidds->jId;?>" class="status-job" title="Click to send message to the bidder.">
 											<!-- <span>Active</span> -->
 											<p class="bidderName"><?php echo $bidds->uFname . ' ' . $bidds->uLname;?></p>
 										</td>

@@ -383,6 +383,25 @@ class Users extends Controller
 			}
 		}
 	}
+	// Email Subscribing
+	public function subscribe(){
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$data = [
+				"status" => "",
+				"email" => trim($_POST['email']),
+				"date" => date("M. d, Y")
+			];
+
+			if($this->adminModel->emailSub($data)){				
+				$data['status'] = 1;
+				echo json_encode($data);
+			}else{			
+				$data['status'] = 0;
+				echo json_encode($data);
+			}
+		}
+	}
 
 	public function createUserSession($user) {
 		

@@ -30,24 +30,28 @@ class Pages extends Controller
 
 		$jobs = $this->jobModel->getJob();
 		$categories = $this->jobModel->getCategories();
+		$blogs = $this->Model->getBlogsLimit();
 		$data = [
 			'title' => 'Welcome',
 			'jobs' => $jobs,
-			'categories' => $categories
+			'categories' => $categories,
+			'blog' => $blogs
 		];
 		$this->view("pages/index", $data);
 	}
 
 	public function employee(){
 		$data = [
-			'title' => 'Welcome to about'
+			'title' => 'Welcome to about',
+			'blog' => $this->Model->getBlogsLimit()
 		];
 		$this->view("pages/about", $data);
 	}
 
 	public function job_oppotunities(){
 		$data = [
-			'title' => 'Welcome to about'
+			'title' => 'Welcome to about',
+			'blog' => $this->Model->getBlogsLimit()
 		];
 		$this->view("pages/about", $data);
 	}
@@ -57,14 +61,18 @@ class Pages extends Controller
 
 		$data = [
 			"jobs" => $jobs,
-			"userId" => $_SESSION['uId']
+			"userId" => $_SESSION['uId'],
+			'blog' => $this->Model->getBlogsLimit()
 		];
 
 		$this->view("pages/job-details", $data);
 	}
 
 	public function companyProfile(){
-		$this->view("pages/company-profile");
+		$data = [
+			'blog' => $this->Model->getBlogsLimit()
+		];
+		$this->view("pages/company-profile", $data);
 	}
 
 	public function workerDetails(){
@@ -74,9 +82,21 @@ class Pages extends Controller
 		$this->view("pages/worker");
 	}
 
+	public function bloginfo($id){
+		$data = [
+			'blog' => $this->Model->getBlogsLimit(),
+			'blogDetails' => $this->Model->getBlogDetails($id)
+		];
+		// if (isLoggedIn()) {
+		// }
+			// redirect("pages/worker");
+		$this->view("pages/blog", $data);
+	}
+
 	public function how_it_works(){
 		$data = [
-			'title' => 'Welcome to about'
+			'title' => 'Welcome to about',
+			'blog' => $this->Model->getBlogsLimit()
 		];
 		$this->view("pages/about", $data);
 	}
@@ -115,7 +135,8 @@ class Pages extends Controller
 
 	public function about(){
 		$data = [
-			'title' => 'Welcome to about'
+			'title' => 'Welcome to about',
+			'blog' => $this->Model->getBlogsLimit()
 		];
 		$this->view("pages/about", $data);
 	}

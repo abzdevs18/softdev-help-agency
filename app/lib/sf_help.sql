@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2019 at 03:44 PM
+-- Generation Time: Nov 03, 2019 at 01:38 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -271,6 +271,19 @@ CREATE TABLE `save_company` (
 CREATE TABLE `save_job` (
   `id` int(11) NOT NULL,
   `job_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sf_logo`
+--
+
+CREATE TABLE `sf_logo` (
+  `id` int(11) NOT NULL,
+  `site_fk` int(11) NOT NULL,
+  `path` varchar(250) NOT NULL,
+  `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -565,6 +578,12 @@ ALTER TABLE `save_job`
   ADD KEY `FK` (`job_id`);
 
 --
+-- Indexes for table `sf_logo`
+--
+ALTER TABLE `sf_logo`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sf_site`
 --
 ALTER TABLE `sf_site`
@@ -750,6 +769,12 @@ ALTER TABLE `save_company`
 -- AUTO_INCREMENT for table `save_job`
 --
 ALTER TABLE `save_job`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sf_logo`
+--
+ALTER TABLE `sf_logo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

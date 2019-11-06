@@ -65,7 +65,7 @@ class Job
 	}
 
 	public function getJob(){
-		$this->db->query("SELECT jobs.id AS jId, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.featured AS isJFeatured, jobs.job_description AS jDesc, jobs.tags AS jTags, company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf FROM jobs LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1");
+		$this->db->query("SELECT jobs.id AS jId, jobs.job_category AS jCat, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.featured AS isJFeatured, jobs.job_description AS jDesc, jobs.tags AS jTags, company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf FROM jobs LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1");
 		$row = $this->db->resultSet();
 		if ($row) {
 			return $row;
@@ -242,6 +242,19 @@ class Job
 			return false;
 		}
 	}
+	/*Listing all the bidders*/
+	public function allBidders($jobId){
+		$this->db->query("SELECT job_biddings.user_id AS workerId, jobs.id AS jId, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.featured AS isJFeatured, jobs.job_description AS jDesc, jobs.tags AS jTags, company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf, user.firstname AS uFname, user.lastname AS uLname, user_profile.img_path AS userProf FROM job_biddings LEFT JOIN user ON user.id = job_biddings.user_id LEFT JOIN user_profile ON user_profile.user_id = job_biddings.user_id AND user_profile.profile_status = 1 LEFT JOIN jobs ON jobs.id = job_biddings.job_id LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 WHERE jobs.id = :jId ORDER BY job_biddings.timestamp");
+		$this->db->bind(":jId", $jobId);
+
+		$row = $this->db->resultSet();
+
+		if ($row) {
+			return $row;
+		}else{
+			return false;
+		}
+	}
 
 	/*User listing on messages*/
 	public function msgBid(){
@@ -259,10 +272,11 @@ class Job
 
 	/*Listing users bid for the JOB*/
 	public function bidders(){
-		$this->db->query("SELECT user.id AS userId, user.username AS username, user.firstname AS firstname, user.lastname AS lastname, user_profile.img_path AS img_path FROM user LEFT JOIN user_profile ON user_profile.user_id = user.id WHERE EXISTS (SELECT * FROM job_biddings LEFT JOIN jobs ON jobs.id = job_biddings.job_id WHERE job_biddings.user_id = user.id AND jobs.user_id = :employeerID)");
-		$this->db->bind(":employeerID", $_SESSION['uId']);
+		// $this->db->query("SELECT user.id AS userId, user.username AS username, user.firstname AS firstname, user.lastname AS lastname, user_profile.img_path AS img_path FROM user LEFT JOIN user_profile ON user_profile.user_id = user.id WHERE EXISTS (SELECT * FROM job_biddings LEFT JOIN jobs ON jobs.id = job_biddings.job_id WHERE job_biddings.user_id = user.id AND jobs.user_id = :employeerID)");
+		$this->db->query("SELECT messages.user_receiver_id AS msgR, messages.user_sender_id AS msgS, messages.msg_content AS msg_content, messages.msg_time AS msg_time, user.id AS userId, user.username AS username, user.firstname AS firstname, user.lastname AS lastname, user_profile.img_path AS img_path FROM messages LEFT JOIN user_profile ON user_profile.user_id = messages.user_sender_id AND user_profile.profile_status = 1 LEFT JOIN user ON user.id = messages.user_sender_id WHERE user.id != 1 AND messages.user_receiver_id = :sessionId ORDER BY messages.timestamp DESC LIMIT 1");
+		$this->db->bind(":sessionId", $_SESSION['uId']);
 		$row = $this->db->resultSet();
-
+		
 		if ($row) {
 			return $row;
 		}else{
@@ -270,16 +284,73 @@ class Job
 		}
 	}
 
+
 	/*Inser Message*/
 	public function sendMessage($data){
-		$this->db->query("INSERT INTO `messages`(`user_receiver_id`, `user_sender_id`, `msg_content`, `msg_date`) VALUES (:receiver,:sender,:message,:sendTime)");
+		$this->db->query("INSERT INTO `messages`(`user_receiver_id`, `user_sender_id`, `msg_content`, `msg_time`, `msg_date`) VALUES (:receiver,:sender,:message,:sendTime, :sendDate)");
 		$this->db->bind(":receiver", $data['receiver']);
 		$this->db->bind(":sender", $data['sender']);
 		$this->db->bind(":message", $data['message']);
-		$this->db->bind(":sendTime", $data['message']);
+		$this->db->bind(":sendTime", $data['sendTime']);
+		$this->db->bind(":sendDate", $data['sendDate']);
 
 		if ($this->db->execute()) {
 			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function getJobDetailsOnMessenger($employeeId, $biddersId){
+		$this->db->query("SELECT job_biddings.job_id AS jobId, jobs.job_description AS jDescription, user_profile.img_path AS imageBidder, user.firstname AS bidderF, user.lastname AS bidderL, user_location.address AS bidderLocation FROM job_biddings 
+		LEFT JOIN user_profile ON user_profile.user_id = job_biddings.user_id AND user_profile.profile_status = 1 
+		LEFT JOIN user_location ON user_location.user_id = job_biddings.user_id
+		LEFT JOIN user ON user.id = job_biddings.user_id
+		LEFT JOIN jobs ON jobs.user_id = :employeerId WHERE job_biddings.user_id = :biddersId");
+		$this->db->bind(":employeerId",$employeerId);
+		$this->db->bind(":biddersId",$biddersId);
+
+		$row = $this->db->single();
+		if($row){
+			return $row;
+		}else{
+			return false;
+		}
+	}
+
+	public function getBiddersListEmp($employeerId){
+		$this->db->query("SELECT job_biddings.id AS jobId,messages.id AS msgId, messages.msg_time AS msgTime, messages.msg_content AS msgContent, messages.user_receiver_id AS receiver, messages.user_sender_id AS sender, jobs.user_id AS jobEmpId, job_biddings.user_id AS bidderId, user_profile.img_path AS imageBidder, user.username AS username,  user.firstname AS bidderF, user.lastname AS bidderL FROM jobs
+		LEFT JOIN job_biddings on job_biddings.job_id = jobs.id
+		LEFT JOIN user ON user.id = job_biddings.user_id
+		LEFT JOIN user_profile ON user_profile.user_id = job_biddings.user_id
+		LEFT JOIN messages ON messages.user_receiver_id = job_biddings.user_id AND messages.user_sender_id = jobs.user_id
+		WHERE (EXISTS (SELECT job_biddings.job_id AS jobId FROM job_biddings WHERE job_biddings.job_id = jobs.id) AND jobs.user_id = :employeerId) AND
+		messages.id IN (SELECT MAX(messages.id) FROM messages GROUP BY messages.user_receiver_id) ORDER BY messages.timestamp DESC");
+		$this->db->bind(":employeerId",$employeerId);
+		// $this->db->bind(":biddersId",$biddersId);
+
+		$row = $this->db->resultSet();;
+
+		if($row){
+			return $row;
+		}else{
+			return false;
+		}
+	}
+
+	public function getBiddersList($biddersId){
+		$this->db->query("SELECT job_biddings.id AS jobId,messages.id AS msgId, messages.msg_time AS msgTime, messages.msg_content AS msgContent,  messages.user_receiver_id AS receiver, messages.user_sender_id AS sender, jobs.user_id AS jobEmpId, job_biddings.user_id AS bidderId, user_profile.img_path AS imageBidder, user.username AS username, user.firstname AS bidderF, user.lastname AS bidderL FROM jobs
+		LEFT JOIN job_biddings on job_biddings.job_id = jobs.id
+		LEFT JOIN messages ON (messages.user_receiver_id = job_biddings.user_id AND messages.user_sender_id = jobs.user_id) OR (messages.user_receiver_id = jobs.user_id AND messages.user_sender_id = job_biddings.user_id)
+		LEFT JOIN user_profile ON user_profile.user_id =  messages.user_sender_id
+		LEFT JOIN user ON user.id =  messages.user_sender_id
+		WHERE (EXISTS (SELECT job_biddings.job_id AS jobId FROM job_biddings WHERE job_biddings.job_id = jobs.id) AND messages.user_receiver_id = :bidderId) AND messages.id IN (SELECT MAX(messages.id) FROM messages GROUP BY messages.user_receiver_id)");
+		$this->db->bind(":bidderId",$biddersId);
+
+		$row = $this->db->resultSet();;
+
+		if($row){
+			return $row;
 		}else{
 			return false;
 		}

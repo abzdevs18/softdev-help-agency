@@ -5,7 +5,7 @@
 			define('DB_HOST', 'localhost');
 			define('DB_USER', 'root');
 			define('DB_PASS', '');
-			define('DB_NAME', 'seo');
+			define('DB_NAME', 'sf_help');
 
 			//APP ROOT
 			define('APP_ROOT', dirname(dirname(__FILE__)));
@@ -16,9 +16,9 @@
 			//SITE NAME
 			define('SITE_NAME', 'Help Agency');
 
+			//add this manually
 			//SITE LOGO
 			define('SITE_LOGO', URL_ROOT . '/img/default/black-logo.png');
-
 
 			//SALT
 			define('SECURE_SALT', 'k<UL?Gxr%6bTv[IX5h>s)vaEurK]4Sn');

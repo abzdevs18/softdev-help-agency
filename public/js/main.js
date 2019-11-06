@@ -48,6 +48,7 @@ $(document).on('click','.setup-btn', function(){
     current.hide();
     next.show(); 
     animate(current, next);
+    console.log("s");
  
   }
 
@@ -305,4 +306,178 @@ function feedbackHide(container){
   $('.' + container + ' .form-group > input').removeClass();
   $('.' + container + ' .invalid-feedback').hide();
 }
+
+// Admin Script in adding Vlog
+/* Sending Message from Messenger*/
+$(document).on('click', '.post_blog', function(){
+  
+  var fd = new FormData();
+	var b_title = $('#blog_title').val();
+  var b_photo = $('#update_blog_photo').prop('files')[0];
+  var b_content = $('.blog_content').text();
+
+  // Adding data to formData
+  fd.append('blog_title',b_title);
+  fd.append('blog_photo',b_photo);
+  fd.append('blog_content',b_content);
+	// var rv = $(this).attr("data-rv");
+
+	$.ajax({
+		url: URL_ROOT + '/admin/post_blog',
+		type: 'POST',
+    processData: false, // important
+    contentType: false, // important
+    data: fd,
+		dataType: 'json',
+		success:function(data){
+      if(data['status']){
+        window.location.href = URL_ROOT + '/admin/blog'
+      }
+		},
+		error:function(err){
+			console.log(err);
+		}
+  })
+	// console.log("SR:"+sr+" RV:"+rv+" MSG:"+msg);
+});
+// Admin Script in adding Vlog
+/* Sending Message from Messenger*/
+$(document).on('click', '.update_blog', function(){
+  
+  var progress = $('.blog_update_progress_percent');
+
+  var fd = new FormData();
+	var b_title = $('#blog_title').val();
+  var b_photo = $('#update_blog_photo').prop('files')[0];
+  var b_content = $('.blog_content').text();
+  var blog_id = $(this).attr('data-bId');
+
+  // Adding data to formData
+  fd.append('blog_title',b_title);
+  fd.append('update_blog_photo',b_photo);
+  fd.append('blog_content',b_content);
+  fd.append('blog_id',blog_id);
+	// var rv = $(this).attr("data-rv");
+
+	$.ajax({
+    
+  xhr: function() {
+    var xhr = new window.XMLHttpRequest();
+
+    xhr.upload.addEventListener("progress", function(evt) {
+      if (evt.lengthComputable) {
+        var percentComplete = evt.loaded / evt.total;
+        percentComplete = parseInt(percentComplete * 100);
+
+        console.log(percentComplete);
+
+        var percentCom = percentComplete + "%";
+        progress.width(percentCom);
+        $('#statusText').text(percentCom);
+        if (percentComplete === 60) {
+          $('#blog_update_progress').css("color","#fff");
+        }
+
+      }
+    }, false);
+
+    return xhr;
+  },
+		url: URL_ROOT + '/admin/updateBlogRecord',
+		type: 'POST',
+    processData: false, // important
+    contentType: false, // important
+    data: fd,
+    dataType: 'json',
+    beforeSend:function(){
+      $(".updatingSign").show();
+    },
+		success:function(data){
+      if(data['status']){
+        window.location.href = URL_ROOT + '/admin/blog'
+      }
+		},
+		error:function(err){
+			console.log(err);
+		}
+  });
+	// console.log(fd['update_blog_photo']);s
+});
+// Delete Blog
+$(document).on('click','.deleteBlog',function(){
+    var id = $(this).attr("data-bId");
+    $('.confirmationModal').show(10);
+    $('.confirmationMessage h2').text("Remove this Blog?");
+    $("body").css({
+      "overflow":"hidden",
+      "position":"relative"
+    });
+    $(".actionButtonModal button:first-child").attr("data-blogId",id);
+    $(".actionButtonModal button:first-child").attr("id","blogDeletion");
+    $(".actionButtonModal button:last-child").attr("id","cancelDeletion");
+});
+$(document).on('click','#cancelDeletion',function(){
+  window.location.href = URL_ROOT + '/admin/blog'
+});
+
+$(document).on('click','#blogDeletion',function(){
+    var blogId = $(this).attr("data-blogId");
+    $.ajax({
+      url: URL_ROOT + '/admin/deleteBLog',
+      type: 'POST',
+      data: {
+        id:blogId
+      },
+      dataType: 'json',
+      success:function(data){
+        if(data['status']){
+          window.location.href = URL_ROOT + '/admin/blog'
+        }
+      }
+    });
+});
+
+// Delete email
+$(document).on('click','.emailSub',function(){
+  var id = $(this).attr("data-eId");
+  $('.confirmationModal').show(10);
+  $('.confirmationMessage h2').text("Remove this Email?");
+  $("body").css({
+    "overflow":"hidden",
+    "position":"relative"
+  });
+  $(".actionButtonModal button:first-child").attr("data-eId",id);
+  $(".actionButtonModal button:first-child").attr("id","EmailDeletion");
+  $(".actionButtonModal button:last-child").attr("id","cancelEmailDeletion");
+});
+$(document).on('click','#cancelEmailDeletion',function(){
+  window.location.href = URL_ROOT + '/admin/subscribers';
+});
+
+$(document).on('click','#EmailDeletion',function(){
+    var emailId = $(this).attr("data-eId");
+    $.ajax({
+      url: URL_ROOT + '/admin/deleteSubscriber',
+      type: 'POST',
+      data: {
+        id:emailId
+      },
+      dataType: 'json',
+      success:function(data){
+        if(data['status']){
+          window.location.href = URL_ROOT + '/admin/subscribers';
+        }
+      }
+    });
+});
+
+$(document).on('click',".blogPreviewId", function(){
+  var id = $(this).attr("data-i");
+  window.location.href = URL_ROOT + '/pages/bloginfo/' + id;
+});
+
+$(document).on('click','.updateBlogData', function(){
+  var id = $(this).attr("data-bId");
+  window.location.href = URL_ROOT + '/admin/update_blog/' + id;
+});
 

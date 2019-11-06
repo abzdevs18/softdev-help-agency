@@ -10,7 +10,8 @@ class Api extends Controller
 	
 	function __construct()
 	{
-		# code...
+		$this->jobModel = $this->model('job');	
+		$this->ApiModel = $this->model('ApiModel');	
 	}
 
 	public function user(){
@@ -40,5 +41,27 @@ class Api extends Controller
 		];
 
 		echo json_encode($d);
+	}
+
+	public function getJobs(){
+		$jobTag = $this->jobModel->getJob();
+		sleep(1);
+		echo json_encode($jobTag);
+	}
+
+	public function getJobCat($catId){
+		$jobTag = $this->ApiModel->getJobCat($catId);
+		sleep(1);
+		echo json_encode($jobTag);
+	}
+
+	public function getBidders($id){
+		$bidders = $this->jobModel->allBidders($id);
+		echo json_encode($bidders);
+	}
+
+	public function getCatNum(){
+		$categories = $this->ApiModel->getCatNum();
+		echo json_encode($categories);
 	}
 }

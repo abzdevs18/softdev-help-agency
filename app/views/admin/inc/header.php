@@ -24,6 +24,17 @@
 	</style>
 </head>
 <body style="width: auto !important;">
+	<!-- Modal for confirmation in deleting Blog -->
+	<div class="confirmationModal" style="display:none;">
+		<div class="confirmationMessage">
+			<h2></h2>
+			<div class="actionButtonModal">
+				<button>Continue</button>
+				<button id="cancelDeletion">Cancel</button>
+			</div>
+		</div>
+	</div>
+	<!-- End of modal blog Deletion -->
 	<main>
 		<header class="dashboard-nav">
 			<div id="add-post">
@@ -89,13 +100,17 @@
 								<i class="fal fa-envelope"></i>
 								<a href="#"> Biddings/Messages</a>
 							</li>
+							<li data-link="<?=URL_ROOT;?>/admin/blog">
+							<i class="far fa-rss"></i>
+								<a href="#"> Blogs</a>
+							</li>
 							<li data-link="<?=URL_ROOT;?>/admin/payments">
 								<i class="fal fa-shopping-cart"></i>
 								<a href="#"> Payments</a>
 							</li>
-							<li data-link="<?=URL_ROOT;?>/admin/favorites">
-								<i class="fal fa-heart"></i>
-								<a href="#"> My favorites</a>
+							<li data-link="<?=URL_ROOT;?>/admin/subscribers">
+								<i class="fal fa-users"></i>
+								<a href="#"> Subscribers</a>
 							</li>
 						<!-- 	<li data-link="<?=URL_ROOT;?>/admin/privacy">
 								<i class="fal fa-shield-check"></i>

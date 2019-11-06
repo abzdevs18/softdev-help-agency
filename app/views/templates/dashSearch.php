@@ -16,7 +16,7 @@
 			<?php 
 			$tags = $jobs->jTags;
 			$tag = explode(', ', $tags);
-			foreach($tag as $val) : ?>
+			foreach($tag as $val) : ?>				
 			<li>
 				<a href="#" data-tag="<?=strtolower($val);?>"><?=ucfirst($val);?></a>
 			</li>

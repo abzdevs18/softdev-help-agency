@@ -95,7 +95,7 @@ class User
 				$this->db->execute();
 			}
 
-			$this->db->query("INSERT INTO user_profile ( user_id, img_path ) VALUES ( :uId, :imgPath )");
+			$this->db->query("INSERT INTO user_profile ( user_id, img_path, profile_status) VALUES ( :uId, :imgPath, 1)");
 			$this->db->bind(":uId", $uId);
 			$this->db->bind(":imgPath", $path);
 			$this->db->execute();
@@ -123,7 +123,7 @@ class User
 				$this->db->execute();
 			}
 
-			$this->db->query("INSERT INTO user_wall ( user_id, img_path ) VALUES ( :uId, :imgPath )");
+			$this->db->query("INSERT INTO user_wall ( user_id, img_path, wall_status ) VALUES ( :uId, :imgPath, 1 )");
 			$this->db->bind(":uId", $uId);
 			$this->db->bind(":imgPath", $path);
 			$this->db->execute();
@@ -224,7 +224,7 @@ class User
 	}
 
 	public function getUserInformation($uId){
-		$this->db->query("SELECT user.firstname AS firstN, user.lastname AS lastN, user_profile.img_path AS userImage, user_wall.img_path AS wallImage, user_email.email_add AS userEmail, user_location.address AS userLocation, user_phone.phone_number AS userPhone, (SELECT AVG(user_rating.rate) FROM user_rating WHERE user_rating.user_id = user.id) AS userRating, (SELECT COUNT(user_rating.rate) AS reviews FROM user_rating WHERE user_rating.user_id = user.id) AS reviews FROM user LEFT JOIN user_profile ON user_profile.user_id = user.id AND user_profile.profile_status = 1 LEFT JOIN user_wall ON user_wall.user_id = user.id AND user_wall.wall_status = 1 LEFT JOIN user_email ON user_email.user_id = user.id AND user_email.email_status = 1 LEFT JOIN user_location ON user_location.user_id = user.id LEFT JOIN user_phone ON user_phone.user_id = user.id WHERE user.id = :userID");
+		$this->db->query("SELECT user.user_type AS userType, user.firstname AS firstN, user.lastname AS lastN, user_profile.img_path AS userImage, user_wall.img_path AS wallImage, user_email.email_add AS userEmail, user_location.address AS userLocation, user_phone.phone_number AS userPhone, (SELECT AVG(user_rating.rate) FROM user_rating WHERE user_rating.user_id = user.id) AS userRating, (SELECT COUNT(user_rating.rate) AS reviews FROM user_rating WHERE user_rating.user_id = user.id) AS reviews FROM user LEFT JOIN user_profile ON user_profile.user_id = user.id AND user_profile.profile_status = 1 LEFT JOIN user_wall ON user_wall.user_id = user.id AND user_wall.wall_status = 1 LEFT JOIN user_email ON user_email.user_id = user.id AND user_email.email_status = 1 LEFT JOIN user_location ON user_location.user_id = user.id LEFT JOIN user_phone ON user_phone.user_id = user.id WHERE user.id = :userID");
 		$this->db->bind("userID", $uId);
 		$row = $this->db->single();
 		if($row){

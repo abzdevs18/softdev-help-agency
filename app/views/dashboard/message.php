@@ -7,72 +7,94 @@
 					<i class="far fa-search"></i>
 				</div>	
 				<div id="users">
-					<?php if (!$data['userBid']): ?>
-						<b class='n-res'>No result!!</b>						
-					<?php else: ?>
-					<?php foreach ($data['userBid'] as $user) : ?>
-						<div class="user-items msg-u" data-u="<?=$user->userId?>">
-							<div class="convo-prof">
-								<div id="account-thumbnail" style="width:50px;height:50px;background-image: url('<?php echo URL_ROOT . '/img/profiles/' .  $user->img_path; ?>');">
+					<?php if($data['userData']->userType):?>
+						<?php if (!$data['userBid']): ?>
+							<b class='n-res'>No result!!</b>	
+						<?php else: ?>
+						<?php foreach ($data['userBid'] as $user) : ?>
+							<div class="user-items msg-u" data-u="<?=$user->bidderId?>">
+								<div class="convo-prof">
+									<div id="account-thumbnail" style="width:50px;height:50px;background-image: url('<?php echo URL_ROOT . '/img/profiles/' .  $user->imageBidder; ?>');">
+									</div>
+									<!-- <img src="<?php echo URL_ROOT. '/img/profiles/' . $user->img_path; ?>"> -->
 								</div>
-								<!-- <img src="<?php echo URL_ROOT. '/img/profiles/' . $user->img_path; ?>"> -->
-							</div>
-							<div class="convo-">
-								<div class="list-data">
-									<h3 style="text-transform: capitalize;"><?=$user->username?></h3>
-									<span>10:23 am</span>								
-								</div>
-								<div class="convo-inf">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<div class="convo-">
+									<div class="list-data">
+										<h3 style="text-transform: capitalize;"><?=$user->username?></h3>
+										<span><?=$user->msgTime?></span>								
+									</div>
+									<div class="convo-inf">
+										
+										<p><span style="font-weight:'bold'"><?php if($user->sender == $_SESSION['uId']){echo 'You: ';}?></span> <?=$user->msgContent?></p>
+									</div>
 								</div>
 							</div>
-						</div>
-					<?php endforeach; ?>
-					<?php endif; ?>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					<?php else:?>
+						<?php if (!$data['userMessage']): ?>
+							<b class='n-res'>No result!!</b>	
+						<?php else: ?>
+						<?php foreach ($data['userMessage'] as $user) : ?>
+							<div class="user-items msg-u" data-u="<?=$user->bidderId?>">
+								<div class="convo-prof">
+									<div id="account-thumbnail" style="width:50px;height:50px;background-image: url('<?php echo URL_ROOT . '/img/profiles/' .  $user->imageBidder; ?>');">
+									</div>
+									<!-- <img src="<?php echo URL_ROOT. '/img/profiles/' . $user->img_path; ?>"> -->
+								</div>
+								<div class="convo-">
+									<div class="list-data">
+										<h3 style="text-transform: capitalize;"><?=$user->username?></h3>
+										<span><?=$user->msgTime?></span>								
+									</div>
+									<div class="convo-inf">
+										<p><?=$user->msgContent?></p>
+									</div>
+								</div>
+							</div>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					<?php endif;?>
 				</div>
 			</div>
 			<div class="conversation">
-					<div class="msgs-3-col-item">
+					<div class="msgs-3-col-item hgt">
 						<div class="message-container mCustomScrollbar content fluid light" data-mcs-theme="inset-2-dark">
-							<?php for($i = 0; $i < 20; $i++):?>
-								<div class="message-reciever">
-									<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" />
-									<div class="msg-content">
-										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-										cillum dolore eu fugiat nulla pariatur.</p>
-										<span>Jan. 13, 2019</span>
-									</div>
-								</div>
-								<div class="current-user-sender icon-receiver">
-									<div class="msg-content">
-										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-										cillum dolore eu fugiat nulla pariatur.</p>
-										<span>Jan. 13, 2019 <i class="far fa-check"></i></span>
-									</div>
-									<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" />
-								</div>
-								<div class="message-reciever">
-									<img src="<?=URL_ROOT?>/img/icons/small-prof.jpg" />
-									<div class="msg-content">
-										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-										cillum dolore eu fugiat nulla pariatur.</p>
-										<span>Jan. 13, 2019</span>
-									</div>
-								</div>
-							<?php endfor; ?>
+							<?php if($data["messagesBid"]) : ?>								
+								<?php foreach($data['messagesBid'] as $message) :
+										//  $image = URL_ROOT . '/img/profiles/' . $message->sendIconImage;
+										?>
+										<?php if($message->receiverId == $_SESSION['uId']) : 
+											// $GLOBALS['image']= URL_ROOT . '/img/profiles/' . $message->sendIconImage;
+											?>
+											<div class="message-reciever">
+												<img src="<?=URL_ROOT?>/img/profiles/<?=$message->sendIconImage?>" />
+												<div class="msg-content">
+													<p><?=$message->msgContent?></p>
+													<span><?=$message->msgDate?></span>
+												</div>
+											</div>
+										<?php else :?>
+											<div class="current-user-sender icon-receiver">
+												<div class="msg-content">
+													<p><?=$message->msgContent?></p>
+													<span><?=$message->msgDate?> <i class="far fa-check"></i></span>
+												</div>
+												<img src="<?php echo URL_ROOT. '/img/profiles/' . $user->img_path; ?>" />
+											</div>
+										<?php endif;?>
+								<?php endforeach;?>
+							<?php else : ?>
+						
+							<?php endif;?>
 						</div>
 						<div class="input-msgs-content">
 							<div class="container-of-msgs" style="position: relative;">
 								<div class="ctl-msg" contenteditable></div>
 								<label for="typing-msg">Type here your message</label>
 								<div class="cta-buttons">
-									<i class="fal fa-thumbs-up"></i>
-									<i class="fal fa-thumbs-down"></i>
+									<!-- <i class="fal fa-thumbs-up"></i>
+									<i class="fal fa-thumbs-down"></i> -->
 									<span id="sendbtn" data-sr="<?=$_SESSION['uId']?>">Send</span>
 								</div>
 							</div>
@@ -115,6 +137,7 @@
 		</div>
 	</section>
 <script src="<?=URL_ROOT;?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="<?=URL_ROOT;?>/js/tag.js"></script>
 <script src="<?=URL_ROOT;?>/js/script.js"></script>
 </body>
 </html>

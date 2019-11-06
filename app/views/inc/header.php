@@ -26,4 +26,15 @@
 
 </head>
 <body>
+	<!-- Modal for confirmation in deleting Blog -->
+	<div class="confirmationModal" style="display:none;bottom:0;">
+		<div class="confirmationMessage">
+			<h2></h2>
+			<div class="actionButtonModal">
+				<!-- <button>Continue</button> -->
+				<button id="close">Close</button>
+			</div>
+		</div>
+	</div>
+	<!-- End of modal blog Deletion -->
 	<?php require_once APP_ROOT . '/views/inc/navigation.php'; ?>	
