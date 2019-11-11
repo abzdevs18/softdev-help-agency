@@ -1,7 +1,8 @@
 /**
 * The registration and login of users communicate in here
 */
-var URL_ROOT = "/sumalian";
+import './main.js';
+import { URL_ROOT } from './main.js';
 
 // $(document).ready(function(){
 	var u_type = 0;

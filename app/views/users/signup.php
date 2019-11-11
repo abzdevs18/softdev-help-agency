@@ -323,8 +323,8 @@
 			});
 		});
 	</script>
-	<script src="<?=URL_ROOT;?>/js/mainActions.js"></script>
-	<script src="<?=URL_ROOT;?>/js/script.js"></script>
+	<script type="module" src="<?=URL_ROOT;?>/js/mainActions.js"></script>
+	<script type="module" src="<?=URL_ROOT;?>/js/script.js"></script>
 	<script src="<?=URL_ROOT;?>/js/animsition.min.js"></script>
 	<script src="<?=URL_ROOT;?>/js/animation.js"></script>
 </body>

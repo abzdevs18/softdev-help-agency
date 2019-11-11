@@ -1,10 +1,12 @@
+<?php
+	define("TEMP", "/sumalian");
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>SF_Help sAdmin Setup</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/admin_setup.css">
-	<!-- <link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/offline/fontawesome/css/all.min.css"> -->
-	<link rel="stylesheet" type="text/css" href="https://psuedo.azureedge.net/font/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . TEMP;?>/css/admin_setup.css">
+	<link rel="stylesheet" type="text/css" href="https://cdndevelopment.blob.core.windows.net/cdn/fa/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<!-- <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css"> -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -147,7 +149,7 @@
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					</div>
 					<button class="setup-btn" data-link="login" style="display: block;font-weight: 200;">continue login</button>
-					<a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>" class="login-link"><i class="fal fa-long-arrow-left"></i> back to website</a>
+					<a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . TEMP;?>" class="login-link"><i class="fal fa-long-arrow-left"></i> back to website</a>
 				</div>
 			</section>			
 		</div>
@@ -157,7 +159,7 @@
 			<section class="form">
 				<div class="awesome" style="width: 80%;min-height: 300px;">
 					<div class="icon">
-						<img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/img/gif/loading.gif">
+						<img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . TEMP;?>/img/gif/loading.gif">
 					</div>
 					<div class="add">
 						<h3 class="loadingTxt"></h3>
@@ -166,7 +168,7 @@
 			</section>			
 		</div>
 	</div>
-	<script src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/js/main.js"></script>
+	<script src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . TEMP;?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="module" src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . TEMP;?>/js/main.js"></script>
 </body>
 </html>

@@ -1,12 +1,5 @@
-// import {a} from './mainActions.js';
-// a();
-var URL_ROOT = '/sumalian';
+export const URL_ROOT = "/sumalian";
 
-//For scrollBar
-$(".content").mCustomScrollbar({
-    autoHideScrollbar: true
-});
-/*ENd ScrollBar*/
 
 $(function(){
     $( "#slider-range" ).slider({

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/ico" href="<?=URL_ROOT?>/img/cap.ico">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
-	<link rel="stylesheet" type="text/css" href="https://psuedo.azureedge.net/font/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdndevelopment.blob.core.windows.net/cdn/fa/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/admin_style.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/jquery.mCustomScrollbar.css">
 	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/> -->
@@ -14,7 +14,7 @@
 	<!-- <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script> -->
 
 
-	<script src="<?=URL_ROOT;?>/js/admin_script.js"></script>
+	<script type="module" src="<?=URL_ROOT;?>/js/admin_script.js"></script>
 	<style type="text/css">		
 		@import url("<?=URL_ROOT;?>/css/static_style.css");
 		

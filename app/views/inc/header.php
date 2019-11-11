@@ -8,7 +8,7 @@
 	<!-- <script src="https://kit.fontawesome.com/618fa0761b.js"></script> -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css"> 
+	<link rel="stylesheet" type="text/css" href="https://cdndevelopment.blob.core.windows.net/cdn/fa/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/mainStyle.css">
 	<!-- <link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/offlline/fa.css"> -->
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/animsition.min.css">

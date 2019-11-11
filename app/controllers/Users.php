@@ -1,4 +1,6 @@
 <?php
+
+define("ROOT", "/sumalian");
 /**
  * User registration
  */
@@ -342,7 +344,7 @@ class Users extends Controller
 				"status" => 0
 			];
 
-			$target = $_SERVER['DOCUMENT_ROOT'] . "sumalian/public/img/profiles/" . basename($_FILES['profilPic']['name']);
+			$target = $_SERVER['DOCUMENT_ROOT'] . ROOT ."public/img/profiles/" . basename($_FILES['profilPic']['name']);
 			$uploaded_name = $_FILES["profilPic"]["tmp_name"];
 
 			$uploaded_ext = substr($uploaded_name, strrpos($uploaded_name, '.') + 1); 
@@ -371,7 +373,7 @@ class Users extends Controller
 				"status" => 0
 			];
 
-			$target = $_SERVER['DOCUMENT_ROOT'] . "sumalian/public/img/profiles/cover/" . basename($_FILES['wallPic']['name']);
+			$target = $_SERVER['DOCUMENT_ROOT'] . ROOT ."public/img/profiles/cover/" . basename($_FILES['wallPic']['name']);
 
 			if(move_uploaded_file($_FILES["wallPic"]["tmp_name"], $target)){
 				if ($this->userModel->coverUpdate($_SESSION['uId'], $_FILES['wallPic']['name'])) {

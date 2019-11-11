@@ -1,5 +1,6 @@
-var URL_ROOT = "/sumalian";
-// var URL_ROOT_DASH = "http://192.168.0.35/sumalian/dashboard";
+import './main.js';
+import { URL_ROOT } from './main.js';
+
 
 //For scrollBar
 $(".message-container").mCustomScrollbar({
@@ -387,10 +388,6 @@ $(document).on('click', ".job-skills li a", function(e){
 		type: 'POST',
 		// dataType: 'json',
 		success: function(da){
-			// // if (window.location.pathname != "/sumalian/pages/search") {
-			// 	window.location.href = URL_ROOT + "/pages/search";
-			// 	console.log("None");
-			// // }
 			$('#job-listing').html(da);
 			console.log(da);
 		},

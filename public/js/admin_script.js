@@ -1,6 +1,10 @@
-
-var URL_ROOT = "/sumalian";
-
+import './main.js';
+import { URL_ROOT } from './main.js';
+//For scrollBar
+$(".content").mCustomScrollbar({
+    autoHideScrollbar: true
+});
+/*ENd ScrollBar*/
 $(document).on('click','.clip-path',function(){
 	$('#side-navigation').toggleClass('sideNav-full');
 	$('#menus-nav li a').toggleClass('hide-sh');

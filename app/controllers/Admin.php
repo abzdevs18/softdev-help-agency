@@ -1,5 +1,6 @@
 <?php
 
+define("ROOT", "/sumalian");
 /**
  * Admin Account Controller
  */
@@ -78,7 +79,7 @@ class Admin extends Controller
 				"photo" => $_FILES["update_blog_photo"]["name"]
 			];
 			if($data['photo']){
-				$target = $_SERVER['DOCUMENT_ROOT'] . "sumalian/public/img/blog/" . basename($_FILES['update_blog_photo']['name']);
+				$target = $_SERVER['DOCUMENT_ROOT'] . ROOT . "public/img/blog/" . basename($_FILES['update_blog_photo']['name']);
 				$uploaded_name = $_FILES["update_blog_photo"]["tmp_name"];
 				if(move_uploaded_file($_FILES["update_blog_photo"]["tmp_name"], $target)){
 					if ($this->adminModel->blogUpdate($data,$_FILES['update_blog_photo']['name'])) {
@@ -113,7 +114,7 @@ class Admin extends Controller
 				"blog_date" => date("M. d, Y")
 			];
 
-			$target = $_SERVER['DOCUMENT_ROOT'] . "sumalian/public/img/blog/" . basename($_FILES['blog_photo']['name']);
+			$target = $_SERVER['DOCUMENT_ROOT'] . ROOT . "public/img/blog/" . basename($_FILES['blog_photo']['name']);
 			$uploaded_name = $_FILES["blog_photo"]["tmp_name"];
 
 			if(move_uploaded_file($_FILES["blog_photo"]["tmp_name"], $target)){

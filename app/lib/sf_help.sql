@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2019 at 01:38 AM
+-- Generation Time: Nov 11, 2019 at 02:16 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -30,8 +30,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `blog` (
   `id` int(11) NOT NULL,
+  `blog_title` varchar(100) NOT NULL,
   `content` text,
-  `date_posted` varchar(30) DEFAULT NULL
+  `date_posted` varchar(30) DEFAULT NULL,
+  `date_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -219,7 +221,8 @@ CREATE TABLE `job_biddings` (
 
 CREATE TABLE `job_categories` (
   `id` int(11) NOT NULL,
-  `category_name` varchar(100) DEFAULT NULL
+  `category_name` varchar(100) DEFAULT NULL,
+  `image` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -233,8 +236,9 @@ CREATE TABLE `messages` (
   `user_receiver_id` int(11) DEFAULT NULL,
   `user_sender_id` int(11) DEFAULT NULL,
   `msg_content` text,
+  `msg_time` varchar(50) NOT NULL,
   `msg_date` varchar(50) DEFAULT NULL,
-  `delivered_status` tinyint(1) DEFAULT NULL,
+  `delivered_status` tinyint(1) DEFAULT '0',
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -308,7 +312,8 @@ CREATE TABLE `sf_site` (
 CREATE TABLE `subscribe_emails` (
   `id` int(11) NOT NULL,
   `email_add` varchar(30) DEFAULT NULL,
-  `date_subscribe` varchar(30) DEFAULT NULL
+  `date_subscribe` varchar(30) DEFAULT NULL,
+  `sub_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -427,7 +432,7 @@ CREATE TABLE `user_wall` (
   `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `img_path` varchar(250) DEFAULT NULL,
-  `wall_status` tinyint(1) DEFAULT NULL
+  `wall_status` tinyint(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

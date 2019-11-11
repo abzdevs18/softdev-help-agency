@@ -13,7 +13,7 @@
 			<div class="post_job_btn nav-action-btn">
 				<!-- <a href="#">Login</a> -->
 				<a href="<?=URL_ROOT . '/users';?>">Login</a>
-				<a href="<?=URL_ROOT . '/users/signup';?>">create account &nbsp;<i class="fas fa-plus-circle"></i></a>
+				<a href="<?=URL_ROOT . '/users/signup';?>">create account &nbsp;<i class="far fa-plus"></i></a>
 			</div>			
 		</div>
 	</nav>

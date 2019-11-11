@@ -8,11 +8,10 @@
 	<!-- <script src="https://kit.fontawesome.com/618fa0761b.js"></script> -->
 	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
-	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="https://cdndevelopment.blob.core.windows.net/cdn/fa/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/mainStyle.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/user_style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
-	<!-- <link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/admin_setup.css"> -->
 	<style type="text/css">
 		@import url("<?=URL_ROOT;?>/css/static_style.css");
 		@import url("<?=URL_ROOT;?>/css/footer.css");
