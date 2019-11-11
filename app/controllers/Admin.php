@@ -171,9 +171,11 @@ class Admin extends Controller
 
 	public function posted(){
 		$jobs = $this->jobModel->getJob();
+		$hiddenRow = $this->jobModel->hiddenRow();
 
 		$data = [
-			"job" => $jobs
+			"job" => $jobs,
+			"hiddenRow" => $hiddenRow
 		];
 		$this->view('admin/jobs', $data);
 	}
@@ -220,6 +222,22 @@ class Admin extends Controller
 		}
 	}
 
+	public function deleteJob(){
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$data = [
+				"status" => ""
+			];
+			if($this->adminModel->jobDeletion(trim($_POST['id']))){
+				$data["status"] = 1;
+				echo json_encode($data);
+			}else{
+				$data["status"] = 0;
+				echo json_encode($data);
+			}
+		}
+	}
+
 	public function privacy(){
 		$this->view('admin/index');
 	}
@@ -242,13 +260,13 @@ class Admin extends Controller
 		$this->view('admin/templates/allJobTemplate', $data);
 	}
 
-	public function getFeaturedJob(){
-		$jobs = $this->jobModel->getFeaturedJob();
+	public function hiddenRow(){
+		$jobs = $this->jobModel->hiddenRow();
 
 		$data = [
 			"job" => $jobs
 		];
-		$this->view('admin/templates/featureJobTemplate', $data);
+		$this->view('admin/templates/hiddenJobTemplate', $data);
 	}
 
 	public function getOpenJob(){
@@ -286,6 +304,37 @@ class Admin extends Controller
 		// echo json_encode($data['jobs']);
 	}
 
+	public function jobHideId() {
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$data = [
+				"status" => "",
+				"id" => trim($_POST['jobId'])
+			];
+			if($this->adminModel->hideJob($data)){
+				$data['status'] = 1;
+				echo json_encode($data);
+			}else{
+				$data['status'] = 0;
+				echo json_encode($data);
+			}
+		}		
+	}
 
-
+	public function jobShowId() {
+		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
+			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$data = [
+				"status" => "",
+				"id" => trim($_POST['jobId'])
+			];
+			if($this->adminModel->showJob($data)){
+				$data['status'] = 1;
+				echo json_encode($data);
+			}else{
+				$data['status'] = 0;
+				echo json_encode($data);
+			}
+		}		
+	}
 }

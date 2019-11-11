@@ -499,7 +499,19 @@ $(document).on('click', '.apply-btn-action', function(e){
 		},
 		success: function(data){
 			if (data['status'] == 1) {
-				alert("Applied");
+				// Delete Blog
+					$('.confirmationModal').show(10);
+					$('.confirmationMessage h2').text("Application is submitted!!");
+					$("body").css({
+					  "overflow":"hidden",
+					  "position":"relative"
+					});
+					$(".actionButtonModal button:first-child").css("display","none");
+					$(".actionButtonModal button:last-child").attr("id","closeApplicationModal");
+				$(document).on('click','#closeApplicationModal',function(){
+				  window.location.href = URL_ROOT + '/dashboard'
+				});
+				// alert("Applied");
 			}else if (data['status'] == 2) {
 				console.log("S");
 			}else {

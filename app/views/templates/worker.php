@@ -10,6 +10,7 @@
 					<li class="filter-btn" data-filter="currentWork">Current Work</li>
 					<li class="filter-btn" data-filter="inviteToWork">Invitations</li>
 					<li class="filter-btn" data-filter="pastWork">Past Work</li>
+					<li class="filter-btn" data-filter="favorite">Saved works</li>
 				</ul>
 			</div><!-- End of filter tabs -->
 			<div class="sortby filter-category">
@@ -38,10 +39,10 @@
 							<thead>
 								<tr>
 									<th style="text-align: center;"><input type="checkbox" name=""></th>
-									<th>Emp Photo</th>
+									<!-- <th>Emp Photo</th> -->
 									<th>Job Tittle</th>
 									<th>Category</th>
-									<th>Employer Name</th>
+									<th>Company Name</th>
 									<!-- <th>Job Status</th> -->
 									<th>Price & Location</th>
 									<th>Due Date</th>
@@ -50,15 +51,15 @@
 							</thead>
 							<tbody>
 								<!-- Condition: If user has open jobs, show them in table -->
-								<?php if($data['biddings']) : ?>
-									<?php foreach ($data['biddings'] as $bidds) : ?>
+								<?php if($data['workerBid']) : ?>
+									<?php foreach ($data['workerBid'] as $bidds) : ?>
 									<tr class="biddRow" data-workerID="<?=$bidds->workerId;?>" data-workId="<?=$bidds->jId;?>">
 										<td style="text-align: center;">
 											<input type="checkbox" name="">
 										</td>
-										<td>
+										<!-- <td>
 											<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>" style="border-radius: 50%;">
-										</td>
+										</td> -->
 										<td class="tittle-id">
 											<h3><?=$bidds->jTitle;?></h3>
 											<span>Ad ID: <?=$bidds->jId;?></span>
@@ -80,7 +81,7 @@
 										</td>
 										<td class="action-btn">
 											<span class="eye"><i class="fal fa-eye"></i></span>
-											<span class="pencil"><i class="fal fa-pencil-alt"></i></span>
+											<!-- <span class="pencil"><i class="fal fa-pencil-alt"></i></span> -->
 											<span class="trash"><i class="fal fa-trash"></i></span>
 										</td>
 									</tr>

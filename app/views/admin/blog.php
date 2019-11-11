@@ -11,6 +11,15 @@
                     <a href="<?=URL_ROOT;?>/admin/add_blog"><i class="far fa-plus"></i> Add blog</a>
                 </div>
 			</div>
+			<div class="filter-category">
+				<ul id="job-filters">
+					<li class="active-filter" id="filter-all">All <span>(<?=$data['blog']['rowCount']?>)</span></li>
+					<!-- <li id="filter-featured">Featured <span>(10)</span></li>
+					<li id="filter-open">Active <span>(10)</span></li>
+					<li>Expired <span>(10)</span></li>
+					<li>Deleted <span>(10)</span></li> -->
+				</ul>
+			</div><!-- End of filter tabs -->
 			<div class="job-list-tables" style="margin-top: 30px;">
 				<table>
 					<thead>
@@ -25,7 +34,7 @@
 					</thead>
 					<tbody>
 						<!-- if job is close add row with class name "sold" -->
-						<?php foreach($data['blog'] AS $blog) : ?>
+						<?php foreach($data['blog']['row'] AS $blog) : ?>
 						<tr valign="middle">
 							<td style="text-align: center;">
 								<input type="checkbox" name="">

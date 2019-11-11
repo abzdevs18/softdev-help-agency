@@ -38,10 +38,20 @@
 	<main>
 		<header class="dashboard-nav">
 			<div id="add-post">
-				<a href="<?=URL_ROOT;?>/admin/jobPost"><i class="fal fa-bookmark"></i> Post Job</a>
-				<div id="notif-icon">
+				<!--<a href="<?=URL_ROOT;?>/admin/jobPost"><i class="fal fa-bookmark"></i> Post Job</a>
+				 <div id="notif-icon">
 					<button><i class="fal fa-bell"></i></button>
-				</div>
+				</div> -->
+				<div id="notif-icon">
+						<button><i class="fal fa-bell"></i></button>
+						<span id="notif-counter">2</span>
+					</div>
+					<div style="display: flex;flex-direction: row;margin-left: 20px;vertical-align: middle;line-height: 45px;border-left: 2px solid #999;">
+						<span style="font-family: 'quicksand';font-weight: 600;padding-left: 10px;">Administrator</span>
+						<div style="width: 46px;height: 46px;border: 1px solid #666;margin-left: 10px;border-radius: 50%;background: #f3f3f3;background-image: url('<?=URL_ROOT;?>/img/prof.png');background-size: contain;background-repeat: no-repeat;background-position: center;">
+							
+						</div>
+					</div>
 			</div>
 			<section id="side-navigation">				
 				<div class="clip-path">
@@ -104,10 +114,10 @@
 							<i class="far fa-rss"></i>
 								<a href="#"> Blogs</a>
 							</li>
-							<li data-link="<?=URL_ROOT;?>/admin/payments">
+							<!-- <li data-link="<?=URL_ROOT;?>/admin/payments">
 								<i class="fal fa-shopping-cart"></i>
 								<a href="#"> Payments</a>
-							</li>
+							</li> -->
 							<li data-link="<?=URL_ROOT;?>/admin/subscribers">
 								<i class="fal fa-users"></i>
 								<a href="#"> Subscribers</a>

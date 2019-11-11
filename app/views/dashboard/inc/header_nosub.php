@@ -30,7 +30,18 @@
   } );
   </script>
 </head>
-<body>
+<body style="position:relative;">
+	<!-- Modal for confirmation in deleting Blog -->
+	<div class="confirmationModal" style="display:none;">
+		<div class="confirmationMessage">
+			<h2></h2>
+			<div class="actionButtonModal">
+				<button>Continue</button>
+				<button id="cancelDeletion">Ok</button>
+			</div>
+		</div>
+	</div>
+	<!-- End of modal blog Deletion -->
 	<nav style="position: sticky;top: 0px;background: #fff;z-index: 99;width: calc( 100% - 120px );">
 		<div class="user-navigation">
 			<div class="logo-user">

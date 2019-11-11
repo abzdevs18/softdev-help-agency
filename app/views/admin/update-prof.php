@@ -14,7 +14,7 @@
 						<p>Drop files anywhere to upload</p>
 						<p>Or</p>
 						<button class="tg-btn" type="button">Select Files</button>
-					</div>
+					</div>					
 				</div>
 			</div>
 		</div>

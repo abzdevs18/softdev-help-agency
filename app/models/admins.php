@@ -136,6 +136,26 @@ class Admins
 		}
 	}
 
+	public function hideJob($data) {
+		$this->db->query("UPDATE `jobs` SET `job_visibility` = 0 WHERE `id` = :jId");
+		$this->db->bind(":jId", $data['id']);
+		if($this->db->execute()){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function showJob($data) {
+		$this->db->query("UPDATE `jobs` SET `job_visibility` = 1 WHERE `id` = :jId");
+		$this->db->bind(":jId", $data['id']);
+		if($this->db->execute()){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	public function blogDeletion($id){
 		try {
 			//code...
@@ -157,14 +177,36 @@ class Admins
 		}
 	}
 
+	public function jobDeletion($id){
+		try {
+			//code...
+			$this->db->beginTransaction();
+			$this->db->query("DELETE FROM `jobs` WHERE id = :jobId");
+			$this->db->bind(":jobId",$id);
+			$this->db->execute();
+
+			$this->db->commit();
+			return true;
+
+		} catch (Exception $e) {
+			//throw $th;
+			$this->db->rollBack();
+			return false;
+		}
+	}
+
 	// Get the blogs
 
 	public function getBlogs(){
 		$this->db->query("SELECT blog.id AS blogId, blog.blog_title AS blogTitle, blog.content AS blogContent, blog.date_posted AS blogDate, blog_images.img_path AS blogImage FROM blog LEFT JOIN blog_images ON blog_images.blog_id = blog.id ORDER BY blog.date_timestamp DESC");
 		$row = $this->db->resultSet();
-		if($row){
-			return $row;
-		}else{
+		if ($row) {
+			$data = [
+				"row" => $row,
+				"rowCount" => $this->db->rowCount()
+			];
+			return $data;
+		} else {
 			return false;
 		}
 	}

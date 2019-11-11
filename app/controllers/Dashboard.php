@@ -20,12 +20,14 @@ class Dashboard extends Controller
 	public function index(){
 		$jobs = $this->jobPostModel->getJobUserId($_SESSION['uId']);
 		$bidding = $this->jobPostModel->listBidders($_SESSION['uId']);
+		$workerBid = $this->jobPostModel->listWorkerBids($_SESSION['uId']);
 		$usreData = $this->userModel->getUserInformation($_SESSION['uId']);
 		$logo = $this->jobPostModel->getLogo();
 		$userType = $_SESSION['user_type'];
 		$data = [
 			"jobs" => $jobs,
 			"biddings" => $bidding,
+			"workerBid" => $workerBid,
 			"userData" => $usreData,
 			"logo" => $logo,
 			"userType" => $userType,

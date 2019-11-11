@@ -1,5 +1,5 @@
 <!-- if job is close add row with class name "sold" -->
-<?php foreach($data['job'] AS $job) : ?>
+<?php foreach($data['job']['row'] AS $job) : ?>
 <tr>
 	<td style="text-align: center;">
 		<input type="checkbox" name="">
@@ -12,11 +12,11 @@
 		<span>Ad ID: <?=$job->jId;?></span>
 	</td>
 	<td class="item-cat">
-		<span>Laptops & PCs</span>	
+		<span><?=$job->jCat;?></span>	
 	</td>
-	<td>
+	<!-- <td>
 		<span>Yes</span>
-	</td>
+	</td> -->
 	<td class="status-job">
 		<span>Active</span>
 	</td>
@@ -29,9 +29,9 @@
 		<span>Published</span>
 	</td>
 	<td class="action-btn">
-		<span class="eye" data-jId="<?=$job->jId;?>"><i class="fal fa-eye"></i></span>
-		<span class="pencil" data-jId="<?=$job->jId;?>"><i class="fal fa-pencil-alt"></i></span>
-		<span class="trash" data-jId="<?=$job->jId;?>"><i class="fal fa-trash"></i></span>
+		<span class="eye hideJob" data-jId="<?=$job->jId;?>"><i class="fal fa-eye"></i></span>
+		<!-- <span class="pencil" data-jId="<?=$job->jId;?>"><i class="fal fa-pencil-alt"></i></span> -->
+		<span class="trash trashJob" data-jId="<?=$job->jId;?>"><i class="fal fa-trash"></i></span>
 	</td>
 </tr>
 <?php endforeach; ?>

@@ -10,11 +10,11 @@
 			</div>
 			<div class="filter-category">
 				<ul id="job-filters">
-					<li class="active-filter" id="filter-all">All <span>(10)</span></li>
-					<li id="filter-featured">Featured <span>(10)</span></li>
-					<li id="filter-open">Active <span>(10)</span></li>
+					<li class="active-filter" id="filter-all">All <span>(<?=($data['job']['rowCount']) ? $data['job']['rowCount'] : '0';?>)</span></li>
+					<li id="filter-featured">Hidden <span>(<?=($data['hiddenRow']['rowHiddenCount']) ? $data['hiddenRow']['rowHiddenCount'] : '0';?>)</span></li>
+					<!-- <li id="filter-open">Active <span>(10)</span></li>
 					<li>Expired <span>(10)</span></li>
-					<li>Deleted <span>(10)</span></li>
+					<li>Deleted <span>(10)</span></li> -->
 				</ul>
 			</div><!-- End of filter tabs -->
 			<div class="sortby filter-category">
@@ -40,7 +40,7 @@
 							<th>Emp Photo</th>
 							<th>Job Tittle</th>
 							<th>Category</th>
-							<th>Featured</th>
+							<!-- <th>Featured</th> -->
 							<th>Job Status</th>
 							<th>Price & Location</th>
 							<th>Due Date</th>
@@ -49,8 +49,8 @@
 					</thead>
 					<tbody id="filter-job-container">
 						<!-- if job is close add row with class name "sold" -->
-						<?php foreach($data['job'] AS $job) : ?>
-						<tr id="dj" data-j="<?=$job->jId;?>">
+						<?php foreach($data['job']['row'] AS $job) : ?>
+						<tr>
 							<td style="text-align: center;">
 								<input type="checkbox" name="">
 							</td>
@@ -58,15 +58,15 @@
 								<img src="assets/img/icons/img-06.jpg">
 							</td>
 							<td class="tittle-id">
-								<h3><?=$job->jTitle;?></h3>
+								<h3 id="dj" data-j="<?=$job->jId;?>"><?=$job->jTitle;?></h3>
 								<span>Ad ID: <?=$job->jId;?></span>
 							</td>
 							<td class="item-cat">
-								<span>Laptops & PCs</span>	
+								<span><?=$job->jCat;?></span>	
 							</td>
-							<td>
+							<!-- <td>
 								<span>Yes</span>
-							</td>
+							</td> -->
 							<td class="status-job">
 								<span>Active</span>
 							</td>
@@ -79,9 +79,9 @@
 								<span>Published</span>
 							</td>
 							<td class="action-btn">
-								<span class="eye" data-jId="<?=$job->jId;?>"><i class="fal fa-eye"></i></span>
-								<span class="pencil" data-jId="<?=$job->jId;?>"><i class="fal fa-pencil-alt"></i></span>
-								<span class="trash" data-jId="<?=$job->jId;?>"><i class="fal fa-trash"></i></span>
+								<span class="eye hideJob" data-jId="<?=$job->jId;?>"><i class="fal fa-eye"></i></span>
+								<!-- <span class="pencil" data-jId="<?=$job->jId;?>"><i class="fal fa-pencil-alt"></i></span> -->
+								<span class="trash trashJob" data-jId="<?=$job->jId;?>"><i class="fal fa-trash"></i></span>
 							</td>
 						</tr>
 						<?php endforeach; ?>

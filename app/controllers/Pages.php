@@ -191,7 +191,7 @@ class Pages extends Controller
 				"user" => $_SESSION['uId']
 			];
 
-			$jobTag = $this->jobModel->getJobByTitle($query);
+			$jobTag = $this->jobModel->getJobByTitleDash($query);
 			if ($jobTag) {
 				$data = [
 					"jobs" => $jobTag
