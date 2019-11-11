@@ -3,7 +3,8 @@
 <head>
 	<title>SF_Help sAdmin Setup</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/admin_setup.css">
-	<link href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/offline/fontawesome/css/all.min.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/sumalian";?>/css/offline/fontawesome/css/all.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="https://psuedo.azureedge.net/font/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<!-- <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css"> -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

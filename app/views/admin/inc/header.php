@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/ico" href="<?=URL_ROOT?>/img/cap.ico">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
-	<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="https://psuedo.azureedge.net/font/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/admin_style.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/jquery.mCustomScrollbar.css">
 	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/> -->
