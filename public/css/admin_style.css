@@ -924,6 +924,7 @@ Sold Row
 	padding: 5px;
 	overflow: auto;
 	font: var(--font-quick-400-13);
+	background-color: #fff;
 }
 .ctl-msg label {
 	position: absolute;

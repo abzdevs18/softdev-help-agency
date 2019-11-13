@@ -8,10 +8,12 @@
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="https://cdndevelopment.blob.core.windows.net/cdn/fa/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/admin_style.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/jquery-ui-them.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/jquery.mCustomScrollbar.css">
 	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/> -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<!-- <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script> -->
+	<script src="<?=URL_ROOT;?>/js/jquery-ui.js"></script>
 
 
 	<script type="module" src="<?=URL_ROOT;?>/js/admin_script.js"></script>

@@ -306,7 +306,7 @@ $(document).on('click', '.post_blog', function(){
   
   var fd = new FormData();
 	var b_title = $('#blog_title').val();
-  var b_photo = $('#update_blog_photo').prop('files')[0];
+  var b_photo = $('#blog_photo').prop('files')[0];
   var b_content = $('.blog_content').text();
 
   // Adding data to formData
@@ -326,6 +326,7 @@ $(document).on('click', '.post_blog', function(){
       if(data['status']){
         window.location.href = URL_ROOT + '/admin/blog'
       }
+      console.log(data);
 		},
 		error:function(err){
 			console.log(err);

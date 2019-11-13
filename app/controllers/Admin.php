@@ -1,6 +1,6 @@
 <?php
 
-define("ROOT", "/sumalian");
+define("ROOT", "sumalian/");
 /**
  * Admin Account Controller
  */
@@ -121,11 +121,15 @@ class Admin extends Controller
 				if ($this->adminModel->blogPost($data,$_FILES['blog_photo']['name'])) {
 					$data['status'] = 1;
 					echo json_encode($data);
+				}else{
+					$data['status'] = 0 . "Up";
+					echo json_encode($data);
 				}				
 			}
-			// else{
-			// 	echo json_encode($data);
-			// }
+			else{
+				$data['status'] = 0;
+				echo json_encode($data);
+			}
 
 		}
 	}
