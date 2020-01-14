@@ -1160,7 +1160,7 @@ Messaging
     /* border-color: #333; */
 }
 .ins-wrapper input, .ins-wrapper select {
-    /*width: calc( 100% - 20px );*/
+    width: calc( 100% - 20px );
 }
 .ins-wrapper i {
     position: absolute;

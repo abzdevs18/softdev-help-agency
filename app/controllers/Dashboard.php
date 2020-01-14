@@ -10,7 +10,7 @@ class Dashboard extends Controller
 	{
 		$this->jobPostModel = $this->model('Job');
 		$this->userModel = $this->model('user');
-		$this->messageModel = $this->model('message');;
+		$this->messageModel = $this->model('Message');;
 
 		if (!isLoggedIn()) {
 			redirect("users/signin");

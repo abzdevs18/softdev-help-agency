@@ -24,6 +24,12 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
 	<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 
+	<style>
+	.flex-sb-m .w-full .p-b-30 {
+		display:none !important;
+	}
+	</style>
+
 </head>
 <body>
 	<!-- Modal for confirmation in deleting Blog -->

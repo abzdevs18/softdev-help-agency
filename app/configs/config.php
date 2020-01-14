@@ -11,10 +11,11 @@
 			define('APP_ROOT', dirname(dirname(__FILE__)));
 
 			//URL ROOT
-			define('URL_ROOT', 'http://192.168.0.19/sumalian');
+			define('URL_ROOT', '');
+			// define('URL_ROOT', 'http://192.168.0.19/sumalian');
 
 			//URL ROOT
-			define('SITE_LOGO', 'http://192.168.0.19/sumalian/img/default/black-logo.png');
+			define('SITE_LOGO', URL_ROOT . '/img/default/black-logo.png');
 
 			//SITE NAME
 			define('SITE_NAME', 'Help Agency');

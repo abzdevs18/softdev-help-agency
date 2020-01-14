@@ -84,7 +84,7 @@
 				</div>
 				<div id="action-btn">
 					<a href="<?=URL_ROOT . '/dashboard/message';?>"><button><i class="fas fa-comment-dots"></i></button></a>
-					<button><i class="fas fa-bell"></i></i></button>
+					<!-- <button><i class="fas fa-bell"></i></i></button> -->
 					<a href="<?=URL_ROOT;?>/users/signout"><button><i class="fas fa-sign-out-alt"></i></button></a>
 				</div>
 			</div>

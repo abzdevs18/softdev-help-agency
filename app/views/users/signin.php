@@ -17,7 +17,7 @@
 					<div class="f-form uNameVal">
 						<label for="uemail">Email Address/Username:</label>
 						<div class="ins-wrapper">
-							<input type="text" name="uemail" placeholder="support@gmail.com" style="text-transform: unset;">
+							<input type="text" id="uNameEmail" name="uNameEmail" placeholder="support@gmail.com" style="text-transform: unset;">
 							<!-- Icon -->
 							<i class="fal fa-envelope"></i>
 						</div>
@@ -26,7 +26,7 @@
 					<div class="f-form uPassVal">
 						<label for="password">Password:</label>
 						<div class="ins-wrapper">
-							<input type="password" name="password" placeholder="*********" id="">
+							<input type="password" id="uPassword" name="uPassword" placeholder="*********">
 							<!-- Icon -->
 							<i class="fal fa-key"></i>
 						</div>

@@ -10,7 +10,7 @@ class Api extends Controller
 	
 	function __construct()
 	{
-		$this->jobModel = $this->model('job');	
+		$this->jobModel = $this->model('Job');	
 		$this->ApiModel = $this->model('ApiModel');	
 	}
 

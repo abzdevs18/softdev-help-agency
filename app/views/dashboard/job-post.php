@@ -61,7 +61,7 @@
 						<span class="invalid-feedback"></span>
 					</div>					
 				</div>
-					<input type="button" name="next" value="Next" id="nxt_postJob">
+					<input type="button" name="next" value="Next" id="nxt_postJob" style="padding: 2px 15px;">
 			</fieldset>
 
 			<fieldset>

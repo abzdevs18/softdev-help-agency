@@ -1,4 +1,4 @@
-export const URL_ROOT = "/sumalian";
+export const URL_ROOT = "";
 
 
 $(function(){

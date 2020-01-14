@@ -1,6 +1,6 @@
 <?php
 
-define("ROOT", "sumalian/");
+define("ROOT", "");
 /**
  * Admin Account Controller
  */
@@ -11,7 +11,7 @@ class Admin extends Controller
 	{
 		
 			if (file_exists( dirname(__FILE__) . '/../configs/config.php')) {
-				$this->jobModel = $this->model('job');
+				$this->jobModel = $this->model('Job');
 				$this->adminModel = $this->model('admins');
 				$this->userModel = $this->model('user');
 				if (!isLoggedIn()) {

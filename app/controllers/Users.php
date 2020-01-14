@@ -1,6 +1,6 @@
 <?php
 
-define("ROOT", "/sumalian");
+define("ROOT", "");
 /**
  * User registration
  */
@@ -12,9 +12,9 @@ class Users extends Controller
 	{
 
 		if (file_exists( dirname(__FILE__) . '/../configs/config.php')) {
-			$this->userModel = $this->model('User');
-			$this->adminModel = $this->model('Admins');
-			$this->jobModel = $this->model('job');
+			$this->userModel = $this->model('user');
+			$this->adminModel = $this->model('admins');
+			$this->jobModel = $this->model('Job');
 			if (!$this->adminModel->isAdminFound()) {
 				redirect('admin/sf_admin');
 			}
