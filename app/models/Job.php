@@ -80,8 +80,24 @@ class Job
 		}
 	}
 
+	public function getJobSearchTerm($title){
+		$this->db->query("SELECT jobs.id AS jId, job_categories.category_name AS jCat, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.featured AS isJFeatured, jobs.job_description AS jDesc, jobs.tags AS jTags, company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf, user_location.address AS address FROM jobs LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN job_categories ON job_categories.id = jobs.job_category  LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 LEFT JOIN user_location ON jobs.user_id = user_location.user_id WHERE jobs.job_visibility = 1 AND jobs.job_title LIKE  :jTitle");
+		
+		$this->db->bind(":jTitle", '%'. $title .'%');
+		$row = $this->db->resultSet();
+		if ($row) {
+			$data = [
+				"row" => $row,
+				"rowCount" => $this->db->rowCount()
+			];
+			return $row;
+		} else {
+			return false;
+		}
+	}
+
 	public function getJob(){
-		$this->db->query("SELECT jobs.id AS jId, job_categories.category_name AS jCat, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.featured AS isJFeatured, jobs.job_description AS jDesc, jobs.tags AS jTags, company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf FROM jobs LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN job_categories ON job_categories.id = jobs.job_category  LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 WHERE jobs.job_visibility = 1");
+		$this->db->query("SELECT jobs.id AS jId, job_categories.category_name AS jCat, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.featured AS isJFeatured, jobs.job_description AS jDesc, jobs.tags AS jTags, company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf, user_location.address AS address FROM jobs LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN job_categories ON job_categories.id = jobs.job_category  LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 LEFT JOIN user_location ON jobs.user_id = user_location.user_id WHERE jobs.job_visibility = 1 ORDER BY jobs.timestamp DESC");
 		
 		$row = $this->db->resultSet();
 		if ($row) {
@@ -141,7 +157,7 @@ class Job
 	}
 
 	public function getJobById($jId){
-		$this->db->query("SELECT jobs.id AS jId, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.job_description AS jDesc, jobs.tags AS jTags,  company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf FROM jobs LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 WHERE jobs.id = :jId ");
+		$this->db->query("SELECT jobs.id AS jId, user_location.address AS address, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, job_categories.category_name AS jCat, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.job_description AS jDesc, jobs.tags AS jTags,  company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf FROM jobs LEFT JOIN job_categories ON job_categories.id = jobs.job_category LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 LEFT JOIN user_location ON jobs.user_id = user_location.user_id WHERE jobs.id = :jId ");
 		$this->db->bind(":jId", $jId);
 		$row = $this->db->single();
 		if ($row) {
@@ -192,15 +208,27 @@ class Job
 	}
 
 	public function getJobByTitleDash($data){
-		$this->db->query("SELECT jobs.id AS jId, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, job_categories.category_name AS jCat, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.job_description AS jDesc, jobs.tags AS jTags,  company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf FROM jobs LEFT JOIN job_categories ON job_categories.id = jobs.job_category LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 WHERE jobs.user_id != :uId AND jobs.job_title LIKE  :jTitle");
-		$this->db->bind(":uId", $_SESSION['uId']);
-		$this->db->bind(":jTitle", '%'. $data['title'] .'%');
-		// $this->db->bind_params('s', "%" . $jTag . "%");
-		$row = $this->db->resultSet();
-		if ($row) {
-			return $row;
-		} else {
-			return false;
+		if($_SESSION['uId']){
+			$this->db->query("SELECT jobs.id AS jId, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, job_categories.category_name AS jCat, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.job_description AS jDesc, jobs.tags AS jTags,  company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf FROM jobs LEFT JOIN job_categories ON job_categories.id = jobs.job_category LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 WHERE jobs.user_id != :uId AND jobs.job_title LIKE  :jTitle");
+			$this->db->bind(":uId", $_SESSION['uId']);
+			$this->db->bind(":jTitle", '%'. $data['title'] .'%');
+			// $this->db->bind_params('s', "%" . $jTag . "%");
+			$row = $this->db->resultSet();
+			if ($row) {
+				return $row;
+			} else {
+				return false;
+			}
+		}else{
+			$this->db->query("SELECT jobs.id AS jId, jobs.job_title AS jTitle, jobs.job_type AS jType, jobs.job_requirement AS jReq, job_categories.category_name AS jCat, jobs.deadline AS jDeadline, jobs.salary AS jSalary, jobs.job_description AS jDesc, jobs.tags AS jTags,  company_ratings.rate AS comRate, company_location.address AS comLoc, company_profile.img_path AS comProf FROM jobs LEFT JOIN job_categories ON job_categories.id = jobs.job_category LEFT JOIN company_location ON company_location.com_id = jobs.company_id LEFT JOIN company_ratings ON company_ratings.company_id = jobs.company_id LEFT JOIN company_profile ON company_profile.comp_id = jobs.company_id AND company_profile.profile_status = 1 WHERE jobs.job_title LIKE  :jTitle");
+			$this->db->bind(":jTitle", '%'. $data['title'] .'%');
+			// $this->db->bind_params('s', "%" . $jTag . "%");
+			$row = $this->db->resultSet();
+			if ($row) {
+				return $row;
+			} else {
+				return false;
+			}
 		}
 	}
 
@@ -234,15 +262,32 @@ class Job
 		}
 	}
 
+	public function getCountBidding($id){
+		$this->db->query("SELECT COUNT(id) AS number FROM job_biddings WHERE id = $id");
+		$row = $this->db->resultSet();
+		if ($row) {
+			return $row;
+		} else {
+			return false;
+		}
+	}
+
 	/* Job APplicaiton*/
 	public function jobApplication($data){
 
 		if ($this->getBidders($data)) {
-			$this->db->query("INSERT INTO `job_biddings`(`job_id`, `user_id`) VALUES(:jobId,:uId)");
+			$this->db->query("INSERT INTO `job_biddings`(`job_id`, `user_id`,`fname`,`lname`,`age`,`gender`,`location`,`address`,`education`) VALUES(:jobId,:uId,:fname,:lname,:age,:gender,:location,:address,:education)");
 
 			// $this->db->bind(":currentUId", $data['uId']);
 			$this->db->bind(":jobId", $data['jobId']);
 			$this->db->bind(":uId", $data['uId']);
+			$this->db->bind(":fname", $data['fname']);
+			$this->db->bind(":lname", $data['lname']);
+			$this->db->bind(":age", $data['age']);
+			$this->db->bind(":gender", $data['gender']);
+			$this->db->bind(":location", $data['location']);
+			$this->db->bind(":address", $data['address']);
+			$this->db->bind(":education", $data['education']);
 
 			if ($this->db->execute()) {
 				return true;
@@ -392,7 +437,7 @@ class Job
 		$this->db->query("SELECT job_biddings.id AS jobId,messages.id AS msgId, messages.msg_time AS msgTime, messages.msg_content AS msgContent,  messages.user_receiver_id AS receiver, messages.user_sender_id AS sender, jobs.user_id AS jobEmpId, job_biddings.user_id AS bidderId, user_profile.img_path AS imageBidder, user.username AS username, user.firstname AS bidderF, user.lastname AS bidderL FROM jobs
 		LEFT JOIN job_biddings on job_biddings.job_id = jobs.id
 		LEFT JOIN messages ON (messages.user_receiver_id = job_biddings.user_id AND messages.user_sender_id = jobs.user_id) OR (messages.user_receiver_id = jobs.user_id AND messages.user_sender_id = job_biddings.user_id)
-		LEFT JOIN user_profile ON user_profile.user_id =  messages.user_sender_id
+		LEFT JOIN user_profile ON user_profile.user_id =  messages.user_sender_id AND user_profile.profile_status = 1
 		LEFT JOIN user ON user.id =  messages.user_sender_id
 		WHERE (EXISTS (SELECT job_biddings.job_id AS jobId FROM job_biddings WHERE job_biddings.job_id = jobs.id) AND messages.user_receiver_id = :bidderId) AND messages.id IN (SELECT MAX(messages.id) FROM messages GROUP BY messages.user_receiver_id)");
 		$this->db->bind(":bidderId",$biddersId);

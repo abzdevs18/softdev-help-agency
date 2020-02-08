@@ -8,16 +8,22 @@
 	<!-- <script src="https://kit.fontawesome.com/618fa0761b.js"></script> -->
 	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
-	<link rel="stylesheet" type="text/css" href="https://cdndevelopment.blob.core.windows.net/cdn/fa/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/fa/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/mainStyle.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/user_style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
+	<!-- <script type="module" src="<?=URL_ROOT;?>/js/offline/jquery.js"></script> -->
 	<style type="text/css">
 		@import url("<?=URL_ROOT;?>/css/static_style.css");
 		@import url("<?=URL_ROOT;?>/css/footer.css");
 	</style>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<script src="<?=URL_ROOT;?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="<?=URL_ROOT;?>/js/tag.js"></script>
+	<!-- <script type="module" src="<?=URL_ROOT;?>/js/script.js"></script> -->
+	<script type="module" src="<?=URL_ROOT;?>/js/main.js"></script>
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/jquery.mCustomScrollbar.css">
 	<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 	  <script>
@@ -62,9 +68,14 @@
 						</a> -->
 							<a href="<?=URL_ROOT . '/dashboard/profile';?>" style="text-decoration: none;">
 						<li id="account-profile">
-								<div id="account-thumbnail" style="background-image: url('<?php echo URL_ROOT . '/img/profiles/' . $data['userData']->userImage; ?>');">
-									<!-- <img src="<?php echo URL_ROOT . '/img/profiles/' . $data['userData']->userImage; ?>"> -->
-								</div>
+								<?php if($data['userData']->userImage) : ?>
+									<div id="account-thumbnail" style="background-image: url('<?php echo URL_ROOT . '/img/profiles/' . $data['userData']->userImage; ?>');">
+									</div>
+								<?php else: ?>
+									<div id="account-thumbnail" style="line-height: 30px;vertical-align: middle;text-align: center;background: var(--dark-font);color: #fff;">
+									<?=$_SESSION['userName'][0];?>
+									</div>
+								<?php endif;?>
 								<div style="max-width: 85px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">								
 									<span style="font-weight: 500;"><?=$_SESSION['userName'];?></span>
 								</div>

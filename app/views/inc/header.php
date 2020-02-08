@@ -8,7 +8,7 @@
 	<!-- <script src="https://kit.fontawesome.com/618fa0761b.js"></script> -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="https://cdndevelopment.blob.core.windows.net/cdn/fa/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/fa/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/mainStyle.css">
 	<!-- <link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/offlline/fa.css"> -->
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/animsition.min.css">
@@ -19,10 +19,13 @@
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/admin_style.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/companyProfile.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="<?=URL_ROOT;?>/js/offline/jquery.js"></script>
+	<!-- <script src="<?=URL_ROOT;?>/js/offline/jquery.js"></script> -->
 	<script src="<?=URL_ROOT;?>/js/jquery-ui.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
 	<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+	<script src="<?=URL_ROOT;?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<!-- <script src="<?=URL_ROOT;?>/js/animsiton.min.js"></script>
+	<script src="<?=URL_ROOT;?>/js/animation.js"></script> -->
 
 	<style>
 	.flex-sb-m .w-full .p-b-30 {

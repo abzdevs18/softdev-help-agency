@@ -6,43 +6,43 @@
 
 	<section class="main-section mar-30">
 		<div class="row">
-			<div class="col-4">
+			<div class="col-4 one">
 				<div class="col-wrap pad-30">
 					<figure>
 						<img src="<?=URL_ROOT;?>/img/icons/col-1.png">				
 					</figure>
 					<div class="col-content">
-						<p>562</p>
+						<p>3</p>
 						<h3>Total Job posted</h3>
 						<a href="#">view details <i class="fal fa-angle-right"></i></a>
 					</div>
 				</div>
 			</div>
-			<div class="col-4">
+			<div class="col-4 two">
 				<div class="col-wrap pad-30">
 					<figure>
 						<img src="<?=URL_ROOT;?>/img/icons/col-2.png">				
 					</figure>
 					<div class="col-content">
-						<p>562</p>
+						<p>1</p>
 						<h3>Featured Jobs</h3>
 						<a href="#">view details <i class="fal fa-angle-right"></i></a>
 					</div>
 				</div>
 			</div>
-			<div class="col-4">
+			<div class="col-4 three">
 				<div class="col-wrap pad-30">
 					<figure>
 						<img src="<?=URL_ROOT;?>/img/icons/col-3.png">				
 					</figure>
 					<div class="col-content">
-						<p>562</p>
+						<p>1</p>
 						<h3>Inactive Job</h3>
 						<a href="#">view details <i class="fal fa-angle-right"></i></a>
 					</div>
 				</div>
 			</div>
-			<div class="col-4">
+<!-- 			<div class="col-4 four">
 				<div class="col-wrap pad-30">
 					<figure>
 						<img src="<?=URL_ROOT;?>/img/icons/col-4.png">				
@@ -53,11 +53,11 @@
 						<a href="#">view details <i class="fal fa-angle-right"></i></a>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</section>
 
-	<section class="offices-msgs">
+	<section class="offices-msgs" style="display:none;">
 		<div class="alerts-notif">
 			<div class="alert-content">
 				<div class="content-head">
@@ -127,7 +127,7 @@
 		</div>
 	</section>
 
-	<section class="updates-msgs">
+	<section class="updates-msgs" style="display:none;">
 		<div class="msgs-acc">
 			<div class="msgs-container">
 				<div class="content-head">

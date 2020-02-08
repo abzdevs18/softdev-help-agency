@@ -10,6 +10,7 @@ class Dashboard extends Controller
 	{
 		$this->jobPostModel = $this->model('Job');
 		$this->userModel = $this->model('user');
+		$this->Model = $this->model('admins');
 		$this->messageModel = $this->model('Message');;
 
 		if (!isLoggedIn()) {
@@ -23,6 +24,7 @@ class Dashboard extends Controller
 		$workerBid = $this->jobPostModel->listWorkerBids($_SESSION['uId']);
 		$usreData = $this->userModel->getUserInformation($_SESSION['uId']);
 		$logo = $this->jobPostModel->getLogo();
+		$blogs = $this->Model->getBlogsLimit();
 		$userType = $_SESSION['user_type'];
 		$data = [
 			"jobs" => $jobs,
@@ -31,7 +33,7 @@ class Dashboard extends Controller
 			"userData" => $usreData,
 			"logo" => $logo,
 			"userType" => $userType,
-
+			'blog' => $blogs
 		];
 
 		$this->view('dashboard/index', $data);
@@ -280,11 +282,13 @@ class Dashboard extends Controller
 	public function jobDetails($jId){
 		$jobs = $this->jobPostModel->getJobById($jId);
 		$user = $this->userModel->getUserInformation($_SESSION['uId']);	
+		$blogs = $this->Model->getBlogsLimit();
 
 		$data = [
 			"jobs" => $jobs,
 			"userData" => $user,
-			"userId" => $_SESSION['uId']
+			"userId" => $_SESSION['uId'],
+			'blog' => $blogs
 		];
 
 		$this->view("dashboard/jobDetails", $data);

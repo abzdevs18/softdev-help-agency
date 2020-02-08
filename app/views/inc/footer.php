@@ -1,5 +1,5 @@
 	<footer style="width: 100%;background-color: #191623;display: block;">
-		<div style="width: 85%;display: flex;flex-direction: row;justify-content: space-between;margin: 0 auto;">			
+		<div style="width: 85%;display: none;flex-direction: row;justify-content: space-between;margin: 0 auto;">			
 			<div id="footer-left">
 				<h4>subscribe now</h4>
 				<form id="subcribe-email">
@@ -24,7 +24,7 @@
 				</ul>
 			</div>
 		</div>
-		<div id="footer">
+		<div id="footer" style="padding-top:100px;">
 			<div class="footer-items">
 				<img src="<?=URL_ROOT;?>/img/logo-white.png">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -51,7 +51,7 @@
 					<?php endforeach; ?>
 				</div>
 			</div>
-			<div class="footer-items">
+			<div class="footer-items" style="display:none;">
 				<h4>Photo Gallery</h4>
 				
 			</div>

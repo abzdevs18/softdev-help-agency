@@ -1,9 +1,9 @@
 	<footer style="width: 100%;background-color: #191623;display: block;">
-		<div style="width: 85%;display: flex;flex-direction: row;justify-content: space-between;margin: 0 auto;">			
+		<div style="width: 85%;display: none;flex-direction: row;justify-content: space-between;margin: 0 auto;">			
 			<div id="footer-left">
 				<h4>subscribe now</h4>
 				<form id="subcribe-email">
-					<input id="subs-email" type="" name="subscribe" placeholder="enter your email address">
+					<input id="subs-email" type="email" name="subscribe" placeholder="enter your email address">
 					<input id="subs-btn" type="submit" name="submit" value="submit">
 				</form>
 			</div>
@@ -24,7 +24,7 @@
 				</ul>
 			</div>
 		</div>
-		<div id="footer">
+		<div id="footer" style="padding-top:100px;">
 			<div class="footer-items">
 				<img src="<?=URL_ROOT;?>/img/logo-white.png">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -36,38 +36,23 @@
 			<div class="footer-items">
 				<h4>News Feeds</h4>
 				<div id="footer-news-feed">
-					<div class="footer-news-feed-item">
-						<div class="news-thumbnail">
-							<img src="<?=URL_ROOT;?>/img/news-update/news_small_2.jpg">
+					<!-- if job is close add row with class name "sold" -->
+					<?php foreach($data['blog'] AS $blog) : ?>
+
+						<div class="footer-news-feed-item blogPreviewId" data-i="<?=$blog->blogId;?>">
+							<div class="news-thumbnail">
+								<img src="<?=URL_ROOT . '/img/blog/' . $blog->blogImage;?>">
+							</div>
+							<div class="news-metadata">
+								<p><?=$blog->blogTitle;?></p>
+								<p><i class="far fa-clock"></i> <?=$blog->blogDate;?></p>
+							</div>
 						</div>
-						<div class="news-metadata">
-							<p>It is a long establish that a reader</p>
-							<p><i class="far fa-clock"></i> <span>1 </span> hours ago</p>
-						</div>
-					</div>
-					<div class="footer-news-feed-item">
-						<div class="news-thumbnail">
-							<img src="<?=URL_ROOT;?>/img/news-update/news_small_2.jpg">
-						</div>
-						<div class="news-metadata">
-							<p>It is a long establish that a reader</p>
-							<p><i class="far fa-clock"></i> <span>1 </span> hours ago</p>
-						</div>
-					</div>
-					<div class="footer-news-feed-item">
-						<div class="news-thumbnail">
-							<img src="<?=URL_ROOT;?>/img/news-update/news_small_2.jpg">
-						</div>
-						<div class="news-metadata">
-							<p>It is a long establish that a reader</p>
-							<p><i class="far fa-clock"></i> <span>1 </span> hours ago</p>
-						</div>
-					</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
-			<div class="footer-items">
-				<h4>Photo Gallery</h4>
-				
+			<div class="footer-items" style="display:none;">
+				<h4>Photo Gallery</h4>				
 			</div>
 		</div>
 	</footer>

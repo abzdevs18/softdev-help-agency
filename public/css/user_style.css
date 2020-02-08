@@ -733,7 +733,8 @@ font: var(--font-quick-400-13);
 min-width: 60px;
 }
 .conversation {
-	width: 58%;
+	width: 78%;
+	/* width: 58%; */
 	height: calc( 100% - 80px );
 	background: #f4f4f4;
 	position: fixed;
@@ -741,6 +742,7 @@ min-width: 60px;
 }
 .conversation-details {
 	width: 20%;
+	display: none !important;
 	height: 100vh;
 	background: #fff;
 	display: flex;
@@ -956,7 +958,8 @@ Messaging
     position: fixed;
     /* width: 100%; */
     bottom: 0;
-    right: 20%;
+    right: 0;
+    /* right: 20%; */
     left: 22%;
     background: #fff;
 }

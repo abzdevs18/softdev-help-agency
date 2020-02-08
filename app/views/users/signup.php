@@ -64,7 +64,7 @@
 				</div>
 				<div class="Sidebar-form">
 					<!-- Sidebar form -->
-					<div class="counter">
+					<div class="counter" style="opacity:0;">
 						<span class="c-active-state"></span>
 						<span></span>
 						<span></span>
@@ -76,7 +76,7 @@
 							</div>
 						</div>
 						<div class="s-descrip">
-							<h3>irure dolor in reprehend</h3>
+							<h3>Personal Information</h3>
 							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
 							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -96,7 +96,7 @@
 			<div class="child" style="display: flex;">
 				<div class="Fields">
 					<div class="header-menu">
-						<h3>Personal Information</h3>					
+						<h3>Company Information</h3>					
 					</div>
 					<!-- Fields -->
 					<div id="fname" style="width: calc( 100% - 10px );display: flex;justify-content: space-between;">
@@ -158,9 +158,9 @@
 				</div>
 				<div class="Sidebar-form">
 					<!-- Sidebar form -->
-					<div class="counter">
-						<span class="c-active-state"></span>
+					<div class="counter" style="opacity:0;">
 						<span></span>
+						<span class="c-active-state"></span>
 						<span></span>
 					</div>
 					<div class="r-data">
@@ -170,7 +170,7 @@
 							</div>
 						</div>
 						<div class="s-descrip">
-							<h3>irure dolor in reprehend</h3>
+							<h3>Company Information</h3>
 							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
 							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -227,10 +227,10 @@
 				</div>
 				<div class="Sidebar-form">
 					<!-- Sidebar form -->
-					<div class="counter">
+					<div class="counter" style="opacity:0;">
+						<span></span>
+						<span></span>
 						<span class="c-active-state"></span>
-						<span></span>
-						<span></span>
 					</div>
 					<div class="r-data">
 						<div style="width: 100%;margin: 0 auto;display: flex;justify-content: center;">
@@ -240,7 +240,7 @@
 							</div>
 						</div>
 						<div class="s-descrip">
-							<h3>irure dolor in reprehend</h3>
+							<h3>Account Credentials</h3>
 							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
 							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

@@ -3,17 +3,17 @@
 	margin: 0;
 }
 body {
-	background-color: #F7F8FA;
+	background-color: #FFF;
 }
 main {
 	width: 80%;
 	margin: 50px auto;
-	background: #fff;
+	/* background: #fff; */
 	padding: 20px;
 	border-radius: 6px;
 	/* z-index: -7; */
 	position: relative;
-	box-shadow: 0 0 15px 0 rgba(0,0,0,0.20);
+	/* box-shadow: 0 0 15px 0 rgba(0,0,0,0.20); */
 }
 
 .steps-container, .form {
@@ -62,9 +62,10 @@ main {
 }
 .add h3 {
 	color: #333;
-	font-size: 30px;
+	font-size: 20px;
 	font-weight: 500;
 	margin: 10px;
+	margin-top: -30px;
 }
 .add p {
 	color: #666;

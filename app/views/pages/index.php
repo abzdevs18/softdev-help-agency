@@ -5,10 +5,10 @@
 			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15748.483187932226!2d123.29262845000001!3d9.32256345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1564186984611!5m2!1sen!2sph" width="1200" height="1000" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div> -->	
 		<div class="hero_txt">				
-			<p>We have 1M+ great job offers you deserve!</p>
+			<p>We have great job offers you deserve!</p>
 			<h2>Largest Local Job Site<br/> In The City</h2>
 		</div>
-		<div id="tabs">
+		<div id="tabs" style="display:none;">
 			<ul>
 			    <li><a href="#tabs-1" data-action="search-job" class="active">FIND A JOB</a></li>
 			    <li><a href="#tabs-2" data-action="search-can">FIND A CANDIDATE</a></li>
@@ -64,10 +64,10 @@
 			<div id="job-left">
 				<div id="job-left-header">
 					<div>
-						<p>20+ Recently Added Jobs</p>
+						<p>Recently Added Jobs</p>
 						<p>Hot Jobs</p>
 					</div>
-					<div>
+					<div style="opacity:0;">
 						<ul>
 							<li><a href="#" style="color: #fff;">private</a></li>
 							<li><a href="#">govt.</a></li>
@@ -75,31 +75,38 @@
 					</div>					
 				</div>
 				<div id="job-listing">
+					<!-- <?php print_r($data['jobs']);?> -->
 					<?php foreach ($data['jobs'] as $jobs) : ?>
-						<div class="latest-job list_transition" data-postID="<?=$jobs->jId;?>">
+						<div class="latest-job list_transition" data-postID="<?=$jobs[0]->jId;?>">
 							<div>							
 								<div class="job-title">
 									<div>
-										<p><?=$jobs->jTitle;?></p>
+										<p><?=$jobs[0]->jTitle;?></p>
 									</div>
 									<!-- Temporart = #E80031 
 										 Freelance = #597B8E	-->
-									<a href="#">part time</a>
+									<?php if($jobs[0]->jType == 'Freelance'):?>
+										<a href="#" style="background:#456B80;">Freelance</a>
+									<?php elseif($jobs[0]->jType == 'Part Time'):?>
+										<a href="#" style="background:#0054FF;">Part Time</a>
+									<?php else:?>
+										<a href="#" style="background:#FF9000;">Full Time</a>
+									<?php endif;?>
 								</div>
 								<div class="details-jobs" style="align-content: space-between;">
 									<div id="index-wrap-r">
 										<div class="education">
-											<p>Requirements: <span><?=$jobs->jReq;?></span></p>
+											<p>Requirements: <span><?=$jobs[0]->jReq;?></span></p>
 										</div>
 										<div class="deadline">
-											<p>Deadline: <span><?=$jobs->jDeadline;?></span></p>
+											<p>Deadline: <span><?=$jobs[0]->jDeadline;?></span></p>
 											<!-- <p>Deadline: <span>25th January 2018</span></p> -->
 										</div>
 										<div class="location">
-											<i class="fas fa-map-marker-alt"></i><span><?=$jobs->comLoc;?></span>
+											<i class="fas fa-map-marker-alt"></i><span><?=$jobs[0]->address;?></span>
 										</div>										
 									</div>
-									<div style="float: right;margin-right: 15px;">
+									<div style="float: right;margin-right: 15px;display:none;">
 										<img src="<?=URL_ROOT;?>/img/companies/full.png">
 									</div>
 								</div>
@@ -107,7 +114,7 @@
 							<div style="width: 100%;height: 50px;">
 								<ul class="job-skills">
 									<?php 
-									$tags = $jobs->jTags;
+									$tags = $jobs[0]->jTags;
 									$tag = explode(', ', $tags);
 									foreach($tag as $val) : ?>
 									<li>
@@ -120,11 +127,11 @@
 						<!-- end -->
 					<?php endforeach; ?>
 				</div>
-				<div id="showmore-btn">
+				<!-- <div id="showmore-btn">
 					<a href="#">view more jobs</a>
-				</div>
+				</div> -->
 			</div>
-			<div id="job-right">
+			<div id="job-right" style="opacity:0;">
 				<div class="filter-cat">
 					<h2 style="font-size: 18px;font-weight: 700;color: #222;">Filter Category</h2>
 					<div style="margin: 20px auto 10px;">
@@ -175,7 +182,7 @@
 		</div>
 	</section>
 	<!-- Testimonial Section -->
-	<section style="width: 100%;height: 100vh;background-color: #fff;">
+	<section style="width: 100%;height: 100vh;background-color: #fff;display:none;">
 		<div id="testimonial-header-wrapper" style="width: 100%;margin-top: 150px;">
 			<div id="testimonial-header" style="width: 85%;margin: 0 auto;">
 				<div style="text-align: center;">
@@ -257,14 +264,14 @@
 	<section style="background-color: #f4f4f4;">
 		<div style="width: 85%;margin: 0 auto;display: flex;flex-direction: row;margin-top: 200px;">
 			<div id="phone-holder" style="margin-top: -130px;">
-				<img src="<?=URL_ROOT;?>/img/app_screen.png">
+				<img src="<?=URL_ROOT;?>/img/app.png" style="width: 500px;margin-top: -160px;border-radius: 40px;box-shadow: 0px 0px 8px #999;">
 			</div>
 			<div id="download-app" style="margin-top: -130px;">
-				<div class="browse-category" style="text-align: right;">
+				<div class="browse-category" style="text-align: right;opacity:0;">
 					<a href="#">browse categories</a>
 				</div>
 				<div style="padding: 198px 20px 30px;">
-					<h3 style="font-weight: 600;font-size: 42px;color: #222;margin-bottom: 20px;">Get RexJob Mobile App</h3>
+					<h3 style="font-weight: 600;font-size: 42px;color: #222;margin-bottom: 20px;">Get HelpRUs Mobile App</h3>
 					<p style="font-size: 18px;font-weight: 400;color: #666;line-height: 32px;">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.</p>
 				</div>
 				<div id="playstore-icon" style="margin-left: 20px;">

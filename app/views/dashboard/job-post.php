@@ -19,7 +19,7 @@
 						<div class="form-header">
 							<p>Primary Details</p>
 						</div>
-						<div>
+						<div style="display:none;">
 							<div style="display: flex;flex-direction: column;">
 								<p class="f-word">Do you want to feature this job?</p>
 								<div class="f-job">
@@ -55,7 +55,7 @@
 					<div class="f-form jDesc">
 						<label for="jDesc">Job Description:</label>
 						<div class="ins-wrapper">
-							<input type="text" name="jDesc" placeholder="Hendricks">
+							<input type="text" name="jDesc" placeholder="I need someone to clean my Water pipe tomorrow.">
 							<i class="fal fa-address-card"></i>	
 						</div>
 						<span class="invalid-feedback"></span>
@@ -84,7 +84,7 @@
 							<label for="jType">Job type:</label>
 							<div class="ins-wrapper" style="width: 100%;">
 								<select style="width: 100%;" name="jType">
-									<option value="Internship">Internship</option>
+									<!-- <option value="Internship">Internship</option> -->
 									<option value="Freelance">Freelance</option>
 									<option value="Part Time">Part Time</option>
 									<option value="Full Time">Full Time</option>
@@ -99,7 +99,7 @@
 						<div class="f-form jSalary">
 							<label for="jSalary">Salary:</label>
 							<div class="ins-wrapper">
-								<input type="text" name="jSalary" placeholder="Richar">
+								<input type="text" name="jSalary" placeholder="20,000">
 								<i class="fal fa-id-card"></i>	
 							</div>
 							<span class="invalid-feedback"></span>
@@ -120,7 +120,7 @@
 					<div class="f-form jLoc">
 						<label for="jLoc">Location:</label>
 						<div class="ins-wrapper">
-							<input type="text" name="jLoc" placeholder="Hendricks">
+							<input type="text" name="jLoc" placeholder="Dumaguete City">
 							<i class="fal fa-address-card"></i>	
 						</div>
 						<span class="invalid-feedback"></span>

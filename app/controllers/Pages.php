@@ -194,7 +194,8 @@ class Pages extends Controller
 			$jobTag = $this->jobModel->getJobByTitleDash($query);
 			if ($jobTag) {
 				$data = [
-					"jobs" => $jobTag
+					"jobs" => $jobTag,
+					"user" => $_SESSION['uId']
 				];
 
 				$this->view("templates/dashSearch", $data);

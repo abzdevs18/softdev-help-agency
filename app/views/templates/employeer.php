@@ -8,12 +8,12 @@
 				<ul>					
 					<li class="filter-btn active-second-menu" data-filter="openJobs">Open</li>
 					<li class="filter-btn" data-filter="activeBids">Active Bids</li>
-					<li class="filter-btn" data-filter="currentWork">Work on Progress</li>
+					<!-- <li class="filter-btn" data-filter="currentWork">Work on Progress</li> -->
 					<!-- <li class="filter-btn" data-filter="inviteToWork">Invites</li> -->
-					<li class="filter-btn" data-filter="pastWork">Past Work</li>
+					<!-- <li class="filter-btn" data-filter="pastWork">Past Work</li> -->
 				</ul>
 			</div><!-- End of filter tabs -->
-			<div class="sortby filter-category">
+			<div class="sortby filter-category" style="display:none;">
 				<div id="sort-drop">
 					<span>Sort by:</span>
 					<select>
@@ -31,61 +31,65 @@
 				</div>
 			</div><!-- End of Sorting -->		
 		</div>
-		<div id="projects-tables">
+		<div id="projects-tables" style="margin-top:50px;">
 			<div class="content-tbl openJobs blue">
 				<div class="tbl-wrap">
 					<div class="job-list-tables">
 						<table>
 							<thead>
 								<tr>
-									<th style="text-align: center;"><input type="checkbox" name=""></th>
-									<th>Emp Photo</th>
+									<!-- <th style="text-align: center;"><input type="checkbox" name=""></th>
+									<th>Emp Photo</th> -->
 									<th>Job Tittle</th>
-									<th>Category</th>
-									<th># of Bids</th>
-									<th>Job Status</th>
+									<th>Description</th>
+									<!-- <th># of Bids</th> -->
+									<!-- <th>Job Status</th> -->
 									<th>Salary & Location</th>
 									<th>Due Date</th>
-									<th>Actions</th>
+									<th>Job Type</th>
 								</tr>
 							</thead>
 							<tbody>
 								<!-- Condition: If user has open jobs, show them in table -->
 								<?php if($data['jobs']) : ?>
 									<?php foreach ($data['jobs'] as $jobs) : ?>
-									<tr title="Click to message the worker." class="row-job" data-id="<?=$jobs->jId;?>">
-										<td style="text-align: center;">
+									<tr class="row-job" data-id="<?=$jobs->jId;?>">
+										<!-- <td style="text-align: center;">
 											<input type="checkbox" name="">
 										</td>
 										<td>
 											<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>">
-										</td>
+										</td> -->
 										<td class="tittle-id">
 											<h3><?=$jobs->jTitle;?></h3>
-											<span>Ad ID: <?=$jobs->jId;?></span>
+											<!-- <span>Ad ID: <?=$jobs->jId;?></span> -->
 										</td>
 										<td class="item-cat">
-											<span>Laptops & PCs</span>	
+											<span><?=$jobs->jDesc;?></span>	
 										</td>
-										<td>
+										<!-- <td>
 											<span>Yes</span>
-										</td>
-										<td class="status-job">
+										</td> -->
+										<!-- <td class="status-job">
 											<span>Active</span>
-										</td>
+										</td> -->
 										<td class="price-loc">								
-											<h3>P <?=$jobs->jSalary; ?>.00</h3>
-											<span>Location: <?=$jobs->comLoc;?></span>
+											<h3>P <?=number_format($jobs->jSalary) ?>.00</h3>
+											<!-- <span>Location: <?=$jobs->comLoc;?></span> -->
 										</td>
 										<td class="date-pub">								
 											<h4 style="margin-bottom: 10px;"><?=$jobs->jDeadline;?></h4>
 											<span>Published</span>
 										</td>
-										<td class="action-btn">
+										<td class="date-pub">								
+											<h4 style="margin-bottom: 10px;"><?=$jobs->jType;?></h4>
+											<!-- <span>Published</span> -->
+										</td>
+										<!-- <td class="action-btn">
 											<span class="eye"><i class="fal fa-eye"></i></span>
 											<span class="pencil"><i class="fal fa-pencil-alt"></i></span>
 											<span class="trash"><i class="fal fa-trash"></i></span>
-										</td>
+										</td> -->
 									</tr>
 									<?php endforeach; ?>
 								<?php else : ?>
@@ -111,51 +115,51 @@
 						<table>
 							<thead>
 								<tr>
-									<th style="text-align: center;"><input type="checkbox" name=""></th>
+									<!-- <th style="text-align: center;"><input type="checkbox" name=""></th> -->
 									<th>Worker Photo</th>
 									<th>Job Tittle</th>
-									<th>Category</th>
-									<th>Employer Name</th>
+									<!-- <th>Category</th> -->
+									<th>Worker Name</th>
 									<!-- <th>Job Status</th> -->
-									<th>Price & Location</th>
+									<th>Your Job Price</th>
 									<th>Due Date</th>
-									<th>Actions</th>
+									<!-- <th>Actions</th> -->
 								</tr>
 							</thead>
 							<tbody>
 								<?php if($data['biddings']) : ?>
 									<?php foreach ($data['biddings'] as $bidds) : ?>
-									<tr class="biddRow">
-										<td style="text-align: center;">
+									<tr title="Click to send Message to the Worker." class="biddRow">
+										<!-- <td style="text-align: center;">
 											<input type="checkbox" name="">
-										</td>
+										</td> -->
 										<td class="bidderImageProfileIcon" data-workerID="<?=$bidds->workerId;?>" data-workId="<?=$bidds->jId;?>" style="align-items: center;" title="Click to send message to the bidder.">
 											<div style="background-image: url('<?=URL_ROOT . '/img/profiles/' . $bidds->userProf;?>');background-repeat: no-repeat;background-size: cover;background-position: center;width: 100px;height: 100px;margin: 0 auto;border: 2px solid #191623;border-radius: 4px;"></div>
 										</td>
 										<td class="tittle-id">
 											<h3><?=$bidds->jTitle;?></h3>
-											<span>Ad ID: <?=$bidds->jId;?></span>
+											<!-- <span>Ad ID: <?=$bidds->jId;?></span> -->
 										</td>
-										<td class="item-cat">
-											<span>Laptops & PCs</span>	
-										</td>
+										<!-- <td class="item-cat">
+											<span><?=$bidds->jCat;?></span>	
+										</td> -->
 										<td class="bidderProfileName" data-workerID="<?=$bidds->workerId;?>" data-workId="<?=$bidds->jId;?>" class="status-job" title="Click to send message to the bidder.">
 											<!-- <span>Active</span> -->
 											<p class="bidderName"><?php echo $bidds->uFname . ' ' . $bidds->uLname;?></p>
 										</td>
 										<td class="price-loc">								
-											<h3>P <?=$bidds->jSalary; ?>.00</h3>
-											<span>Location: <?=$bidds->comLoc;?></span>
+											<h3>P <?=number_format($bidds->jSalary) ?>.00</h3>
+											<!-- <span>Location: <?=$bidds->comLoc;?></span> -->
 										</td>
 										<td class="date-pub">								
 											<h4 style="margin-bottom: 10px;"><?=$bidds->jDeadline;?></h4>
-											<span>Published</span>
+											<!-- <span>Published</span> -->
 										</td>
-										<td class="action-btn">
+										<!-- <td class="action-btn">
 											<span class="eye"><i class="fal fa-eye"></i></span>
 											<span class="pencil"><i class="fal fa-pencil-alt"></i></span>
 											<span class="trash"><i class="fal fa-trash"></i></span>
-										</td>
+										</td> -->
 									</tr>
 									<?php endforeach; ?>
 								<?php else : ?>

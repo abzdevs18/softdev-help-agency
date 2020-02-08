@@ -468,6 +468,7 @@ $(document).on('click','#EmailDeletion',function(){
 $(document).on('click',".blogPreviewId", function(){
   var id = $(this).attr("data-i");
   window.location.href = URL_ROOT + '/pages/bloginfo/' + id;
+  console.log(id);
 });
 
 $(document).on('click','.updateBlogData', function(){

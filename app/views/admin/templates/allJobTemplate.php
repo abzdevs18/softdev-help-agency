@@ -1,12 +1,12 @@
 <!-- if job is close add row with class name "sold" -->
 <?php foreach($data['job']['row'] AS $job) : ?>
 <tr>
-	<td style="text-align: center;">
+	<!-- <td style="text-align: center;">
 		<input type="checkbox" name="">
 	</td>
 	<td>
 		<img src="assets/img/icons/img-06.jpg">
-	</td>
+	</td> -->
 	<td class="tittle-id">
 		<h3><?=$job->jTitle;?></h3>
 		<span>Ad ID: <?=$job->jId;?></span>

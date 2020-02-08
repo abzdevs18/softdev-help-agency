@@ -1,6 +1,12 @@
 <?php foreach ($data['jobs'] as $jobs) : ?>
-<div class="result-dash-s" data-postID="<?=$jobs->jId;?>">
-	<a href="#">Part time</a>
+<div class="result-dash-s" data-postID="<?=$jobs->jId;?>" data-usr="<?=$_SESSION['uId'];?>">
+	<?php if($jobs->jType == 'Freelance'):?>
+		<a href="#" style="background:#456B80;">Freelance</a>
+	<?php elseif($jobs->jType == 'Part Time'):?>
+		<a href="#" style="background:#0054FF;">Part Time</a>
+	<?php else:?>
+		<a href="#" style="background:#FF9000;">Full Time</a>
+	<?php endif;?>
 	<div class="j-search-res">
 		<div class="j-search-data">
 			<h3><?=$jobs->jTitle;?></h3>

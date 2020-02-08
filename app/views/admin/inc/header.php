@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/ico" href="<?=URL_ROOT?>/img/cap.ico">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
-	<link rel="stylesheet" type="text/css" href="https://cdndevelopment.blob.core.windows.net/cdn/fa/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/fa/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/admin_style.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/jquery-ui-them.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/jquery.mCustomScrollbar.css">
@@ -44,10 +44,10 @@
 				 <div id="notif-icon">
 					<button><i class="fal fa-bell"></i></button>
 				</div> -->
-				<div id="notif-icon">
+				<!-- <div id="notif-icon">
 						<button><i class="fal fa-bell"></i></button>
 						<span id="notif-counter">2</span>
-					</div>
+					</div> -->
 					<div style="display: flex;flex-direction: row;margin-left: 20px;vertical-align: middle;line-height: 45px;border-left: 2px solid #999;">
 						<span style="font-family: 'quicksand';font-weight: 600;padding-left: 10px;">Administrator</span>
 						<div style="width: 46px;height: 46px;border: 1px solid #666;margin-left: 10px;border-radius: 50%;background: #f3f3f3;background-image: url('<?=URL_ROOT;?>/img/prof.png');background-size: contain;background-repeat: no-repeat;background-position: center;">
@@ -77,7 +77,7 @@
 				<div id="navigation-scroll" class="mCustomScrollbar content fluid light" data-mcs-theme="inset-2-dark" style="height: 100%;width: 100%;">			
 					<div id="logo-admin" dir="ltr"> 
 						<div>
-							<img style="width: 65%;" src="<?=SITE_LOGO;?>" id="logo-icon">
+							<img style="width: 65%;" src="<?=URL_ROOT;?>/img/logo-white.png" id="logo-icon">
 						</div>
 					</div>
 					<div id="admin-profile">
@@ -86,12 +86,12 @@
 								<img src="<?=URL_ROOT;?>/img/prof.png">
 							</div>
 							<div id="admin-details">
-								<h3>Hi! I'm Angela</h3>
+								<h3>Good Day!</h3>
 								<p>Administrator</p>
 							</div>
-							<div id="admin-edit">
+							<!-- <div id="admin-edit">
 								<a href="<?=URL_ROOT;?>/admin/profile"><i class="fal fa-pencil"></i></a>
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<nav>
@@ -100,18 +100,18 @@
 								<i class="fal fa-chart-bar"></i>
 								<a href="#"> Insights</a>
 							</li>
-							<li data-link="<?=URL_ROOT;?>/admin/profile">
+							<!-- <li data-link="<?=URL_ROOT;?>/admin/profile">
 								<i class="fal fa-cog"></i>
 								<a href="#"> Profile settings</a>
-							</li>
+							</li> -->
 							<li data-link="<?=URL_ROOT;?>/admin/posted">
 								<i class="fal fa-cubes"></i>
 								<a href="#"> Posted Jobs</a>
 							</li>
-							<li data-link="<?=URL_ROOT;?>/admin/biddings">
+							<!-- <li data-link="<?=URL_ROOT;?>/admin/biddings">
 								<i class="fal fa-envelope"></i>
 								<a href="#"> Biddings/Messages</a>
-							</li>
+							</li> -->
 							<li data-link="<?=URL_ROOT;?>/admin/blog">
 							<i class="far fa-rss"></i>
 								<a href="#"> Blogs</a>
@@ -120,10 +120,10 @@
 								<i class="fal fa-shopping-cart"></i>
 								<a href="#"> Payments</a>
 							</li> -->
-							<li data-link="<?=URL_ROOT;?>/admin/subscribers">
+							<!-- <li data-link="<?=URL_ROOT;?>/admin/subscribers">
 								<i class="fal fa-users"></i>
 								<a href="#"> Subscribers</a>
-							</li>
+							</li> -->
 						<!-- 	<li data-link="<?=URL_ROOT;?>/admin/privacy">
 								<i class="fal fa-shield-check"></i>
 								<a href="#"> Privacy settings</a>

@@ -1,6 +1,6 @@
 import './main.js';
 import { URL_ROOT } from './main.js';
-
+// let URL_ROOT = "";
 
 //For scrollBar
 $(".message-container").mCustomScrollbar({
@@ -118,25 +118,25 @@ $(document).on('click', '.msg-u', function(){
 });
 // setInterval(function(){console.log($("#sendbtn").attr("data-sr"), $("#sendbtn").attr("data-rv"))}, 1000);
 // setInterval(realTimeMsg($("#sendbtn").attr("data-sr"), $("#sendbtn").attr("data-rv"), 1000));
-setInterval(
-function realTimeMsg(){
-	var receiver = click_user;
-	$("#sendbtn").attr("data-rv", click_user);
-	$.ajax({
-		url: URL_ROOT + '/dashboard/chatFrame',
-		type: 'POST',
-		data: {
-			receiver:receiver
-		},
-		success:function(data){
-			$("#mCSB_1_container").html(data);
-			console.log(data);
-		},
-		error:function(err){
-			console.log(err);
-		}
-	});
-}, 3000);
+// setInterval(
+// function realTimeMsg(){
+// 	var receiver = click_user;
+// 	$("#sendbtn").attr("data-rv", click_user);
+// 	$.ajax({
+// 		url: URL_ROOT + '/dashboard/chatFrame',
+// 		type: 'POST',
+// 		data: {
+// 			receiver:receiver
+// 		},
+// 		success:function(data){
+// 			$("#mCSB_1_container").html(data);
+// 			console.log(data);
+// 		},
+// 		error:function(err){
+// 			console.log(err);
+// 		}
+// 	});
+// }, 3000);
 /* Sending Message from Messenger*/
 $(document).on('click', '#sendbtn', function(){
 	var msg = $('.ctl-msg').text();
@@ -154,6 +154,17 @@ $(document).on('click', '#sendbtn', function(){
 		dataType: 'json',
 		success:function(data){
 			$('.ctl-msg').text(" ");
+
+			$.ajax({
+				url: URL_ROOT + '/dashboard/chatFrame',
+				type: 'POST',
+				data: {
+					receiver:rv
+				},
+				success:function(data){
+					$("#mCSB_1_container").html(data);
+				}
+			});
 			console.log(data);
 		},
 		error:function(err){
@@ -177,7 +188,12 @@ $(document).on('click', '.row-job', function(){
 /*From somewhere else*/
 $(document).on('click', '.result-dash-s', function(){
 	var id = $(this).attr('data-postID');
+	var usr = $(this).attr('data-usr');
+	if(usr){
 		window.location.href = URL_ROOT + "/dashboard/jobDetails/" + id;
+	}else{
+		window.location.href = URL_ROOT + "/pages/jobDetails/" + id;
+	}
 });
 /**
 *	They work the same with the above code, just that it will return error 
@@ -189,10 +205,10 @@ $(document).on('click', '.result-dash-s', function(){
 // });
 
 /*Clicking the link to the Worker's profile*/
-$(document).on('click','.candidate', function(){
+// $(document).on('click','.candidate', function(){
 	
-		window.location.href = URL_ROOT + "/pages/workerDetails";
-});
+// 		window.location.href = URL_ROOT + "/pages/workerDetails";
+// });
 
 $(document).on('click', '#company-link', function(){
 	window.location.href = URL_ROOT + "/pages/companyProfile";
@@ -601,7 +617,8 @@ $(document).on('click', '.user-btns > button', function(){
 	      	if (data['status'] == 1) {
 				$('.profile-prev').hide(100);
 				window.location.href= URL_ROOT + '/dashboard/profile';
-	      	}
+			  }
+			  console.log(data);
 	      },
 	      error: function(err){
 	      	console.log(err);

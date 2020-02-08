@@ -64,7 +64,9 @@ class Users extends Controller
 			$data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 			if ($this->userModel->signup($data)) {
 				// flash('registration-suc','You are now registered');
-				redirect('/users/signin');
+				// redirect('/users/signin');
+				$data['status'] = 1;
+				echo json_encode($data);
 			}else{
 				die("Something went wrong");
 			}
@@ -340,15 +342,22 @@ class Users extends Controller
 	public function profileUpdate(){
 		if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {		
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-			$data = [
-				"status" => 0
-			];
+			// $data = [
+			// 	"status" => 0
+			// ];
 
-			$target = $_SERVER['DOCUMENT_ROOT'] . ROOT ."public/img/profiles/" . basename($_FILES['profilPic']['name']);
+			$target = $_SERVER['DOCUMENT_ROOT'] . ROOT ."/public/img/profiles/" . basename($_FILES['profilPic']['name']);
 			$uploaded_name = $_FILES["profilPic"]["tmp_name"];
 
 			$uploaded_ext = substr($uploaded_name, strrpos($uploaded_name, '.') + 1); 
 			$uploaded_size = $_FILES["profilPic"]["size"];
+
+			$data = [
+				"status" => 0,
+				"file" => $_FILES['profilPic']['tmp_name'],
+				"result" => $target				
+			];
+
 
 			// if ($uploaded_ext == "jpg" || $uploaded_ext == "JPG" || $uploaded_ext == "jpeg" || $uploaded_ext == "JPEG"){
 				if(move_uploaded_file($_FILES["profilPic"]["tmp_name"], $target)){
@@ -373,7 +382,7 @@ class Users extends Controller
 				"status" => 0
 			];
 
-			$target = $_SERVER['DOCUMENT_ROOT'] . ROOT ."public/img/profiles/cover/" . basename($_FILES['wallPic']['name']);
+			$target = $_SERVER['DOCUMENT_ROOT'] . ROOT ."/public/img/profiles/cover/" . basename($_FILES['wallPic']['name']);
 
 			if(move_uploaded_file($_FILES["wallPic"]["tmp_name"], $target)){
 				if ($this->userModel->coverUpdate($_SESSION['uId'], $_FILES['wallPic']['name'])) {

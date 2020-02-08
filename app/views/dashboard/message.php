@@ -36,10 +36,18 @@
 							<b class='n-res'>No result!!</b>	
 						<?php else: ?>
 						<?php foreach ($data['userMessage'] as $user) : ?>
-							<div class="user-items msg-u" data-u="<?=$user->bidderId?>">
+							<div class="user-items msg-u" data-u="<?=$user->sender?>">
 								<div class="convo-prof">
-									<div id="account-thumbnail" style="width:50px;height:50px;background-image: url('<?php echo URL_ROOT . '/img/profiles/' .  $user->imageBidder; ?>');">
-									</div>
+									<?php if($user->imageBidder) : ?>
+										<div id="account-thumbnail" style="width:50px;height:50px;background-image: url('<?php echo URL_ROOT . '/img/profiles/' . $user->imageBidder; ?>');">
+										</div>
+									<?php else: ?>
+										<div id="account-thumbnail" style="width:50px;height:50px;line-height: 50px;vertical-align: middle;text-align: center;background: var(--dark-font);color: #fff;font-size:25px;">
+										<?=$user->username[0];?>
+										</div>
+									<?php endif;?>
+									<!-- <div id="account-thumbnail" style="width:50px;height:50px;background-image: url('<?php echo URL_ROOT . '/img/profiles/' .  $user->imageBidder; ?>');">
+									</div> -->
 									<!-- <img src="<?php echo URL_ROOT. '/img/profiles/' . $user->img_path; ?>"> -->
 								</div>
 								<div class="convo-">
@@ -68,7 +76,7 @@
 											// $GLOBALS['image']= URL_ROOT . '/img/profiles/' . $message->sendIconImage;
 											?>
 											<div class="message-reciever">
-												<img src="<?=URL_ROOT?>/img/profiles/<?=$message->sendIconImage?>" />
+												<!-- <img src="<?=URL_ROOT?>/img/profiles/<?=$message->sendIconImage?>" /> -->
 												<div class="msg-content">
 													<p><?=$message->msgContent?></p>
 													<span><?=$message->msgDate?></span>
@@ -78,9 +86,9 @@
 											<div class="current-user-sender icon-receiver">
 												<div class="msg-content">
 													<p><?=$message->msgContent?></p>
-													<span><?=$message->msgDate?> <i class="far fa-check"></i></span>
+													<!-- <span><?=$message->msgDate?> <i class="far fa-check"></i></span> -->
 												</div>
-												<img src="<?php echo URL_ROOT. '/img/profiles/' . $user->img_path; ?>" />
+												<!-- <img src="<?php echo URL_ROOT. '/img/profiles/' . $user->img_path; ?>" /> -->
 											</div>
 										<?php endif;?>
 								<?php endforeach;?>
@@ -95,7 +103,7 @@
 								<div class="cta-buttons">
 									<!-- <i class="fal fa-thumbs-up"></i>
 									<i class="fal fa-thumbs-down"></i> -->
-									<span id="sendbtn" data-sr="<?=$_SESSION['uId']?>">Send</span>
+									<span id="sendbtn" data-sr="<?=$_SESSION['uId']?>" data-rv="<?=$_SESSION['workerID'];?>">Send</span>
 								</div>
 							</div>
 						</div>
@@ -138,6 +146,6 @@
 	</section>
 <script src="<?=URL_ROOT;?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="<?=URL_ROOT;?>/js/tag.js"></script>
-<script src="<?=URL_ROOT;?>/js/script.js"></script>
+<script type="module" src="<?=URL_ROOT;?>/js/script.js"></script>
 </body>
 </html>

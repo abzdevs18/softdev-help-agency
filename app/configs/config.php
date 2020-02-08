@@ -18,7 +18,7 @@
 			define('SITE_LOGO', URL_ROOT . '/img/default/black-logo.png');
 
 			//SITE NAME
-			define('SITE_NAME', 'Help Agency');
+			define('SITE_NAME', 'Help R Us Agency');
 
 			//SALT
 			define('SECURE_SALT', 'k<UL?Gxr%6bTv[IX5h>s)vaEurK]4Sn');

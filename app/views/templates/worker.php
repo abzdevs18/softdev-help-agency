@@ -7,13 +7,13 @@
 			<div id="project-action-btns">
 				<ul>					
 					<li class="filter-btn active-second-menu" data-filter="activeBids">Active Bids</li>
-					<li class="filter-btn" data-filter="currentWork">Current Work</li>
+					<!-- <li class="filter-btn" data-filter="currentWork">Current Work</li>
 					<li class="filter-btn" data-filter="inviteToWork">Invitations</li>
 					<li class="filter-btn" data-filter="pastWork">Past Work</li>
-					<li class="filter-btn" data-filter="favorite">Saved works</li>
+					<li class="filter-btn" data-filter="favorite">Saved works</li> -->
 				</ul>
 			</div><!-- End of filter tabs -->
-			<div class="sortby filter-category">
+			<div class="sortby filter-category" style="display:none;">
 				<div id="sort-drop">
 					<span>Sort by:</span>
 					<select>
@@ -32,21 +32,21 @@
 			</div><!-- End of Sorting -->		
 		</div>
 		<div id="projects-tables">
-			<div class="content-tbl tbl-active" style="display: block;">
+			<div class="content-tbl tbl-active" style="display: block;margin-top:50px;">
 				<div class="tbl-wrap">
 					<div class="job-list-tables">
 						<table>
 							<thead>
 								<tr>
-									<th style="text-align: center;"><input type="checkbox" name=""></th>
+									<!-- <th style="text-align: center;"><input type="checkbox" name=""></th> -->
 									<!-- <th>Emp Photo</th> -->
 									<th>Job Tittle</th>
 									<th>Category</th>
-									<th>Company Name</th>
+									<th>Employee Name</th>
 									<!-- <th>Job Status</th> -->
 									<th>Price & Location</th>
 									<th>Due Date</th>
-									<th>Actions</th>
+									<!-- <th>Actions</th> -->
 								</tr>
 							</thead>
 							<tbody>
@@ -54,15 +54,15 @@
 								<?php if($data['workerBid']) : ?>
 									<?php foreach ($data['workerBid'] as $bidds) : ?>
 									<tr class="biddRow" data-workerID="<?=$bidds->workerId;?>" data-workId="<?=$bidds->jId;?>">
-										<td style="text-align: center;">
+										<!-- <td style="text-align: center;">
 											<input type="checkbox" name="">
-										</td>
+										</td> -->
 										<!-- <td>
 											<img src="<?=URL_ROOT . '/img/news-update/img-06.jpg'?>" style="border-radius: 50%;">
 										</td> -->
 										<td class="tittle-id">
 											<h3><?=$bidds->jTitle;?></h3>
-											<span>Ad ID: <?=$bidds->jId;?></span>
+											<!-- <span>Ad ID: <?=$bidds->jId;?></span> -->
 										</td>
 										<td class="item-cat">
 											<span>Laptops & PCs</span>	
@@ -79,11 +79,11 @@
 											<h4 style="margin-bottom: 10px;"><?=$bidds->jDeadline;?></h4>
 											<span>Published</span>
 										</td>
-										<td class="action-btn">
-											<span class="eye"><i class="fal fa-eye"></i></span>
+										<!-- <td class="action-btn"> -->
+											<!-- <span class="eye"><i class="fal fa-eye"></i></span> -->
 											<!-- <span class="pencil"><i class="fal fa-pencil-alt"></i></span> -->
-											<span class="trash"><i class="fal fa-trash"></i></span>
-										</td>
+											<!-- <span class="trash"><i class="fal fa-trash"></i></span> -->
+										<!-- </td> -->
 									</tr>
 									<?php endforeach; ?>
 								<?php else : ?>
@@ -113,7 +113,7 @@
 									<!-- <th>Job Status</th> -->
 									<th>Price & Location</th>
 									<th>Due Date</th>
-									<th>Actions</th>
+									<!-- <th>Actions</th> -->
 								</tr>
 							</thead>
 							<tbody>

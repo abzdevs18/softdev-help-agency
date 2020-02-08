@@ -5,13 +5,13 @@
 	<section style="width: 100%;margin: 0 auto;position: relative;">
 		<div style="width: 85%;margin: 0 auto;margin-top: -250px;">
 			<div style="width: 60%;padding-bottom: 120px;display: flex;flex-direction: row;">
-				<div class="image-job company-logo" id="company-link" data-comname="mac" style="width: 100px;height: 100px;margin-right: 15px;">
+				<div class="image-job company-logo" id="company-link" data-comname="mac" style="width: 100px;height: 100px;margin-right: 15px;display:none;">
 					<img src="<?=URL_ROOT;?>/img/companies/full.png" style="margin: 10px;">
 				</div>
 				<div style="width: calc( 100% - 100px );">							
 					<div class="job-title job-d">
 						<div>
-							<p>P <?=$data['jobs']->jSalary; ?>.00 <span style="color: #333;font-size: 14px;">/hr</span></p>
+							<p>P <?=number_format($data['jobs']->jSalary)?>.00 <span style="color: #333;font-size: 14px;"></span></p>
 							<p><?=$data['jobs']->jTitle; ?></p>
 						</div>
 						<!-- Temporart = #E80031 
@@ -27,7 +27,7 @@
 							<!-- <p>Deadline: <span>25th January 2018</span></p> -->
 						</div>
 						<div class="location">
-							<i class="fas fa-map-marker-alt"></i><span><?=$data['jobs']->comLoc; ?></span>
+							<i class="fas fa-map-marker-alt"></i><span><?=$data['jobs']->address; ?></span>
 						</div>
 					</div>
 					<div style="width: 100%;height: 50px;">
@@ -46,9 +46,9 @@
 						<div class="appy-btn">
 							<p class="apply-btn-action" data-jobId="<?=$data['jobs']->jId; ?>">Apply</p>
 						</div>
-						<div class="fav-icon">
+						<!-- <div class="fav-icon">
 							<i class="far fa-heart"></i>
-						</div>
+						</div> -->
 					</div>			
 				</div>
 			</div>
@@ -63,7 +63,7 @@
 								<p><?=$data['jobs']->jDesc; ?></p>
 							</div>							
 						</div>
-						<div class="employee-review">
+						<div class="employee-review" style="display:none">
 							<p>Employeer reviews</p>
 							<div id="emp-rate">
 								<span>
@@ -91,8 +91,8 @@
 						</div><hr style="margin-left: 20px;margin-top: 20px;margin-bottom: 20px;" />
 						<div id="application-field">
 							<div id="app-form">
-								<h3>Offer to work on this job now! Bidding closes in 6 days</h3>
-								<p>open - <span>6</span> days left</p>
+								<h3>Offer to work on this job now!</h3>
+								<!-- <p>open - <span>6</span> days left</p> -->
 							</div>
 							<div class="bid-form">
 								<form>
@@ -120,7 +120,7 @@
 							</div>
 						</div>
 					</div> <!-- End of job detainls -->
-					<div class="bidders-list small-box-shadow">
+					<div class="bidders-list small-box-shadow" style="display:none">
 						<div>
 							<div id="job-left-header" style="margin-top: 30px;">
 								<div id="bidd">
@@ -178,7 +178,7 @@
 					</div>
 					
 				</div>
-				<div style="width: 250px;">					
+				<div style="width: 250px;display:none;">					
 					<div class="categories-feeds">
 						<h2 style="font-size: 18px;font-weight: 700;color: #222;">Similar Jobs</h2>
 						<div id="listing-cat" style="margin-top: 20px;">

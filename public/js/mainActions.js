@@ -195,7 +195,7 @@ $(document).on("click", ".next_fs", function() {
       success: function(data) {
         if (data["status"] == 1) {
           $.ajax({
-            url: "../users/signup",
+            url: URL_ROOT + "/users/signup",
             type: "POST",
             data: {
               userType: user_type,
@@ -217,7 +217,8 @@ $(document).on("click", ".next_fs", function() {
               $("#reg-username").text(userName);
             },
             error: function(err) {
-              console.log(err);
+              // console.log(err);
+              $("#reg-username").text(userName);
             }
           });
           feedbackDefault("f-form");

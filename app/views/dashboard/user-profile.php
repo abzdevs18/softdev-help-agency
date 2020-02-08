@@ -12,7 +12,7 @@
 					<p style="position: absolute;left: 45px;">Update profile</p>
 				</div>
 			</div>
-			<div class="bio">
+			<div class="bio" style="display:none">
 				<p class="bio-head">Work</p>
 				<div class="work">
 					<h3 class="w-head">Metro-Politan</h3>
@@ -25,7 +25,7 @@
 					<p>Negros Oriental Philippines</p>
 				</div>
 			</div>
-			<div class="bio skills-bio">
+			<div class="bio skills-bio" style="display:none">
 				<p class="bio-head">Skills</p>
 
 				<ul class="j-search-tag">
@@ -65,9 +65,9 @@
 						<h4><?=$data['userData']->firstN . ' ' . $data['userData']->lastN ?></h4>
 						<span id="prof-loc"><i class="fas fa-map-marker-alt"></i> <?=$data['userData']->userLocation?></span>
 					</div>
-					<h3 class="prof-position">Product Designer</h3>
+					<!-- <h3 class="prof-position">Product Designer</h3> -->
 				</div>
-				<div class="employee-review prof-rank" style="margin-top: 5px;padding-left: 0px;">
+				<div class="employee-review prof-rank" style="margin-top: 5px;padding-left: 0px;display:none;">
 					<h4>Rankings</h4>
 					<div id="emp-rate">
 						<span style="background-color: #191623;">
@@ -98,12 +98,12 @@
 						</div>
 					</div>
 				</div>
-				<div id="profile-timeline">
+				<div id="profile-timeline" style="margin-top:50px;">
 					<div class="prof-data">
 						<ul>
 							<li data-tab="about" class="active-prof-tab"><i class="fal fa-address-card"></i> About</li>
-							<li data-tab="security"><i class="fal fa-shield-alt"></i> Security</li>
-							<li data-tab="feedback"><i class="fal fa-comments-alt"></i> Feedback</li>
+							<!-- <li data-tab="security"><i class="fal fa-shield-alt"></i> Security</li>
+							<li data-tab="feedback"><i class="fal fa-comments-alt"></i> Feedback</li> -->
 						</ul>
 					</div>
 					<div class="bio-info">
@@ -122,10 +122,10 @@
 									<p>Email:</p>
 									<span><?=$data['userData']->userEmail?></span>
 								</div>
-								<div class="bio-d">
+								<!-- <div class="bio-d">
 									<p>Site:</p>
 									<span>https://www.temp.com</span>
-								</div>
+								</div> -->
 							</div>					
 						</div>
 						<div class="bio">
@@ -250,7 +250,7 @@
 						</div>
 					</div>
 				</div>
-				<div style="position: absolute;margin: 5px;right: 0;display: flex;top: 0;flex-direction: column;">
+				<div style="position: absolute;margin: 5px;right: 0;display: flex;top: 0;flex-direction: column;opacity:0;">
 					<!-- <button>Company</button>
 					<button>Personal</button>	 -->
 					<p class="f-word">Check account profile for:</p>

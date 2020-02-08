@@ -4,7 +4,7 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/admin_setup.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500&display=swap" rel="stylesheet"> 
-	<link rel="stylesheet" type="text/css" href="https://cdndevelopment.blob.core.windows.net/cdn/fa/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL_ROOT;?>/css/fa/css/all.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="<?=URL_ROOT;?>/js/offline/jquery.js"></script>
 	<script src="<?=URL_ROOT;?>/js/jquery-ui.js"></script>
@@ -22,7 +22,7 @@
 					<img style="width: 25%;" src="<?=URL_ROOT;?>/img/default/<?=$data['logo']->path?>">
 				</div>
 				<div class="add">
-					<h3>Site/Admin Login</h3>
+					<h3>Admin</h3>
 					<form id="loginCredentials">
 						<div class="group-control adminUVal">
 							<div class="form-group">

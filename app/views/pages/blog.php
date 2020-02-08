@@ -9,8 +9,9 @@
 					<div>					
 						<div class="candidate">
 							<div class="candidate-details" style="width: auto;">
-								<div class="candidate_photo">
-									<img src="<?=URL_ROOT?>/img/profiles/prof.png">
+								<div class="candidate_photo" style="text-align: center;vertical-align: middle;line-height: 80px;font-size: 45px;font-family: time-;">
+									<!-- <img src="<?=URL_ROOT?>/img/profiles/prof.png"> -->
+									A
 								</div>
 								<div class="candidate_text-content">
 									<span class="candidate_designation" style="font-size:12px !important;"><?=$data['blogDetails']->blogDate;?></span>
@@ -34,7 +35,7 @@
 				<div id="footer-news-feed" style="margin: 0px 30px;">
                     <h4 class="candidate_name" style="margin-bottom: 30px;">More blog</h4>
 					<!-- if job is close add row with class name "sold" -->
-                    <?php foreach($data['blog'] AS $blog) : ?>
+					<?php foreach($data['blog'] AS $blog) : ?>
                             <div class="footer-news-feed-item blogPreviewId" data-i="<?=$blog->blogId;?>" style="border-bottom:1px solid #99999952">
                                 <div class="news-thumbnail">
                                     <img src="<?=URL_ROOT . '/img/blog/' . $blog->blogImage;?>">
@@ -43,7 +44,7 @@
                                     <p style="color: #444;font-size: 16px;"><?=$blog->blogTitle;?></p>
                                     <p><i class="far fa-clock"></i> <?=$blog->blogDate;?></p>
                                 </div>
-                            </div>
+							</div>
 					<?php endforeach; ?>
 				</div>
 			</div>
